@@ -4,12 +4,12 @@ Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesid
 [![N|Solid](https://i.ibb.co/ZLzQTpm/Firma-Git-Hub.png)](#)
 
 ## Instalación
-1. Instalar a traves de composer.
+# Instalar a traves de composer.
 ```sh
 composer require rmunate/php2js
 ```
 
-2.	Presentar el Proveedor en el archivo config\app.php.
+# Presentar el Proveedor en el archivo config\app.php.
 
 ```sh
 'providers' => [
