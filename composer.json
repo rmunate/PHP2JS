@@ -1,0 +1,25 @@
+{
+    "name": "rmunate/php2js",
+    "description": "Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesidad de hacer peticiones AJAX, FETCH o AXIOS, use las mismas variables del archivo retornado por el controlador.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rmunate\\Php2js\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Raul Mauricio Uñate Castro",
+            "email": "raulmauriciounate@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "extra" : {
+        "branch-alias" : {
+            "dev-main": "v2.0.0-dev"
+        }
+    }
+}
