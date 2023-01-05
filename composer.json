@@ -3,7 +3,7 @@
     "description": "Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesidad de hacer peticiones AJAX, FETCH o AXIOS, use las mismas variables del archivo retornado por el controlador.",
     "keywords": [
         "php2js",
-        "@__php",
+        "__php",
         "altum",
         "rmunate"
     ],
