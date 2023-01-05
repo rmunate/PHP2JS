@@ -9,12 +9,12 @@ Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesid
 composer require rmunate/php2js
 ```
 
-# Presentar el Proveedor en el archivo config\app.php.
+# (OPCIONAL) Presentar el Proveedor en el archivo config\app.php. 
 
 ```sh
 'providers' => [
 	//
-	Rmunate\Php2js\PHP2JSServiceProvider::class,
+	Rmunate\Php2Js\PHP2JSServiceProvider::class,
 ],
 ```
 
@@ -25,7 +25,7 @@ En la vista antes de llamar el archivo externo de JavaScript, se debe poner la d
 <script src="{{ asset('..............js') }}"></script>
 ```
 
-## Métodos
+## Métodos (Doble Guión Al Piso (__))
 
 | FUNCIÓN | DESCRIPCIÓN |
 | ------ | ------ |
