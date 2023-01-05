@@ -1,6 +1,6 @@
 <?php
 
-namespace Rmunate\Php2js;
+namespace Rmunate\Php2Js;
 
 /*
 |--------------------------------------------------------------------------

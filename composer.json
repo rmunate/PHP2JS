@@ -12,7 +12,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Rmunate\\Php2js\\": "src/"
+            "Rmunate\\Php2Js\\": "src/"
         }
     },
     "authors": [
@@ -33,7 +33,7 @@
         },
         "laravel": {
             "providers": [
-                "Rmunate\\Php2js\\PHP2JSServiceProvider"
+                "Rmunate\\Php2Js\\PHP2JSServiceProvider"
             ]
         }
     },
