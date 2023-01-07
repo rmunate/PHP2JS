@@ -19,7 +19,7 @@ composer require rmunate/php2js
 ```
 
 ## Uso
-En la vista antes de llamar el o los archivo externo de JavaScript, se debe poner la directiva `@__PHP()` esta debe estar una unica vez.
+En la vista antes de llamar el(los) archivo(s) externo(s) de JavaScript, se debe poner la directiva `@__PHP()` esta debe estar una unica vez.
 ```sh
 @__PHP()
 <script src="{{ asset('..............js') }}"></script>
