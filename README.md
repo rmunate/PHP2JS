@@ -1,10 +1,11 @@
 # PHP2JS()
+## Lea las variables seteadas en PHP en archivos externos de JavaScript.
 Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesidad de hacer peticiones AJAX, FETCH o AXIOS, use las mismas variables del archivo retornado por el controlador.
 
 [![N|Solid](https://i.ibb.co/ZLzQTpm/Firma-Git-Hub.png)](#)
 
 ## Instalación
-# Instalar a traves de composer.
+# Instalar a través de Composer.
 ```sh
 composer require rmunate/php2js
 ```
@@ -19,7 +20,7 @@ composer require rmunate/php2js
 ```
 
 ## Uso
-En la vista antes de llamar el(los) archivo(s) externo(s) de JavaScript, se debe poner la directiva `@__PHP()` esta debe estar una unica vez.
+En la vista antes de llamar el(los) archivo(s) externo(s) de JavaScript, se debe poner la directiva `@__PHP()` esta debe estar una unica vez. Esto hará que todas las variables seteadas desde PHP se puedan leer en todos los archivos de JavaScript que se ingresen por src.
 ```sh
 @__PHP()
 <script src="{{ asset('..............js') }}"></script>
