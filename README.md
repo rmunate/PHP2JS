@@ -30,19 +30,19 @@ En la vista antes de llamar el(los) archivo(s) externo(s) de JavaScript, se debe
 
 | FUNCIÓN | DESCRIPCIÓN |
 | ------ | ------ |
-| __PHP().all() | Retorna toda la información de las variables en uso dentro de un objeto. |
-| __PHP().vars() | Retorna exclusivamente las variables seteadas en PHP en un objeto. |
-| __PHP().errors() | Retorna los errores de captura de las variables de PHP. |
-| __PHP().path() | Retorna el nombre del archivo desde el cual se está capturando las variables. |
-| __PHP().env() | Retorna variables de entorno generadas en la acción de tomar las variables (No retorna los datos el ENV de laravel), comúnmente no se generan por lo cual retorna vacío. |
-| __PHP().app() | Retorna variables guardadas en el objeto principal App. |
-| __PHP().route() | Retorna el nombre de la ruta según el archivo de rutas de laravel. |
-| __PHP().fullUrl() | Retorna la URL completa, en caso de envíos tipo GET, retorna la URL con los parámetros. |
-| __PHP().url() | Retorna la URL completa, sin parámetros |
-| __PHP().root() | Retorna el dominio en uso. |
-| __PHP().token() | Retorna un CSRF TOKEN. |
-| __PHP().tokenMeta() | Retorna una etiqueta meta con el CSRF TOKEN. |
-| __PHP().tokenInput() | Retorna un input oculto con el CSRF TOKEN. |
+| `__PHP().all()` | Retorna toda la información de las variables en uso dentro de un objeto. |
+| `__PHP().vars()` | Retorna exclusivamente las variables seteadas en PHP en un objeto. |
+| `__PHP().errors()` | Retorna los errores de captura de las variables de PHP. |
+| `__PHP().path()` | Retorna el nombre del archivo desde el cual se está capturando las variables. |
+| `__PHP().env()` | Retorna variables de entorno generadas en la acción de tomar las variables (No retorna los datos el ENV de laravel), comúnmente no se generan por lo cual retorna vacío. |
+| `__PHP().app()` | Retorna variables guardadas en el objeto principal App. |
+| `__PHP().route()` | Retorna el nombre de la ruta según el archivo de rutas de laravel. |
+| `__PHP().fullUrl()` | Retorna la URL completa, en caso de envíos tipo GET, retorna la URL con los parámetros. |
+| `__PHP().url()` | Retorna la URL completa, sin parámetros |
+| `__PHP().root()` | Retorna el dominio en uso. |
+| `__PHP().token()` | Retorna un CSRF TOKEN. |
+| `__PHP().tokenMeta()` | Retorna una etiqueta meta con el CSRF TOKEN. |
+| `__PHP().tokenInput()` | Retorna un input oculto con el CSRF TOKEN. |
 
 ## Desarrollador
 
