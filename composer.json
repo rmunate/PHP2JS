@@ -21,18 +21,6 @@
             "email": "raulmauriciounate@gmail.com",
             "role": "Developer",
             "homepage": "https://github.com/rmunate"
-        },
-        {
-            "name": "Wilmer Alonso Sanchez Saez",
-            "email": "wasanchez@serdan.com.co",
-            "role": "Developer",
-            "homepage": "https://github.com/wilmersaz"
-        },
-        {
-            "name": "John Alejandro Diaz Pinilla",
-            "email": "jdiaz@serdan.com.co",
-            "role": "QA",
-            "homepage": "https://github.com/alejandrodiazpinilla"
         }
     ],
     "require": {

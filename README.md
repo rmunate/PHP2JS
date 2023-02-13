@@ -6,13 +6,13 @@ Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesid
 
 ## Instalación
 # Instalar a través de Composer.
-```sh
-composer require rmunate/php2js
+```console
+composer require rmunate/php2js v2.0.x-dev
 ```
 
 # (OPCIONAL) Presentar el Proveedor en el archivo config\app.php. 
 
-```sh
+```php
 'providers' => [
 	//
 	Rmunate\Php2Js\PHP2JSServiceProvider::class,
@@ -21,7 +21,8 @@ composer require rmunate/php2js
 
 ## Uso
 En la vista antes de llamar el(los) archivo(s) externo(s) de JavaScript, se debe poner la directiva `@__PHP()` esta debe estar una unica vez. Esto hará que todas las variables seteadas desde PHP se puedan leer en todos los archivos de JavaScript que se ingresen por src.
-```sh
+
+```php
 @__PHP()
 <script src="{{ asset('..............js') }}"></script>
 ```
@@ -45,7 +46,6 @@ En la vista antes de llamar el(los) archivo(s) externo(s) de JavaScript, se debe
 | `__PHP().tokenInput()` | Retorna un input oculto con el CSRF TOKEN. |
 
 ## Desarrollador
-
 Ingeniero, Raúl Mauricio Uñate Castro
 raulmauriciounate@gmail.com
 
