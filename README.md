@@ -2,6 +2,7 @@
 > [![Raul Mauricio Uñate Castro](https://storage.googleapis.com/lola-web/storage_apls/RecursosCompartidos/LogoGithubLibrerias.png)](#)
 ## Lea las variables retornadas desde el controlador en archivos externos de JavaScript que use desde:
 `<script src="{{ asset('..............js') }}"></script>`
+
 Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesidad de hacer peticiones AJAX, FETCH o AXIOS, use las mismas variables del archivo retornado por el controlador.
 
 - Leer todas las variables retornadas desde el controlados en archivos externos de JavaScript para mantener una estructura limpia de Codigo.
