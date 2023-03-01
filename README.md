@@ -60,8 +60,12 @@ Invoque el metodo que requiera.
 
 ```javascript
 
-// Leer todas las variables de PHP 
-__PHP().vars()
+// Leer todas las variables de PHP desde JavaScript
+
+__PHP().vars() //Esto retornara un objeto con las variables como atributos:
+
+//Ejemplo si desde el controlador se retorno una variable $name, desde JavaScript se seleccionará de la siguiente forma:
+__PHP().vars().name
 
 ```
 ## Mantenedores
