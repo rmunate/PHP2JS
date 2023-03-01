@@ -64,7 +64,8 @@ Invoque el metodo que requiera.
 
 __PHP().vars() //Esto retornara un objeto con las variables como atributos:
 
-//Ejemplo si desde el controlador se retorno una variable $name, desde JavaScript se seleccionará de la siguiente forma:
+//Ejemplo si desde el controlador se retorno una variable $name, 
+//desde JavaScript se seleccionará de la siguiente forma:
 __PHP().vars().name
 
 ```
