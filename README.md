@@ -58,6 +58,12 @@ Invoque el metodo que requiera.
 | `__PHP().tokenMeta()` | Retorna una etiqueta meta con el CSRF TOKEN. |
 | `__PHP().tokenInput()` | Retorna un input oculto con el CSRF TOKEN. |
 
+```javascript
+
+// Leer todas las variables de PHP 
+__PHP().vars()
+
+```
 ## Mantenedores
 - Ingeniero, Raúl Mauricio Uñate Castro (raulmauriciounate@gmail.com)
 
