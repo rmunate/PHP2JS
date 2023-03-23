@@ -36,11 +36,7 @@ class PHP2JSServiceProvider extends ServiceProvider
 
             class PHP {
             
-                constructor() { 
-                    this.data = {
-                        start: <?php echo json_encode(Illuminate\Support\Str::random(2000)); ?>, vars: <?php echo json_encode(get_defined_vars()); ?>, route: <?php echo json_encode(Illuminate\Support\Facades\Route::currentRouteName()); ?>, fullUrl: <?php echo json_encode(Illuminate\Support\Facades\Request::fullUrl()); ?>, url: <?php echo json_encode(Illuminate\Support\Facades\Request::url()); ?>, root: <?php echo json_encode(Illuminate\Support\Facades\Request::root()); ?>, token: <?php echo json_encode(csrf_token()); ?>, baseUrl: <?php echo json_encode(url('/')); ?>, user: <?php echo json_encode(auth()->user()); ?>, end: <?php echo json_encode(Illuminate\Support\Str::random(2000)); ?>,
-                    }
-                }
+                constructor() {this.data = { start: <?php echo json_encode(Illuminate\Support\Str::random(2000)); ?>, vars: <?php echo json_encode(get_defined_vars()); ?>, route: <?php echo json_encode(Illuminate\Support\Facades\Route::currentRouteName()); ?>, fullUrl: <?php echo json_encode(Illuminate\Support\Facades\Request::fullUrl()); ?>, url: <?php echo json_encode(Illuminate\Support\Facades\Request::url()); ?>, root: <?php echo json_encode(Illuminate\Support\Facades\Request::root()); ?>, token: <?php echo json_encode(csrf_token()); ?>, baseUrl: <?php echo json_encode(url('/')); ?>, user: <?php echo json_encode(auth()->user()); ?>, end: <?php echo json_encode(Illuminate\Support\Str::random(2000)); ?> }}
                 
                 all(){
                     delete this.data.start;
