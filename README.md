@@ -47,6 +47,7 @@ Invoque el metodo que requiera.
 | `__PHP().all()` | Retorna toda la información de las variables en uso dentro de un objeto. |
 | `__PHP().vars()` | Retorna exclusivamente las variables seteadas en PHP en un objeto. |
 | `__PHP().baseUrl()` | Retorna la URL base del Sistema para peticiones Ajax o similares. |
+| `__PHP().user()` | Retorna la informacion del usuario en sesíon. |
 | `__PHP().errors()` | Retorna los errores de captura de las variables de PHP. |
 | `__PHP().path()` | Retorna el nombre del archivo desde el cual se está capturando las variables. |
 | `__PHP().env()` | Retorna variables de entorno generadas en la acción de tomar las variables (No retorna los datos el ENV de laravel), comúnmente no se generan por lo cual retorna vacío. |
