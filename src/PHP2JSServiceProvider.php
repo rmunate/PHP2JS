@@ -38,14 +38,14 @@ class PHP2JSServiceProvider extends ServiceProvider
             
                 constructor() { 
                     this.data = {
-                        vars: <?php echo json_encode(get_defined_vars()); ?>,
-                        route: <?php echo json_encode(Illuminate\Support\Facades\Route::currentRouteName()); ?>,
-                        fullUrl: <?php echo json_encode(Illuminate\Support\Facades\Request::fullUrl()); ?>,
-                        url: <?php echo json_encode(Illuminate\Support\Facades\Request::url()); ?>,
-                        root: <?php echo json_encode(Illuminate\Support\Facades\Request::root()); ?>,
-                        token: <?php echo json_encode(csrf_token()); ?>,
-                        baseUrl: <?php echo json_encode(url('/')); ?>,
-                        user: <?php echo json_encode(auth()->user()); ?>,
+                        vars: Utilities.base64Encode(<?php echo json_encode(get_defined_vars()); ?>, Utilities.Charset.UTF_8),
+                        route: Utilities.base64Encode(<?php echo json_encode(Illuminate\Support\Facades\Route::currentRouteName()); ?>, Utilities.Charset.UTF_8),
+                        fullUrl: Utilities.base64Encode(<?php echo json_encode(Illuminate\Support\Facades\Request::fullUrl()); ?>, Utilities.Charset.UTF_8),
+                        url: Utilities.base64Encode(<?php echo json_encode(Illuminate\Support\Facades\Request::url()); ?>, Utilities.Charset.UTF_8),
+                        root: Utilities.base64Encode(<?php echo json_encode(Illuminate\Support\Facades\Request::root()); ?>, Utilities.Charset.UTF_8),
+                        token: Utilities.base64Encode(<?php echo json_encode(csrf_token()); ?>, Utilities.Charset.UTF_8),
+                        baseUrl: Utilities.base64Encode(<?php echo json_encode(url('/')); ?>, Utilities.Charset.UTF_8),
+                        user: Utilities.base64Encode(<?php echo json_encode(auth()->user()); ?>, Utilities.Charset.UTF_8)
                     }
                 }
                 
