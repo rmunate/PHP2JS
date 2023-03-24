@@ -67,14 +67,14 @@ class PHP2JSServiceProvider extends ServiceProvider
             
                 constructor() { 
                     this.data = {
-                        vars: $data->vars,
-                        route: $data->route,
-                        fullUrl: $data->fullUrl,
-                        url: $data->url,
-                        root: $data->root,
-                        token: $data->token,
-                        baseUrl: $data->baseUrl,
-                        user: $data->user
+                        vars:" . $data->vars . ",
+                        route:" . $data->route . ",
+                        fullUrl:" . $data->fullUrl . ",
+                        url:" . $data->url . ",
+                        root:" . $data->root . ",
+                        token:" . $data->token . ",
+                        baseUrl:" . $data->baseUrl . ",
+                        user:" . $data->user . "
                     }
                 }
                 
