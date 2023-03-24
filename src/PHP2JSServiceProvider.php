@@ -23,7 +23,7 @@ class PHP2JSServiceProvider extends ServiceProvider
 {
     /* Register services. */
     public function register(){
-        //..
+        //.. 
     }
 
     /**
