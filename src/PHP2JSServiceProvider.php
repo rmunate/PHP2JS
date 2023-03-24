@@ -47,14 +47,14 @@ class PHP2JSServiceProvider extends ServiceProvider
 
         /* Data Directive */
         $data = (object) [
-            'vars' => json_encode(get_defined_vars()),
-            'baseUrl' => json_encode(url('/')),
-            'token' => json_encode(csrf_token()),
-            'url' => json_encode(Request::url()),
-            'fullUrl' => json_encode(Request::fullUrl()),
-            'route' => json_encode(Route::currentRouteName()),
-            'root' => json_encode(Request::root()),
-            'user' => json_encode($usr)
+            'vars' => get_defined_vars(),
+            'baseUrl' => url('/'),
+            'token' => csrf_token(),
+            'url' => Request::url(),
+            'fullUrl' => Request::fullUrl(),
+            'route' => Route::currentRouteName(),
+            'root' => Request::root(),
+            'user' => $usr
         ];
 
         /* Pasar Variables de PHP a JS */
@@ -67,14 +67,14 @@ class PHP2JSServiceProvider extends ServiceProvider
             
                 constructor() { 
                     this.data = {
-                        vars:" . $data->vars . ",
-                        route:" . $data->route . ",
-                        fullUrl:" . $data->fullUrl . ",
-                        url:" . $data->url . ",
-                        root:" . $data->root . ",
-                        token:" . $data->token . ",
-                        baseUrl:" . $data->baseUrl . ",
-                        user:" . $data->user . "
+                        vars:" . json_encode($data->vars) . ",
+                        route:" . json_encode($data->route) . ",
+                        fullUrl:" . json_encode($data->fullUrl) . ",
+                        url:" . json_encode($data->url) . ",
+                        root:" . json_encode($data->root) . ",
+                        token:" . json_encode($data->token) . ",
+                        baseUrl:" . json_encode($data->baseUrl) . ",
+                        user:" . json_encode($data->user) . "
                     }
                 }
                 
