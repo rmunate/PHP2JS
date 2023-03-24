@@ -15,6 +15,9 @@
             "Rmunate\\Php2Js\\": "src/"
         }
     },
+    "autoload-dev": {
+        "files":["src/PHP2Helpers.php"]
+    },
     "authors": [
         {
             "name": "Raul Mauricio Uñate Castro",
