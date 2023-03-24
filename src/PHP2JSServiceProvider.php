@@ -7,9 +7,6 @@ namespace Rmunate\Php2Js;
 | Envio de variables de PHP a JS en vistas Blade
 |--------------------------------------------------------------------------
 | Autor: Raul Mauricio Uñate Castro
-| V_ : 02-02-2022
-| V_ : 04-01-2023
-| V_ : 24-03-2023
 |--------------------------------------------------------------------------
 |
 */
@@ -25,7 +22,9 @@ use Illuminate\Support\ServiceProvider;
 class PHP2JSServiceProvider extends ServiceProvider
 {
     /* Register services. */
-    public function register(){}
+    public function register(){
+        //..
+    }
 
     /**
      * Bootstrap services.
@@ -34,6 +33,7 @@ class PHP2JSServiceProvider extends ServiceProvider
     public function boot(){
 
         /* User */
+        $usr = auth()->user();
         if (!empty(auth()->user())) {
             $usr = auth()->user()->toArray();
             $usr['id'] = isset($usr['id']) ? Crypt::encrypt($usr['id']) : null;
@@ -43,8 +43,6 @@ class PHP2JSServiceProvider extends ServiceProvider
             if (isset($usr['updated_at'])) {
                 unset($usr['updated_at']);
             }
-        } else {
-            $usr = null;
         }
 
         /* Data Directive */
@@ -56,7 +54,7 @@ class PHP2JSServiceProvider extends ServiceProvider
             'fullUrl' => json_encode(Request::fullUrl()),
             'route' => json_encode(Route::currentRouteName()),
             'root' => json_encode(Request::root()),
-            'user' => json_encode($usr),
+            'user' => json_encode($usr)
         ];
 
         /* Pasar Variables de PHP a JS */
@@ -69,14 +67,14 @@ class PHP2JSServiceProvider extends ServiceProvider
             
                 constructor() { 
                     this.data = {
-                        vars: <?php echo $data->vars; ?>,
-                        route: <?php echo $data->route; ?>,
-                        fullUrl: <?php echo $data->fullUrl; ?>,
-                        url: <?php echo $data->url; ?>,
-                        root: <?php echo $data->root; ?>,
-                        token: <?php echo $data->token; ?>,
-                        baseUrl: <?php echo $data->baseUrl; ?>,
-                        user: <?php echo $data->user; ?>
+                        vars: $data->vars,
+                        route: $data->route,
+                        fullUrl: $data->fullUrl,
+                        url: $data->url,
+                        root: $data->root,
+                        token: $data->token,
+                        baseUrl: $data->baseUrl,
+                        user: $data->user
                     }
                 }
                 
