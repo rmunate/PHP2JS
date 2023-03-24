@@ -12,9 +12,7 @@ namespace Rmunate\Php2Js;
 */
 
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\ServiceProvider;
@@ -22,9 +20,7 @@ use Illuminate\Support\ServiceProvider;
 class PHP2JSServiceProvider extends ServiceProvider
 {
     /* Register services. */
-    public function register(){
-        //.. 
-    }
+    public function register(){}
 
     /**
      * Bootstrap services.
@@ -32,34 +28,8 @@ class PHP2JSServiceProvider extends ServiceProvider
      */
     public function boot(){
 
-        /* User */
-        $usr = auth()->user();
-        if (!empty(auth()->user())) {
-            $usr = auth()->user()->toArray();
-            $usr['id'] = isset($usr['id']) ? Crypt::encrypt($usr['id']) : null;
-            if (isset($usr['created_at'])) {
-                unset($usr['created_at']);
-            }
-            if (isset($usr['updated_at'])) {
-                unset($usr['updated_at']);
-            }
-        }
-
-        /* Data Directive */
-        $data = (object) [
-            'vars' => get_defined_vars(),
-            'baseUrl' => url('/'),
-            'token' => csrf_token(),
-            'url' => Request::url(),
-            'fullUrl' => Request::fullUrl(),
-            'route' => Route::currentRouteName(),
-            'root' => Request::root(),
-            'user' => $usr
-        ];
-
         /* Pasar Variables de PHP a JS */
-        Blade::directive('__PHP', function() use($data) {
-
+        Blade::directive('__PHP', function() {
 
             return "<script>
 
@@ -67,14 +37,14 @@ class PHP2JSServiceProvider extends ServiceProvider
             
                 constructor() { 
                     this.data = {
-                        vars:" . json_encode($data->vars) . ",
-                        route:" . json_encode($data->route) . ",
-                        fullUrl:" . json_encode($data->fullUrl) . ",
-                        url:" . json_encode($data->url) . ",
-                        root:" . json_encode($data->root) . ",
-                        token:" . json_encode($data->token) . ",
-                        baseUrl:" . json_encode($data->baseUrl) . ",
-                        user:" . json_encode($data->user) . "
+                        vars: <?php echo json_encode(get_defined_vars()); ?>,
+                        route: <?php echo json_encode(Illuminate\Support\Facades\Route::currentRouteName()); ?>,
+                        fullUrl: <?php echo json_encode(Illuminate\Support\Facades\Request::fullUrl()); ?>,
+                        url: <?php echo json_encode(Illuminate\Support\Facades\Request::url()); ?>,
+                        root: <?php echo json_encode(Illuminate\Support\Facades\Request::root()); ?>,
+                        token: <?php echo json_encode(csrf_token()); ?>,
+                        baseUrl: <?php echo json_encode(url('/')); ?>,
+                        user: <?php echo json_encode(auth()->user()); ?>
                     }
                 }
                 
