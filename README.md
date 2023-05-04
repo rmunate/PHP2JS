@@ -1,14 +1,15 @@
 # PHP2JS (LARAVEL) 
 > [![Raul Mauricio Uñate Castro](https://storage.googleapis.com/lola-web/storage_apls/RecursosCompartidos/LogoGithubLibrerias.png)](#)
-## Lea las variables retornadas desde el controlador en archivos externos de JavaScript que use desde:
+## Lea las variables retornadas desde el controlador en archivos externos de JavaScript, perfecta libreria para monolitos con Blade.
+Todas las importaciones que emplee de esta forma, despues de invocar esta libreria tendran acceso a las variables de PHP Laravel, facil y muy util.
 `<script src="{{ asset('..............js') }}"></script>`
 
-Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesidad de hacer peticiones AJAX, FETCH o AXIOS, use las mismas variables del archivo retornado por el controlador.
+Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesidad de hacer peticiones AJAX, FETCH o AXIOS, use las mismas variables del archivo retornado por el controlador, al igual que unos valores adicionales que simplificarán tu trabajo.
 
-- Leer todas las variables retornadas desde el controlados en archivos externos de JavaScript para mantener una estructura limpia de Codigo.
-- Conozca la ruta donde se ejecuta el Script.
-- Obtenga la URL completa o con parametros en uso sin necesidad de metodos de JavaScript.
-- Obtenga el Dominio en uso.
+- Leer todas las variables retornadas desde el controlador en archivos externos de JavaScript para mantener una estructura limpia de Codigo.
+- Consulte y use información relevante de la URL o ruta en uso.
+- Obtenga la URL completa con parametros, sin necesidad de metodos de JavaScript.
+- Obtenga el Dominio en uso y la base URL para peticiones al servidor.
 - Obtenga un CSRF Tokken valido en cualquier lugar de su JavaScript
 - Genere una etiqueta `<meta>` con el CSRF TOKEN.
 - Genere una etiqueta `<inpuy type="hidden">` con el CSRF TOKEN.
@@ -31,12 +32,12 @@ composer require rmunate/php2js v2.0.x-dev
 ```
 
 ## Uso
-En la vista antes de llamar el(los) archivo(s) externo(s) de JavaScript, se debe poner la directiva `@__PHP()` esta debe estar una unica vez. Esto hará que todas las variables seteadas desde PHP se puedan leer en todos los archivos de JavaScript que se ingresen por src.
+En la vista antes de llamar el(los) archivo(s) externo(s) de JavaScript, se debe poner la directiva `@__PHP()` esta debe estar una unica vez. Esto hará que todas las variables devueltas desde el servidor se puedan leer en todos los archivos de JavaScript que se ingresen en las siguientes lineas del código.
 
 
 ```php
 @__PHP()
-<script src="{{ asset('..............js') }}"></script>
+<script src="{{ asset('js/miarchivo.js') }}"></script>
 ```
 
 ## Metodos
@@ -44,31 +45,25 @@ Invoque el metodo que requiera.
 
 | METODO | DESCRIPCIÓN |
 | ------ | ------ |
-| `__PHP().all()` | Retorna toda la información de las variables en uso dentro de un objeto. |
-| `__PHP().vars()` | Retorna exclusivamente las variables seteadas en PHP en un objeto. |
-| `__PHP().baseUrl()` | Retorna la URL base del Sistema para peticiones Ajax o similares. |
-| `__PHP().user()` | Retorna la informacion del usuario en sesíon. |
-| `__PHP().errors()` | Retorna los errores de captura de las variables de PHP. |
-| `__PHP().path()` | Retorna el nombre del archivo desde el cual se está capturando las variables. |
-| `__PHP().env()` | Retorna variables de entorno generadas en la acción de tomar las variables (No retorna los datos el ENV de laravel), comúnmente no se generan por lo cual retorna vacío. |
-| `__PHP().app()` | Retorna variables guardadas en el objeto principal App. |
-| `__PHP().route()` | Retorna el nombre de la ruta según el archivo de rutas de laravel. |
-| `__PHP().fullUrl()` | Retorna la URL completa, en caso de envíos tipo GET, retorna la URL con los parámetros. |
-| `__PHP().url()` | Retorna la URL completa, sin parámetros |
-| `__PHP().root()` | Retorna el dominio en uso. |
+| `__PHP().all()` | Retorna un objeto con toda la información disponible retornada por el servidor. |
+| `__PHP().vars()` | Retorna exclusivamente las variables devueltas desde el controlador en un objeto. |
+| `__PHP().baseUrl()` | Retorna la URL base del Sistema para peticiones Ajax, Axios, Fetch o similares. |
+| `__PHP().fullUrl()` | Retorna la URL completa con sus parámetros. |
+| `__PHP().parameters()` | Retorna los parametros de la URL. |
+| `__PHP().uri()` | Retorna la URI de acuerdo a las Rutas de Laravel |
 | `__PHP().token()` | Retorna un CSRF TOKEN. |
 | `__PHP().tokenMeta()` | Retorna una etiqueta meta con el CSRF TOKEN. |
 | `__PHP().tokenInput()` | Retorna un input oculto con el CSRF TOKEN. |
+| `__PHP().user()` | Retorna la informacion del usuario en sesíon, el ID se encuentra encriptado (Crypt::encrypt($id)). |
+
 
 ```javascript
 
-// Leer todas las variables de PHP desde JavaScript
+//Esto retornara un objeto con todos los valores disponibles del servidor.
+__PHP().all() 
 
-__PHP().vars() //Esto retornara un objeto con las variables como atributos:
-
-//Ejemplo si desde el controlador se retorno una variable $name, 
-//desde JavaScript se seleccionará de la siguiente forma:
-__PHP().vars().name
+// Leer todas las variables de PHP desde JavaScript con este metodo.
+__PHP().vars()
 
 ```
 ## Mantenedores

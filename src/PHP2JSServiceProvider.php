@@ -34,93 +34,76 @@ class PHP2JSServiceProvider extends ServiceProvider
             return "<script>
 
             class PHP {
+        
+                #get_defined_vars;
+                #baseUrl;
+                #fullUrl;
+                #parameters;
+                #uri;
+                #token;
+                #tokenMeta;
+                #tokenInput;
+                #user;
             
-                constructor() { 
-                    this.data = {
-                        vars: <?php echo json_encode(get_defined_vars()); ?>,
-                        route: <?php echo json_encode(Illuminate\Support\Facades\Route::currentRouteName()); ?>,
-                        fullUrl: <?php echo json_encode(Illuminate\Support\Facades\Request::fullUrl()); ?>,
-                        url: <?php echo json_encode(Illuminate\Support\Facades\Request::url()); ?>,
-                        root: <?php echo json_encode(Illuminate\Support\Facades\Request::root()); ?>,
-                        token: <?php echo json_encode(csrf_token()); ?>,
-                        baseUrl: <?php echo json_encode(url('/')); ?>,
-                        user: <?php echo json_encode(auth()->user()); ?>
-                    }
+                constructor() {
+        
+                    /* Variables Definidas desde PHP */
+                    this.#get_defined_vars = <?php echo json_encode(get_defined_vars()); ?>;
+                    delete this.#get_defined_vars.app;
+                    delete this.#get_defined_vars.__data;
+                    delete this.#get_defined_vars.errors;
+                    delete this.#get_defined_vars.__env;
+                    delete this.#get_defined_vars.__path;
+        
+                    /* Base url para peticiones AJAX , AXIOS, FETCH */
+                    this.#baseUrl = <?php echo json_encode(url('/')); ?>;
+        
+                    /* Full URL con todos sus argumentos */
+                    this.#fullUrl = <?php echo json_encode(Illuminate\Support\Facades\Request::fullUrl()); ?>;
+        
+                    /* Parametros URL */
+                    this.#parameters = <?php echo json_encode(Illuminate\Support\Facades\Route::current()); ?>.parameters;
+                    this.#uri = <?php echo json_encode(Illuminate\Support\Facades\Route::current()); ?>.uri;
+        
+                    /* Token Laravel */
+                    this.#token = <?php echo json_encode(csrf_token()); ?>;
+                    this.#tokenMeta = '<meta name=' + String.fromCharCode(34) + ' csrf-token' + String.fromCharCode(34) + ' content=' + String.fromCharCode(34) + this.#token + String.fromCharCode(34) + '>';
+                    this.#tokenInput = '<input type' + String.fromCharCode(34) + 'hidden' + String.fromCharCode(34) + ' name=' + String.fromCharCode(34) + '_token' + String.fromCharCode(34) + ' value=' + String.fromCharCode(34) + this.#token + String.fromCharCode(34) + '/>';
+        
+                    /* Usuario Logueado */
+                    this.#user = <?php echo json_encode(auth()->user()); ?>;
+                    this.#user.id = <?php echo json_encode(Illuminate\Support\Facades\Crypt::encrypt(auth()->user()->id ?? null)); ?>;
+                    delete this.#user?.created_at;
+                    delete this.#user?.updated_at;
+                    delete this.#user?.email_verified_at;
                 }
                 
                 all(){
-                    delete this.data.start;
-                    delete this.data.end;
-                    return this.data;
+                    return {
+                        vars: this.#get_defined_vars,
+                        baseUrl: this.#baseUrl,
+                        fullUrl: this.#fullUrl,
+                        parameters: this.#parameters,
+                        uri: this.#uri,
+                        token: this.#token,
+                        tokenMeta : this.#tokenMeta,
+                        tokenInput: this.#tokenInput,
+                        user: this.#user
+                    };
                 }
-                
-                vars(){
-                    delete this.data.vars.app;
-                    delete this.data.vars.__data;
-                    delete this.data.vars.errors;
-                    delete this.data.vars.__env;
-                    delete this.data.vars.__path;
-                    return this.data.vars;
-                }
-            
-                baseUrl(){
-                    return this.data.baseUrl;
-                }
-            
-                user(){
-                    return this.data.baseUrl;
-                }
-                
-                errors(){
-                    return this.data.vars.errors;
-                }
-                
-                path(){
-                    return this.data.vars.__path;
-                } 
-                
-                env(){
-                    return this.data.vars.__env;
-                }
-                
-                app(){
-                    return this.data.vars.app;
-                }
-                
-                route(){
-                    return this.data.route;
-                }
-                
-                fullUrl(){
-                    return this.data.fullUrl;
-                }
-                
-                url(){
-                    return this.data.url;
-                } 
-                
-                root(){
-                    return this.data.root;
-                }
-                
-                token(){
-                    return this.data.token;
-                } 
-                
-                tokenMeta(){
-                    return '<meta name=' + String.fromCharCode(34) + ' csrf-token' + String.fromCharCode(34) + ' content=' + String.fromCharCode(34) + this.data.token + String.fromCharCode(34) + '>';
-                }
-                
-                tokenInput(){
-                    return '<input type' + String.fromCharCode(34) + 'hidden' + String.fromCharCode(34) + ' name=' + String.fromCharCode(34) + '_token' + String.fromCharCode(34) + ' value=' + String.fromCharCode(34) + this.data.token + String.fromCharCode(34) + '/>';
-                }
+                vars(){return this.#get_defined_vars;}
+                baseUrl(){ return this.#baseUrl; }
+                fullUrl(){ return this.#fullUrl; }
+                parameters(){ return this.#parameters; }
+                uri(){ return this.#uri; }
+                token(){ return this.#token; }
+                tokenMeta(){ return this.#tokenMeta; }
+                tokenInput(){ return this.#tokenInput; }
+                user(){ return this.#user; }
             }
-                
-            function __PHP() {
-                return new PHP();
-            };
+            function __PHP() { return new PHP(); };
             
-            </script>";
+        </script>";
         });
     }
 }
