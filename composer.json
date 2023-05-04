@@ -30,9 +30,6 @@
         
     },
     "extra" : {
-        "branch-alias" : {
-            "V2.0.0": "v2.0.x-dev"
-        },
         "laravel": {
             "providers": [
                 "Rmunate\\Php2Js\\PHP2JSServiceProvider"
