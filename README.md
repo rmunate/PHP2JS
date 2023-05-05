@@ -54,8 +54,10 @@ Invoque el metodo que requiera.
 | `__PHP().token()` | Retorna un CSRF TOKEN. |
 | `__PHP().tokenMeta()` | Retorna una etiqueta meta con el CSRF TOKEN. |
 | `__PHP().tokenInput()` | Retorna un input oculto con el CSRF TOKEN. |
-| `__PHP().user()` | Retorna la informacion del usuario en sesíon. |
+| `__PHP().user()` | Retorna la informacion del usuario en sesíon con el ID encriptado. |
+| `__PHP().debug()` | Retorna el estado del ENV de Laravel. |
 
+Si se intante ingresar a los valores desde la consola del navegador no será posible acceder a ellos siempre y cuando el ENV el valor de APP_DEBUG este en false.
 
 ```javascript
 
@@ -75,7 +77,7 @@ __PHP().all()
 //     "tokenMeta": "<meta name=\" csrf-token\" content=\"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL\">",
 //     "tokenInput": "<input type\"hidden\" name=\"_token\" value=\"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL\"/>",
 //     "user": {
-//         "id": 1,
+//         "id": yDHEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL...,
 //         "name": "Nombre Usuario",
 //         "username": "name_user",
 //         "email": "admin@system.co"
