@@ -57,7 +57,6 @@ Invoque el metodo que requiera.
 | `__PHP().user()` | Retorna la informacion del usuario en sesíon con el ID encriptado. |
 | `__PHP().debug()` | Retorna el estado del ENV de Laravel. |
 
-Si se intante ingresar a los valores desde la consola del navegador no será posible acceder a ellos siempre y cuando el ENV el valor de APP_DEBUG este en false.
 
 ```javascript
 
