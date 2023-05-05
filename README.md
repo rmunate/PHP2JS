@@ -55,7 +55,7 @@ Invoque el metodo que requiera.
 | `__PHP().tokenMeta()` | Retorna una etiqueta meta con el CSRF TOKEN. |
 | `__PHP().tokenInput()` | Retorna un input oculto con el CSRF TOKEN. |
 | `__PHP().user()` | Retorna la informacion del usuario en sesíon con el ID encriptado. |
-| `__PHP().debug()` | Retorna el estado del ENV de Laravel. |
+| `__PHP().debug()` | Retorna el estado de la variable APP_DEBUG del ENV de Laravel. |
 
 
 ```javascript
