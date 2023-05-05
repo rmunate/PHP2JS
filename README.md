@@ -93,7 +93,7 @@ __PHP().vars().ejemplo //Equivale a la variable $ejemplo.
 
 /* Peticiones que requieran token */
 "ajax": {
-    "url": __PHP().baseUrl() + "/roles/rolesIndex",
+    "url": __PHP().baseUrl() + "/route",
     "data":{
         _token : __PHP().token()
         data : {
