@@ -22,7 +22,7 @@ Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesid
 composer require rmunate/php2js v2.0.x-dev
 ```
 
-## (OPCIONAL) Presentar el Proveedor en el archivo config\app.php. 
+## Presentar el Proveedor en el archivo config\app.php. (Opcional)
 
 ```php
 'providers' => [
@@ -54,19 +54,49 @@ Invoque el metodo que requiera.
 | `__PHP().token()` | Retorna un CSRF TOKEN. |
 | `__PHP().tokenMeta()` | Retorna una etiqueta meta con el CSRF TOKEN. |
 | `__PHP().tokenInput()` | Retorna un input oculto con el CSRF TOKEN. |
-| `__PHP().user()` | Retorna la informacion del usuario en sesíon, el ID se encuentra encriptado (Crypt::encrypt($id)). |
+| `__PHP().user()` | Retorna la informacion del usuario en sesíon. |
 
 
 ```javascript
 
-//Esto retornara un objeto con todos los valores disponibles del servidor.
+/* Esto retornara un objeto con todos los valores disponibles del servidor. */
 __PHP().all() 
+// {
+//     "vars": {
+//         //..Variables Retornadas por el backend
+//     },
+//     "baseUrl": "http://127.0.0.1:8000",
+//     "fullUrl": "http://127.0.0.1:8000/branches/branch404",
+//     "parameters": {
+//         "id": "branch404"
+//     },
+//     "uri": "branches/{id}",
+//     "token": "4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL",
+//     "tokenMeta": "<meta name=\" csrf-token\" content=\"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL\">",
+//     "tokenInput": "<input type\"hidden\" name=\"_token\" value=\"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL\"/>",
+//     "user": {
+//         "id": 1,
+//         "name": "Nombre Usuario",
+//         "username": "name_user",
+//         "email": "admin@system.co"
+//     }
+// }
 
-// Leer todas las variables de PHP desde JavaScript con este metodo.
+/* Leer todas las variables de PHP desde JavaScript con este metodo. */
 __PHP().vars()
+
+/* Ingresar directamente a una variable retornada por el controlador */
+__PHP().vars().ejemplo //Equivale a la variable $ejemplo.
+
+/* Llamado a las base url para peticiones al servidor */
+ $.ajax({ url: baseUrl + '/generador/ciudades/', ...
+
+/* Generacion de un Token Valido */
+__PHP().token() //"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL"
 
 ```
 ## Mantenedores
-- Ingeniero, Raúl Mauricio Uñate Castro (raulmauriciounate@gmail.com)
+- Ingeniero, Raúl Mauricio Uñate Castro.
+(raulmauriciounate@gmail.com)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)

@@ -1,5 +1,5 @@
-vendor
 src/PHP2JSServiceProvider.php.stub
+vendor
 /vendor/
 /.fleet
 /.idea
