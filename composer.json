@@ -19,8 +19,24 @@
         {
             "name": "Raul Mauricio Uñate Castro",
             "email": "raulmauriciounate@gmail.com",
-            "role": "Developer",
+            "role": "owner",
             "homepage": "https://github.com/rmunate"
+        },
+        {
+            "name": "Wirmer A. Sanchez Saez",
+            "email": "wasanches@serdan.com.co",
+            "role": "Developer"
+        },
+        {
+            "name": "Jorge Hernan Castañeda",
+            "email": "ds.jorgecastaneda@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Julio C. Borges",
+            "email": "julio-borgeslopez@outlook.com",
+            "role": "Developer",
+            "homepage": "https://github.com/JULIOCBL"
         }
     ],
     "require": {
