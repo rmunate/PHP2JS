@@ -19,7 +19,7 @@ Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesid
 ## _Instalación a través de Composer_
 
 ```console
-composer require rmunate/php2js v2.0.x-dev
+composer require rmunate/php2js
 ```
 
 ## Presentar el Proveedor en el archivo config\app.php. (Opcional)
