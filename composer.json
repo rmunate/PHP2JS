@@ -40,14 +40,14 @@
         }
     ],
     "require": {
-        "php": ">=7.4"
+        "php": "^7.2 || ^8.0"
     },
     "require-dev": {
         
     },
     "extra" : {
         "branch-alias" : {
-            "2.0.0.x-dev": "v2.0.x-dev"
+            "dev-master": "v2.0.x-dev"
         },
         "laravel": {
             "providers": [
