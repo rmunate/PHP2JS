@@ -1,6 +1,5 @@
 {
     "name": "rmunate/php2js",
-    "version": "2.0.0",
     "description": "Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesidad de hacer peticiones AJAX, FETCH o AXIOS, use las mismas variables del archivo retornado por el controlador, al igual que unos valores adicionales que simplificarán tu trabajo. perfecta libreria para monolitos con Blade.",
     "keywords": [
         "php2js",
