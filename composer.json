@@ -47,7 +47,7 @@
     },
     "extra" : {
         "branch-alias" : {
-            "dev-main": "v2.0.x-dev"
+            "dev-V2.0.0": "v2.0.x-dev"
         },
         "laravel": {
             "providers": [
