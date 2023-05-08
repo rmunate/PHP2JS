@@ -111,8 +111,11 @@ __PHP().token() //"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL"
 ```
 ## Mantenedores
 - Raúl Mauricio Uñate Castro. (raulmauriciounate@gmail.com)
+
+## Desarrolladores Aportantes
 - Wirmer A. Sanchez Saez 
 - Jorge Hernan Castañeda (ds.jorgecastaneda@gmail.com)
 - Julio C. Borges (julio-borgeslopez@outlook.com)
+
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
