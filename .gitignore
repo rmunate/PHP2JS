@@ -1,5 +1,7 @@
 src/PHP2JSServiceProvider.php.stub
+src/Presentación.pptx
 src/Example.php
+src/logo.png
 vendor
 /vendor/
 /.fleet
