@@ -59,11 +59,24 @@ Invoque el metodo que requiera.
 | `__PHP().user()` | Retorna la informacion del usuario en sesíon con el ID encriptado. |
 | `__PHP().debug()` | Retorna el estado de la variable APP_DEBUG del ENV de Laravel. |
 
+En la version 2.0.1, se agregó la funcionalidad de trabajar por constantes para evitar el uso de los metodos anteriormente listados
+```php
+$PHP_VARS           //Retorna exclusivamente las variables devueltas desde el controlador en un objeto.
+$PHP_BASE_URL       //Retorna la URL base del Sistema para peticiones Ajax, Axios, Fetch o similares.
+$PHP_FULL_URL       //Retorna la URL completa con sus parámetros.;
+$PHP_PARAMETERS     //Retorna los parametros de la URL.;
+$PHP_URI            //Retorna la URI de acuerdo a las Rutas de Laravel.;
+$PHP_TOKEN          //Retorna un CSRF TOKEN.;
+$PHP_TOKEN_META     //Retorna una etiqueta meta con el CSRF TOKEN.
+$PHP_TOKEN_INPUT    //Retorna un input oculto con el CSRF TOKEN.
+$PHP_USER           //Retorna la informacion del usuario en sesíon con el ID encriptado.
+$PHP_DEBUG          //Retorna el estado de la variable APP_DEBUG del ENV de Laravel.
+```
 
 ```javascript
 
 /* Esto retornara un objeto con todos los valores disponibles del servidor. */
-__PHP().all() 
+__PHP().all()
 // {
 //     "vars": {
 //         //..Variables Retornadas por el backend
@@ -86,19 +99,23 @@ __PHP().all()
 // }
 
 /* Leer todas las variables de PHP desde JavaScript con este metodo. */
-__PHP().vars()
+__PHP().vars() //Acceso por metodo
+$PHP_VARS      //Acceso por constante
 
 /* Ingresar directamente a una variable retornada por el controlador */
 __PHP().vars().ejemplo //Equivale a la variable $ejemplo.
+$PHP_VARS.ejemplo      //Equivale a la variable $ejemplo.
 
 /* Llamado a las base url para peticiones al servidor */
  $.ajax({ url: __PHP().baseUrl() + '/generador/ciudades/', ...
+ $.ajax({ url: $PHP_BASE_URL + '/generador/ciudades/', ...
+
 
 /* Peticiones que requieran token */
 "ajax": {
-    "url": __PHP().baseUrl() + "/route",
+    "url": __PHP().baseUrl() + "/route", //$PHP_BASE_URL + "/route"
     "data":{
-        _token : __PHP().token()
+        _token : __PHP().token() //$PHP_TOKEN 
         data : {
             //Data
         }
@@ -107,7 +124,7 @@ __PHP().vars().ejemplo //Equivale a la variable $ejemplo.
 
 /* Generacion de un Token Valido */
 __PHP().token() //"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL"
-
+$PHP_TOKEN      //"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL"
 ```
 ## Mantenedores
 - 🇨🇴 Raúl Mauricio Uñate Castro. (raulmauriciounate@gmail.com)
