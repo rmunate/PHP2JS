@@ -1,6 +1,6 @@
 # PHP2JS (LARAVEL) 
 
-![logo](https://user-images.githubusercontent.com/91748598/236828680-f902150a-17d6-4013-9c53-814601e66af2.png)
+![logo](https://user-images.githubusercontent.com/91748598/236917119-68ae265f-56b4-433e-a0f4-4379c2e93e99.png)
 
 ## Lea las variables retornadas desde el controlador en archivos externos de JavaScript, perfecta libreria para monolitos con Blade.
 Todas las importaciones que emplee de esta forma, despues de invocar esta libreria tendran acceso a las variables de PHP Laravel, facil y muy util.
