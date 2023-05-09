@@ -46,8 +46,8 @@ En la vista antes de llamar el(los) archivo(s) externo(s) de JavaScript, se debe
 Invoque el metodo que requiera o llame la constante en cualquier lugar de su codigo JavaScript.
 
 | METODO | CONSTANTE | DESCRIPCIÓN |
-| ------ | ------ |
-| `__PHP().all()` |  | Retorna un objeto con toda la información disponible retornada por el servidor. |
+| ------ | ------ | ------ |
+| `__PHP().all()` | `` | Retorna un objeto con toda la información disponible retornada por el servidor. |
 | `__PHP().vars()` | `$PHP_BASE_URL` | Retorna exclusivamente las variables devueltas desde el controlador en un objeto. |
 | `__PHP().baseUrl()` | `$PHP_BASE_URL` | Retorna la URL base del Sistema para peticiones Ajax, Axios, Fetch o similares. |
 | `__PHP().fullUrl()` | `$PHP_FULL_URL` | Retorna la URL completa con sus parámetros. |
