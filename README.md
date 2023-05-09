@@ -43,35 +43,21 @@ En la vista antes de llamar el(los) archivo(s) externo(s) de JavaScript, se debe
 ```
 
 ## Metodos
-Invoque el metodo que requiera.
+Invoque el metodo que requiera o llame la constante en cualquier lugar de su codigo JavaScript.
 
-| METODO | DESCRIPCIÓN |
+| METODO | CONSTANTE | DESCRIPCIÓN |
 | ------ | ------ |
-| `__PHP().all()` | Retorna un objeto con toda la información disponible retornada por el servidor. |
-| `__PHP().vars()` | Retorna exclusivamente las variables devueltas desde el controlador en un objeto. |
-| `__PHP().baseUrl()` | Retorna la URL base del Sistema para peticiones Ajax, Axios, Fetch o similares. |
-| `__PHP().fullUrl()` | Retorna la URL completa con sus parámetros. |
-| `__PHP().parameters()` | Retorna los parametros de la URL. |
-| `__PHP().uri()` | Retorna la URI de acuerdo a las Rutas de Laravel |
-| `__PHP().token()` | Retorna un CSRF TOKEN. |
-| `__PHP().tokenMeta()` | Retorna una etiqueta meta con el CSRF TOKEN. |
-| `__PHP().tokenInput()` | Retorna un input oculto con el CSRF TOKEN. |
-| `__PHP().user()` | Retorna la informacion del usuario en sesíon con el ID encriptado. |
-| `__PHP().debug()` | Retorna el estado de la variable APP_DEBUG del ENV de Laravel. |
-
-En la version 2.0.1, se agregó la funcionalidad de trabajar por constantes para evitar el uso de los metodos anteriormente listados
-```php
-$PHP_VARS           //Retorna exclusivamente las variables devueltas desde el controlador en un objeto.
-$PHP_BASE_URL       //Retorna la URL base del Sistema para peticiones Ajax, Axios, Fetch o similares.
-$PHP_FULL_URL       //Retorna la URL completa con sus parámetros.;
-$PHP_PARAMETERS     //Retorna los parametros de la URL.;
-$PHP_URI            //Retorna la URI de acuerdo a las Rutas de Laravel.;
-$PHP_TOKEN          //Retorna un CSRF TOKEN.;
-$PHP_TOKEN_META     //Retorna una etiqueta meta con el CSRF TOKEN.
-$PHP_TOKEN_INPUT    //Retorna un input oculto con el CSRF TOKEN.
-$PHP_USER           //Retorna la informacion del usuario en sesíon con el ID encriptado.
-$PHP_DEBUG          //Retorna el estado de la variable APP_DEBUG del ENV de Laravel.
-```
+| `__PHP().all()` |  | Retorna un objeto con toda la información disponible retornada por el servidor. |
+| `__PHP().vars()` | `$PHP_BASE_URL` | Retorna exclusivamente las variables devueltas desde el controlador en un objeto. |
+| `__PHP().baseUrl()` | `$PHP_BASE_URL` | Retorna la URL base del Sistema para peticiones Ajax, Axios, Fetch o similares. |
+| `__PHP().fullUrl()` | `$PHP_FULL_URL` | Retorna la URL completa con sus parámetros. |
+| `__PHP().parameters()` | `$PHP_PARAMETERS` | Retorna los parametros de la URL. |
+| `__PHP().uri()` | `$PHP_URI` | Retorna la URI de acuerdo a las Rutas de Laravel |
+| `__PHP().token()` | `$PHP_TOKEN` | Retorna un CSRF TOKEN. |
+| `__PHP().tokenMeta()` | `$PHP_TOKEN_META` | Retorna una etiqueta meta con el CSRF TOKEN. |
+| `__PHP().tokenInput()` | `$PHP_TOKEN_INPUT` | Retorna un input oculto con el CSRF TOKEN. |
+| `__PHP().user()` | `$PHP_USER` | Retorna la informacion del usuario en sesíon con el ID encriptado. |
+| `__PHP().debug()` | `$PHP_DEBUG` | Retorna el estado de la variable APP_DEBUG del ENV de Laravel. |
 
 ```javascript
 
