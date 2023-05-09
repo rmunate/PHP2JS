@@ -5,6 +5,7 @@
         "php2js",
         "__php",
         "altum",
+        "laravel",
         "rmunate"
     ],
     "homepage": "https://github.com/rmunate/PHP2JS",

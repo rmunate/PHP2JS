@@ -16,7 +16,6 @@ Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesid
 - Genere una etiqueta `<meta>` con el CSRF TOKEN.
 - Genere una etiqueta `<inpuy type="hidden">` con el CSRF TOKEN.
 
-
 # Instalación
 ## _Instalación a través de Composer_
 
