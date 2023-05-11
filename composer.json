@@ -42,7 +42,7 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "rmunate/info-server": "v2.0.x-dev"
+        "rmunate/info-server": "^1.0"
     },
     "require-dev": {
         
