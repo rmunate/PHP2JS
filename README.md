@@ -75,44 +75,21 @@ Invoke the method you require or call the constant anywhere in your JavaScript c
 
 ```javascript
 
-/* This will return an object with all the values available from the server. */
-__PHP().all()
-// {
-//     "vars": {
-//         //..Variables Returned by the backend
-//     },
-//     "baseUrl": "http://127.0.0.1:8000",
-//     "fullUrl": "http://127.0.0.1:8000/branches/branch404",
-//     "parameters": {
-//         "id": "branch404"
-//     },
-//     "uri": "branches/{id}",
-//     "token": "4HEsdym.............",
-//     "tokenMeta": "<meta name=\" csrf-token\" content=\"4HEsdym.............">",
-//     "tokenInput": "<input type\"hidden\" name=\"_token\" value=\"4HEsdym............."/>",
-//     "user": {
-//         "id": y2asdas2......,
-//         "name": ".....",
-//         "username": ".....",
-//         "email": "....."
-//     }
-//     // ...
-// }
+// EXAMPLE USE
 
 /* Read all PHP variables from JavaScript with this method. */
+$PHP_GROUPS      //Access by constant
 __PHP().groups() //Access by method
-$PHP_GROUPS      //access by constant
 
 /* Step directly into a variable returned by the controller */
-__PHP().vars().ejemplo //Equals the variable $ejemplo.
 $PHP_VARS.ejemplo      //Equals the variable $ejemplo.
+__PHP().vars().ejemplo //Equals the variable $ejemplo.
 
 /* Call base url for requests to the server */
- $.ajax({ url: __PHP().baseUrl() + '/generador/ciudades/', ...
  $.ajax({ url: $PHP_BASE_URL + '/generador/ciudades/', ...
+ $.ajax({ url: __PHP().baseUrl() + '/generador/ciudades/', ...
 
-
-/* Peticiones que requieran token */
+/* Peticiones que requieren token */
 "ajax": {
     "url": __PHP().baseUrl() + "/route", //$PHP_BASE_URL + "/route"
     "data":{
@@ -124,8 +101,8 @@ $PHP_VARS.ejemplo      //Equals the variable $ejemplo.
 },
 
 /* Generation of a Valid Token */
-__PHP().token() //"4HEsdy.........."
 $PHP_TOKEN      //"4HEsdy.........."
+__PHP().token() //"4HEsdy.........."
 ```
 ## Creator
 - 🇨🇴 Raúl Mauricio Uñate Castro. (raulmauriciounate@gmail.com)
@@ -134,6 +111,5 @@ $PHP_TOKEN      //"4HEsdy.........."
 - 🇨🇴 Wirmer A. Sanchez Saez (wilmersaz@hotmail.com)
 - 🇨🇴 Jorge Hernan Castañeda (ds.jorgecastaneda@gmail.com)
 - 🇲🇽 Julio C. Borges (julio-borgeslopez@outlook.com)
-
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
