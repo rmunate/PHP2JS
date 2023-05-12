@@ -1,12 +1,12 @@
 {
     "name": "rmunate/php2js",
-    "description": "Lea las variables de PHP LARAVEL en un archivo externo de JAVASCRIPT sin necesidad de hacer peticiones AJAX, FETCH o AXIOS, use las mismas variables del archivo retornado por el controlador, al igual que unos valores adicionales que simplificarán tu trabajo. perfecta libreria para monolitos con Blade.",
+    "description": "Read PHP LARAVEL variables in an external JAVASCRIPT file without the need for AJAX, FETCH or AXIOS requests, use the same variables returned by the controller and defined in the Blade view, as well as some additional values that will simplify your work. perfect library for monoliths with Blade.",
     "keywords": [
         "php2js",
-        "__php",
-        "altum",
+        "@__php",
+        "PHP2JS",
         "laravel",
-        "rmunate"
+        "blade"
     ],
     "homepage": "https://github.com/rmunate/PHP2JS",
     "type": "library",
@@ -25,7 +25,7 @@
         },
         {
             "name": "Wirmer A. Sanchez Saez",
-            "email": "wasanches@serdan.com.co",
+            "email": "wilmersaz@hotmail.com",
             "role": "Developer"
         },
         {

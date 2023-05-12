@@ -1,31 +1,30 @@
-# PHP2JS (LARAVEL) 
+# PHP2JS (LARAVEL) V2.6.1
 
 ![logo](https://user-images.githubusercontent.com/91748598/236917119-68ae265f-56b4-433e-a0f4-4379c2e93e99.png)
 
-## Lea las variables retornadas desde el controlador y definidas en la vista Blade en archivos externos de JavaScript, perfecta libreria para monolitos con Blade.
-Todas las importaciones que emplee de la siguiente forma, despues de invocar esta libreria tendran acceso a las variables de PHP, facil y muy util.
+## Read variables returned from the controller and defined in the Blade view into external JavaScript files, perfect library for Blade monoliths.
+All the imports that you use in the following way, after invoking this library will have access to the PHP variables, easy and very useful.
 `<script src="{{ asset('..............js') }}"></script>`
 
-Lea las variables de PHP en archivos externos de JavaScript sin necesidad de hacer peticiones AJAX, FETCH o AXIOS innecesarias, use las mismas variables retornadas por el controlador o creadas en la vista antes de invocar la libreria, al igual que unos valores adicionales que simplificarán tu trabajo enormemente.
+Read PHP variables in external JavaScript files without needing to make unnecessary AJAX, FETCH or AXIOS requests, use the same variables returned by the controller or created in the view before invoking the library, as well as some additional values that will simplify your I work enormously.
 
-- Leer todas las variables retornadas desde el controlador en archivos externos de JavaScript para mantener una estructura limpia de Codigo.
-- Leer todas las variables declaradas en la vista Blade, desde archivos externos de JavaScript.
-- Obtenga la informacion de la URL en uso, el protocolo, la URI, los parametros, etc.
-- Obtenga la información de la version de PHP en USO. Version, Id, etc.
-- Obtenga el los datos del AGENT, ip remota desde donde se ingresa al sistema, puerto en uso, etc.
-- Obtenga un CSRF Tokken valido en cualquier lugar de su JavaScript
-- Obtenga los datos relevantes del Usuario en sesión, protegiendo el ID con el Helper de Laravel Crypt::encrypt($id), aplique la inversa si lo necesita.
-- Nunca habia sido tan facil integrar las dos capas de Desarrollo.
+- Read all variables returned by the controller in external JavaScript files to maintain a clean code structure.
+- Read all variables declared in the Blade view, from external JavaScript files.
+- Obtain the information of the URL in use, the protocol, the URI, the parameters, etc.
+- Obtain the information of the PHP version in USO. Version, ID, etc.
+- Obtain the data of the Agent, Remote IP address from where the system is entered, port in use, Operating System, etc.
+- Get a valid CSRF token anywhere in your JavaScript.
+- Obtain the relevant data of the User in session, protecting the ID with the Laravel Helper Crypt::encrypt($id).
 
-# Instalación
-## _Instalación a través de Composer_
+## _Installation via Composer_
 
 ```console
 composer require rmunate/php2js
 ```
 
-## Presentar el Proveedor en el archivo config\app.php. (Laravel 8 o Inferiores)
+Make sure that in `composer.json` you have the library at its latest version. `"rmunate/php2js": "^2.6"`
 
+Introduce the Provider in the config\app.php file. (Laravel 8 or Lower)
 ```php
 'providers' => [
     //..
@@ -33,55 +32,54 @@ composer require rmunate/php2js
 ],
 ```
 
-## Uso
-En la vista antes de llamar el(los) archivo(s) externo(s) de JavaScript, se debe poner la directiva `@__PHP()` esta debe estar una unica vez. 
-Esto hará que todas las variables devueltas desde el servidor se puedan leer en todos los archivos de JavaScript que se ingresen en las siguientes lineas del código.
-
+## Use
+In the view, before calling the external JavaScript files, you must place the `@__PHP()` directive, it must be there only once.
+This will make all variables returned by the server and declared in the view readable in all JavaScript files entered in the following lines of code.
 
 ```php
 @__PHP()
 <script src="{{ asset('js/myscript.js') }}"></script>
 ```
 
-## Metodos
-Invoque el metodo que requiera o llame la constante en cualquier lugar de su codigo JavaScript.
+## Methods
+Invoke the method you require or call the constant anywhere in your JavaScript code.
 
-| METODO | CONSTANTE | DESCRIPCIÓN |
+| METHOD | CONSTANT | DESCRIPTION |
 | ------ | ------ | ------ |
-| `__PHP().all()` | `$PHP` | Retorna un objeto con toda la información disponible retornada por el servidor a un solo nivel. |
-| `__PHP().groups()` | `$PHP_GROUPS` | Retorna un objeto en grupos de la información disponible retornada por el servidor (Recomendado). |
-| `__PHP().vars()` | `$PHP_VARS` | Retorna exclusivamente las variables devueltas desde el controlador en un objeto. |
-| `__PHP().baseUrl()` | `$PHP_BASE_URL` | Retorna la URL base del Sistema para peticiones Ajax, Axios, Fetch o similares. |
-| `__PHP().fullUrl()` | `$PHP_FULL_URL` | Retorna la URL completa con sus parámetros. |
-| `__PHP().parameters()` | `$PHP_PARAMETERS` | Retorna los parametros de la URL. |
-| `__PHP().uri()` | `$PHP_URI` | Retorna la URI de acuerdo a las Rutas de Laravel |
-| `__PHP().scheme()` | `$PHP_SCHEME` | Retorna el esquema en uso HTTP ó HTTPS |
-| `__PHP().token()` | `$PHP_TOKEN` | Retorna un CSRF TOKEN. |
-| `__PHP().tokenMeta()` | `$PHP_TOKEN_META` | Retorna una etiqueta meta con el CSRF TOKEN. |
-| `__PHP().tokenInput()` | `$PHP_TOKEN_INPUT` | Retorna un input oculto con el CSRF TOKEN. |
-| `__PHP().php_version()` | `$PHP_VERSION` | Retorna la versión en uso de PHP. |
-| `__PHP().php_id()` | `$PHP_ID` | Retorna el ID de la versión en uso de PHP. |
-| `__PHP().php_release()` | `$PHP_RELEASE` | Retorna el Release de la versión en uso de PHP. |
-| `__PHP().agent()` | `$PHP_AGENT` | Retorna el valor del Agente en conexión. (Navegador, dispositivo, etc). |
-| `__PHP().remote_ip()` | `$PHP_AGENT_REMOTE_IP` | Retorna la dirección IP desde donde se esta consumiendo el sistema. |
-| `__PHP().remote_port()` | `$PHP_AGENT_REMOTE_PORT` | Retorna el puerto en uso desde donde se esta consumiendo el sistema. |
-| `__PHP().browser()` | `$PHP_AGENT_BROWSER` | Retorna los detalles del navegador en uso. |
-| `__PHP().is_mobile()` | `$PHP_AGENT_IS_MOBILE` | Retorna TRUE si se esta conectado al sistema desde un dispositivo movil. |
-| `__PHP().mobile_os_android()` | `$PHP_AGENT_MOBILE_OS_ANDROID` | Retorna TRUE si se esta conectado al sistema desde un Android. |
-| `__PHP().mobile_os_iphone()` | `$PHP_AGENT_MOBILE_OS_IPHONE` | Retorna TRUE si se esta conectado al sistema desde un IPHONE. |
-| `__PHP().os_linux()` | `$PHP_AGENT_OS_LINUX` | Retorna TRUE si se esta conectado al sistema desde un OS LINUX. |
-| `__PHP().os_ios()` | `$PHP_AGENT_OS_IOS` | Retorna TRUE si se esta conectado al sistema desde un OS IOS MAC. |
-| `__PHP().os_windows()` | `$PHP_AGENT_OS_WINDOWS` | Retorna TRUE si se esta conectado al sistema desde un Windows. |
-| `__PHP().user()` | `$PHP_USER` | Retorna la informacion del usuario en sesíon con el ID encriptado. |
-| `__PHP().debug()` | `$PHP_DEBUG` | Retorna el estado de la variable APP_DEBUG del ENV de Laravel. |
+| `__PHP().groups()` | `$PHP_GROUPS` | Devuelve un objeto con grupos de las variables disponibles **Recomendado**. |
+| `__PHP().all()` | `$PHP` | Returns an object with all the information at a single level. |
+| `__PHP().vars()` | `$PHP_VARS` | Returns exclusively the variables defined in PHP in an object, omitting the others. |
+| `__PHP().baseUrl()` | `$PHP_BASE_URL` | Returns the base URL of the System for Ajax, Axios, Fetch or similar requests. |
+| `__PHP().fullUrl()` | `$PHP_FULL_URL` | Returns the full URL with its parameters. |
+| `__PHP().parameters()` | `$PHP_PARAMETERS` | Returns the parameters of the URL. |
+| `__PHP().uri()` | `$PHP_URI` | Returns the URI according to the Laravel Routes. |
+| `__PHP().scheme()` | `$PHP_SCHEME` | Returns the scheme in use HTTP or HTTPS. |
+| `__PHP().token()` | `$PHP_TOKEN` | Returns a CSRF TOKEN. |
+| `__PHP().tokenMeta()` | `$PHP_TOKEN_META` | Returns a meta tag with the CSRF TOKEN. |
+| `__PHP().tokenInput()` | `$PHP_TOKEN_INPUT` | Returns a hidden input with the CSRF TOKEN. |
+| `__PHP().php_version()` | `$PHP_VERSION` | Returns the current version of PHP. |
+| `__PHP().php_id()` | `$PHP_ID` | Returns the ID of the current version of PHP. |
+| `__PHP().php_release()` | `$PHP_RELEASE` | Returns the Release of the current version of PHP. |
+| `__PHP().agent()` | `$PHP_AGENT` | Returns the value of the Agent in connection. (Browser, device, Operating System, etc). |
+| `__PHP().remote_ip()` | `$PHP_AGENT_REMOTE_IP` | Returns the IP address from where the system is being consumed. |
+| `__PHP().remote_port()` | `$PHP_AGENT_REMOTE_PORT` | Returns the port in use from where the system is being consumed. |
+| `__PHP().browser()` | `$PHP_AGENT_BROWSER` | Returns the details of the browser in use. |
+| `__PHP().is_mobile()` | `$PHP_AGENT_IS_MOBILE` | Returns TRUE if you are connected to the system from a mobile device. |
+| `__PHP().mobile_os_android()` | `$PHP_AGENT_MOBILE_OS_ANDROID` | Returns TRUE if you are connected to the system from an Android. |
+| `__PHP().mobile_os_iphone()` | `$PHP_AGENT_MOBILE_OS_IPHONE` | Returns TRUE if you are connected to the system from an IPHONE. |
+| `__PHP().os_linux()` | `$PHP_AGENT_OS_LINUX` | Returns TRUE if you are connected to the system from a LINUX OS. |
+| `__PHP().os_ios()` | `$PHP_AGENT_OS_IOS` | Returns TRUE if you are connected to the system from an OS IOS MAC. |
+| `__PHP().os_windows()` | `$PHP_AGENT_OS_WINDOWS` | Returns TRUE if you are connected to the system from Windows. |
+| `__PHP().user()` | `$PHP_USER` | Returns the information of the user in session with the encrypted ID. |
+| `__PHP().debug()` | `$PHP_DEBUG` | Returns the state of the APP_DEBUG variable from the Laravel ENV. |
 
 ```javascript
 
-/* Esto retornara un objeto con todos los valores disponibles del servidor. */
+/* This will return an object with all the values available from the server. */
 __PHP().all()
 // {
 //     "vars": {
-//         //..Variables Retornadas por el backend
+//         //..Variables Returned by the backend
 //     },
 //     "baseUrl": "http://127.0.0.1:8000",
 //     "fullUrl": "http://127.0.0.1:8000/branches/branch404",
@@ -89,27 +87,27 @@ __PHP().all()
 //         "id": "branch404"
 //     },
 //     "uri": "branches/{id}",
-//     "token": "4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL",
-//     "tokenMeta": "<meta name=\" csrf-token\" content=\"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL\">",
-//     "tokenInput": "<input type\"hidden\" name=\"_token\" value=\"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL\"/>",
+//     "token": "4HEsdym.............",
+//     "tokenMeta": "<meta name=\" csrf-token\" content=\"4HEsdym.............">",
+//     "tokenInput": "<input type\"hidden\" name=\"_token\" value=\"4HEsdym............."/>",
 //     "user": {
-//         "id": yDHEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL...,
-//         "name": "Nombre Usuario",
-//         "username": "name_user",
-//         "email": "admin@system.co"
+//         "id": y2asdas2......,
+//         "name": ".....",
+//         "username": ".....",
+//         "email": "....."
 //     }
 //     // ...
 // }
 
-/* Leer todas las variables de PHP desde JavaScript con este metodo. */
-__PHP().groups() //Acceso por metodo
-$PHP_GROUPS      //Acceso por constante
+/* Read all PHP variables from JavaScript with this method. */
+__PHP().groups() //Access by method
+$PHP_GROUPS      //access by constant
 
-/* Ingresar directamente a una variable retornada por el controlador */
-__PHP().vars().ejemplo //Equivale a la variable $ejemplo.
-$PHP_VARS.ejemplo      //Equivale a la variable $ejemplo.
+/* Step directly into a variable returned by the controller */
+__PHP().vars().ejemplo //Equals the variable $ejemplo.
+$PHP_VARS.ejemplo      //Equals the variable $ejemplo.
 
-/* Llamado a las base url para peticiones al servidor */
+/* Call base url for requests to the server */
  $.ajax({ url: __PHP().baseUrl() + '/generador/ciudades/', ...
  $.ajax({ url: $PHP_BASE_URL + '/generador/ciudades/', ...
 
@@ -125,15 +123,15 @@ $PHP_VARS.ejemplo      //Equivale a la variable $ejemplo.
     }
 },
 
-/* Generacion de un Token Valido */
-__PHP().token() //"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL"
-$PHP_TOKEN      //"4HEsdymdvgs1aVnXdFz9EhroNlJtS6uVrSznCyOL"
+/* Generation of a Valid Token */
+__PHP().token() //"4HEsdy.........."
+$PHP_TOKEN      //"4HEsdy.........."
 ```
-## Mantenedores
+## Creador
 - 🇨🇴 Raúl Mauricio Uñate Castro. (raulmauriciounate@gmail.com)
 
-## Desarrolladores Aportantes
-- 🇨🇴 Wirmer A. Sanchez Saez
+## Contributing Developers
+- 🇨🇴 Wirmer A. Sanchez Saez (wilmersaz@hotmail.com)
 - 🇨🇴 Jorge Hernan Castañeda (ds.jorgecastaneda@gmail.com)
 - 🇲🇽 Julio C. Borges (julio-borgeslopez@outlook.com)
 

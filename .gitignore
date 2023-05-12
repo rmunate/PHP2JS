@@ -4,11 +4,11 @@ src/Example.php
 src/logo.png
 /.DS_Store
 .DS_Store
+/.vscode
 /vendor/
 /.fleet
-/.vscode
+.vscode
 vendor
 /.idea
 .fleet
 .idea
-.vscode
