@@ -127,7 +127,7 @@ $PHP_VARS.ejemplo      //Equals the variable $ejemplo.
 __PHP().token() //"4HEsdy.........."
 $PHP_TOKEN      //"4HEsdy.........."
 ```
-## Creador
+## Creator
 - 🇨🇴 Raúl Mauricio Uñate Castro. (raulmauriciounate@gmail.com)
 
 ## Contributing Developers
