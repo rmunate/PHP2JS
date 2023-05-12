@@ -89,7 +89,7 @@ __PHP().vars().ejemplo //Equals the variable $ejemplo.
  $.ajax({ url: $PHP_BASE_URL + '/generador/ciudades/', ...
  $.ajax({ url: __PHP().baseUrl() + '/generador/ciudades/', ...
 
-/* Peticiones que requieren token */
+/* Requests that require token */
 "ajax": {
     "url": __PHP().baseUrl() + "/route", //$PHP_BASE_URL + "/route"
     "data":{
