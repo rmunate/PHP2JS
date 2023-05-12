@@ -1,4 +1,4 @@
-# PHP2JS (LARAVEL) V2.6.1
+# PHP2JS (LARAVEL) V2.6.2
 
 ![logo](https://user-images.githubusercontent.com/91748598/236917119-68ae265f-56b4-433e-a0f4-4379c2e93e99.png)
 

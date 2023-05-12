@@ -3,7 +3,7 @@
     "description": "Read PHP LARAVEL variables in an external JAVASCRIPT file without the need for AJAX, FETCH or AXIOS requests, use the same variables returned by the controller and defined in the Blade view, as well as some additional values that will simplify your work. perfect library for monoliths with Blade.",
     "keywords": [
         "php2js",
-        "@__php",
+        "__php",
         "PHP2JS",
         "laravel",
         "blade"

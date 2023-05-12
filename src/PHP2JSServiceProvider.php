@@ -6,7 +6,6 @@ namespace Rmunate\Php2Js;
 |--------------------------------------------------------------------------
 | PHP2JS
 |--------------------------------------------------------------------------
-|
 | Ing. Raul Mauricio Uñate Castro
 | raulmauriciounate@gmail.com
 | https://github.com/rmunate/PHP2JS
