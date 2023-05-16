@@ -6,12 +6,12 @@
 All the imports that you use in the following way, after invoking this library will have access to the PHP variables, easy and very useful.
 `<script src="{{ asset('..............js') }}"></script>`
 
-Read PHP variables in external JavaScript files without needing to make unnecessary AJAX, FETCH or AXIOS requests, use the same variables returned by the controller or created in the view before invoking the library, as well as some additional values that will simplify your I work enormously.
+Read PHP variables in external JavaScript files without needing to make unnecessary AJAX, FETCH or AXIOS requests, use the same variables returned by the controller or created in the view before invoking the library, like some additional values that will simplify your work enormously.
 
-- Read all variables returned by the controller in external JavaScript files to maintain a clean code structure.
+- Read all variables returned by the controller in external JavaScript files to keep a clean code structure.
 - Read all variables declared in the Blade view, from external JavaScript files.
 - Obtain the information of the URL in use, the protocol, the URI, the parameters, etc.
-- Obtain the information of the PHP version in USO. Version, ID, etc.
+- Obtain the information of the PHP version in use. Version, ID, etc.
 - Obtain the data of the Agent, Remote IP address from where the system is entered, port in use, Operating System, etc.
 - Get a valid CSRF token anywhere in your JavaScript.
 - Obtain the relevant data of the User in session, protecting the ID with the Laravel Helper Crypt::encrypt($id).
@@ -22,7 +22,7 @@ Read PHP variables in external JavaScript files without needing to make unnecess
 composer require rmunate/php2js
 ```
 
-Make sure that in `composer.json` you have the library at its latest version. `"rmunate/php2js": "^2.6"`
+Make sure that in `composer.json` you have the library at the latest version. `"rmunate/php2js": "^2.6"`
 
 Introduce the Provider in the config\app.php file. (Laravel 8 or Lower)
 ```php
@@ -46,9 +46,9 @@ Invoke the method you require or call the constant anywhere in your JavaScript c
 
 | METHOD | CONSTANT | DESCRIPTION |
 | ------ | ------ | ------ |
-| `__PHP().groups()` | `$PHP_GROUPS` | Devuelve un objeto con grupos de las variables disponibles **Recomendado**. |
+| `__PHP().groups()` | `$PHP_GROUPS` | Return a object with variables groups available **Recommended**. |
 | `__PHP().all()` | `$PHP` | Returns an object with all the information at a single level. |
-| `__PHP().vars()` | `$PHP_VARS` | Returns exclusively the variables defined in PHP in an object, omitting the others. |
+| `__PHP().vars()` | `$PHP_VARS` | Returns exclusively variables defined in PHP in an object, omitting the others. |
 | `__PHP().baseUrl()` | `$PHP_BASE_URL` | Returns the base URL of the System for Ajax, Axios, Fetch or similar requests. |
 | `__PHP().fullUrl()` | `$PHP_FULL_URL` | Returns the full URL with its parameters. |
 | `__PHP().parameters()` | `$PHP_PARAMETERS` | Returns the parameters of the URL. |
@@ -81,9 +81,9 @@ Invoke the method you require or call the constant anywhere in your JavaScript c
 $PHP_GROUPS      //Access by constant
 __PHP().groups() //Access by method
 
-/* Step directly into a variable returned by the controller */
-$PHP_VARS.ejemplo      //Equals the variable $ejemplo.
-__PHP().vars().ejemplo //Equals the variable $ejemplo.
+/* Step to access in a variable returned from the controller  */
+$PHP_VARS.ejemplo      //Like the variable $ejemplo.
+__PHP().vars().ejemplo //Like the variable $ejemplo.
 
 /* Call base url for requests to the server */
  $.ajax({ url: $PHP_BASE_URL + '/generador/ciudades/', ...
@@ -91,9 +91,11 @@ __PHP().vars().ejemplo //Equals the variable $ejemplo.
 
 /* Requests that require token */
 "ajax": {
-    "url": __PHP().baseUrl() + "/route", //$PHP_BASE_URL + "/route"
+    "url": __PHP().baseUrl() + "/route", 
+    //"url": $PHP_BASE_URL + "/route"
     "data":{
-        _token : __PHP().token() //$PHP_TOKEN 
+        _token : __PHP().token()
+        //_token : $PHP_TOKEN 
         data : {
             //Data
         }

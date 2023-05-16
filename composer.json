@@ -38,6 +38,12 @@
             "email": "julio-borgeslopez@outlook.com",
             "role": "Developer",
             "homepage": "https://github.com/JULIOCBL"
+        },
+        {
+            "name": "John Alejandro Diaz Pinilla",
+            "email": "diazjohn83@gmail.com",
+            "role": "Developer",
+            "homepage": "https://github.com/alejandrodiazpinilla"
         }
     ],
     "require": {
