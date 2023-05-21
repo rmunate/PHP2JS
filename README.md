@@ -1,4 +1,4 @@
-# PHP2JS (LARAVEL) V2.6.2
+# PHP2JS (LARAVEL PHP Framework) v2.6.3
 
 ![logo](https://user-images.githubusercontent.com/91748598/236917119-68ae265f-56b4-433e-a0f4-4379c2e93e99.png)
 
@@ -46,7 +46,7 @@ Invoke the method you require or call the constant anywhere in your JavaScript c
 
 | METHOD | CONSTANT | DESCRIPTION |
 | ------ | ------ | ------ |
-| `__PHP().groups()` | `$PHP_GROUPS` | Return a object with variables groups available **Recommended**. |
+| `__PHP().groups()` | `$PHP_GROUPS` | Return a object with variables groups available **RECOMMENDED**. |
 | `__PHP().all()` | `$PHP` | Returns an object with all the information at a single level. |
 | `__PHP().vars()` | `$PHP_VARS` | Returns exclusively variables defined in PHP in an object, omitting the others. |
 | `__PHP().baseUrl()` | `$PHP_BASE_URL` | Returns the base URL of the System for Ajax, Axios, Fetch or similar requests. |
@@ -73,36 +73,38 @@ Invoke the method you require or call the constant anywhere in your JavaScript c
 | `__PHP().user()` | `$PHP_USER` | Returns the information of the user in session with the encrypted ID. |
 | `__PHP().debug()` | `$PHP_DEBUG` | Returns the state of the APP_DEBUG variable from the Laravel ENV. |
 
+Examples
 ```javascript
+// Read all PHP variables from JavaScript with this method.
+$PHP_GROUPS         //Access by constant
+__PHP().groups()    //Access by method
 
-// EXAMPLE USE
+// Access all variables set in PHP
+$PHP_VARS.ejemplo       //Like the variable $ejemplo.
+__PHP().vars().ejemplo  //Like the variable $ejemplo.
 
-/* Read all PHP variables from JavaScript with this method. */
-$PHP_GROUPS      //Access by constant
-__PHP().groups() //Access by method
-
-/* Step to access in a variable returned from the controller  */
-$PHP_VARS.ejemplo      //Like the variable $ejemplo.
-__PHP().vars().ejemplo //Like the variable $ejemplo.
-
-/* Call base url for requests to the server */
+// You can improve the performance in milliseconds if at the beginning of the script where you will use the PHP variables you save the data in a constant, as shown below
+const _PHP = __PHP().vars(); 
+//Now use this constant to access PHP variables, for other values ​​use the corresponding method provided by the library
+```
+Example of use in requests to the server
+```javascript
+// Call base url for requests to the server
  $.ajax({ url: $PHP_BASE_URL + '/generador/ciudades/', ...
  $.ajax({ url: __PHP().baseUrl() + '/generador/ciudades/', ...
 
-/* Requests that require token */
+// Requests that require token
 "ajax": {
-    "url": __PHP().baseUrl() + "/route", 
-    //"url": $PHP_BASE_URL + "/route"
+    "url": __PHP().baseUrl() + "/route",    //$PHP_BASE_URL + "/route"
     "data":{
-        _token : __PHP().token()
-        //_token : $PHP_TOKEN 
+        _token : __PHP().token()            //$PHP_TOKEN 
         data : {
             //Data
         }
     }
 },
 
-/* Generation of a Valid Token */
+// Generation of a Valid Token
 $PHP_TOKEN      //"4HEsdy.........."
 __PHP().token() //"4HEsdy.........."
 ```
