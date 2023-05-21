@@ -114,7 +114,7 @@ __PHP().token() //"4HEsdy.........."
 ## Contributing Developers
 - 🇨🇴 Carlos Giovanni Rodriguez (musica_tuto@hotmail.com)
 - 🇨🇴 Laura Valentina Borda Vargas (lvalentina0507@gmail.com)
-- 🇨🇴 Wirmer A. Sanchez Saez (wilmersaz@hotmail.com)
+- 🇨🇴 Wilmer A. Sanchez Saez (wilmersaz@hotmail.com)
 - 🇨🇴 John Alejandro Diaz Pinilla (diazjohn83@gmail.com)
 - 🇨🇴 Jorge Hernan Castañeda (ds.jorgecastaneda@gmail.com)
 - 🇲🇽 Julio C. Borges (julio-borgeslopez@outlook.com)
