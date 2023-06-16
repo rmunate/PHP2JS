@@ -9,7 +9,6 @@ namespace Rmunate\Php2Js;
 | Ing. Raul Mauricio Uñate Castro
 | raulmauriciounate@gmail.com
 | https://github.com/rmunate/PHP2JS
-| OPENSOURCE - MIT
 |
 */
 
