@@ -52,9 +52,7 @@ In the previous examples, if you notice, it is the same syntax you always use in
 | METHOD | DESCRIPTION | RETURN |
 | ------ | ------ | ------ |
 | `->toJS(string $Obj='PHP')` | This method is recommended by the creators of this functionality. It allows JavaScript to access all the variables returned from the controller, as well as the URL data in use and the use of a valid Laravel token. | { vars: { ... }, url: { ... }, csrf: { ... } } |
-| `->toAllJS(string $Obj
-
-='PHP')` | This method returns all the data that has been determined as useful for working with JavaScript using the data returned from the controller. It provides a large amount of data that can be used to improve the performance and customization of our application as needed. | { vars: { ... }, url: { ... }, csrf: { ... }, php: { ... }, laravel: { ... }, user: { ... }, agent: { ... } } |
+| `->toAllJS(string $Obj='PHP')` | This method returns all the data that has been determined as useful for working with JavaScript using the data returned from the controller. It provides a large amount of data that can be used to improve the performance and customization of our application as needed. | { vars: { ... }, url: { ... }, csrf: { ... }, php: { ... }, laravel: { ... }, user: { ... }, agent: { ... } } |
 | `->toStrictJS(string $Obj='PHP')` | This method exclusively returns the information of the variables returned by the controller and does not return any additional values. | { vars: { ... } } |
 | `->toJSWith(array $grp = [], string $Obj='PHP')` | If you want to define what information to share with JavaScript in addition to the variables returned by the controller, this method receives an array as the first parameter where you can enter any of the following options: `[url, csrf, php, laravel, user, agent]` for the prepared values to be used, which will be shared with JavaScript. | { vars: { ... }, [... ] } |
 
