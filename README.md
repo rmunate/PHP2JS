@@ -1,113 +1,143 @@
-# PHP2JS (LARAVEL PHP Framework) v2.6.3
+# PHP2JS  (LARAVEL PHP Framework) v3.0.0
 
 ![logo](https://user-images.githubusercontent.com/91748598/236917119-68ae265f-56b4-433e-a0f4-4379c2e93e99.png)
 
-## Read variables returned from the controller and defined in the Blade view into external JavaScript files, perfect library for Blade monoliths.
-All the imports that you use in the following way, after invoking this library will have access to the PHP variables, easy and very useful.
-`<script src="{{ asset('..............js') }}"></script>`
+## A new and secure way to share variables between Blade views and JavaScript files.
 
-Read PHP variables in external JavaScript files without needing to make unnecessary AJAX, FETCH or AXIOS requests, use the same variables returned by the controller or created in the view before invoking the library, like some additional values that will simplify your work enormously.
+All imports you use with the following syntax `<script src="{{ asset('..............js') }}"></script>` or the `<script> ... </script>` tags you create directly in the view, after invoking any method of this library, will have access to the variables returned from the controller. You can separate the JavaScript logic from your Blade views without the need to make queries or requests to the server to retrieve the existing information on the front end.
 
-- Read all variables returned by the controller in external JavaScript files to keep a clean code structure.
-- Read all variables declared in the Blade view, from external JavaScript files.
-- Obtain the information of the URL in use, the protocol, the URI, the parameters, etc.
-- Obtain the information of the PHP version in use. Version, ID, etc.
-- Obtain the data of the Agent, Remote IP address from where the system is entered, port in use, Operating System, etc.
-- Get a valid CSRF token anywhere in your JavaScript.
-- Obtain the relevant data of the User in session, protecting the ID with the Laravel Helper Crypt::encrypt($id).
+- Define from the controller if the returned variables will be shared at the JavaScript level.
+- Handle an identical syntax to the one provided by the framework to return views.
+- Define whether useful data blocks will be added for manipulations and management on the front end using JavaScript programming.
+- Generate files with unique and non-consecutive identities to prevent any type of code inspection.
+- Define the entry alias for the values returned by the controller, thus avoiding the use of a generic identifier that can be accessed by the console or other means.
+- Same functionality from Blade directives as from returning views from the controller.
+- Obtain a set of data that will facilitate work in our applications.
+- Identify where I connect from and manipulate this data from JS, defining the behavior of the application, whether it is mobile or desktop.
+- Know the versions of the systems in use.
+- Have the BaseUrl handy for server requests.
+- Retrieve user data in session to enhance the experience from JS.
+- Determine the browser, its version, and the platform being used.
 
-## _Installation via Composer_
+## Installation
 
 ```console
 composer require rmunate/php2js
 ```
 
-Make sure that in `composer.json` you have the library at the latest version. `"rmunate/php2js": "^2.6"`
+Make sure you have the library in the latest version in your `composer.json`. `"rmunate/php2js": "^3.0"`
 
-Introduce the Provider in the config\app.php file. (Laravel 8 or Lower)
-```php
-'providers' => [
-    //..
-    Rmunate\Php2Js\PHP2JSServiceProvider::class,
-],
-```
+## Library functionalities from controllers.
 
-## Use
-In the view, before calling the external JavaScript files, you must place the `@__PHP()` directive, it must be there only once.
-This will make all variables returned by the server and declared in the view readable in all JavaScript files entered in the following lines of code.
+You will have the facility to return your views, defining whether you will share your variables with JavaScript through four possible methods.
 
 ```php
-@__PHP()
-<script src="{{ asset('js/myscript.js') }}"></script>
+use Rmunate\Php2Js\Render;
+
+/* Using Compact */
+return Render::view('welcome', compact('variable1', 'variable2', 'variable3', '...'))->toJS()->compose();
+
+/* Using With */
+return Render::view('welcome')->with(compact('variable1', 'variable2', 'variable3', '...'))->toJS()->compose();
+
+/* Same method but with an associative array */
+return Render::view('welcome')->with([
+    'variable1' => $variable1,
+    ...
+])->toJS()->compose();
 ```
 
-## Methods
-Invoke the method you require or call the constant anywhere in your JavaScript code.
+In the previous examples, if you notice, it is the same syntax you always use in the current framework. However, you will have two new methods. From these two new methods, the following table shows the uses regarding sending variables to JavaScript. The `->compose()` method should always go at the end. If you wish, you can return the view without sharing data by simply nesting the method `Render::view('view_name')->compose()` or `Render::view('view_name', compact('var...'))->compose()`.
 
-| METHOD | CONSTANT | DESCRIPTION |
+| METHOD | DESCRIPTION | RETURN |
 | ------ | ------ | ------ |
-| `__PHP().groups()` | `$PHP_GROUPS` | Return a object with variables groups available **RECOMMENDED**. |
-| `__PHP().all()` | `$PHP` | Returns an object with all the information at a single level. |
-| `__PHP().vars()` | `$PHP_VARS` | Returns exclusively variables defined in PHP in an object, omitting the others. |
-| `__PHP().baseUrl()` | `$PHP_BASE_URL` | Returns the base URL of the System for Ajax, Axios, Fetch or similar requests. |
-| `__PHP().fullUrl()` | `$PHP_FULL_URL` | Returns the full URL with its parameters. |
-| `__PHP().parameters()` | `$PHP_PARAMETERS` | Returns the parameters of the URL. |
-| `__PHP().uri()` | `$PHP_URI` | Returns the URI according to the Laravel Routes. |
-| `__PHP().scheme()` | `$PHP_SCHEME` | Returns the scheme in use HTTP or HTTPS. |
-| `__PHP().token()` | `$PHP_TOKEN` | Returns a CSRF TOKEN. |
-| `__PHP().tokenMeta()` | `$PHP_TOKEN_META` | Returns a meta tag with the CSRF TOKEN. |
-| `__PHP().tokenInput()` | `$PHP_TOKEN_INPUT` | Returns a hidden input with the CSRF TOKEN. |
-| `__PHP().php_version()` | `$PHP_VERSION` | Returns the current version of PHP. |
-| `__PHP().php_id()` | `$PHP_ID` | Returns the ID of the current version of PHP. |
-| `__PHP().php_release()` | `$PHP_RELEASE` | Returns the Release of the current version of PHP. |
-| `__PHP().agent()` | `$PHP_AGENT` | Returns the value of the Agent in connection. (Browser, device, Operating System, etc). |
-| `__PHP().remote_ip()` | `$PHP_AGENT_REMOTE_IP` | Returns the IP address from where the system is being consumed. |
-| `__PHP().remote_port()` | `$PHP_AGENT_REMOTE_PORT` | Returns the port in use from where the system is being consumed. |
-| `__PHP().browser()` | `$PHP_AGENT_BROWSER` | Returns the details of the browser in use. |
-| `__PHP().is_mobile()` | `$PHP_AGENT_IS_MOBILE` | Returns TRUE if you are connected to the system from a mobile device. |
-| `__PHP().mobile_os_android()` | `$PHP_AGENT_MOBILE_OS_ANDROID` | Returns TRUE if you are connected to the system from an Android. |
-| `__PHP().mobile_os_iphone()` | `$PHP_AGENT_MOBILE_OS_IPHONE` | Returns TRUE if you are connected to the system from an IPHONE. |
-| `__PHP().os_linux()` | `$PHP_AGENT_OS_LINUX` | Returns TRUE if you are connected to the system from a LINUX OS. |
-| `__PHP().os_ios()` | `$PHP_AGENT_OS_IOS` | Returns TRUE if you are connected to the system from an OS IOS MAC. |
-| `__PHP().os_windows()` | `$PHP_AGENT_OS_WINDOWS` | Returns TRUE if you are connected to the system from Windows. |
-| `__PHP().user()` | `$PHP_USER` | Returns the information of the user in session with the encrypted ID. |
-| `__PHP().debug()` | `$PHP_DEBUG` | Returns the state of the APP_DEBUG variable from the Laravel ENV. |
+| `->toJS(string $Obj='PHP')` | This method is recommended by the creators of this functionality. It allows JavaScript to access all the variables returned from the controller, as well as the URL data in use and the use of a valid Laravel token. | { vars: { ... }, url: { ... }, csrf: { ... } } |
+| `->toAllJS(string $Obj
 
-Examples
+='PHP')` | This method returns all the data that has been determined as useful for working with JavaScript using the data returned from the controller. It provides a large amount of data that can be used to improve the performance and customization of our application as needed. | { vars: { ... }, url: { ... }, csrf: { ... }, php: { ... }, laravel: { ... }, user: { ... }, agent: { ... } } |
+| `->toStrictJS(string $Obj='PHP')` | This method exclusively returns the information of the variables returned by the controller and does not return any additional values. | { vars: { ... } } |
+| `->toJSWith(array $grp = [], string $Obj='PHP')` | If you want to define what information to share with JavaScript in addition to the variables returned by the controller, this method receives an array as the first parameter where you can enter any of the following options: `[url, csrf, php, laravel, user, agent]` for the prepared values to be used, which will be shared with JavaScript. | { vars: { ... }, [... ] } |
+
+By default, in JavaScript, to access these returned values, you will use the constant PHP.
+
 ```javascript
-// Read all PHP variables from JavaScript with this method.
-$PHP_GROUPS         //Access by constant
-__PHP().groups()    //Access by method
-
-// Access all variables set in PHP
-$PHP_VARS.ejemplo       //Like the variable $ejemplo.
-__PHP().vars().ejemplo  //Like the variable $ejemplo.
-
-// You can improve the performance in milliseconds if at the beginning of the script where you will use the PHP variables you save the data in a constant, as shown below
-const _PHP = __PHP().vars(); 
-//Now use this constant to access PHP variables, for other values ​​use the corresponding method provided by the library
+PHP.vars.myVariable
 ```
-Example of use in requests to the server
-```javascript
-// Call base url for requests to the server
- $.ajax({ url: $PHP_BASE_URL + '/generador/ciudades/', ...
- $.ajax({ url: __PHP().baseUrl() + '/generador/ciudades/', ...
 
-// Requests that require token
-"ajax": {
-    "url": __PHP().baseUrl() + "/route",    //$PHP_BASE_URL + "/route"
-    "data":{
-        _token : __PHP().token()            //$PHP_TOKEN 
-        data : {
-            //Data
+However, from the controller, you can assign a different name to this constant, which is recommended. You can do it in the controller as follows:
+
+```php
+use Rmunate\Php2Js\Render;
+
+return Render::view('welcome', compact('myVariable'))->toJS('_PHP2JS')->compose();
+```
+
+You can read it in JS like this:
+
+```javascript
+_PHP2JS.vars.myVariable
+```
+
+Now, to continue with the standard of the previous versions of the library, you can also create a bridge between PHP Laravel and JavaScript from the views using Blade directives. In these cases, it will not be necessary to use the syntax of this library in the controller (although you can if you want since it is the same original functionality of the framework). You will have the following directives available at the moment.
+
+| DIRECTIVE | DESCRIPTION | RETURN |
+| ------ | ------ | ------ |
+| `@toJS(string $Obj='PHP2JS')` | This directive is recommended by the creators of this functionality. It allows JavaScript to access all the variables returned from the controller and those created prior to instantiating the directive, as well as the URL data in use and the use of a valid Laravel token. | { vars: { ... }, url: { ... }, csrf: { ... } } |
+| `@toAllJS(string $Obj='PHP2JS')` | This directive returns all the data that has been determined as useful for working with JavaScript using the data returned from the controller. It provides a large amount of data that can be used to improve the performance and customization of our application as needed. | { vars: { ... }, url: { ... }, csrf: { ... }, php: { ... }, laravel: { ... }, user: { ... }, agent: { ... } } |
+| `@toStrictJS(string $Obj='PHP2JS')` | This directive exclusively returns the information of the variables returned by the controller and does not return any additional values. | { vars: { ... } } |
+
+Remember that you can pass the alias you want to use for its calling from JavaScript as an argument.
+
+**The values that are returned in general are as follows:**
+
+```javascript
+// ALIAS = By default PHP from controllers or PHP2JS from Blade directives
+
+ALIAS = {
+    vars: // Variables read from the Server,
+    url: {
+        baseUrl: // Base for server requests,
+        fullUrl: // Full URL
+
+ in use,
+        uri: // Current URI according to Laravel routes,
+        parameters: {
+            route: // Parameters sent by route,
+            get: // Parameters sent as URL query get,
+            post: // Parameters sent with the POST method,
+        },
+        scheme: // HTTPx,
+    },
+    csrf: {
+        token: // Valid Laravel token
+    },
+    php: {
+        id: // Release Id,
+        version: // PHP version in use,
+        release: // Release in use
+    },
+    laravel: {
+        version: // Laravel version in use,
+        environment: {
+            name: // Application name in env,
+            debug: // True - False according to the env configuration,
         }
+    },
+    user: {
+        // Non-sensitive user session data
+    },
+    agent: {
+        identifier: // Complete agent value,
+        remote_ip: // IP from where the application is consumed,
+        remote_port: // Remote IP port from where the application is consumed,
+        browser: {
+            // Browser values
+        },
+        OS: // Operating system of the person connecting
     }
-},
-
-// Generation of a Valid Token
-$PHP_TOKEN      //"4HEsdy.........."
-__PHP().token() //"4HEsdy.........."
+}
 ```
+
 ## Creator
 - 🇨🇴 Raúl Mauricio Uñate Castro. (raulmauriciounate@gmail.com)
 
