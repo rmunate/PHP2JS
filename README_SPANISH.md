@@ -128,6 +128,7 @@ ALIAS = {
         browser : {
             //Valores del Navegador
         }, 
+        isMobile: //Seber si es una conexion desde equipos moviles
         OS : //Sistema operativo de quien se conecta
     }
 }

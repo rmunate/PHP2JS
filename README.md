@@ -129,6 +129,7 @@ ALIAS = {
         browser: {
             // Browser values
         },
+        isMobile: //Know if it is a connection from mobile devices
         OS: // Operating system of the person connecting
     }
 }
