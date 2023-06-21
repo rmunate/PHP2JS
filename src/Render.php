@@ -2,6 +2,7 @@
 
 /*
  * Copyright (c) [2023] [RAUL MAURICIO UÑATE CASTRO]
+ * https://github.com/rmunate/PHP2JS
  *
  * Esta biblioteca es un software de código abierto disponible bajo la licencia MIT.
  * Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia de esta biblioteca y los archivos de
@@ -33,6 +34,7 @@
 
 namespace Rmunate\Php2Js;
 
+use Rmunate\Php2Js\License;
 use Rmunate\Php2Js\DataPhp2Js;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
@@ -50,6 +52,7 @@ class Render extends BaseRender
     private $pathScript;
     private $assetScript;
     private $nameDirectory = "server-data";
+    private $license;
 
     /**
      * Constructor
@@ -62,6 +65,7 @@ class Render extends BaseRender
         $this->view = trim($view);
         $this->data = new Collection($data);
         @File::deleteDirectory(public_path($this->nameDirectory));
+        $this->license = License::comment();
     }
 
     /**
@@ -120,13 +124,13 @@ class Render extends BaseRender
         $dataEncode = json_encode($this->data->toArray());
         $dataUrl = json_encode(DataPhp2Js::getDataUrl());
         $dataCSRF = json_encode(DataPhp2Js::getDataCSRF());
+        $license = $this->license;
 
         /* Generate JS Content */
         $this->script = <<<JS
-        // ============================================================
-        // 🚀 DOCUMENT GENERATED AUTOMATICALLY BY THE PHP2JS LIBRARY
-        // https://github.com/rmunate/PHP2JS
-        // ============================================================
+
+        {$license}
+
         const {$mainName} = {
             vars : {$dataEncode}, url : {$dataUrl}, csrf : {$dataCSRF},
         }
@@ -158,13 +162,13 @@ class Render extends BaseRender
         $dataLaravel = json_encode(DataPhp2Js::getDataLaravel(), JSON_PRETTY_PRINT);
         $dataUser = json_encode(DataPhp2Js::getDataUser());
         $dataAgent = json_encode(DataPhp2Js::getDataAgent());
+        $license = $this->license;
 
         /* Generate JS Content */
         $this->script = <<<JS
-        // ============================================================
-        // 🚀 DOCUMENT GENERATED AUTOMATICALLY BY THE PHP2JS LIBRARY
-        // https://github.com/rmunate/PHP2JS
-        // ============================================================
+
+        {$license}
+
         const {$mainName} = {
             vars : {$dataEncode}, url : {$dataUrl}, csrf : {$dataCSRF}, php : {$dataPHP}, laravel : {$dataLaravel}, user : {$dataUser}, agent : {$dataAgent}
         }
@@ -190,13 +194,13 @@ class Render extends BaseRender
 
         /* Values To JSON_ENCODE */
         $dataEncode = json_encode($this->data->toArray());
+        $license = $this->license;
 
         /* Generate JS Content */
         $this->script = <<<JS
-        // ============================================================
-        // 🚀 DOCUMENT GENERATED AUTOMATICALLY BY THE PHP2JS LIBRARY
-        // https://github.com/rmunate/PHP2JS
-        // ============================================================
+
+        {$license}
+
         const {$mainName} = {
             vars : {$dataEncode}
         }
@@ -241,13 +245,13 @@ class Render extends BaseRender
             $dataUser = (in_array('user', $groupsData)) ? json_encode(DataPhp2Js::getDataUser()) : json_encode(null);
             $dataAgent = (in_array('user', $groupsData)) ? json_encode(DataPhp2Js::getDataAgent()) : json_encode(null);
         }
+        $license = $this->license;
         
         /* Generate JS Content */
         $this->script = <<<JS
-        // ============================================================
-        // 🚀 DOCUMENT GENERATED AUTOMATICALLY BY THE PHP2JS LIBRARY
-        // https://github.com/rmunate/PHP2JS
-        // ============================================================
+        
+        {$license}
+
         const {$mainName} = {
             vars : {$dataEncode}, url : {$dataUrl}, csrf : {$dataCSRF}, php : {$dataPHP}, laravel : {$dataLaravel}, user : {$dataUser}, agent : {$dataAgent}
         }

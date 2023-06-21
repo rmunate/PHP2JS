@@ -2,6 +2,7 @@
 
 /*
  * Copyright (c) [2023] [RAUL MAURICIO UÑATE CASTRO]
+ * https://github.com/rmunate/PHP2JS
  *
  * Esta biblioteca es un software de código abierto disponible bajo la licencia MIT.
  * Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia de esta biblioteca y los archivos de
@@ -57,8 +58,8 @@ class PHP2JSServiceProvider extends ServiceProvider {
             $script = '<script id="_X2JS_MAIN">
                 const _MAIN_XTOJS = {
                     vars: <?php echo json_encode(array_diff_key(get_defined_vars(), array_flip(["app", "__data", "errors", "__env", "__path"]))); ?>,
-                    url: <?php echo json_encode(\App\PHP2JS\DataPhp2Js::getDataUrl()); ?>,
-                    csrf: <?php echo json_encode(\App\PHP2JS\DataPhp2Js::getDataCSRF()); ?>,
+                    url: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataUrl()); ?>,
+                    csrf: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataCSRF()); ?>,
                 };
             </script>
             <script id="_X2JS_DOM">
@@ -85,12 +86,12 @@ class PHP2JSServiceProvider extends ServiceProvider {
             $script = '<script id="_X2JS_MAIN">
                 const _MAIN_XTOJS = {
                     vars: <?php echo json_encode(array_diff_key(get_defined_vars(), array_flip(["app", "__data", "errors", "__env", "__path"]))); ?>,
-                    url: <?php echo json_encode(\App\PHP2JS\DataPhp2Js::getDataUrl()); ?>,
-                    csrf: <?php echo json_encode(\App\PHP2JS\DataPhp2Js::getDataCSRF()); ?>,
-                    php: <?php echo json_encode(\App\PHP2JS\DataPhp2Js::getDataPHP()); ?>,
-                    laravel: <?php echo json_encode(\App\PHP2JS\DataPhp2Js::getDataLaravel(), JSON_PRETTY_PRINT); ?>,
-                    user: <?php echo json_encode(\App\PHP2JS\DataPhp2Js::getDataUser()); ?>,
-                    agent: <?php echo json_encode(\App\PHP2JS\DataPhp2Js::getDataAgent()); ?>,
+                    url: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataUrl()); ?>,
+                    csrf: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataCSRF()); ?>,
+                    php: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataPHP()); ?>,
+                    laravel: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataLaravel(), JSON_PRETTY_PRINT); ?>,
+                    user: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataUser()); ?>,
+                    agent: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataAgent()); ?>,
                 };
             </script>
             <script id="_X2JS_DOM">
