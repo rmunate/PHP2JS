@@ -95,9 +95,7 @@ ALIAS = {
     vars: // Variables read from the Server,
     url: {
         baseUrl: // Base for server requests,
-        fullUrl: // Full URL
-
- in use,
+        fullUrl: // Full URL,
         uri: // Current URI according to Laravel routes,
         parameters: {
             route: // Parameters sent by route,
