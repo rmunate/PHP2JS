@@ -57,8 +57,9 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
-        "rmunate/info-server": "^1.0"
+        "php": "^7.4|^8.0",
+        "rmunate/info-server": "^1.0",
+        "illuminate/support": "^9.0|^10.0"
     },
     "require-dev": {
         
