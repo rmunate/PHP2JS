@@ -44,15 +44,17 @@ class Render extends BaseRender
 {
     /**
      * Propierties Object
+     * Set From Contrcutor
      */
     private $view;
     private $data;
+    private $license;
+
+    /**
+     * Determinate Inject JS
+     */
     private $injectJS = false;
     private $script;
-    private $pathScript;
-    private $assetScript;
-    private $nameDirectory = "server-data";
-    private $license;
 
     /**
      * Constructor
@@ -62,10 +64,13 @@ class Render extends BaseRender
      */
     public function __construct(string $view, array $data = [])
     {
+        /* Values Requerid */
         $this->view = trim($view);
         $this->data = new Collection($data);
-        @File::deleteDirectory(public_path($this->nameDirectory));
         $this->license = License::comment();
+
+        /* Delete Use The File In Public Path*/
+        @File::deleteDirectory(public_path("server-data"));
     }
 
     /**
@@ -90,24 +95,6 @@ class Render extends BaseRender
     {
         $this->data = $this->data->merge($data);
         return $this;
-    }
-
-    /**
-     * @return [type]
-     */
-    private function pathScript()
-    {
-
-        $rutaCarpeta = public_path($this->nameDirectory);
-        
-        if (!file_exists($rutaCarpeta)) {
-            mkdir($rutaCarpeta, 0777, true);
-        }
-
-        $nameScriptFile = $this->nameDirectory . '/' . uniqid('X2JS_') . '.js';
-        $this->pathScript = public_path($nameScriptFile);
-        $this->assetScript = asset($nameScriptFile);
-
     }
 
     /**
@@ -136,11 +123,6 @@ class Render extends BaseRender
         }
         JS;
 
-        /* Path Of File JS */
-        $this->pathScript();
-
-        /* Create File */
-        file_put_contents($this->pathScript, $this->script);
         return $this;
     }
 
@@ -174,11 +156,6 @@ class Render extends BaseRender
         }
         JS;
 
-        /* Path Of File JS */
-        $this->pathScript();
-
-        /* Create File */
-        file_put_contents($this->pathScript, $this->script);
         return $this;
     }
 
@@ -207,11 +184,6 @@ class Render extends BaseRender
 
         JS;
 
-        /* Path Of File JS */
-        $this->pathScript();
-
-        /* Create File */
-        file_put_contents($this->pathScript, $this->script);
         return $this;
     }
 
@@ -259,11 +231,6 @@ class Render extends BaseRender
 
         JS;
 
-        /* Path Of File JS */
-        $this->pathScript();
-
-        /* Create File */
-        file_put_contents($this->pathScript, $this->script);
         return $this;
     }
 
@@ -282,7 +249,16 @@ class Render extends BaseRender
             $view = view($this->view)->with($this->data->toArray());
             $html = $view->render();
 
-            $script = '<script src="' . $this->assetScript . '"></script>';
+            /* X2JS_MAIN */
+            $_X2JS_MAIN = $this->script;
+
+            /*  _X2JS_DOM */
+            $_X2JS_DOM = 'setTimeout(() => {
+                document.getElementById("_X2JS_MAIN").remove();
+                document.getElementById("_X2JS_DOM").remove();
+            }, 500);';
+
+            $script = '<script id="_X2JS_MAIN">'.$_X2JS_MAIN.'</script><script id="_X2JS_DOM">'.$_X2JS_DOM.'</script>';
             $posicionCierreHead = strpos($html, '</head>');
             $posicionCierreBody = strpos($html, '</body>');
 
