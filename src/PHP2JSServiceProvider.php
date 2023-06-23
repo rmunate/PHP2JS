@@ -70,7 +70,7 @@ class PHP2JSServiceProvider extends ServiceProvider {
             </script>';
                     
             if (!empty($expression)) {
-                $script = str_replace('_MAIN_XTOJS', str_replace("'","",$expression), $script);
+                $script = str_replace('_MAIN_XTOJS', str_replace(['"', "'"],"",$expression), $script);
             } else {
                 $script = str_replace('_MAIN_XTOJS','PHP2JS',$script);
             }
@@ -102,7 +102,7 @@ class PHP2JSServiceProvider extends ServiceProvider {
             </script>';
                     
             if (!empty($expression)) {
-                $script = str_replace('_MAIN_XTOJS', str_replace("'","",$expression), $script);
+                $script = str_replace('_MAIN_XTOJS', str_replace(['"', "'"],"",$expression), $script);
             } else {
                 $script = str_replace('_MAIN_XTOJS','PHP2JS',$script);
             }
@@ -128,7 +128,7 @@ class PHP2JSServiceProvider extends ServiceProvider {
             </script>';
                     
             if (!empty($expression)) {
-                $script = str_replace('_MAIN_XTOJS', str_replace("'","",$expression), $script);
+                $script = str_replace('_MAIN_XTOJS', str_replace(['"', "'"],"",$expression), $script);
             } else {
                 $script = str_replace('_MAIN_XTOJS','PHP2JS',$script);
             }

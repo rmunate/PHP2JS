@@ -65,7 +65,7 @@ class UrlPhp2Js
      */
     public function getBaseUrl() : string
     {
-        return $this->serverHTTPx . $this->serverHost  ."/";
+        return $this->serverHTTPx . $this->serverHost;
     }
 
     /**
