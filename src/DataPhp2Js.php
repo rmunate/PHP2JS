@@ -40,9 +40,34 @@ use Rmunate\Php2Js\DataClasses\TokenPhp2Js;
 use Rmunate\Php2Js\DataClasses\ServerPhp2Js;
 use Rmunate\Php2Js\DataClasses\LaravelPhp2Js;
 
-
+/**
+ * Methods Get Data In Array Asociative
+ */
 class DataPhp2Js
 {
+
+    /**
+     * Version Library
+     */
+    const VERSION = "3.5.0";
+
+    /**
+     * Return Data agent
+     * @return Array
+     */
+    public static function getDataAgent() : array
+    {
+        $data = new AgentPhp2Js();
+        return [
+            "identifier" => $data->getAgent(),
+            "remote_ip" => $data->getIpAddress(),
+            "remote_port" => $data->getRemotePort(),
+            "browser" => $data->getDataBrowser(),
+            "isMobile" => $data->isMobileDevice(),
+            "OS" => $data->getDataClienteSO(),
+        ];
+    }
+
     /**
      * Return Array with Data Url In Use
      * @return array
@@ -76,20 +101,6 @@ class DataPhp2Js
     }
 
     /**
-     * Return Data PHP
-     * @return array
-     */
-    public static function getDataPHP() : array
-    {
-        $data = new ServerPhp2Js();
-        return [
-            "id" => $data->getPhpVersionId(),
-            "version" => $data->getPhpVersion(),
-            "release" => $data->getPhpReleaseVersion(),
-        ];
-    }
-
-     /**
      * Return Data Laravel
      * @return array
      */
@@ -106,6 +117,20 @@ class DataPhp2Js
     }
 
     /**
+     * Return Data PHP
+     * @return array
+     */
+    public static function getDataPHP() : array
+    {
+        $data = new ServerPhp2Js();
+        return [
+            "id" => $data->getPhpVersionId(),
+            "version" => $data->getPhpVersion(),
+            "release" => $data->getPhpReleaseVersion(),
+        ];
+    }
+
+    /**
      * Return User Data
      * @return Mixed
      */
@@ -115,22 +140,6 @@ class DataPhp2Js
         return $data->getDataUser();
     }
     
-    /**
-     * Return Data agent
-     * @return Array
-     */
-    public static function getDataAgent() : array
-    {
-        $data = new AgentPhp2Js();
-        return [
-            "identifier" => $data->getAgent(),
-            "remote_ip" => $data->getIpAddress(),
-            "remote_port" => $data->getRemotePort(),
-            "browser" => $data->getDataBrowser(),
-            "isMobile" => $data->isMobileDevice(),
-            "OS" => $data->getDataClienteSO(),
-        ];
-    }
 }
 
 ?>

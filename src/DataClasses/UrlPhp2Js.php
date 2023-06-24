@@ -103,7 +103,7 @@ class UrlPhp2Js
      */
     public function getParametersPost() : array
     {
-        return !empty($_POST) ? $_POST : [];
+        return $_POST ?? [];
     }
 
     /**
@@ -112,7 +112,7 @@ class UrlPhp2Js
      */
     public function getParametersGet() : array
     {
-        return !empty($_GET) ? $_GET : [];
+        return $_GET ?? [];
     }
 
     /**

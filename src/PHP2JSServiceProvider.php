@@ -32,9 +32,10 @@
  * LA BIBLIOTECA O EL USO U OTROS TRATOS EN LA BIBLIOTECA.
  */
 
-
 namespace Rmunate\Php2Js;
 
+use Rmunate\Php2Js\JS;
+use Rmunate\Php2Js\License;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -45,97 +46,109 @@ class PHP2JSServiceProvider extends ServiceProvider {
      */
     public function register(): void
     {
-        //
+        //....
     }
 
-    public function boot(){
+    /**
+     * Create Blade Directives
+     * @return Void
+     */
+    public function boot()
+    {
+
+        #-------------------------------------------------------------------#
+        #-                         NEW STANDAR USE                         -#
+        #-------------------------------------------------------------------#
 
         /**
-         * Iqual ->toJS()
+         * 🚀 PHP2JS_AGENT
+         * Info From The Agent PHP
          * @return BladeDirective
          */
+        Blade::directive('PHP2JS_AGENT', function ($expression) {
+            return JS::script('getDataAgent')->alias($expression)->generate();
+        });
+
+
+        /**
+         * 🚀 PHP2JS_URL
+         * Info From The URL in use
+         * @return BladeDirective
+         */
+        Blade::directive('PHP2JS_URL', function ($expression) {
+            return JS::script('getDataUrl')->alias($expression)->generate();
+        });
+
+        /**
+         * 🚀 PHP2JS_CSRF
+         * Token For Laravel
+         * @return BladeDirective
+         */
+        Blade::directive('PHP2JS_CSRF', function ($expression) {
+            return JS::script('getDataCSRF')->alias($expression)->generate();
+        });
+
+        /**
+         * 🚀 PHP2JS_FRAMEWORK
+         * Info From Laravel Framework
+         * @return BladeDirective
+         */
+        Blade::directive('PHP2JS_FRAMEWORK', function ($expression) {
+            return JS::script('getDataLaravel')->alias($expression)->generate();
+        });
+
+        /**
+         * 🚀 PHP2JS_PHP
+         * Info From Laravel Framework
+         * @return BladeDirective
+         */
+        Blade::directive('PHP2JS_PHP', function ($expression) {
+            return JS::script('getDataPHP')->alias($expression)->generate();
+        });
+
+        /**
+         * 🚀 PHP2JS_USER
+         * Info From Laravel Framework
+         * @return BladeDirective
+         */
+        Blade::directive('PHP2JS_USER', function ($expression) {
+            return JS::script('getDataUser')->alias($expression)->generate();
+        });
+
+        /**
+         * 🚀 BRIDGE VARS
+         * Pass variables from PHP to JavaScript
+         * @return BladeDirective
+         */
+        Blade::directive('PHP2JS_VARS', function ($expression) {
+            return JS::script('getDataUser')->alias($expression)->bridge();
+        });
+
+        #-------------------------------------------------------------------#
+        #-                      VERSIONS 3.0.0 - 3.4.9                     -#
+        #-               Directivas Suprimidas en la version               -#
+        #-------------------------------------------------------------------#
+
         Blade::directive('toJS', function ($expression) {
-            $script = '<script id="_X2JS_MAIN">
-                const _MAIN_XTOJS = {
-                    vars: <?php echo json_encode(array_diff_key(get_defined_vars(), array_flip(["app", "__data", "errors", "__env", "__path"]))); ?>,
-                    url: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataUrl()); ?>,
-                    csrf: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataCSRF()); ?>,
-                };
-            </script>
-            <script id="_X2JS_DOM">
-                setTimeout(() => {
-                    document.getElementById("_X2JS_MAIN").remove();
-                    document.getElementById("_X2JS_DOM").remove();
-                }, 500);
-            </script>';
-                    
-            if (!empty($expression)) {
-                $script = str_replace('_MAIN_XTOJS', str_replace(['"', "'"],"",$expression), $script);
-            } else {
-                $script = str_replace('_MAIN_XTOJS','PHP2JS',$script);
-            }
-        
-            return $script;
+            throw new Exception("The 'toJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard 'https://github.com/rmunate/PHP2JS'");
         });
 
-        /**
-         * Iqual ->toAllJS()
-         * @return BladeDirective
-         */
         Blade::directive('toAllJS', function ($expression) {
-            $script = '<script id="_X2JS_MAIN">
-                const _MAIN_XTOJS = {
-                    vars: <?php echo json_encode(array_diff_key(get_defined_vars(), array_flip(["app", "__data", "errors", "__env", "__path"]))); ?>,
-                    url: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataUrl()); ?>,
-                    csrf: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataCSRF()); ?>,
-                    php: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataPHP()); ?>,
-                    laravel: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataLaravel(), JSON_PRETTY_PRINT); ?>,
-                    user: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataUser()); ?>,
-                    agent: <?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::getDataAgent()); ?>,
-                };
-            </script>
-            <script id="_X2JS_DOM">
-                setTimeout(() => {
-                    document.getElementById("_X2JS_MAIN").remove();
-                    document.getElementById("_X2JS_DOM").remove();
-                }, 500);
-            </script>';
-                    
-            if (!empty($expression)) {
-                $script = str_replace('_MAIN_XTOJS', str_replace(['"', "'"],"",$expression), $script);
-            } else {
-                $script = str_replace('_MAIN_XTOJS','PHP2JS',$script);
-            }
-        
-            return $script;
+            throw new Exception("The 'toAllJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard 'https://github.com/rmunate/PHP2JS'");
         });
 
-        /**
-         * Iqual ->toStrictJS()
-         * @return BladeDirective
-         */
         Blade::directive('toStrictJS', function ($expression) {
-            $script = '<script id="_X2JS_MAIN">
-                const _MAIN_XTOJS = {
-                    vars: <?php echo json_encode(array_diff_key(get_defined_vars(), array_flip(["app", "__data", "errors", "__env", "__path"]))); ?>,
-                };
-            </script>
-            <script id="_X2JS_DOM">
-                setTimeout(() => {
-                    document.getElementById("_X2JS_MAIN").remove();
-                    document.getElementById("_X2JS_DOM").remove();
-                }, 500);
-            </script>';
-                    
-            if (!empty($expression)) {
-                $script = str_replace('_MAIN_XTOJS', str_replace(['"', "'"],"",$expression), $script);
-            } else {
-                $script = str_replace('_MAIN_XTOJS','PHP2JS',$script);
-            }
-        
-            return $script;
+            throw new Exception("The 'toStrictJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard 'https://github.com/rmunate/PHP2JS'");
         });
 
+        #-------------------------------------------------------------------#
+        #-                      VERSIONS  inferiores 3.0                   -#
+        #-               Directivas Suprimidas en la version               -#
+        #-------------------------------------------------------------------#
+
+        Blade::directive('__PHP', function ($expression) {
+            throw new Exception("The '__PHP' directive is not available in this version of the library, its use is available on version ^2.6, you can choose to downgrade to version 'rmunate/php2js: ^2.6' in 'composer.json' and then run 'composer update', or replace it with the directives of the current version 'https://github.com/rmunate/PHP2JS'");
+        });
 
     }
 }
