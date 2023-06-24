@@ -36,8 +36,6 @@ namespace Rmunate\Php2Js;
 
 use Rmunate\Php2Js\License;
 use Rmunate\Php2Js\DataPhp2Js;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\File;
 use Rmunate\Php2Js\BasePhp2Js as BaseRender;
 
 class Render extends BaseRender
@@ -82,7 +80,7 @@ class Render extends BaseRender
     {
         /* Values Requerid */
         $this->view = trim($view);
-        $this->data = new Collection($data);
+        $this->data = $data;
         $this->license = License::comment();
         $this->attach = false;
     }
@@ -95,7 +93,7 @@ class Render extends BaseRender
      */
     public function with(array $data): static
     {
-        $this->data = $this->data->merge($data);
+        $this->data = array_merge($this->data, $data);
         return $this;
     }
 
@@ -110,7 +108,7 @@ class Render extends BaseRender
         $this->injectJS = true;
         $this->alias = $mainName;
         $this->strictUse = false;
-        $this->varsJS = new Collection(['vars' => $this->data]);
+        $this->varsJS = ['vars' => $this->data];
         return $this;
     }
 
@@ -125,7 +123,7 @@ class Render extends BaseRender
         $this->injectJS = true;
         $this->alias = $mainName;
         $this->strictUse = true;
-        $this->varsJS = !empty($vars) ? new Collection(['vars' => $vars]) : new Collection(['vars' => $this->data]);
+        $this->varsJS = !empty($vars) ? ['vars' => $vars] : ['vars' => $this->data];
         return $this;
     }
 
@@ -149,24 +147,24 @@ class Render extends BaseRender
     {
         if (!$this->injectJS) {
 
-            return view($this->view)->with($this->data->toArray());
+            return view($this->view)->with($this->data);
 
         } else {
 
-            $view = view($this->view)->with($this->data->toArray());
+            $view = view($this->view)->with($this->data);
             $html = $view->render();
 
             if (!empty($this->attach)) {
-                if (in_array('agent', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataAgent());
-                if (in_array('url', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataUrl());
-                if (in_array('csrf', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataCSRF());
-                if (in_array('framework', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataLaravel());
-                if (in_array('php', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataPHP());
-                if (in_array('user', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataUser());
+                if (in_array('agent', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataAgent()); 
+                if (in_array('url', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataUrl()); 
+                if (in_array('csrf', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataCSRF()); 
+                if (in_array('framework', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataLaravel()); 
+                if (in_array('php', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataPHP()); 
+                if (in_array('user', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataUser()); 
             }
 
             $uniqueID = strtoupper(bin2hex(random_bytes(16)));
-            $jsonEncode = json_encode($this->varsJS);
+            $jsonEncode = json_encode($this->varsJS,JSON_UNESCAPED_UNICODE);
             
             $script  =  '<script id="'.$uniqueID.'">
                             '.$this->license.'

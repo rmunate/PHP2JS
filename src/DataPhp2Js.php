@@ -49,7 +49,7 @@ class DataPhp2Js
     /**
      * Version Library
      */
-    const VERSION = "3.5.0";
+    const VERSION = "3.5.1";
 
     /**
      * Return Data agent

@@ -82,11 +82,11 @@ class JS
     public function generate() : string
     {
         if ($this->compact) {
-            $jsonEncode = '<?php echo json_encode(compact('.$this->reward.'));?>;';
+            $jsonEncode = '<?php echo json_encode(compact('.$this->reward.'),JSON_UNESCAPED_UNICODE);?>;';
         } else if ($this->reward == 'vars') {
-            $jsonEncode = '<?php echo json_encode(array_diff_key(get_defined_vars(), array_flip(["app", "__data", "errors", "__env", "__path"]))); ?>;';
+            $jsonEncode = '<?php echo json_encode(array_diff_key(get_defined_vars(), array_flip(["app", "__data", "errors", "__env", "__path"])),JSON_UNESCAPED_UNICODE); ?>;';
         } else {
-            $jsonEncode = '<?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::'.$this->reward.'()); ?>;';
+            $jsonEncode = '<?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::'.$this->reward.'(),JSON_UNESCAPED_UNICODE); ?>;';
         }
         return  '<script id="'.$this->uniqueID.'">
                     '.$this->license.'
