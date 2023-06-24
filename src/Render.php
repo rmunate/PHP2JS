@@ -49,12 +49,28 @@ class Render extends BaseRender
     private $view;
     private $data;
     private $license;
+    private $attach;
 
     /**
      * Determinate Inject JS
      */
     private $injectJS = false;
+    private $alias;
+    private $strictUse;
+    private $varsJS;
     private $script;
+
+    /**
+     * Create a new Render instance.
+     *
+     * @param string $view
+     * @param array $data
+     * @return static
+     */
+    public static function view(string $view, array $data = []): static
+    {
+        return new static($view, $data);
+    }
 
     /**
      * Constructor
@@ -68,21 +84,7 @@ class Render extends BaseRender
         $this->view = trim($view);
         $this->data = new Collection($data);
         $this->license = License::comment();
-
-        /* Delete Use The File In Public Path*/
-        @File::deleteDirectory(public_path("server-data"));
-    }
-
-    /**
-     * Create a new Render instance.
-     *
-     * @param string $view
-     * @param array $data
-     * @return static
-     */
-    public static function view(string $view, array $data = []): static
-    {
-        return new static($view, $data);
+        $this->attach = false;
     }
 
     /**
@@ -102,27 +104,13 @@ class Render extends BaseRender
      * 
      * @return static
      */
-    public function toJS(string $mainName = 'PHP') : static
+    public function toJS(string $mainName = 'PHP2JS') : static
     {
         /* Active Inject JS */
         $this->injectJS = true;
-
-        /* Values To JSON_ENCODE */
-        $dataEncode = json_encode($this->data->toArray());
-        $dataUrl = json_encode(DataPhp2Js::getDataUrl());
-        $dataCSRF = json_encode(DataPhp2Js::getDataCSRF());
-        $license = $this->license;
-
-        /* Generate JS Content */
-        $this->script = <<<JS
-
-        {$license}
-
-        const {$mainName} = {
-            vars : {$dataEncode}, url : {$dataUrl}, csrf : {$dataCSRF},
-        }
-        JS;
-
+        $this->alias = $mainName;
+        $this->strictUse = false;
+        $this->varsJS = new Collection(['vars' => $this->data]);
         return $this;
     }
 
@@ -131,107 +119,26 @@ class Render extends BaseRender
      * 
      * @return static
      */
-    public function toAllJS(string $mainName = 'PHP') : static
+    public function toStrictJS(array $vars = [], string $mainName = 'PHP2JS') : static
     {
         /* Active Inject JS */
         $this->injectJS = true;
-
-        /* Values To JSON_ENCODE */
-        $dataEncode = json_encode($this->data->toArray());
-        $dataUrl = json_encode(DataPhp2Js::getDataUrl());
-        $dataCSRF = json_encode(DataPhp2Js::getDataCSRF());
-        $dataPHP = json_encode(DataPhp2Js::getDataPHP());
-        $dataLaravel = json_encode(DataPhp2Js::getDataLaravel(), JSON_PRETTY_PRINT);
-        $dataUser = json_encode(DataPhp2Js::getDataUser());
-        $dataAgent = json_encode(DataPhp2Js::getDataAgent());
-        $license = $this->license;
-
-        /* Generate JS Content */
-        $this->script = <<<JS
-
-        {$license}
-
-        const {$mainName} = {
-            vars : {$dataEncode}, url : {$dataUrl}, csrf : {$dataCSRF}, php : {$dataPHP}, laravel : {$dataLaravel}, user : {$dataUser}, agent : {$dataAgent}
-        }
-        JS;
-
+        $this->alias = $mainName;
+        $this->strictUse = true;
+        $this->varsJS = !empty($vars) ? new Collection(['vars' => $vars]) : new Collection(['vars' => $this->data]);
         return $this;
     }
 
     /**
-     * @param string $mainName
-     * 
+     * @param mixed ...$parametros
      * @return static
      */
-    public function toStrictJS(string $mainName = 'PHP') : static
-    {
-        /* Active Inject JS */
-        $this->injectJS = true;
-
-        /* Values To JSON_ENCODE */
-        $dataEncode = json_encode($this->data->toArray());
-        $license = $this->license;
-
-        /* Generate JS Content */
-        $this->script = <<<JS
-
-        {$license}
-
-        const {$mainName} = {
-            vars : {$dataEncode}
+    public function attach(...$parametros){
+        if ($this->injectJS) {
+            $this->attach = $parametros;
+            return $this;
         }
-
-        JS;
-
-        return $this;
-    }
-
-    /**
-     * @param string $mainName
-     * 
-     * @return static
-     */
-    public function toJSWith(array $groupsData = [], string $mainName = 'PHP') : static
-    {
-        /* Active Inject JS */
-        $this->injectJS = true;
-
-        /* Grupos De Datos */
-        $groupsData = array_map('strtolower', $groupsData);
-
-        /* Values To JSON_ENCODE */
-        $dataEncode = json_encode($this->data->toArray());
-        if (empty($groupsData)) {
-            $dataUrl = json_encode(DataPhp2Js::getDataUrl());
-            $dataCSRF = json_encode(DataPhp2Js::getDataCSRF());
-            $dataPHP = json_encode(DataPhp2Js::getDataPHP());
-            $dataLaravel = json_encode(DataPhp2Js::getDataLaravel(), JSON_PRETTY_PRINT);
-            $dataUser = json_encode(DataPhp2Js::getDataUser());
-            $dataAgent = json_encode(DataPhp2Js::getDataAgent());
-        } else {
-            $dataUrl = (in_array('url', $groupsData)) ? json_encode(DataPhp2Js::getDataUrl()) : json_encode(null);
-            $dataCSRF = (in_array('csrf', $groupsData)) ? json_encode(DataPhp2Js::getDataCSRF()) : json_encode(null);
-            $dataPHP = (in_array('php', $groupsData)) ? json_encode(DataPhp2Js::getDataPHP()) : json_encode(null);
-            $dataLaravel = (in_array('laravel', $groupsData)) ? json_encode(DataPhp2Js::getDataLaravel(), JSON_PRETTY_PRINT) : json_encode(null);
-            $dataUser = (in_array('user', $groupsData)) ? json_encode(DataPhp2Js::getDataUser()) : json_encode(null);
-            $dataAgent = (in_array('user', $groupsData)) ? json_encode(DataPhp2Js::getDataAgent()) : json_encode(null);
-        }
-        $license = $this->license;
-        
-        /* Generate JS Content */
-        $this->script = <<<JS
-        
-        {$license}
-
-        const {$mainName} = {
-            vars : {$dataEncode}, url : {$dataUrl}, csrf : {$dataCSRF}, php : {$dataPHP}, laravel : {$dataLaravel}, user : {$dataUser}, agent : {$dataAgent}
-        }
-        for (let clave in {$mainName}) { if ({$mainName}[clave] === null) delete {$mainName}[clave]; }
-
-        JS;
-
-        return $this;
+        throw new \Exception("PHP2JS\Render exception, you cannot bind additional data blocks without using the 'toJS()' or 'toStrictJS()' methods before.");
     }
 
     /**
@@ -249,16 +156,25 @@ class Render extends BaseRender
             $view = view($this->view)->with($this->data->toArray());
             $html = $view->render();
 
-            /* X2JS_MAIN */
-            $_X2JS_MAIN = $this->script;
+            if (!empty($this->attach)) {
+                if (in_array('agent', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataAgent());
+                if (in_array('url', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataUrl());
+                if (in_array('csrf', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataCSRF());
+                if (in_array('framework', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataLaravel());
+                if (in_array('php', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataPHP());
+                if (in_array('user', $this->attach)) $this->varsJS = $this->varsJS->merge(DataPhp2Js::getDataUser());
+            }
 
-            /*  _X2JS_DOM */
-            $_X2JS_DOM = 'setTimeout(() => {
-                document.getElementById("_X2JS_MAIN").remove();
-                document.getElementById("_X2JS_DOM").remove();
-            }, 500);';
+            $uniqueID = strtoupper(bin2hex(random_bytes(16)));
+            $jsonEncode = json_encode($this->varsJS);
+            
+            $script  =  '<script id="'.$uniqueID.'">
+                            '.$this->license.'
+                            const '.$this->alias.' = '.$jsonEncode.'
+                            document.getElementById("'.$uniqueID.'").remove();
+                        </script>';
 
-            $script = '<script id="_X2JS_MAIN">'.$_X2JS_MAIN.'</script><script id="_X2JS_DOM">'.$_X2JS_DOM.'</script>';
+            /* Inject JS */
             $posicionCierreHead = strpos($html, '</head>');
             $posicionCierreBody = strpos($html, '</body>');
 
@@ -273,6 +189,7 @@ class Render extends BaseRender
             return response($htmlOut);
         }
     }
+
 }
 
 

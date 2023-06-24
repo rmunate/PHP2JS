@@ -48,13 +48,7 @@ class License
         $version = DataPhp2Js::VERSION;
 
         return <<<EOT
-        /*
-        Library: PHP2JS
-        Author: Raul Mauricio Uñate Castro
-        Version: {$version}
-        License: MIT
-        URL: https://github.com/rmunate/PHP2JS
-        */
+        /* Library: PHP2JS | Author: Raul Mauricio Uñate Castro | Version: {$version} | License: MIT | URL: https://github.com/rmunate/PHP2JS */
         EOT;
         
     }

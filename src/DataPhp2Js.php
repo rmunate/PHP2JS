@@ -59,12 +59,14 @@ class DataPhp2Js
     {
         $data = new AgentPhp2Js();
         return [
-            "identifier" => $data->getAgent(),
-            "remote_ip" => $data->getIpAddress(),
-            "remote_port" => $data->getRemotePort(),
-            "browser" => $data->getDataBrowser(),
-            "isMobile" => $data->isMobileDevice(),
-            "OS" => $data->getDataClienteSO(),
+            'agent' => [
+                "identifier" => $data->getAgent(),
+                "remote_ip" => $data->getIpAddress(),
+                "remote_port" => $data->getRemotePort(),
+                "browser" => $data->getDataBrowser(),
+                "isMobile" => $data->isMobileDevice(),
+                "OS" => $data->getDataClienteSO(),
+            ],
         ];
     }
 
@@ -76,15 +78,17 @@ class DataPhp2Js
     {
         $data = new UrlPhp2Js();
         return [
-            "baseUrl" => $data->getBaseUrl(),
-            "fullUrl" => $data->getFullUrl(),
-            "uri" => $data->getUri(),
-            "parameters" => [
-                "route" => $data->getParametersRoute(),
-                "get" => $data->getParametersGet(),
-                "post" => $data->getParametersPost(),
-            ],
-            "scheme" => $data->getSchema()
+            'url' => [
+                "baseUrl" => $data->getBaseUrl(),
+                "fullUrl" => $data->getFullUrl(),
+                "uri" => $data->getUri(),
+                "parameters" => [
+                    "route" => $data->getParametersRoute(),
+                    "get" => $data->getParametersGet(),
+                    "post" => $data->getParametersPost(),
+                ],
+                "scheme" => $data->getSchema()
+            ]
         ];
     }
 
@@ -108,10 +112,12 @@ class DataPhp2Js
     {
         $data = new LaravelPhp2Js();
         return [
-            "version" => $data->getLaravelVersion(),
-            "environment" => [
-                "name" => $data->getEnvName(),
-                "debug" => $data->getEnvDebug() == true,
+            'framework' => [
+                "version" => $data->getLaravelVersion(),
+                "environment" => [
+                    "name" => $data->getEnvName(),
+                    "debug" => $data->getEnvDebug() == true,
+                ]
             ]
         ];
     }
@@ -124,9 +130,11 @@ class DataPhp2Js
     {
         $data = new ServerPhp2Js();
         return [
-            "id" => $data->getPhpVersionId(),
-            "version" => $data->getPhpVersion(),
-            "release" => $data->getPhpReleaseVersion(),
+            'php' => [
+                "id" => $data->getPhpVersionId(),
+                "version" => $data->getPhpVersion(),
+                "release" => $data->getPhpReleaseVersion(),
+            ]
         ];
     }
 
@@ -137,7 +145,9 @@ class DataPhp2Js
     public static function getDataUser()
     {
         $data = new UserPhp2Js();
-        return $data->getDataUser();
+        return [
+            'user' => $data->getDataUser()
+        ];
     }
     
 }
