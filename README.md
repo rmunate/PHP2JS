@@ -211,6 +211,8 @@ ALIAS.vars.variables;
 }
 ```
 
+> **Important!** _Remember that the library always returns the same variable, so you should avoid having issues trying to redefine the same value when using the directives from multiple places._
+
 ## Creator
 - 🇨🇴 Raúl Mauricio Uñate Castro. (raulmauriciounate@gmail.com)
 
@@ -223,7 +225,6 @@ ALIAS.vars.variables;
 - 🇲🇽 Julio C. Borges (julio-borgeslopez@outlook.com)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-```
 
 This structure represents the complete object that is shared with JavaScript. It contains various sections such as variables, URL information, token, PHP and Laravel details, user session data, and agent information. You can access this object using the assigned alias or the default constant `PHP2JS`.
 

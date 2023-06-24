@@ -164,6 +164,9 @@ ALIAS.vars.variables;
 
 ```
 
+> **¡Importante!** _Recuerda que la librería siempre retorna la misma variable así que debes evitar tener inconvenientes tratando de redefinir el mismo valor al instancias desde varios lugares las directivas.  ._
+
+
 ## Estructura Del Objeto Completo
 
 ```javascript
