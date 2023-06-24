@@ -166,7 +166,7 @@ ALIAS.vars.variables;
 
 ```
 
-> **Important!** _Remember that the library always returns the same variable, so you should avoid having issues trying to redefine the same value when using the directives from multiple places._
+> **Important!** _Remember that the library always returns the same variable `PHP2JS`, so you should avoid having issues trying to redefine the same value when instantiating the directives from multiple places. Due to this, we recommend always using an `ALIAS` to avoid conflicts._
 
 ## Structure of the Complete Object
 
