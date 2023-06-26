@@ -49,7 +49,8 @@ class UrlPhp2Js
      * Contructor Class
      * Routes
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->facadeRouteCurrent = Route::current();
         $this->serverHTTPx = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
         $this->serverHost = $_SERVER['HTTP_HOST'];
@@ -60,10 +61,10 @@ class UrlPhp2Js
      * @param string $path
      * @param array $parameters
      * @param null $secure
-     * 
+     *
      * @return string
      */
-    public function getBaseUrl() : string
+    public function getBaseUrl(): string
     {
         return $this->serverHTTPx . $this->serverHost;
     }
@@ -72,7 +73,7 @@ class UrlPhp2Js
      * return full uri current
      * @return string
      */
-    public function getFullUrl() : string
+    public function getFullUrl(): string
     {
         return $this->serverHTTPx . $this->serverHost . $this->serverUri;
     }
@@ -82,7 +83,7 @@ class UrlPhp2Js
      * Use Facade Laravel
      * @return string
      */
-    public function getUri() : string
+    public function getUri(): string
     {
         return $this->facadeRouteCurrent->uri;
     }
@@ -92,7 +93,7 @@ class UrlPhp2Js
      * Use Facade Laravel
      * @return string
      */
-    public function getParametersRoute() :array
+    public function getParametersRoute(): array
     {
         return $this->facadeRouteCurrent->parameters;
     }
@@ -101,7 +102,7 @@ class UrlPhp2Js
      * Return Parameter POST
      * @return string
      */
-    public function getParametersPost() : array
+    public function getParametersPost(): array
     {
         return $_POST ?? [];
     }
@@ -110,7 +111,7 @@ class UrlPhp2Js
      * Return Parameter GET
      * @return string
      */
-    public function getParametersGet() : array
+    public function getParametersGet(): array
     {
         return $_GET ?? [];
     }
@@ -119,11 +120,9 @@ class UrlPhp2Js
      * Return schema in use
      * @return string
      */
-    public function getSchema() : string 
+    public function getSchema(): string
     {
         return strtoupper(str_replace('://', '', $this->serverHTTPx));
     }
 
 }
-
-?>

@@ -20,7 +20,6 @@ All imports you use with the following syntax `<script src="{{ asset('..........
 - Know the IP from which the application is accessed.
 - This is a very brief description of the features provided by this library.
 
-
 ## _Installation_
 
 ```console

@@ -34,12 +34,12 @@
 
 namespace Rmunate\Php2Js;
 
-use Rmunate\Php2Js\JS;
-use Rmunate\Php2Js\License;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Rmunate\Php2Js\JS;
 
-class PHP2JSServiceProvider extends ServiceProvider {
+class PHP2JSServiceProvider extends ServiceProvider
+{
 
     /**
      * Register any application services.
@@ -68,7 +68,6 @@ class PHP2JSServiceProvider extends ServiceProvider {
         Blade::directive('PHP2JS_AGENT', function ($expression) {
             return JS::script('getDataAgent')->alias($expression)->generate();
         });
-
 
         /**
          * 🚀 PHP2JS_URL
@@ -138,25 +137,25 @@ class PHP2JSServiceProvider extends ServiceProvider {
 
                 /* Validar Variables a Retornar */
                 if (strpos($params, '[]') !== false) {
-    
+
                     /* Optener el Alias */
-                    $alias = str_replace("[],","",$expression);
+                    $alias = str_replace("[],", "", $expression);
                     /* Retornar todas las variables */
                     return JS::script('vars')->alias($alias)->generate();
-                    
+
                 } else if ((strpos($params, '[') !== false) && (strpos($params, ']') !== false)) {
 
                     $posicionInicio = strpos($expression, "[");
                     $posicionFin = strpos($expression, "]");
 
                     $compact = substr($expression, $posicionInicio, $posicionFin + 1);
-                    $alias = substr($expression,$posicionFin + 2);
+                    $alias = substr($expression, $posicionFin + 2);
 
                     return JS::compact($compact)->alias($alias)->generate();
                 }
             }
 
-            throw new \Exception("Directive exception '@PHP2JS_VARS_STRICT()', it is required to define the variables to share with JavaScript ['variable1','variable2',...], in case you do not want to specify which variables to share you can choose to use the directive '@PHP2JS_VARS()' manual 'https://github.com/rmunate/PHP2JS'");
+            throw new \Exception ("Directive exception '@PHP2JS_VARS_STRICT()', it is required to define the variables to share with JavaScript ['variable1','variable2',...], in case you do not want to specify which variables to share you can choose to use the directive '@PHP2JS_VARS()' manual 'https://github.com/rmunate/PHP2JS'");
 
         });
 
@@ -166,15 +165,15 @@ class PHP2JSServiceProvider extends ServiceProvider {
         #-------------------------------------------------------------------#
 
         Blade::directive('toJS', function ($expression) {
-            throw new \Exception("The 'toJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard 'https://github.com/rmunate/PHP2JS'");
+            throw new \Exception ("The 'toJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard 'https://github.com/rmunate/PHP2JS'");
         });
 
         Blade::directive('toAllJS', function ($expression) {
-            throw new \Exception("The 'toAllJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard 'https://github.com/rmunate/PHP2JS'");
+            throw new \Exception ("The 'toAllJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard 'https://github.com/rmunate/PHP2JS'");
         });
 
         Blade::directive('toStrictJS', function ($expression) {
-            throw new \Exception("The 'toStrictJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard 'https://github.com/rmunate/PHP2JS'");
+            throw new \Exception ("The 'toStrictJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard 'https://github.com/rmunate/PHP2JS'");
         });
 
         #-------------------------------------------------------------------#
@@ -183,7 +182,7 @@ class PHP2JSServiceProvider extends ServiceProvider {
         #-------------------------------------------------------------------#
 
         Blade::directive('__PHP', function ($expression) {
-            throw new \Exception("The '__PHP' directive is not available in this version of the library, its use is available on version ^2.6, you can choose to downgrade to version 'rmunate/php2js: ^2.6' in 'composer.json' and then run 'composer update', or replace it with the directives of the current version 'https://github.com/rmunate/PHP2JS'");
+            throw new \Exception ("The '__PHP' directive is not available in this version of the library, its use is available on version ^2.6, you can choose to downgrade to version 'rmunate/php2js: ^2.6' in 'composer.json' and then run 'composer update', or replace it with the directives of the current version 'https://github.com/rmunate/PHP2JS'");
         });
 
     }

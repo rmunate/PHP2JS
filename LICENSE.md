@@ -1,28 +1,24 @@
+MIT License
+
 Copyright (c) [2023] [RAUL MAURICIO UÑATE CASTRO]
 
-Esta biblioteca es un software de código abierto disponible bajo la licencia MIT.
-Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia de esta biblioteca y los archivos de
-documentación asociados (el "Software"), para utilizar la biblioteca sin restricciones, incluyendo, entre otras, las
-siguientes acciones:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this library and associated documentation
+files (the "Software"), to deal in the library without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the library, and to permit persons to whom the
+library is furnished to do so, subject to the following conditions:
 
-- Utilizar la biblioteca con fines comerciales o no comerciales.
-- Modificar la biblioteca y adaptarla a sus propias necesidadeess.
-- Distribuir copias de la biblioteca.
-- Sublicenciar la biblioteca.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+library.
 
-Al utilizar o distribuir esta biblioteca, se requiere que se incluya la siguiente atribución en todas las copias o
-partes sustanciales de la misma:
+"[RAUL MAURICIO UÑATE CASTRO], the copyright holder of this library, must be acknowledged and mentioned in all copies or
+derivative works of the library."
 
-"[RAUL MAURICIO UÑATE CASTRO], titular de los derechos de autor de esta biblioteca, debe ser
-reconocido y mencionado en todas las copias o derivados de la biblioteca."
+Additionally, if modifications are made to the library, an additional notice should be included in the documentation or
+other notification means of the changes made, stating:
 
-Además, si se realizan modificaciones en la biblioteca, se solicita que se incluya una nota adicional en la
-documentación o en cualquier otro medio de notificación de los cambios realizados, que indique:
+"This library has been modified from the original library developed by [RAUL MAURICIO UÑATE CASTRO]."
 
-"Esta biblioteca se ha modificado a partir de la biblioteca original desarrollada por [RAUL MAURICIO UÑATE CASTRO]."
-
-LA BIBLIOTECA SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUYENDO PERO NO
-LIMITADO A GARANTÍAS DE COMERCIALIZACIÓN, ADECUACIÓN PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO
-LOS AUTORES O TITULARES DE LOS DERECHOS DE AUTOR SERÁN RESPONSABLES DE NINGUNA RECLAMACIÓN, DAÑO O OTRA
-RESPONSABILIDAD, YA SEA EN UNA ACCIÓN DE CONTRATO, AGRAVIO O CUALQUIER OTRO MOTIVO, QUE SURJA DE, O EN RELACIÓN CON
-LA BIBLIOTECA O EL USO U OTROS TRATOS EN LA BIBLIOTECA.
+THE LIBRARY IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE LIBRARY OR THE USE OR OTHER DEALINGS IN THE LIBRARY.

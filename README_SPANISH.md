@@ -166,7 +166,6 @@ ALIAS.vars.variables;
 
 > **¡Importante!** _Recuerda que la librería siempre retorna la misma variable `PHP2JS` así que debes evitar tener inconvenientes tratando de redefinir el mismo valor al instanciaR desde varios lugares las directivas, debido a esto recomendamos siempre emplear un `Alias`.   ._
 
-
 ## Estructura Del Objeto Completo
 
 ```javascript

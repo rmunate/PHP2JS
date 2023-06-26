@@ -34,9 +34,9 @@
 
 namespace Rmunate\Php2Js;
 
-use Rmunate\Php2Js\License;
-use Rmunate\Php2Js\DataPhp2Js;
 use Rmunate\Php2Js\BasePhp2Js as BaseRender;
+use Rmunate\Php2Js\DataPhp2Js;
+use Rmunate\Php2Js\License;
 
 class Render extends BaseRender
 {
@@ -99,10 +99,10 @@ class Render extends BaseRender
 
     /**
      * @param string $mainName
-     * 
+     *
      * @return static
      */
-    public function toJS(string $mainName = 'PHP2JS') : static
+    public function toJS(string $mainName = 'PHP2JS'): static
     {
         /* Active Inject JS */
         $this->injectJS = true;
@@ -114,10 +114,10 @@ class Render extends BaseRender
 
     /**
      * @param string $mainName
-     * 
+     *
      * @return static
      */
-    public function toStrictJS(array $vars = [], string $mainName = 'PHP2JS') : static
+    public function toStrictJS(array $vars = [], string $mainName = 'PHP2JS'): static
     {
         /* Active Inject JS */
         $this->injectJS = true;
@@ -131,12 +131,13 @@ class Render extends BaseRender
      * @param mixed ...$parametros
      * @return static
      */
-    public function attach(...$parametros){
+    public function attach(...$parametros)
+    {
         if ($this->injectJS) {
             $this->attach = $parametros;
             return $this;
         }
-        throw new \Exception("PHP2JS\Render exception, you cannot bind additional data blocks without using the 'toJS()' or 'toStrictJS()' methods before.");
+        throw new \Exception ("PHP2JS\Render exception, you cannot bind additional data blocks without using the 'toJS()' or 'toStrictJS()' methods before.");
     }
 
     /**
@@ -155,21 +156,38 @@ class Render extends BaseRender
             $html = $view->render();
 
             if (!empty($this->attach)) {
-                if (in_array('agent', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataAgent()); 
-                if (in_array('url', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataUrl()); 
-                if (in_array('csrf', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataCSRF()); 
-                if (in_array('framework', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataLaravel()); 
-                if (in_array('php', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataPHP()); 
-                if (in_array('user', $this->attach)) $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataUser()); 
+                if (in_array('agent', $this->attach)) {
+                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataAgent());
+                }
+
+                if (in_array('url', $this->attach)) {
+                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataUrl());
+                }
+
+                if (in_array('csrf', $this->attach)) {
+                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataCSRF());
+                }
+
+                if (in_array('framework', $this->attach)) {
+                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataLaravel());
+                }
+
+                if (in_array('php', $this->attach)) {
+                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataPHP());
+                }
+
+                if (in_array('user', $this->attach)) {
+                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataUser());
+                }
             }
 
             $uniqueID = strtoupper(bin2hex(random_bytes(16)));
-            $jsonEncode = json_encode($this->varsJS,JSON_UNESCAPED_UNICODE);
-            
-            $script  =  '<script id="'.$uniqueID.'">
-                            '.$this->license.'
-                            const '.$this->alias.' = '.$jsonEncode.'
-                            document.getElementById("'.$uniqueID.'").remove();
+            $jsonEncode = json_encode($this->varsJS, JSON_UNESCAPED_UNICODE);
+
+            $script = '<script id="' . $uniqueID . '">
+                            ' . $this->license . '
+                            const ' . $this->alias . ' = ' . $jsonEncode . '
+                            document.getElementById("' . $uniqueID . '").remove();
                         </script>';
 
             /* Inject JS */
@@ -189,6 +207,3 @@ class Render extends BaseRender
     }
 
 }
-
-
-?>

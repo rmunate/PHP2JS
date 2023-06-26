@@ -44,7 +44,8 @@ class AgentPhp2Js
     /**
      * Constructor Class
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->agent = $_SERVER['HTTP_USER_AGENT'];
     }
 
@@ -52,18 +53,27 @@ class AgentPhp2Js
      * Validata if is mobile the agent
      * @return bool
      */
-    public function isMobileDevice() : bool
+    public function isMobileDevice(): bool
     {
         $mobileKeywords = [
-            'Mobile','Android','iPhone','iPad','iPod','Windows Phone','BlackBerry','webOS','Opera Mini','IEMobile'
+            'Mobile',
+            'Android',
+            'iPhone',
+            'iPad',
+            'iPod',
+            'Windows Phone',
+            'BlackBerry',
+            'webOS',
+            'Opera Mini',
+            'IEMobile',
         ];
-    
+
         foreach ($mobileKeywords as $keyword) {
             if (stripos($this->agent, $keyword) !== false) {
                 return true;
             }
         }
-    
+
         return false;
     }
 
@@ -71,16 +81,16 @@ class AgentPhp2Js
      * Return Name Current OS
      * @return string
      */
-    public function getDataClienteSO() : string
+    public function getDataClienteSO(): string
     {
         $operatingSystems = array(
             '/\bWindows\b/i' => 'Windows',
             '/\bMacintosh\b|Mac(?!.+OS X)/i' => 'Mac',
             '/\bLinux\b/i' => 'Linux',
             '/\bAndroid\b/i' => 'Android',
-            '/\biPhone\b|\biPad\b|\biPod\b/i' => 'iOS'
+            '/\biPhone\b|\biPad\b|\biPod\b/i' => 'iOS',
         );
-        
+
         $so = 'Unknown';
         foreach ($operatingSystems as $pattern => $os) {
             if (preg_match($pattern, $this->agent)) {
@@ -96,13 +106,13 @@ class AgentPhp2Js
      * Return Data Browser
      * @return array
      */
-    public function getDataBrowser() : array 
+    public function getDataBrowser(): array
     {
         $u_agent = $this->agent;
         $bname = 'No Identificado';
         $platform = 'No Identificado';
         $version = 'No Identificado';
-    
+
         // Plataforma
         if (preg_match('/linux/i', $u_agent)) {
             $platform = 'Linux';
@@ -111,7 +121,7 @@ class AgentPhp2Js
         } elseif (preg_match('/windows|win32/i', $u_agent)) {
             $platform = 'Windows';
         }
-    
+
         // Navegador
         if (preg_match('/MSIE/i', $u_agent) && !preg_match('/Opera/i', $u_agent)) {
             $bname = 'Internet Explorer';
@@ -132,7 +142,7 @@ class AgentPhp2Js
             $bname = 'Netscape';
             $ub = "Netscape";
         }
-    
+
         // Número de Versión
         $known = array('Version', $ub, 'other');
         $pattern = '#(?<browser>' . join('|', $known) . ')[/ ]+(?<version>[0-9.|a-zA-Z.]*)#';
@@ -142,31 +152,31 @@ class AgentPhp2Js
                 $version = $matches['version'][$i - 1];
             }
         }
-    
+
         // Comprobar si tenemos una versión válida
         if ($version == null || $version == '') {
             $version = 'Desconocida';
         }
-    
+
         // Validar si es Edge
         if (str_contains($this->agent, 'Edg/')) {
             $bname = 'Microsoft Edge';
         }
-    
+
         $response = [
             'name' => $bname,
             'version' => $version,
-            'platform' => $platform
+            'platform' => $platform,
         ];
-    
+
         return $response;
     }
-    
+
     /**
      * Return Remote IP
      * @return string
      */
-    public function getIpAddress() : string 
+    public function getIpAddress(): string
     {
         return isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
     }
@@ -175,20 +185,17 @@ class AgentPhp2Js
      * Return Remote Port
      * @return string
      */
-    public function getRemotePort() : string 
+    public function getRemotePort(): string
     {
         return isset($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : null;
     }
-    
+
     /**
      * Return Remote Agent
      * @return string
      */
-    public function getAgent() : string
+    public function getAgent(): string
     {
         return $this->agent;
     }
-    
 }
-
-?>

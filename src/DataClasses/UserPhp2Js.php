@@ -36,7 +36,7 @@ namespace Rmunate\Php2Js\DataClasses;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
-class UserPhp2Js 
+class UserPhp2Js
 {
 
     /**
@@ -56,7 +56,7 @@ class UserPhp2Js
                 'created_at',
                 'updated_at',
                 'email_verified_at',
-                'password'
+                'password',
             ])->toArray();
             $this->user['id'] = Crypt::encrypt($userArray['id']);
         }
@@ -71,5 +71,3 @@ class UserPhp2Js
         return $this->user;
     }
 }
-
-?>

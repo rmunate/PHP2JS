@@ -33,12 +33,12 @@
 
 namespace Rmunate\Php2Js;
 
+use Rmunate\Php2Js\DataClasses\AgentPhp2Js;
+use Rmunate\Php2Js\DataClasses\LaravelPhp2Js;
+use Rmunate\Php2Js\DataClasses\ServerPhp2Js;
+use Rmunate\Php2Js\DataClasses\TokenPhp2Js;
 use Rmunate\Php2Js\DataClasses\UrlPhp2Js;
 use Rmunate\Php2Js\DataClasses\UserPhp2Js;
-use Rmunate\Php2Js\DataClasses\AgentPhp2Js;
-use Rmunate\Php2Js\DataClasses\TokenPhp2Js;
-use Rmunate\Php2Js\DataClasses\ServerPhp2Js;
-use Rmunate\Php2Js\DataClasses\LaravelPhp2Js;
 
 /**
  * Methods Get Data In Array Asociative
@@ -55,7 +55,7 @@ class DataPhp2Js
      * Return Data agent
      * @return Array
      */
-    public static function getDataAgent() : array
+    public static function getDataAgent(): array
     {
         $data = new AgentPhp2Js();
         return [
@@ -87,8 +87,8 @@ class DataPhp2Js
                     "get" => $data->getParametersGet(),
                     "post" => $data->getParametersPost(),
                 ],
-                "scheme" => $data->getSchema()
-            ]
+                "scheme" => $data->getSchema(),
+            ],
         ];
     }
 
@@ -96,7 +96,7 @@ class DataPhp2Js
      * Return Token CSRF Laravel
      * @return array
      */
-    public static function getDataCSRF() : array
+    public static function getDataCSRF(): array
     {
         $data = new TokenPhp2Js();
         return [
@@ -108,7 +108,7 @@ class DataPhp2Js
      * Return Data Laravel
      * @return array
      */
-    public static function getDataLaravel() : array
+    public static function getDataLaravel(): array
     {
         $data = new LaravelPhp2Js();
         return [
@@ -117,8 +117,8 @@ class DataPhp2Js
                 "environment" => [
                     "name" => $data->getEnvName(),
                     "debug" => $data->getEnvDebug() == true,
-                ]
-            ]
+                ],
+            ],
         ];
     }
 
@@ -126,7 +126,7 @@ class DataPhp2Js
      * Return Data PHP
      * @return array
      */
-    public static function getDataPHP() : array
+    public static function getDataPHP(): array
     {
         $data = new ServerPhp2Js();
         return [
@@ -134,7 +134,7 @@ class DataPhp2Js
                 "id" => $data->getPhpVersionId(),
                 "version" => $data->getPhpVersion(),
                 "release" => $data->getPhpReleaseVersion(),
-            ]
+            ],
         ];
     }
 
@@ -146,10 +146,7 @@ class DataPhp2Js
     {
         $data = new UserPhp2Js();
         return [
-            'user' => $data->getDataUser()
+            'user' => $data->getDataUser(),
         ];
     }
-    
 }
-
-?>

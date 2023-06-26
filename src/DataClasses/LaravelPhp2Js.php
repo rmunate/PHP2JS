@@ -42,7 +42,7 @@ class LaravelPhp2Js
      * Return current Version Laravel
      * @return string
      */
-    public function getLaravelVersion() : string
+    public function getLaravelVersion(): string
     {
         return Application::VERSION;
     }
@@ -51,7 +51,7 @@ class LaravelPhp2Js
      * Return Name Software
      * @return string
      */
-    public function getEnvName() : string
+    public function getEnvName(): string
     {
         return env("APP_NAME");
     }
@@ -60,11 +60,8 @@ class LaravelPhp2Js
      * Return Status Debugger Server
      * @return string
      */
-    public function getEnvDebug() : string
+    public function getEnvDebug(): string
     {
         return env("APP_DEBUG");
     }
-
 }
-
-?>
