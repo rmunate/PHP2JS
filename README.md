@@ -1,5 +1,7 @@
 # PHP2JS (LARAVEL PHP Framework) v3.x
 
+[**---- Documentación En Español ----**](README_SPANISH.md)
+
 ![logo](https://user-images.githubusercontent.com/91748598/236917119-68ae265f-56b4-433e-a0f4-4379c2e93e99.png)
 
 ## A new and secure way to share variables between Blade views and JavaScript files.
