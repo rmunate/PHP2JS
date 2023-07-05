@@ -35,9 +35,9 @@ namespace Rmunate\Php2Js\DataClasses;
 
 class ServerPhp2Js
 {
-
     /**
-     * Return ID Current Version PHP
+     * Return ID Current Version PHP.
+     *
      * @return string
      */
     public function getPhpVersionId(): string
@@ -46,7 +46,8 @@ class ServerPhp2Js
     }
 
     /**
-     * Current Version PHP
+     * Current Version PHP.
+     *
      * @return string
      */
     public function getPhpVersion(): string
@@ -55,12 +56,12 @@ class ServerPhp2Js
     }
 
     /**
-     * Return Release Current Version PHP
+     * Return Release Current Version PHP.
+     *
      * @return string
      */
     public function getPhpReleaseVersion(): string
     {
         return PHP_RELEASE_VERSION;
     }
-
 }

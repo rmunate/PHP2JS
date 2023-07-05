@@ -35,14 +35,12 @@
 namespace Rmunate\Php2Js;
 
 use Rmunate\Php2Js\BasePhp2Js as BaseRender;
-use Rmunate\Php2Js\DataPhp2Js;
-use Rmunate\Php2Js\License;
 
 class Render extends BaseRender
 {
     /**
      * Propierties Object
-     * Set From Contrcutor
+     * Set From Contrcutor.
      */
     private $view;
     private $data;
@@ -50,7 +48,7 @@ class Render extends BaseRender
     private $attach;
 
     /**
-     * Determinate Inject JS
+     * Determinate Inject JS.
      */
     private $injectJS = false;
     private $alias;
@@ -62,7 +60,8 @@ class Render extends BaseRender
      * Create a new Render instance.
      *
      * @param string $view
-     * @param array $data
+     * @param array  $data
+     *
      * @return static
      */
     public static function view(string $view, array $data = []): static
@@ -71,10 +70,10 @@ class Render extends BaseRender
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param string $view
-     * @param array $data
+     * @param array  $data
      */
     public function __construct(string $view, array $data = [])
     {
@@ -89,11 +88,13 @@ class Render extends BaseRender
      * Add data to the Render instance.
      *
      * @param array $data
+     *
      * @return static
      */
     public function with(array $data): static
     {
         $this->data = array_merge($this->data, $data);
+
         return $this;
     }
 
@@ -109,6 +110,7 @@ class Render extends BaseRender
         $this->alias = $mainName;
         $this->strictUse = false;
         $this->varsJS = ['vars' => $this->data];
+
         return $this;
     }
 
@@ -124,34 +126,36 @@ class Render extends BaseRender
         $this->alias = $mainName;
         $this->strictUse = true;
         $this->varsJS = !empty($vars) ? ['vars' => $vars] : ['vars' => $this->data];
+
         return $this;
     }
 
     /**
      * @param mixed ...$parametros
+     *
      * @return static
      */
     public function attach(...$parametros)
     {
         if ($this->injectJS) {
             $this->attach = $parametros;
+
             return $this;
         }
-        throw new \Exception ("PHP2JS\Render exception, you cannot bind additional data blocks without using the 'toJS()' or 'toStrictJS()' methods before.");
+
+        throw new \Exception("PHP2JS\Render exception, you cannot bind additional data blocks without using the 'toJS()' or 'toStrictJS()' methods before.");
     }
 
     /**
-     * Return the View
+     * Return the View.
+     *
      * @return View
      */
     public function compose()
     {
         if (!$this->injectJS) {
-
             return view($this->view)->with($this->data);
-
         } else {
-
             $view = view($this->view)->with($this->data);
             $html = $view->render();
 
@@ -184,10 +188,10 @@ class Render extends BaseRender
             $uniqueID = strtoupper(bin2hex(random_bytes(16)));
             $jsonEncode = json_encode($this->varsJS, JSON_UNESCAPED_UNICODE);
 
-            $script = '<script id="' . $uniqueID . '">
-                            ' . $this->license . '
-                            const ' . $this->alias . ' = ' . $jsonEncode . '
-                            document.getElementById("' . $uniqueID . '").remove();
+            $script = '<script id="'.$uniqueID.'">
+                            '.$this->license.'
+                            const '.$this->alias.' = '.$jsonEncode.'
+                            document.getElementById("'.$uniqueID.'").remove();
                         </script>';
 
             /* Inject JS */
@@ -195,15 +199,14 @@ class Render extends BaseRender
             $posicionCierreBody = strpos($html, '</body>');
 
             if ($posicionCierreHead !== false) {
-                $htmlOut = substr($html, 0, $posicionCierreHead) . $script . PHP_EOL . substr($html, $posicionCierreHead);
+                $htmlOut = substr($html, 0, $posicionCierreHead).$script.PHP_EOL.substr($html, $posicionCierreHead);
             } elseif ($posicionCierreBody !== false) {
-                $htmlOut = substr($html, 0, $posicionCierreBody) . $script . PHP_EOL . substr($html, $posicionCierreBody);
+                $htmlOut = substr($html, 0, $posicionCierreBody).$script.PHP_EOL.substr($html, $posicionCierreBody);
             } else {
-                $htmlOut = $script . $html;
+                $htmlOut = $script.$html;
             }
 
             return response($htmlOut);
         }
     }
-
 }

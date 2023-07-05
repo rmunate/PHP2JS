@@ -35,14 +35,13 @@ namespace Rmunate\Php2Js\DataClasses;
 
 class AgentPhp2Js
 {
-
     /**
-     * Propierties Object
+     * Propierties Object.
      */
     private $agent;
 
     /**
-     * Constructor Class
+     * Constructor Class.
      */
     public function __construct()
     {
@@ -50,7 +49,8 @@ class AgentPhp2Js
     }
 
     /**
-     * Validata if is mobile the agent
+     * Validata if is mobile the agent.
+     *
      * @return bool
      */
     public function isMobileDevice(): bool
@@ -78,18 +78,19 @@ class AgentPhp2Js
     }
 
     /**
-     * Return Name Current OS
+     * Return Name Current OS.
+     *
      * @return string
      */
     public function getDataClienteSO(): string
     {
-        $operatingSystems = array(
-            '/\bWindows\b/i' => 'Windows',
-            '/\bMacintosh\b|Mac(?!.+OS X)/i' => 'Mac',
-            '/\bLinux\b/i' => 'Linux',
-            '/\bAndroid\b/i' => 'Android',
+        $operatingSystems = [
+            '/\bWindows\b/i'                  => 'Windows',
+            '/\bMacintosh\b|Mac(?!.+OS X)/i'  => 'Mac',
+            '/\bLinux\b/i'                    => 'Linux',
+            '/\bAndroid\b/i'                  => 'Android',
             '/\biPhone\b|\biPad\b|\biPod\b/i' => 'iOS',
-        );
+        ];
 
         $so = 'Unknown';
         foreach ($operatingSystems as $pattern => $os) {
@@ -103,7 +104,8 @@ class AgentPhp2Js
     }
 
     /**
-     * Return Data Browser
+     * Return Data Browser.
+     *
      * @return array
      */
     public function getDataBrowser(): array
@@ -125,27 +127,27 @@ class AgentPhp2Js
         // Navegador
         if (preg_match('/MSIE/i', $u_agent) && !preg_match('/Opera/i', $u_agent)) {
             $bname = 'Internet Explorer';
-            $ub = "MSIE";
+            $ub = 'MSIE';
         } elseif (preg_match('/Firefox/i', $u_agent)) {
             $bname = 'Mozilla Firefox';
-            $ub = "Firefox";
+            $ub = 'Firefox';
         } elseif (preg_match('/Chrome/i', $u_agent)) {
             $bname = 'Google Chrome';
-            $ub = "Chrome";
+            $ub = 'Chrome';
         } elseif (preg_match('/Safari/i', $u_agent)) {
             $bname = 'Apple Safari';
-            $ub = "Safari";
+            $ub = 'Safari';
         } elseif (preg_match('/Opera/i', $u_agent)) {
             $bname = 'Opera';
-            $ub = "Opera";
+            $ub = 'Opera';
         } elseif (preg_match('/Netscape/i', $u_agent)) {
             $bname = 'Netscape';
-            $ub = "Netscape";
+            $ub = 'Netscape';
         }
 
         // Número de Versión
-        $known = array('Version', $ub, 'other');
-        $pattern = '#(?<browser>' . join('|', $known) . ')[/ ]+(?<version>[0-9.|a-zA-Z.]*)#';
+        $known = ['Version', $ub, 'other'];
+        $pattern = '#(?<browser>'.join('|', $known).')[/ ]+(?<version>[0-9.|a-zA-Z.]*)#';
         if (preg_match_all($pattern, $u_agent, $matches)) {
             $i = count($matches['browser']);
             if ($i > 0) {
@@ -164,8 +166,8 @@ class AgentPhp2Js
         }
 
         $response = [
-            'name' => $bname,
-            'version' => $version,
+            'name'     => $bname,
+            'version'  => $version,
             'platform' => $platform,
         ];
 
@@ -173,7 +175,8 @@ class AgentPhp2Js
     }
 
     /**
-     * Return Remote IP
+     * Return Remote IP.
+     *
      * @return string
      */
     public function getIpAddress(): string
@@ -182,7 +185,8 @@ class AgentPhp2Js
     }
 
     /**
-     * Return Remote Port
+     * Return Remote Port.
+     *
      * @return string
      */
     public function getRemotePort(): string
@@ -191,7 +195,8 @@ class AgentPhp2Js
     }
 
     /**
-     * Return Remote Agent
+     * Return Remote Agent.
+     *
      * @return string
      */
     public function getAgent(): string

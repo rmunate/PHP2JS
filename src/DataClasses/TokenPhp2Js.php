@@ -35,9 +35,9 @@ namespace Rmunate\Php2Js\DataClasses;
 
 class TokenPhp2Js
 {
-
     /**
-     * Return csrf_token Laravel
+     * Return csrf_token Laravel.
+     *
      * @return string
      */
     public function csrfToken(): string

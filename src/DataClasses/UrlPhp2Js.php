@@ -38,7 +38,7 @@ use Illuminate\Support\Facades\Route;
 class UrlPhp2Js
 {
     /**
-     * Propierties Object
+     * Propierties Object.
      */
     private $facadeRouteCurrent;
     private $serverHTTPx;
@@ -47,7 +47,7 @@ class UrlPhp2Js
 
     /**
      * Contructor Class
-     * Routes
+     * Routes.
      */
     public function __construct()
     {
@@ -59,28 +59,30 @@ class UrlPhp2Js
 
     /**
      * @param string $path
-     * @param array $parameters
-     * @param null $secure
+     * @param array  $parameters
+     * @param null   $secure
      *
      * @return string
      */
     public function getBaseUrl(): string
     {
-        return $this->serverHTTPx . $this->serverHost;
+        return $this->serverHTTPx.$this->serverHost;
     }
 
     /**
-     * return full uri current
+     * return full uri current.
+     *
      * @return string
      */
     public function getFullUrl(): string
     {
-        return $this->serverHTTPx . $this->serverHost . $this->serverUri;
+        return $this->serverHTTPx.$this->serverHost.$this->serverUri;
     }
 
     /**
      * Return Current Uri in Use
-     * Use Facade Laravel
+     * Use Facade Laravel.
+     *
      * @return string
      */
     public function getUri(): string
@@ -90,7 +92,8 @@ class UrlPhp2Js
 
     /**
      * Return Parameter Route Laravel
-     * Use Facade Laravel
+     * Use Facade Laravel.
+     *
      * @return string
      */
     public function getParametersRoute(): array
@@ -99,7 +102,8 @@ class UrlPhp2Js
     }
 
     /**
-     * Return Parameter POST
+     * Return Parameter POST.
+     *
      * @return string
      */
     public function getParametersPost(): array
@@ -108,7 +112,8 @@ class UrlPhp2Js
     }
 
     /**
-     * Return Parameter GET
+     * Return Parameter GET.
+     *
      * @return string
      */
     public function getParametersGet(): array
@@ -117,12 +122,12 @@ class UrlPhp2Js
     }
 
     /**
-     * Return schema in use
+     * Return schema in use.
+     *
      * @return string
      */
     public function getSchema(): string
     {
         return strtoupper(str_replace('://', '', $this->serverHTTPx));
     }
-
 }
