@@ -38,14 +38,13 @@ use Illuminate\Support\Facades\Crypt;
 
 class UserPhp2Js
 {
-
     /**
-     * Propierties Object
+     * Propierties Object.
      */
     private $user;
 
     /**
-     * Contruct Class
+     * Contruct Class.
      */
     public function __construct()
     {
@@ -63,7 +62,8 @@ class UserPhp2Js
     }
 
     /**
-     * Return Data User In Session
+     * Return Data User In Session.
+     *
      * @return array
      */
     public function getDataUser()

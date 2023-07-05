@@ -37,9 +37,9 @@ use Illuminate\Foundation\Application;
 
 class LaravelPhp2Js
 {
-
     /**
-     * Return current Version Laravel
+     * Return current Version Laravel.
+     *
      * @return string
      */
     public function getLaravelVersion(): string
@@ -48,20 +48,22 @@ class LaravelPhp2Js
     }
 
     /**
-     * Return Name Software
+     * Return Name Software.
+     *
      * @return string
      */
     public function getEnvName(): string
     {
-        return env("APP_NAME");
+        return env('APP_NAME');
     }
 
     /**
-     * Return Status Debugger Server
+     * Return Status Debugger Server.
+     *
      * @return string
      */
     public function getEnvDebug(): string
     {
-        return env("APP_DEBUG");
+        return env('APP_DEBUG');
     }
 }

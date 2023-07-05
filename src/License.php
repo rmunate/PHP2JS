@@ -34,12 +34,11 @@
 
 namespace Rmunate\Php2Js;
 
-use Rmunate\Php2Js\DataPhp2Js;
-
 class License
 {
     /**
-     * Generate Text License
+     * Generate Text License.
+     *
      * @return comment license
      */
     public static function comment()
