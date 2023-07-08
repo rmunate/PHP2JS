@@ -2,8 +2,6 @@
 
 namespace Rmunate\Php2Js\Bases;
 
-use BadMethodCallException;
-
 abstract class BasePhp2Js
 {
     /**

@@ -2,6 +2,13 @@
 
 namespace Rmunate\Php2Js\Data;
 
+use Rmunate\Php2Js\Data\UrlPhp2Js;
+use Rmunate\Php2Js\Data\UserPhp2Js;
+use Rmunate\Php2Js\Data\AgentPhp2Js;
+use Rmunate\Php2Js\Data\TokenPhp2Js;
+use Rmunate\Php2Js\Data\ServerPhp2Js;
+use Rmunate\Php2Js\Data\LaravelPhp2Js;
+
 class DataPhp2Js
 {
     /**
