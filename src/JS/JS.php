@@ -2,7 +2,6 @@
 
 namespace Rmunate\Php2Js\JS;
 
-use Rmunate\Php2Js\Data\DataPhp2Js;
 use Rmunate\Php2Js\License\License;
 
 class JS
