@@ -29,7 +29,8 @@ Todas las importaciones que uses con la siguiente sintaxis `<script src="{{ asse
 composer require rmunate/php2js
 ```
 
-Asegúrate de que en el `composer.json` tengas la biblioteca en la última versión. `"rmunate/php2js": "^3.5"`
+Asegúrate de que en el `composer.json` tengas la biblioteca en la última versión. `"rmunate/php2js": "^3.7"`
+Si te sale algun error al actualizar a la nueva version, corre los siguientes comandos desde tu consola. `php artisan cache:clear; php artisan view:clear; php artisan config:clear`
 
 ## Funcionalidades de la librería desde los controladores.
 Tendrás la facilidad de retornar tus vistas definiendo si compartirás tus variables con JavaScript a través de diferentes metodos.

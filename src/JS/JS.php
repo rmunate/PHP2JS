@@ -92,7 +92,7 @@ class JS
         } elseif ($this->reward == 'vars') {
             $jsonEncode = '<?php echo json_encode(array_diff_key(get_defined_vars(), array_flip(["app", "__data", "errors", "__env", "__path"])),JSON_UNESCAPED_UNICODE); ?>;';
         } else {
-            $jsonEncode = '<?php echo json_encode(\Rmunate\Php2Js\DataPhp2Js::'.$this->reward.'(),JSON_UNESCAPED_UNICODE); ?>;';
+            $jsonEncode = '<?php echo json_encode(\Rmunate\Php2Js\Data\DataPhp2Js::'.$this->reward.'(),JSON_UNESCAPED_UNICODE); ?>;';
         }
 
         return '<script id="'.$this->uniqueID.'">
