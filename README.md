@@ -29,7 +29,7 @@ composer require rmunate/php2js
 ```
 
 Make sure you have the library in the latest version in your `composer.json`. `"rmunate/php2js": "^3.7"`
-Si te sale algun error al actualizar a la nueva version, corre los siguientes comandos desde tu consola. `php artisan cache:clear; php artisan view:clear; php artisan config:clear`
+If you get any errors while upgrading to the new version, run the following commands from your console. `php artisan cache:clear; php artisan view:clear; php artisan config:clear`
 
 ## Library Functionality from Controllers
 You will have the ease of returning your views while defining if you want to share your variables with JavaScript through different methods.
