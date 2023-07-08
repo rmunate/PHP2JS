@@ -2,9 +2,9 @@
 
 namespace Rmunate\Php2Js;
 
+use Rmunate\Php2Js\Bases\BasePhp2Js;
 use Rmunate\Php2Js\Data\DataPhp2Js;
 use Rmunate\Php2Js\License\License;
-use Rmunate\Php2Js\Bases\BasePhp2Js;
 
 class Render extends BasePhp2Js
 {

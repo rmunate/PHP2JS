@@ -3,11 +3,11 @@
 namespace Rmunate\Php2Js\Blade;
 
 use Exception;
-use Rmunate\Php2Js\JS\JS;
 use Illuminate\Support\Facades\Blade;
-use Rmunate\Php2Js\Support\Deprecated;
 use Illuminate\Support\ServiceProvider;
 use Rmunate\Php2Js\Exceptions\Messages;
+use Rmunate\Php2Js\JS\JS;
+use Rmunate\Php2Js\Support\Deprecated;
 
 class PHP2JSServiceProvider extends ServiceProvider
 {
@@ -26,7 +26,6 @@ class PHP2JSServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         /**
          * 🚀 PHP2JS_AGENT
          * Info From The Agent PHP.
@@ -104,38 +103,33 @@ class PHP2JSServiceProvider extends ServiceProvider
          * @return BladeDirective
          */
         Blade::directive('PHP2JS_VARS_STRICT', function ($expression) {
-
             if (!empty($expression)) {
-
                 $params = str_replace(' ', '', $expression);
 
                 if (strpos($params, '[]') !== false) {
-
                     $alias = str_replace('[],', '', $expression);
+
                     return JS::script('vars')->alias($alias)->generate();
-
                 } elseif ((strpos($params, '[') !== false) && (strpos($params, ']') !== false)) {
-
                     $posicionInicio = strpos($expression, '[');
                     $posicionFin = strpos($expression, ']');
                     $compact = substr($expression, $posicionInicio, $posicionFin + 1);
                     $alias = substr($expression, $posicionFin + 2);
-                    return JS::compact($compact)->alias($alias)->generate();
 
+                    return JS::compact($compact)->alias($alias)->generate();
                 }
             }
-        
+
             throw new Exception(Messages::varsStrictException());
-            
         });
 
         /**
          * 🚀 PHP2JS_PHP
-         * Methods to support previous versions
+         * Methods to support previous versions.
          *
          * @return BladeDirective
          */
-        Blade::directive('__PHP', function() {
+        Blade::directive('__PHP', function () {
             return Deprecated::__PHP();
         });
 
@@ -168,6 +162,5 @@ class PHP2JSServiceProvider extends ServiceProvider
         Blade::directive('toStrictJS', function ($expression) {
             throw new Exception(Messages::toStrictJSException());
         });
- 
     }
 }
