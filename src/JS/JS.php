@@ -87,6 +87,7 @@ class JS
      */
     public function generate(): string
     {
+        //Encode Final Object
         if ($this->compact) {
             $jsonEncode = '<?php echo json_encode(compact('.$this->reward.'),JSON_UNESCAPED_UNICODE);?>;';
         } elseif ($this->reward == 'vars') {
@@ -95,10 +96,23 @@ class JS
             $jsonEncode = '<?php echo json_encode(\Rmunate\Php2Js\Data\DataPhp2Js::'.$this->reward.'(),JSON_UNESCAPED_UNICODE); ?>;';
         }
 
-        return '<script id="'.$this->uniqueID.'">
-                    '.$this->license.'
-                    const '.$this->alias.' = '.$jsonEncode.'
-                    document.getElementById("'.$this->uniqueID.'").remove();
-                </script>';
+        $idElement = $this->uniqueID;
+        $license = $this->license;
+        $alias = $this->alias;
+
+        $script = <<<SCRIPT
+        <script id="$idElement">
+            $license
+            const $alias = $jsonEncode;
+            $alias.clear = function() {
+                Object.keys($alias).forEach(function(property) {
+                    delete $alias[property];
+                });
+            };
+            document.getElementById("$idElement").remove();
+        </script>
+        SCRIPT;
+
+        return $script;
     }
 }
