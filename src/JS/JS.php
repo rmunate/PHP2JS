@@ -116,6 +116,11 @@ class JS
                             delete '.$alias.'[property];
                         });
                     };
+                    '.$alias.'.assignAndClear = function() {
+                        let object = Object.assign({}, '.$alias.');
+                        '.$alias.'.clear();
+                        return object;
+                    };
                     document.getElementById("'.$id.'").remove();
                 </script>';
     }
