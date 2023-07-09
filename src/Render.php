@@ -2,10 +2,10 @@
 
 namespace Rmunate\Php2Js;
 
-use Rmunate\Php2Js\JS\JS;
-use Rmunate\Php2Js\Data\DataPhp2Js;
-use Rmunate\Php2Js\License\License;
 use Rmunate\Php2Js\Bases\BasePhp2Js;
+use Rmunate\Php2Js\Data\DataPhp2Js;
+use Rmunate\Php2Js\JS\JS;
+use Rmunate\Php2Js\License\License;
 
 class Render extends BasePhp2Js
 {
@@ -157,7 +157,7 @@ class Render extends BasePhp2Js
             }
 
             $jsonEncode = json_encode($this->varsJS, JSON_UNESCAPED_UNICODE);
-            $idElement = strtoupper(bin2hex(random_bytes(16)));;
+            $idElement = strtoupper(bin2hex(random_bytes(16)));
 
             $script = JS::generateScriptTag($idElement, $this->license, $this->alias, $jsonEncode);
 

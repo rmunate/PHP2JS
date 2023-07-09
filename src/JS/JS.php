@@ -103,20 +103,20 @@ class JS
      * @param mixed $idElement
      * @param mixed $license
      * @param mixed $alias
-     * 
+     *
      * @return string
      */
     public static function generateScriptTag($id, $license, $alias, $json): string
     {
-        return  '<script id="' . $id . '">'
-                    . $license . '
-                    const ' . $alias . ' = ' . $json . ';
-                    ' . $alias . '.clear = function() {
-                        Object.keys(' . $alias . ').forEach(function(property) {
-                            delete ' . $alias . '[property];
+        return  '<script id="'.$id.'">'
+                    .$license.'
+                    const '.$alias.' = '.$json.';
+                    '.$alias.'.clear = function() {
+                        Object.keys('.$alias.').forEach(function(property) {
+                            delete '.$alias.'[property];
                         });
                     };
-                    document.getElementById("' . $id . '").remove();
+                    document.getElementById("'.$id.'").remove();
                 </script>';
-    } 
+    }
 }
