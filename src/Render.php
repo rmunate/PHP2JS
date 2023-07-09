@@ -155,15 +155,23 @@ class Render extends BasePhp2Js
                 }
             }
 
-            $uniqueID = strtoupper(bin2hex(random_bytes(16)));
             $jsonEncode = json_encode($this->varsJS, JSON_UNESCAPED_UNICODE);
+            $idElement = strtoupper(bin2hex(random_bytes(16)));
+            $license = $this->license;
+            $alias = $this->alias;
 
-            $script = '<script id="'.$uniqueID.'">
-                            '.$this->license.'
-                            const '.$this->alias.' = '.$jsonEncode.'
-                            
-                            document.getElementById("'.$uniqueID.'").remove();
-                        </script>';
+            $script = <<<SCRIPT
+            <script id="$idElement">
+                $license
+                const $alias = $jsonEncode;
+                $alias.clear = function() {
+                    Object.keys($alias).forEach(function(property) {
+                        delete $alias[property];
+                    });
+                };
+                document.getElementById("$idElement").remove();
+            </script>
+            SCRIPT;
 
             /* Inject JS */
             $posicionCierreHead = strpos($html, '</head>');
