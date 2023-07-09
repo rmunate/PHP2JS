@@ -156,10 +156,10 @@ class Render extends BasePhp2Js
             }
 
             $jsonEncode = json_encode($this->varsJS, JSON_UNESCAPED_UNICODE);
-            $idElement = strtoupper(bin2hex(random_bytes(16)));;
+            $idElement = strtoupper(bin2hex(random_bytes(16)));
             $license = $this->license;
             $alias = $this->alias;
-            
+
             $script = <<<SCRIPT
             <script id="$idElement">
                 $license
