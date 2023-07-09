@@ -214,11 +214,22 @@ ALIAS.vars.variables;
 }
 ```
 
+Ahora si deseas tener mayor control y proteccion de los datos que pasas de PHP a JavaScript, a partir de la version 3.7.1, se agrego la funcion .clear(), lo cual permite que vacies el alias que contiene los datos compartidos cuando y donde desees.
+
+¿Como usarlo?
+
+```javascript
+//Sin alias
+PHP2JS.clear();
+
+//Con alias (Simpre se recomienda usar un alias)
+MiAlias.clear();
 ```
-## Creator
+
+## Creador
 - 🇨🇴 Raúl Mauricio Uñate Castro. (raulmauriciounate@gmail.com)
 
-## Contributing Developers
+## Desarrolladores
 - 🇨🇴 Carlos Giovanni Rodriguez (musica_tuto@hotmail.com)
 - 🇨🇴 Laura Valentina Borda Vargas (lvalentina0507@gmail.com)
 - 🇨🇴 Wilmer A. Sanchez Saez (wilmersaz@hotmail.com)

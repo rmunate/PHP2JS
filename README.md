@@ -219,6 +219,18 @@ This structure represents the complete object that is shared with JavaScript. It
 
 Please note that this information was provided based on the given code and documentation. If there are any specific implementation details or changes in the library, it's recommended to refer to the library's official documentation or reach out to the library's creator for the most accurate and up-to-date information.
 
+Now if you want to have more control and protection of the data that you pass from PHP to JavaScript, as of version 3.7.1, the .clear() function was added, which allows you to empty the alias that contains the shared data when and where you want
+
+How to use it?
+
+```javascript
+//No aliases
+PHP2JS.clear();
+
+//With aliases (It is always recommended to use an alias)
+MyAlias.clear();
+```
+
 ## Creator
 - 🇨🇴 Raúl Mauricio Uñate Castro. (raulmauriciounate@gmail.com)
 
