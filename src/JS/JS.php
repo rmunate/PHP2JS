@@ -104,11 +104,11 @@ class JS
         <script id="$idElement">
             $license
             const $alias = $jsonEncode;
-            $alias.clear = function() {
-                Object.keys($alias).forEach(function(property) {
-                    delete $alias[property];
-                });
-            };
+            // $alias.clear = function() {
+            //     Object.keys($alias).forEach(function(property) {
+            //         delete $alias[property];
+            //     });
+            // };
             document.getElementById("$idElement").remove();
         </script>
         SCRIPT;
