@@ -2,9 +2,10 @@
 
 namespace Rmunate\Php2Js;
 
-use Rmunate\Php2Js\Bases\BasePhp2Js;
+use Rmunate\Php2Js\JS\JS;
 use Rmunate\Php2Js\Data\DataPhp2Js;
 use Rmunate\Php2Js\License\License;
+use Rmunate\Php2Js\Bases\BasePhp2Js;
 
 class Render extends BasePhp2Js
 {
@@ -157,21 +158,8 @@ class Render extends BasePhp2Js
 
             $jsonEncode = json_encode($this->varsJS, JSON_UNESCAPED_UNICODE);
             $idElement = strtoupper(bin2hex(random_bytes(16)));;
-            $license = $this->license;
-            $alias = $this->alias;
-            
-            $script = <<<SCRIPT
-            <script id="$idElement">
-                $license
-                const $alias = $jsonEncode;
-                $alias.clear = function() {
-                    Object.keys($alias).forEach(function(property) {
-                        delete $alias[property];
-                    });
-                };
-                document.getElementById("$idElement").remove();
-            </script>
-            SCRIPT;
+
+            $script = JS::generateScriptTag($idElement, $this->license, $this->alias, $jsonEncode);
 
             /* Inject JS */
             $posicionCierreHead = strpos($html, '</head>');

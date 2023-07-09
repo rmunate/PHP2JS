@@ -96,22 +96,27 @@ class JS
             $jsonEncode = '<?php echo json_encode(\Rmunate\Php2Js\Data\DataPhp2Js::'.$this->reward.'(),JSON_UNESCAPED_UNICODE); ?>;';
         }
 
-        $idElement = $this->uniqueID;
-        $license = $this->license;
-        $alias = $this->alias;
-
-        $script =
-        '<script id="'.$idElement.'">
-            '.$license.'
-            const '.$alias.' = '.$jsonEncode.';
-            '.$alias.'.clear = function() {
-                Object.keys('.$alias.').forEach(function(property) {
-                    delete '.$alias.'[property];
-                });
-            };
-            document.getElementById("'.$idElement.'").remove();
-        </script>';
-
-        return $script;
+        return self::generateScriptTag($this->uniqueID, $this->license, $this->alias, $jsonEncode);
     }
+
+    /**
+     * @param mixed $idElement
+     * @param mixed $license
+     * @param mixed $alias
+     * 
+     * @return string
+     */
+    public static function generateScriptTag($id, $license, $alias, $json): string
+    {
+        return  '<script id="' . $id . '">'
+                    . $license . '
+                    const ' . $alias . ' = ' . $json . ';
+                    ' . $alias . '.clear = function() {
+                        Object.keys(' . $alias . ').forEach(function(property) {
+                            delete ' . $alias . '[property];
+                        });
+                    };
+                    document.getElementById("' . $id . '").remove();
+                </script>';
+    } 
 }
