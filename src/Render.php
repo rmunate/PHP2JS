@@ -161,6 +161,7 @@ class Render extends BasePhp2Js
 
             $script = JS::generateScriptTag($idElement, $this->license, $this->alias, $jsonEncode);
 
+
             /* Inject JS */
             $posicionCierreHead = strpos($html, '</head>');
             $posicionCierreBody = strpos($html, '</body>');
