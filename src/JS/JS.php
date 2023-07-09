@@ -100,18 +100,17 @@ class JS
         $license = $this->license;
         $alias = $this->alias;
 
-        $script = <<<SCRIPT
-        <script id="$idElement">
-            $license
-            const $alias = $jsonEncode;
-            // $alias.clear = function() {
-            //     Object.keys($alias).forEach(function(property) {
-            //         delete $alias[property];
-            //     });
-            // };
-            document.getElementById("$idElement").remove();
-        </script>
-        SCRIPT;
+        $script =
+        '<script id="'.$idElement.'">
+            '.$license.'
+            const '.$alias.' = '.$jsonEncode.';
+            '.$alias.'.clear = function() {
+                Object.keys('.$alias.').forEach(function(property) {
+                    delete '.$alias.'[property];
+                });
+            };
+            document.getElementById("'.$idElement.'").remove();
+        </script>';
 
         return $script;
     }
