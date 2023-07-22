@@ -2,10 +2,11 @@
 
 namespace Rmunate\Php2Js;
 
-use Rmunate\Php2Js\Bases\BasePhp2Js;
-use Rmunate\Php2Js\Data\DataPhp2Js;
 use Rmunate\Php2Js\JS\JS;
+use Rmunate\Php2Js\Data\DataPhp2Js;
+use Rmunate\Php2Js\Bases\BasePhp2Js;
 use Rmunate\Php2Js\Traits\JSUtilities;
+use Rmunate\Php2Js\Exceptions\PHP2JSExceptions;
 
 class Render extends BasePhp2Js
 {
@@ -116,7 +117,7 @@ class Render extends BasePhp2Js
             return $this;
         }
 
-        throw new \Exception("PHP2JS\Render exception, you cannot bind additional data blocks without using the 'toJS()' or 'toStrictJS()' methods before.");
+        throw PHP2JSExceptions::create("PHP2JS\Render exception, you cannot bind additional data blocks without using the 'toJS()' or 'toStrictJS()' methods before.");
     }
 
     /**
