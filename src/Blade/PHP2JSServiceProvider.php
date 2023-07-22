@@ -2,11 +2,11 @@
 
 namespace Rmunate\Php2Js\Blade;
 
-use Rmunate\Php2Js\JS\JS;
 use Illuminate\Support\Facades\Blade;
-use Rmunate\Php2Js\Support\Deprecated;
 use Illuminate\Support\ServiceProvider;
 use Rmunate\Php2Js\Exceptions\PHP2JSExceptions;
+use Rmunate\Php2Js\JS\JS;
+use Rmunate\Php2Js\Support\Deprecated;
 
 class PHP2JSServiceProvider extends ServiceProvider
 {
@@ -35,6 +35,7 @@ class PHP2JSServiceProvider extends ServiceProvider
          * Example usage in Blade template: @PHP2JS_AGENT('agentData')
          *
          * @param string $expression The expression provided in the Blade directive.
+         *
          * @return string The generated JavaScript code.
          */
         Blade::directive('PHP2JS_AGENT', function ($expression) {
@@ -51,6 +52,7 @@ class PHP2JSServiceProvider extends ServiceProvider
          * Example usage in Blade template: @PHP2JS_URL('urlData')
          *
          * @param string $expression The expression provided in the Blade directive.
+         *
          * @return string The generated JavaScript code.
          */
         Blade::directive('PHP2JS_URL', function ($expression) {
@@ -67,6 +69,7 @@ class PHP2JSServiceProvider extends ServiceProvider
          * Example usage in Blade template: @PHP2JS_CSRF('csrfData')
          *
          * @param string $expression The expression provided in the Blade directive.
+         *
          * @return string The generated JavaScript code.
          */
         Blade::directive('PHP2JS_CSRF', function ($expression) {
@@ -83,6 +86,7 @@ class PHP2JSServiceProvider extends ServiceProvider
          * Example usage in Blade template: @PHP2JS_FRAMEWORK('laravelData')
          *
          * @param string $expression The expression provided in the Blade directive.
+         *
          * @return string The generated JavaScript code.
          */
         Blade::directive('PHP2JS_FRAMEWORK', function ($expression) {
@@ -99,6 +103,7 @@ class PHP2JSServiceProvider extends ServiceProvider
          * Example usage in Blade template: @PHP2JS_PHP('phpData')
          *
          * @param string $expression The expression provided in the Blade directive.
+         *
          * @return string The generated JavaScript code.
          */
         Blade::directive('PHP2JS_PHP', function ($expression) {
@@ -115,6 +120,7 @@ class PHP2JSServiceProvider extends ServiceProvider
          * Example usage in Blade template: @PHP2JS_USER('userData')
          *
          * @param string $expression The expression provided in the Blade directive.
+         *
          * @return string The generated JavaScript code.
          */
         Blade::directive('PHP2JS_USER', function ($expression) {
@@ -131,6 +137,7 @@ class PHP2JSServiceProvider extends ServiceProvider
          * Example usage in Blade template: @PHP2JS_VARS('variable1', 'variable2', ...)
          *
          * @param string $expression The expression provided in the Blade directive, representing the variables to pass.
+         *
          * @return string The generated JavaScript code.
          */
         Blade::directive('PHP2JS_VARS', function ($expression) {
@@ -142,24 +149,28 @@ class PHP2JSServiceProvider extends ServiceProvider
          * This directive is used to pass strict variables from PHP to JavaScript.
          *
          * @param string $expression The expression passed to the directive.
-         * @return string The generated JavaScript script.
          *
          * @throws PHP2JSExceptions If the directive expression is not valid or empty.
+         *
+         * @return string The generated JavaScript script.
          */
         Blade::directive('PHP2JS_VARS_STRICT', function ($expression) {
             if (!empty($expression)) {
                 $params = str_replace(' ', '', $expression);
                 if (strpos($params, '[]') !== false) {
                     $alias = str_replace('[],', '', $expression);
+
                     return JS::script('vars')->alias($alias)->generate();
                 } elseif ((strpos($params, '[') !== false) && (strpos($params, ']') !== false)) {
                     $posicionInicio = strpos($expression, '[');
                     $posicionFin = strpos($expression, ']');
                     $compact = substr($expression, $posicionInicio, $posicionFin + 1);
                     $alias = substr($expression, $posicionFin + 2);
+
                     return JS::compact($compact)->alias($alias)->generate();
                 }
             }
+
             throw PHP2JSExceptions::varsStrict();
         });
 
@@ -209,6 +220,5 @@ class PHP2JSServiceProvider extends ServiceProvider
         Blade::directive('toStrictJS', function ($expression) {
             throw PHP2JSExceptions::toStrictJSException();
         });
-
     }
 }

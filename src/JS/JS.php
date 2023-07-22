@@ -2,8 +2,8 @@
 
 namespace Rmunate\Php2Js\JS;
 
-use Rmunate\Php2Js\Traits\JSUtilities;
 use Rmunate\Php2Js\Exceptions\PHP2JSExceptions;
+use Rmunate\Php2Js\Traits\JSUtilities;
 
 class JS
 {
@@ -46,7 +46,7 @@ class JS
 
     /**
      * Create a Static Instance.
-     * Use to Blade Directives
+     * Use to Blade Directives.
      *
      * @return static
      */
@@ -57,7 +57,7 @@ class JS
 
     /**
      * Create a Static Instance.
-     * Use To StrictJS Blade Directives
+     * Use To StrictJS Blade Directives.
      *
      * @return static
      */
@@ -96,6 +96,7 @@ class JS
                 throw PHP2JSExceptions::notIsValidConstantName($alias);
             }
         }
+
         return $this;
     }
 
@@ -128,7 +129,6 @@ class JS
      */
     public static function generateScriptTag($id, $license, $alias, $json): string
     {
-
         // Read the content of the stub file
         $stubContent = file_get_contents('../Stubs/ScriptJS.stub');
 

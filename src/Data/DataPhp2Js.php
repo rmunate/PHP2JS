@@ -61,7 +61,7 @@ class DataPhp2Js
         $data = new TokenPhp2Js();
 
         return [
-            'token' => $data->csrfToken(),
+            'token'       => $data->csrfToken(),
             'tokenCookie' => $data->csrfTokenCookie(),
         ];
     }

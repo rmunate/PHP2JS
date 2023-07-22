@@ -12,13 +12,14 @@ trait JSUtilities
 {
     /**
      * @param string $view
-     * 
+     *
      * @return string
      */
     public function clearView($view)
     {
         $view = str_replace(' ', '', $view);
         $view = str_replace(['/', '\\'], '.', $view);
+
         return $view;
     }
 
@@ -46,6 +47,7 @@ trait JSUtilities
      * Clear the alias from leading and trailing whitespace characters and dollar signs.
      *
      * @param string $alias The alias to be cleaned.
+     *
      * @return string The cleaned alias.
      */
     public function clearAlias($alias)
@@ -57,11 +59,13 @@ trait JSUtilities
      * Check if a given alias is a valid constant name.
      *
      * @param string $alias The alias to be checked.
+     *
      * @return bool True if the alias is a valid constant name, false otherwise.
      */
     public function isValidConstantName($alias)
     {
         $pattern = '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/';
+
         return preg_match($pattern, $alias);
     }
 
@@ -69,11 +73,12 @@ trait JSUtilities
      * Generate a JSON string using `json_encode` with compact() function.
      *
      * @param string $reward The variable name to be compacted.
+     *
      * @return string The generated JSON string.
      */
     public function jsonCompact($reward)
     {
-        return '<?php echo json_encode(compact(' . $reward . '), JSON_UNESCAPED_UNICODE); ?>;';
+        return '<?php echo json_encode(compact('.$reward.'), JSON_UNESCAPED_UNICODE); ?>;';
     }
 
     /**
@@ -101,18 +106,20 @@ trait JSUtilities
      * Generate a JSON string using `json_encode` with a specific method from DataPhp2Js class.
      *
      * @param string $reward The method name to be used for generating JSON.
+     *
      * @return string The generated JSON string.
      */
     public function jsonSpecificMethod($reward)
     {
-        return '<?php echo json_encode(\Rmunate\Php2Js\Data\DataPhp2Js::' . $reward . '(), JSON_UNESCAPED_UNICODE); ?>;';
+        return '<?php echo json_encode(\Rmunate\Php2Js\Data\DataPhp2Js::'.$reward.'(), JSON_UNESCAPED_UNICODE); ?>;';
     }
 
     /**
      * Inject JS code into the given HTML content.
      *
-     * @param string $html The original HTML content.
+     * @param string $html   The original HTML content.
      * @param string $script The JS code to be injected.
+     *
      * @return string The HTML content with the injected JS code.
      */
     public function injectJS($html, $script)
@@ -121,13 +128,13 @@ trait JSUtilities
         $posicionCierreBody = strpos($html, '</body>');
 
         if ($posicionCierreHead !== false) {
-            $htmlOut = substr($html, 0, $posicionCierreHead) . $script . PHP_EOL . substr($html, $posicionCierreHead);
+            $htmlOut = substr($html, 0, $posicionCierreHead).$script.PHP_EOL.substr($html, $posicionCierreHead);
         } elseif ($posicionCierreBody !== false) {
-            $htmlOut = substr($html, 0, $posicionCierreBody) . $script . PHP_EOL . substr($html, $posicionCierreBody);
+            $htmlOut = substr($html, 0, $posicionCierreBody).$script.PHP_EOL.substr($html, $posicionCierreBody);
         } else {
-            $htmlOut = $script . $html;
+            $htmlOut = $script.$html;
         }
-        
+
         return $htmlOut;
     }
 }
