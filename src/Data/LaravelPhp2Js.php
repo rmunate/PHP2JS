@@ -13,7 +13,7 @@ class LaravelPhp2Js
      */
     public function getLaravelVersion(): string
     {
-        return Application::VERSION;
+        return Application::VERSION ?? 'Unknown';
     }
 
     /**
@@ -23,7 +23,7 @@ class LaravelPhp2Js
      */
     public function getEnvName(): string
     {
-        return env('APP_NAME');
+        return env('APP_NAME', 'Unknown');
     }
 
     /**
@@ -33,6 +33,26 @@ class LaravelPhp2Js
      */
     public function getEnvDebug(): string
     {
-        return env('APP_DEBUG');
+        return env('APP_DEBUG', 'Unknown');
+    }
+
+    /**
+     * Return Environment.
+     *
+     * @return string
+     */
+    public function getEnvironment(): string
+    {
+        return env('APP_ENV', 'Unknown');
+    }
+
+    /**
+     * Return Environment URL.
+     *
+     * @return string
+     */
+    public function getEnvUrl(): string
+    {
+        return env('APP_URL', 'Unknown');
     }
 }
