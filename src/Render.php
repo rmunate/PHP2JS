@@ -2,15 +2,15 @@
 
 namespace Rmunate\Php2Js;
 
-use Rmunate\Php2Js\JS\JS;
-use Rmunate\Php2Js\Data\DataPhp2Js;
 use Rmunate\Php2Js\Bases\BasePhp2Js;
+use Rmunate\Php2Js\Data\DataPhp2Js;
+use Rmunate\Php2Js\JS\JS;
 use Rmunate\Php2Js\Traits\JSUtilities;
 
 class Render extends BasePhp2Js
 {
     use JSUtilities;
-    
+
     /**
      * Propierties Object
      * Set From Contrcutor.
@@ -127,11 +127,8 @@ class Render extends BasePhp2Js
     public function compose()
     {
         if (!$this->injectJS) {
-
             return view($this->view)->with($this->data);
-
         } else {
-
             $view = view($this->view)->with($this->data);
             $html = $view->render();
 
@@ -144,7 +141,7 @@ class Render extends BasePhp2Js
                     'php'       => 'getDataPHP',
                     'user'      => 'getDataUser',
                 ];
-            
+
                 foreach ($this->attach as $method) {
                     if (isset($dataMethods[$method])) {
                         $data = DataPhp2Js::{$dataMethods[$method]}();

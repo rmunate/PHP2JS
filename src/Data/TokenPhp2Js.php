@@ -4,7 +4,7 @@ namespace Rmunate\Php2Js\Data;
 
 class TokenPhp2Js
 {
-    /** 
+    /**
      * Return csrf_token Laravel.
      *
      * @return string
@@ -14,7 +14,7 @@ class TokenPhp2Js
         return csrf_token();
     }
 
-    /** 
+    /**
      * Return csrf_token Laravel.
      *
      * @return string

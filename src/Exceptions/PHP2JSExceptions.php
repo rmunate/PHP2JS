@@ -31,6 +31,7 @@ class PHP2JSExceptions extends Exception
     public static function notIsValidConstantName($alias)
     {
         $message = self::formatExceptionMessage('The alias "'.$alias.'" is not valid for the name of a constant in JavaScript');
+
         return self::create($message);
     }
 
@@ -42,6 +43,7 @@ class PHP2JSExceptions extends Exception
     public static function varsStrict()
     {
         $message = self::formatExceptionMessage("Directive exception '@PHP2JS_VARS_STRICT()'. It is required to define the variables to share with JavaScript ['variable1', 'variable2', ...]. If you do not want to specify which variables to share, you can use the '@PHP2JS_VARS()' directive.");
+
         return self::create($message);
     }
 
@@ -53,6 +55,7 @@ class PHP2JSExceptions extends Exception
     public static function toJSException()
     {
         $message = self::formatExceptionMessage("The 'toJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard defined in the manual.");
+
         return self::create($message);
     }
 
@@ -64,6 +67,7 @@ class PHP2JSExceptions extends Exception
     public static function toAllJSException()
     {
         $message = self::formatExceptionMessage("The 'toAllJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard defined in the manual.");
+
         return self::create($message);
     }
 
@@ -75,6 +79,7 @@ class PHP2JSExceptions extends Exception
     public static function toStrictJSException()
     {
         $message = self::formatExceptionMessage("The 'toStrictJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard defined in the manual.");
+
         return self::create($message);
     }
 
@@ -87,6 +92,6 @@ class PHP2JSExceptions extends Exception
      */
     private static function formatExceptionMessage(string $message): string
     {
-        return Immutable::LIBRARY_NAME . ' - ' . $message . ' Refer to the ' . Immutable::LIBRARY_NAME . ' manual for more information: ' . Immutable::MANUAL_URL;
+        return Immutable::LIBRARY_NAME.' - '.$message.' Refer to the '.Immutable::LIBRARY_NAME.' manual for more information: '.Immutable::MANUAL_URL;
     }
 }

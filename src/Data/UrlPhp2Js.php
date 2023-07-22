@@ -119,6 +119,4 @@ class UrlPhp2Js
     {
         return isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
     }
-
-
 }

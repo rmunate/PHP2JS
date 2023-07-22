@@ -54,10 +54,10 @@ class AgentPhp2Js
     public function getDataClienteSO(): string
     {
         $operatingSystems = [
-            '/\bWindows\b/i' => 'Windows',
-            '/\bMacintosh\b|Mac(?!.+OS X)/i' => 'Mac',
-            '/\bLinux\b/i' => 'Linux',
-            '/\bAndroid\b/i' => 'Android',
+            '/\bWindows\b/i'                  => 'Windows',
+            '/\bMacintosh\b|Mac(?!.+OS X)/i'  => 'Mac',
+            '/\bLinux\b/i'                    => 'Linux',
+            '/\bAndroid\b/i'                  => 'Android',
             '/\biPhone\b|\biPad\b|\biPod\b/i' => 'iOS',
         ];
 
@@ -110,7 +110,7 @@ class AgentPhp2Js
         foreach ($browsers as $browserName => $browserCode) {
             if (str_contains($userAgent, $browserCode)) {
                 $bname = $browserName;
-                $pattern = '#(?<browser>' . preg_quote($browserCode) . ')[/ ]+(?<version>[0-9.|a-zA-Z.]*)#';
+                $pattern = '#(?<browser>'.preg_quote($browserCode).')[/ ]+(?<version>[0-9.|a-zA-Z.]*)#';
                 if (preg_match_all($pattern, $userAgent, $matches)) {
                     $i = count($matches['browser']);
                     if ($i > 0) {
@@ -129,7 +129,6 @@ class AgentPhp2Js
 
         return $response;
     }
-
 
     /**
      * Return Remote IP.
