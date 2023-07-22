@@ -10,6 +10,14 @@
         });
     };
 
+    {ALIAS}.clearWithoutFunctions = function() {
+        Object.keys({ALIAS}).forEach(function(property) {
+            if (typeof {ALIAS}[property] !== 'function') {
+                delete {ALIAS}[property];
+            }
+        });
+    };
+
     {ALIAS}.assign = function() {
         let object = Object.assign({}, {ALIAS});
         return object;
@@ -18,6 +26,12 @@
     {ALIAS}.assignAndClear = function() {
         let object = Object.assign({}, {ALIAS});
         {ALIAS}.clear();
+        return object;
+    };
+
+    {ALIAS}.assignAndClearWithoutFunctions = function() {
+        let object = Object.assign({}, {ALIAS});
+        {ALIAS}.clearWithoutFunctions();
         return object;
     };
 
@@ -31,10 +45,30 @@
         return result;
     };
 
+    {ALIAS}.onlyFunctions = function() {
+        let result = {};
+        for (const key in {ALIAS}) {
+            if (typeof {ALIAS}[key] === 'function') {
+                result[key] = {ALIAS}[key];
+            }
+        }
+        return result;
+    };
+
     {ALIAS}.except = function(...properties) {
         let result = {};
         for (const key in {ALIAS}) {
             if (!properties.includes(key)) {
+                result[key] = {ALIAS}[key];
+            }
+        }
+        return result;
+    };
+
+    {ALIAS}.exceptFunctions = function() {
+        let result = {};
+        for (const key in {ALIAS}) {
+            if (typeof {ALIAS}[key] !== 'function') {
                 result[key] = {ALIAS}[key];
             }
         }
