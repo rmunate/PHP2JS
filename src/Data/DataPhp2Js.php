@@ -5,11 +5,6 @@ namespace Rmunate\Php2Js\Data;
 class DataPhp2Js
 {
     /**
-     * Version Library.
-     */
-    const VERSION = '3.7.0';
-
-    /**
      * Return Data agent.
      *
      * @return array
@@ -41,15 +36,17 @@ class DataPhp2Js
 
         return [
             'url' => [
-                'baseUrl'    => $data->getBaseUrl(),
-                'fullUrl'    => $data->getFullUrl(),
-                'uri'        => $data->getUri(),
-                'parameters' => [
-                    'route' => $data->getParametersRoute(),
-                    'get'   => $data->getParametersGet(),
-                    'post'  => $data->getParametersPost(),
+                'baseUrl'       => $data->getBaseUrl(),
+                'fullUrl'       => $data->getFullUrl(),
+                'uri'           => $data->getUri(),
+                'parameters'    => [
+                    'route'     => $data->getParametersRoute(),
+                    'get'       => $data->getParametersGet(),
+                    'post'      => $data->getParametersPost(),
                 ],
-                'scheme' => $data->getSchema(),
+                'scheme'        => $data->getSchema(),
+                'currentName'   => $data->getCurrentRouteName(),
+                'isSecure'      => $data->isSecure(),
             ],
         ];
     }
@@ -65,6 +62,7 @@ class DataPhp2Js
 
         return [
             'token' => $data->csrfToken(),
+            'tokenCookie' => $data->csrfTokenCookie(),
         ];
     }
 
@@ -79,10 +77,12 @@ class DataPhp2Js
 
         return [
             'framework' => [
-                'version'     => $data->getLaravelVersion(),
-                'environment' => [
-                    'name'  => $data->getEnvName(),
-                    'debug' => $data->getEnvDebug() == true,
+                'version'       => $data->getLaravelVersion(),
+                'environment'   => [
+                    'name'      => $data->getEnvName(),
+                    'debug'     => $data->getEnvDebug() == true,
+                    'context'   => $data->getEnvironment(),
+                    'url'       => $data->getEnvUrl(),
                 ],
             ],
         ];
@@ -99,9 +99,13 @@ class DataPhp2Js
 
         return [
             'php' => [
-                'id'      => $data->getPhpVersionId(),
-                'version' => $data->getPhpVersion(),
-                'release' => $data->getPhpReleaseVersion(),
+                'id'                    => $data->getPhpVersionId(),
+                'version'               => $data->getPhpVersion(),
+                'release'               => $data->getPhpReleaseVersion(),
+                'serverSoftware'        => $data->getServerSoftware(),
+                'serverOperatingSystem' => $data->getServerOperatingSystem(),
+                'extensions'            => $data->getPhpExtensions(),
+                'clientLanguage'        => $data->getClientLanguage(),
             ],
         ];
     }

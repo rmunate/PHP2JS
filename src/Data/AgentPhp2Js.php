@@ -24,7 +24,7 @@ class AgentPhp2Js
      */
     public function isMobileDevice(): bool
     {
-        $mobileKeywords = [
+        $deviceKeywords = [
             'Mobile',
             'Android',
             'iPhone',
@@ -37,7 +37,7 @@ class AgentPhp2Js
             'IEMobile',
         ];
 
-        foreach ($mobileKeywords as $keyword) {
+        foreach ($deviceKeywords as $keyword) {
             if (stripos($this->agent, $keyword) !== false) {
                 return true;
             }
@@ -54,22 +54,20 @@ class AgentPhp2Js
     public function getDataClienteSO(): string
     {
         $operatingSystems = [
-            '/\bWindows\b/i'                  => 'Windows',
-            '/\bMacintosh\b|Mac(?!.+OS X)/i'  => 'Mac',
-            '/\bLinux\b/i'                    => 'Linux',
-            '/\bAndroid\b/i'                  => 'Android',
+            '/\bWindows\b/i' => 'Windows',
+            '/\bMacintosh\b|Mac(?!.+OS X)/i' => 'Mac',
+            '/\bLinux\b/i' => 'Linux',
+            '/\bAndroid\b/i' => 'Android',
             '/\biPhone\b|\biPad\b|\biPod\b/i' => 'iOS',
         ];
 
-        $so = 'Unknown';
         foreach ($operatingSystems as $pattern => $os) {
             if (preg_match($pattern, $this->agent)) {
-                $so = $os;
-                break;
+                return $os;
             }
         }
 
-        return $so;
+        return 'Unknown';
     }
 
     /**
@@ -79,69 +77,59 @@ class AgentPhp2Js
      */
     public function getDataBrowser(): array
     {
-        $u_agent = $this->agent;
-        $bname = 'No Identificado';
-        $platform = 'No Identificado';
-        $version = 'No Identificado';
+        $userAgent = $this->agent;
+        $browsers = [
+            'Internet Explorer' => 'MSIE',
+            'Opera'             => 'Opera',
+            'Netscape'          => 'Netscape',
+            'Apple Safari'      => 'Safari',
+            'Microsoft Edge'    => 'Edg',
+            'Google Chrome'     => 'Chrome',
+            'Mozilla Firefox'   => 'Firefox',
+        ];
 
-        // Plataforma
-        if (preg_match('/linux/i', $u_agent)) {
-            $platform = 'Linux';
-        } elseif (preg_match('/macintosh|mac os x/i', $u_agent)) {
-            $platform = 'Macintosh';
-        } elseif (preg_match('/windows|win32/i', $u_agent)) {
-            $platform = 'Windows';
-        }
+        $platforms = [
+            'Linux'     => '/linux/i',
+            'Macintosh' => '/macintosh|mac os x/i',
+            'Windows'   => '/windows|win32/i',
+        ];
 
-        // Navegador
-        if (preg_match('/MSIE/i', $u_agent) && !preg_match('/Opera/i', $u_agent)) {
-            $bname = 'Internet Explorer';
-            $ub = 'MSIE';
-        } elseif (preg_match('/Firefox/i', $u_agent)) {
-            $bname = 'Mozilla Firefox';
-            $ub = 'Firefox';
-        } elseif (preg_match('/Chrome/i', $u_agent)) {
-            $bname = 'Google Chrome';
-            $ub = 'Chrome';
-        } elseif (preg_match('/Safari/i', $u_agent)) {
-            $bname = 'Apple Safari';
-            $ub = 'Safari';
-        } elseif (preg_match('/Opera/i', $u_agent)) {
-            $bname = 'Opera';
-            $ub = 'Opera';
-        } elseif (preg_match('/Netscape/i', $u_agent)) {
-            $bname = 'Netscape';
-            $ub = 'Netscape';
-        }
+        $bname = 'Unknown';
+        $platform = 'Unknown';
+        $version = 'Unknown';
 
-        // Número de Versión
-        $known = ['Version', $ub, 'other'];
-        $pattern = '#(?<browser>'.join('|', $known).')[/ ]+(?<version>[0-9.|a-zA-Z.]*)#';
-        if (preg_match_all($pattern, $u_agent, $matches)) {
-            $i = count($matches['browser']);
-            if ($i > 0) {
-                $version = $matches['version'][$i - 1];
+        // Detect platform
+        foreach ($platforms as $platformName => $platformRegex) {
+            if (preg_match($platformRegex, $userAgent)) {
+                $platform = $platformName;
+                break;
             }
         }
 
-        // Comprobar si tenemos una versión válida
-        if ($version == null || $version == '') {
-            $version = 'Desconocida';
-        }
-
-        // Validar si es Edge
-        if (str_contains($this->agent, 'Edg/')) {
-            $bname = 'Microsoft Edge';
+        // Detect browser and version
+        foreach ($browsers as $browserName => $browserCode) {
+            if (str_contains($userAgent, $browserCode)) {
+                $bname = $browserName;
+                $pattern = '#(?<browser>' . preg_quote($browserCode) . ')[/ ]+(?<version>[0-9.|a-zA-Z.]*)#';
+                if (preg_match_all($pattern, $userAgent, $matches)) {
+                    $i = count($matches['browser']);
+                    if ($i > 0) {
+                        $version = $matches['version'][$i - 1];
+                    }
+                }
+                break;
+            }
         }
 
         $response = [
-            'name'     => $bname,
-            'version'  => $version,
-            'platform' => $platform,
+            'name'      => $bname,
+            'version'   => $version,
+            'platform'  => $platform,
         ];
 
         return $response;
     }
+
 
     /**
      * Return Remote IP.
@@ -150,7 +138,7 @@ class AgentPhp2Js
      */
     public function getIpAddress(): string
     {
-        return isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
+        return $_SERVER['REMOTE_ADDR'] ?? null;
     }
 
     /**
@@ -160,7 +148,7 @@ class AgentPhp2Js
      */
     public function getRemotePort(): string
     {
-        return isset($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : null;
+        return $_SERVER['SERVER_PORT'] ?? null;
     }
 
     /**

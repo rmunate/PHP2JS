@@ -1,0 +1,70 @@
+<script id="{ID}">
+
+    {LICENSE}
+
+    const {ALIAS} = {JSON};
+
+    {ALIAS}.clear = function() {
+        Object.keys({ALIAS}).forEach(function(property) {
+            delete {ALIAS}[property];
+        });
+    };
+
+    {ALIAS}.assign = function() {
+        let object = Object.assign({}, {ALIAS});
+        return object;
+    };
+
+    {ALIAS}.assignAndClear = function() {
+        let object = Object.assign({}, {ALIAS});
+        {ALIAS}.clear();
+        return object;
+    };
+
+    {ALIAS}.only = function(...properties) {
+        let result = {};
+        properties.forEach(property => {
+            if ({ALIAS}.hasOwnProperty(property)) {
+                result[property] = {ALIAS}[property];
+            }
+        });
+        return result;
+    };
+
+    {ALIAS}.except = function(...properties) {
+        let result = {};
+        for (const key in {ALIAS}) {
+            if (!properties.includes(key)) {
+                result[key] = {ALIAS}[key];
+            }
+        }
+        return result;
+    };
+
+    {ALIAS}.hasProperty = function(property) {
+        return {ALIAS}.hasOwnProperty(property);
+    };
+
+    {ALIAS}.getAllProperties = function() {
+        return Object.keys({ALIAS});
+    };
+
+    {ALIAS}.set = function(property, value) {
+        if ({ALIAS}.hasOwnProperty(property)) {
+            {ALIAS}[property] = value;
+        } else {
+            throw new Error(`Property '${property}' does not exist in the object '${ALIAS}'.`);
+        }
+    };
+
+    {ALIAS}.get = function(property) {
+        if ({ALIAS}.hasOwnProperty(property)) {
+            return {ALIAS}[property];
+        } else {
+            throw new Error(`Property '${property}' does not exist in the object '${ALIAS}'.`);
+        }
+    };
+
+    document.getElementById("{ID}").remove();
+
+</script>

@@ -2,21 +2,24 @@
 
 namespace Rmunate\Php2Js\License;
 
-use Rmunate\Php2Js\Data\DataPhp2Js;
+use Rmunate\Php2Js\Constants\Immutable;
 
 class License
 {
     /**
-     * Generate Text License.
+     * Generate the license comment.
      *
-     * @return comment license
+     * @return string
      */
-    public static function comment()
+    public static function generateComment(): string
     {
-        $version = DataPhp2Js::VERSION;
+        $version = Immutable::VERSION;
+        $author = Immutable::AUTHOR;
+        $license = Immutable::LICENSE;
+        $url = Immutable::MANUAL_URL;
 
         return <<<EOT
-        /* Library: PHP2JS | Author: Raul Mauricio Uñate Castro | Version: {$version} | License: MIT | URL: https://github.com/rmunate/PHP2JS */
-        EOT;
+/* Library: PHP2JS | Author: {$author} | Version: {$version} | License: {$license} | URL: {$url} */
+EOT;
     }
 }

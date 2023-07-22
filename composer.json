@@ -1,6 +1,6 @@
 {
     "name": "rmunate/php2js",
-    "description": "Read PHP LARAVEL variables in an external JAVASCRIPT file without the need for AJAX, FETCH or AXIOS requests, use the same variables returned by the controller and defined in the Blade view, as well as some additional values that will simplify your work. perfect library for monoliths with Blade.",
+    "description": "Read PHP Laravel variables in an external JavaScript file without the need for AJAX, FETCH, or AXIOS requests. Use the same variables returned by the controller and defined in the Blade view, as well as some additional values that will simplify your work. A perfect library for monoliths with Blade.",
     "keywords": [
         "php2js",
         "__php",
@@ -61,11 +61,8 @@
         "rmunate/info-server": "^1.0",
         "illuminate/support": "^9.0|^10.0"
     },
-    "require-dev": {
-        
-    },
-    "extra" : {
-        "branch-alias" : {
+    "extra": {
+        "branch-alias": {
             "dev-main": "v3.0.x-dev"
         },
         "laravel": {

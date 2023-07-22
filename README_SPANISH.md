@@ -4,7 +4,7 @@
 
 ![logo](https://user-images.githubusercontent.com/91748598/236917119-68ae265f-56b4-433e-a0f4-4379c2e93e99.png)
 
-## Una nueva y segura forma de compartir variables entre las vistas Blade y Archivos de JavaScript.
+## Caracteristicas.
 
 Todas las importaciones que uses con la siguiente sintaxis `<script src="{{ asset('..............js') }}"></script>` ó los `<script> ... </script>` que crees directamente en la vista, luego de invocar algún método de esta librería tendrán acceso a las variables o bloques de datos que hayas definido desde el controlador o desde la directiva Blade, podrás separar la lógica de JavaScript de tus vistas Blade sin necesidad de hacer consultas o peticiones al servidor para obtener la información ya existente en el Front.
 
@@ -23,7 +23,7 @@ Todas las importaciones que uses con la siguiente sintaxis `<script src="{{ asse
 -	Esto es una descripcion muy corta para las características que te brinda esta librería.
 
 
-## _Instalacion_
+## Instalacion
 
 ```console
 composer require rmunate/php2js

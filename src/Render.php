@@ -2,13 +2,15 @@
 
 namespace Rmunate\Php2Js;
 
-use Rmunate\Php2Js\Bases\BasePhp2Js;
-use Rmunate\Php2Js\Data\DataPhp2Js;
 use Rmunate\Php2Js\JS\JS;
-use Rmunate\Php2Js\License\License;
+use Rmunate\Php2Js\Data\DataPhp2Js;
+use Rmunate\Php2Js\Bases\BasePhp2Js;
+use Rmunate\Php2Js\Traits\JSUtilities;
 
 class Render extends BasePhp2Js
 {
+    use JSUtilities;
+    
     /**
      * Propierties Object
      * Set From Contrcutor.
@@ -35,9 +37,9 @@ class Render extends BasePhp2Js
      *
      * @return static
      */
-    public static function view(string $view, array $data = []): static
+    public static function view(string $view, array $data = [])
     {
-        return new static($view, $data);
+        return new self($view, $data);
     }
 
     /**
@@ -49,10 +51,10 @@ class Render extends BasePhp2Js
     public function __construct(string $view, array $data = [])
     {
         /* Values Requerid */
-        $this->view = trim($view);
+        $this->license = $this->licence();
+        $this->attach = [];
         $this->data = $data;
-        $this->license = License::comment();
-        $this->attach = false;
+        $this->view = $this->clearView($view);
     }
 
     /**
@@ -96,7 +98,7 @@ class Render extends BasePhp2Js
         $this->injectJS = true;
         $this->alias = $mainName;
         $this->strictUse = true;
-        $this->varsJS = !empty($vars) ? ['vars' => $vars] : ['vars' => $this->data];
+        $this->varsJS = ['vars' => $vars ?? $this->data];
 
         return $this;
     }
@@ -125,55 +127,38 @@ class Render extends BasePhp2Js
     public function compose()
     {
         if (!$this->injectJS) {
+
             return view($this->view)->with($this->data);
+
         } else {
+
             $view = view($this->view)->with($this->data);
             $html = $view->render();
 
             if (!empty($this->attach)) {
-                if (in_array('agent', $this->attach)) {
-                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataAgent());
-                }
-
-                if (in_array('url', $this->attach)) {
-                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataUrl());
-                }
-
-                if (in_array('csrf', $this->attach)) {
-                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataCSRF());
-                }
-
-                if (in_array('framework', $this->attach)) {
-                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataLaravel());
-                }
-
-                if (in_array('php', $this->attach)) {
-                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataPHP());
-                }
-
-                if (in_array('user', $this->attach)) {
-                    $this->varsJS = array_merge($this->varsJS, DataPhp2Js::getDataUser());
+                $dataMethods = [
+                    'agent'     => 'getDataAgent',
+                    'url'       => 'getDataUrl',
+                    'csrf'      => 'getDataCSRF',
+                    'framework' => 'getDataLaravel',
+                    'php'       => 'getDataPHP',
+                    'user'      => 'getDataUser',
+                ];
+            
+                foreach ($this->attach as $method) {
+                    if (isset($dataMethods[$method])) {
+                        $data = DataPhp2Js::{$dataMethods[$method]}();
+                        $this->varsJS = array_merge($this->varsJS, $data);
+                    }
                 }
             }
 
             $jsonEncode = json_encode($this->varsJS, JSON_UNESCAPED_UNICODE);
-            $idElement = strtoupper(bin2hex(random_bytes(16)));
+            $idElement = $this->uniqueID();
 
             $script = JS::generateScriptTag($idElement, $this->license, $this->alias, $jsonEncode);
 
-            /* Inject JS */
-            $posicionCierreHead = strpos($html, '</head>');
-            $posicionCierreBody = strpos($html, '</body>');
-
-            if ($posicionCierreHead !== false) {
-                $htmlOut = substr($html, 0, $posicionCierreHead).$script.PHP_EOL.substr($html, $posicionCierreHead);
-            } elseif ($posicionCierreBody !== false) {
-                $htmlOut = substr($html, 0, $posicionCierreBody).$script.PHP_EOL.substr($html, $posicionCierreBody);
-            } else {
-                $htmlOut = $script.$html;
-            }
-
-            return response($htmlOut);
+            return response($this->injectJS($html, $script));
         }
     }
 }

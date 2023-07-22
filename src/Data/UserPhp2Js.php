@@ -26,7 +26,10 @@ class UserPhp2Js
                 'email_verified_at',
                 'password',
             ])->toArray();
-            $this->user['id'] = Crypt::encrypt($userArray['id']);
+
+            if (isset($this->user['id']) && !empty($this->user['id'])) {
+                $this->user['id'] = Crypt::encrypt($userArray['id']);
+            }
         }
     }
 

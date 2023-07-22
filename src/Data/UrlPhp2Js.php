@@ -99,4 +99,26 @@ class UrlPhp2Js
     {
         return strtoupper(str_replace('://', '', $this->serverHTTPx));
     }
+
+    /**
+     * Obtener el nombre de la ruta actual.
+     *
+     * @return string|null
+     */
+    public function getCurrentRouteName()
+    {
+        return $this->facadeRouteCurrent->getName();
+    }
+
+    /**
+     * Verificar si la solicitud es segura (HTTPS).
+     *
+     * @return bool
+     */
+    public function isSecure(): bool
+    {
+        return isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+    }
+
+
 }
