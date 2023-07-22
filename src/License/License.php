@@ -11,7 +11,7 @@ class License
      *
      * @return string
      */
-    public static function generateComment(): string
+    public static function comment(): string
     {
         $version = Immutable::VERSION;
         $author = Immutable::AUTHOR;
@@ -19,7 +19,7 @@ class License
         $url = Immutable::MANUAL_URL;
 
         return <<<EOT
-/* Library: PHP2JS | Author: {$author} | Version: {$version} | License: {$license} | URL: {$url} */
-EOT;
+        /* Library: PHP2JS | Author: {$author} | Version: {$version} | License: {$license} | URL: {$url} */
+        EOT;
     }
 }

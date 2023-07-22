@@ -52,7 +52,8 @@ trait JSUtilities
      */
     public function clearAlias($alias)
     {
-        return trim($alias, " \t\n\r\0\x0B$");
+        $alias = trim($alias, " \t\n\r\0\x0B$");
+        return str_replace(["'",'"'],"",$alias);
     }
 
     /**
@@ -64,9 +65,9 @@ trait JSUtilities
      */
     public function isValidConstantName($alias)
     {
-        $pattern = '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/';
+        $pattern = '/^[_a-zA-Z\x7f-\xff][_a-zA-Z0-9\x7f-\xff]*$/';
 
-        return preg_match($pattern, $alias);
+        return preg_match($pattern, $alias) === 1;
     }
 
     /**
