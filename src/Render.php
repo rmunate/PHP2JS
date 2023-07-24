@@ -2,11 +2,11 @@
 
 namespace Rmunate\Php2Js;
 
-use Rmunate\Php2Js\JS\JS;
-use Rmunate\Php2Js\Data\DataPhp2Js;
 use Rmunate\Php2Js\Bases\BasePhp2Js;
-use Rmunate\Php2Js\Traits\JSUtilities;
+use Rmunate\Php2Js\Data\DataPhp2Js;
 use Rmunate\Php2Js\Exceptions\PHP2JSExceptions;
+use Rmunate\Php2Js\JS\JS;
+use Rmunate\Php2Js\Traits\JSUtilities;
 
 class Render extends BasePhp2Js
 {
