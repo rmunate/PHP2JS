@@ -32,7 +32,7 @@ class UrlPhp2Js
      */
     public function getBaseUrl(): string
     {
-        return $this->serverHTTPx . $this->serverHost;
+        return $this->serverHTTPx.$this->serverHost;
     }
 
     /**
@@ -42,7 +42,7 @@ class UrlPhp2Js
      */
     public function getFullUrl(): string
     {
-        return $this->serverHTTPx . $this->serverHost . $this->serverUri;
+        return $this->serverHTTPx.$this->serverHost.$this->serverUri;
     }
 
     /**

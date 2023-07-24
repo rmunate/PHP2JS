@@ -56,6 +56,7 @@ class AgentPhp2Js
                 return true;
             }
         }
+
         return false;
     }
 
@@ -67,10 +68,10 @@ class AgentPhp2Js
     public function getDataClienteSO(): string
     {
         $operatingSystems = [
-            '/\bWindows\b/i' => 'Windows',
-            '/\bMacintosh\b|Mac(?!.+OS X)/i' => 'Mac',
-            '/\bLinux\b/i' => 'Linux',
-            '/\bAndroid\b/i' => 'Android',
+            '/\bWindows\b/i'                  => 'Windows',
+            '/\bMacintosh\b|Mac(?!.+OS X)/i'  => 'Mac',
+            '/\bLinux\b/i'                    => 'Linux',
+            '/\bAndroid\b/i'                  => 'Android',
             '/\biPhone\b|\biPad\b|\biPod\b/i' => 'iOS',
         ];
 
@@ -93,18 +94,18 @@ class AgentPhp2Js
         $userAgent = $this->agent;
         $browsers = [
             'Internet Explorer' => 'MSIE',
-            'Opera' => 'Opera',
-            'Netscape' => 'Netscape',
-            'Apple Safari' => 'Safari',
-            'Microsoft Edge' => 'Edg',
-            'Google Chrome' => 'Chrome',
-            'Mozilla Firefox' => 'Firefox',
+            'Opera'             => 'Opera',
+            'Netscape'          => 'Netscape',
+            'Apple Safari'      => 'Safari',
+            'Microsoft Edge'    => 'Edg',
+            'Google Chrome'     => 'Chrome',
+            'Mozilla Firefox'   => 'Firefox',
         ];
 
         $platforms = [
-            'Linux' => '/linux/i',
+            'Linux'     => '/linux/i',
             'Macintosh' => '/macintosh|mac os x/i',
-            'Windows' => '/windows|win32/i',
+            'Windows'   => '/windows|win32/i',
         ];
 
         $bname = 'Unknown';
@@ -123,7 +124,7 @@ class AgentPhp2Js
         foreach ($browsers as $browserName => $browserCode) {
             if (str_contains($userAgent, $browserCode)) {
                 $bname = $browserName;
-                $pattern = '#(?<browser>' . preg_quote($browserCode) . ')[/ ]+(?<version>[0-9.|a-zA-Z.]*)#';
+                $pattern = '#(?<browser>'.preg_quote($browserCode).')[/ ]+(?<version>[0-9.|a-zA-Z.]*)#';
                 if (preg_match_all($pattern, $userAgent, $matches)) {
                     $i = count($matches['browser']);
                     if ($i > 0) {
@@ -135,8 +136,8 @@ class AgentPhp2Js
         }
 
         $response = [
-            'name' => $bname,
-            'version' => $version,
+            'name'     => $bname,
+            'version'  => $version,
             'platform' => $platform,
         ];
 
