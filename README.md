@@ -36,7 +36,7 @@
       12. [Set](#set)
       13. [Get](#get)
 4. [Creator](#creator)
-5. [Developers](#developers)
+5. [Contributors](#contributors)
 6. [License](#license)
 
 ## Introduction
@@ -495,7 +495,7 @@ The power is at your fingertips. Much success in your projects!
 - 🇨🇴 Raúl Mauricio Uñate Castro
 - Email: raulmauriciounate@gmail.com
 
-## Developers
+## Contributors
 - 🇨🇴 Carlos Giovanni Rodriguez (musica_tuto@hotmail.com)
 - 🇨🇴 Laura Valentina Borda Vargas (lvalentina0507@gmail.com)
 - 🇨🇴 Wilmer A. Sanchez Saez (wilmersaz@hotmail.com)
