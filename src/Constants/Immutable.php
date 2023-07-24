@@ -2,10 +2,6 @@
 
 namespace Rmunate\Php2Js\Constants;
 
-/**
- * Class Immutable.
- * This class contains constants that define immutable properties of the PHP2JS library.
- */
 class Immutable
 {
     /**

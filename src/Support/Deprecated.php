@@ -7,7 +7,7 @@ class Deprecated
     /**
      * Return Script JS
      * Support Version 2.X Library.
-     *
+     * 
      * @return string
      */
     public static function __PHP(): string

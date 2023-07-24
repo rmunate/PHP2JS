@@ -69,7 +69,7 @@ class ServerPhp2Js
      *
      * @return string
      */
-    public function getClientLanguage(): string
+    public function getClientLanguage() : string
     {
         return $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'Unknown';
     }

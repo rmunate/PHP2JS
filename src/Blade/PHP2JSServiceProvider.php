@@ -15,7 +15,7 @@ class PHP2JSServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //....
+        //...
     }
 
     /**

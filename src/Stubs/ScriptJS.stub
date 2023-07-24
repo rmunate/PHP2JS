@@ -1,6 +1,6 @@
 <script id="{ID}">
 
-    {LICENSE}
+    {LICENSE} 
 
     const {ALIAS} = {JSON};
 

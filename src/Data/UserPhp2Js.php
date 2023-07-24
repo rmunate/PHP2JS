@@ -7,9 +7,6 @@ use Illuminate\Support\Facades\Crypt;
 
 class UserPhp2Js
 {
-    /**
-     * Propierties Object.
-     */
     private $user;
 
     /**

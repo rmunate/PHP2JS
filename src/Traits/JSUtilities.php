@@ -4,10 +4,6 @@ namespace Rmunate\Php2Js\Traits;
 
 use Rmunate\Php2Js\License\License;
 
-/**
- * Trait JSUtilities.
- * This trait provides utility methods used by the PHP2JS library for JavaScript generation.
- */
 trait JSUtilities
 {
     /**

@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Route;
 
 class UrlPhp2Js
 {
-    /**
-     * Propierties Object.
-     */
     private $facadeRouteCurrent;
     private $serverHTTPx;
     private $serverHost;

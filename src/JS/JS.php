@@ -123,7 +123,7 @@ class JS
     /**
      * @param mixed $idElement
      * @param mixed $license
-     * @param mixed $alias
+     * @param mixed $alias 
      *
      * @return string
      */

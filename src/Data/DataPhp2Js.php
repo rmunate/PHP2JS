@@ -120,7 +120,7 @@ class DataPhp2Js
         $data = new UserPhp2Js();
 
         return [
-            'user' => $data->getDataUser(),
+            'user' => $data->getDataUser()
         ];
     }
 }

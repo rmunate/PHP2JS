@@ -21,6 +21,6 @@ class TokenPhp2Js
      */
     public function csrfTokenCookie(): string
     {
-        return (isset($_COOKIE['XSRF-TOKEN'])) ? $_COOKIE['XSRF-TOKEN'] : null;
+        return $_COOKIE['XSRF-TOKEN'] ?? null;
     }
 }

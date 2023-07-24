@@ -12,7 +12,7 @@ class MethodNotFoundException extends BadMethodCallException
      * @param string $className
      * @param string $methodName
      *
-     * @return static
+     * @return static 
      */
     public static function create(string $className, string $methodName)
     {

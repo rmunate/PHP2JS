@@ -18,7 +18,6 @@ abstract class BasePhp2Js
      */
     public function __call($method, $parameters)
     {
-        // Se lanza una excepción indicando que el método llamado no existe en la clase.
         throw MethodNotFoundException::create(static::class, $method);
     }
 }

@@ -4,9 +4,6 @@ namespace Rmunate\Php2Js\Data;
 
 class AgentPhp2Js
 {
-    /**
-     * Propierties Object.
-     */
     private $agent;
 
     /**

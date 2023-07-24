@@ -16,7 +16,7 @@ class PHP2JSExceptions extends Exception
      * @param int        $code     The exception code (optional).
      * @param \Throwable $previous The previous exception (optional).
      *
-     * @return static
+     * @return static 
      */
     public static function create(string $message, int $code = 0, \Throwable $previous = null)
     {

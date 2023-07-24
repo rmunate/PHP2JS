@@ -22,6 +22,7 @@ class Render extends BasePhp2Js
     private $attach;
 
     /**
+     * Propierties Object
      * Determinate Inject JS.
      */
     private $injectJS = false;
