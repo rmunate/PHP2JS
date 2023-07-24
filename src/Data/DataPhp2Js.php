@@ -15,12 +15,12 @@ class DataPhp2Js
 
         return [
             'agent' => [
-                'identifier' => $data->getAgent(),
-                'remote_ip' => $data->getIpAddress(),
+                'identifier'  => $data->getAgent(),
+                'remote_ip'   => $data->getIpAddress(),
                 'remote_port' => $data->getRemotePort(),
-                'browser' => $data->getDataBrowser(),
-                'isMobile' => $data->isMobileDevice(),
-                'OS' => $data->getDataClienteSO(),
+                'browser'     => $data->getDataBrowser(),
+                'isMobile'    => $data->isMobileDevice(),
+                'OS'          => $data->getDataClienteSO(),
             ],
         ];
     }
@@ -36,17 +36,17 @@ class DataPhp2Js
 
         return [
             'url' => [
-                'baseUrl' => $data->getBaseUrl(),
-                'fullUrl' => $data->getFullUrl(),
-                'uri' => $data->getUri(),
+                'baseUrl'    => $data->getBaseUrl(),
+                'fullUrl'    => $data->getFullUrl(),
+                'uri'        => $data->getUri(),
                 'parameters' => [
                     'route' => $data->getParametersRoute(),
-                    'get' => $data->getParametersGet(),
-                    'post' => $data->getParametersPost(),
+                    'get'   => $data->getParametersGet(),
+                    'post'  => $data->getParametersPost(),
                 ],
-                'scheme' => $data->getSchema(),
+                'scheme'      => $data->getSchema(),
                 'currentName' => $data->getCurrentRouteName(),
-                'isSecure' => $data->isSecure(),
+                'isSecure'    => $data->isSecure(),
             ],
         ];
     }
@@ -61,7 +61,7 @@ class DataPhp2Js
         $data = new TokenPhp2Js();
 
         return [
-            'token' => $data->csrfToken(),
+            'token'       => $data->csrfToken(),
             'tokenCookie' => $data->csrfTokenCookie(),
         ];
     }
@@ -77,12 +77,12 @@ class DataPhp2Js
 
         return [
             'framework' => [
-                'version' => $data->getLaravelVersion(),
+                'version'     => $data->getLaravelVersion(),
                 'environment' => [
-                    'name' => $data->getEnvName(),
-                    'debug' => $data->getEnvDebug() == true,
+                    'name'    => $data->getEnvName(),
+                    'debug'   => $data->getEnvDebug() == true,
                     'context' => $data->getEnvironment(),
-                    'url' => $data->getEnvUrl(),
+                    'url'     => $data->getEnvUrl(),
                 ],
             ],
         ];
@@ -99,13 +99,13 @@ class DataPhp2Js
 
         return [
             'php' => [
-                'id' => $data->getPhpVersionId(),
-                'version' => $data->getPhpVersion(),
-                'release' => $data->getPhpReleaseVersion(),
-                'serverSoftware' => $data->getServerSoftware(),
+                'id'                    => $data->getPhpVersionId(),
+                'version'               => $data->getPhpVersion(),
+                'release'               => $data->getPhpReleaseVersion(),
+                'serverSoftware'        => $data->getServerSoftware(),
                 'serverOperatingSystem' => $data->getServerOperatingSystem(),
-                'extensions' => $data->getPhpExtensions(),
-                'clientLanguage' => $data->getClientLanguage(),
+                'extensions'            => $data->getPhpExtensions(),
+                'clientLanguage'        => $data->getClientLanguage(),
             ],
         ];
     }

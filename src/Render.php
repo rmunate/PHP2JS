@@ -136,12 +136,12 @@ class Render extends BasePhp2Js
 
             if (!empty($this->attach)) {
                 $dataMethods = [
-                    'agent' => 'getDataAgent',
-                    'url' => 'getDataUrl',
-                    'csrf' => 'getDataCSRF',
+                    'agent'     => 'getDataAgent',
+                    'url'       => 'getDataUrl',
+                    'csrf'      => 'getDataCSRF',
                     'framework' => 'getDataLaravel',
-                    'php' => 'getDataPHP',
-                    'user' => 'getDataUser',
+                    'php'       => 'getDataPHP',
+                    'user'      => 'getDataUser',
                 ];
 
                 foreach ($this->attach as $method) {

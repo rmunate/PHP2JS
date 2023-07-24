@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Rmunate\Php2Js\Exceptions;
 
@@ -30,7 +30,7 @@ class PHP2JSExceptions extends Exception
      */
     public static function notIsValidConstantName($alias)
     {
-        $message = self::formatExceptionMessage('The alias "' . $alias . '" is not valid for the name of a constant in JavaScript');
+        $message = self::formatExceptionMessage('The alias "'.$alias.'" is not valid for the name of a constant in JavaScript');
 
         return self::create($message);
     }
@@ -92,6 +92,6 @@ class PHP2JSExceptions extends Exception
      */
     private static function formatExceptionMessage(string $message): string
     {
-        return Immutable::LIBRARY_NAME . ' - ' . $message . ' Refer to the ' . Immutable::LIBRARY_NAME . ' manual for more information: ' . Immutable::MANUAL_URL;
+        return Immutable::LIBRARY_NAME.' - '.$message.' Refer to the '.Immutable::LIBRARY_NAME.' manual for more information: '.Immutable::MANUAL_URL;
     }
 }

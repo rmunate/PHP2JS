@@ -130,7 +130,7 @@ class JS
     public static function generateScriptTag($id, $license, $alias, $json): string
     {
         // Read the content of the stub file
-        $stubContent = file_get_contents(__DIR__ . '/../Stubs/ScriptJS.stub');
+        $stubContent = file_get_contents(__DIR__.'/../Stubs/ScriptJS.stub');
 
         // Replace placeholders with actual values
         $generatedScript = str_replace(
