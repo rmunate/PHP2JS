@@ -46,125 +46,53 @@ class Deprecated
             };
             delete unique_php2js; 
         
-            sessionStorage.setItem(
-                bridgePHP.get_defined_vars,
-                JSON.stringify(<?php echo json_encode(array_diff_key(get_defined_vars(), array_flip(["__data","__env","__path","__currentLoopData","__file","__dir","__fluent"]))); ?>)
-            );
+            sessionStorage.setItem(bridgePHP.get_defined_vars,JSON.stringify(<?php echo json_encode(array_diff_key(get_defined_vars(), array_flip(["__data","__env","__path","__currentLoopData","__file","__dir","__fluent"]))); ?>));
             
-            sessionStorage.setItem(
-                bridgePHP.baseUrl,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\UrlPhp2Js::getBaseUrl()); ?>
-            );
+            sessionStorage.setItem(bridgePHP.baseUrl,<?php echo json_encode((new \Rmunate\Php2Js\Data\UrlPhp2Js)->getBaseUrl()); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.fullUrl,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\UrlPhp2Js::getFullUrl()); ?>
-            );
+            sessionStorage.setItem(bridgePHP.fullUrl,<?php echo json_encode((new \Rmunate\Php2Js\Data\UrlPhp2Js)->getFullUrl()); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.parameters,
-                JSON.stringify(<?php echo json_encode(\Rmunate\Php2Js\Data\UrlPhp2Js::getParametersRoute()); ?>)
-            );
+            sessionStorage.setItem(bridgePHP.parameters,JSON.stringify(<?php echo json_encode((new \Rmunate\Php2Js\Data\UrlPhp2Js)->getParametersRoute()); ?>));
             
-            sessionStorage.setItem(
-                bridgePHP.uri,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\UrlPhp2Js::getUri()); ?>
-            ); 
+            sessionStorage.setItem(bridgePHP.uri,<?php echo json_encode((new \Rmunate\Php2Js\Data\UrlPhp2Js)->getUri()); ?>); 
             
-            sessionStorage.setItem(
-                bridgePHP.scheme,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\UrlPhp2Js::getSchema()); ?>
-            );
+            sessionStorage.setItem(bridgePHP.scheme,<?php echo json_encode((new \Rmunate\Php2Js\Data\UrlPhp2Js)->getSchema()); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.token,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\TokenPhp2Js::csrfToken()); ?>
-            );
+            sessionStorage.setItem(bridgePHP.token,<?php echo json_encode((new \Rmunate\Php2Js\Data\TokenPhp2Js)->csrfToken()); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.tokenMeta,
-                "<meta name=" + String.fromCharCode(34) + " csrf-token" + String.fromCharCode(34) + " content=" + String.fromCharCode(34) + sessionStorage.getItem(bridgePHP.token) + String.fromCharCode(34) + ">"
-            );
+            sessionStorage.setItem(bridgePHP.tokenMeta,"<meta name=" + String.fromCharCode(34) + " csrf-token" + String.fromCharCode(34) + " content=" + String.fromCharCode(34) + sessionStorage.getItem(bridgePHP.token) + String.fromCharCode(34) + ">");
             
-            sessionStorage.setItem(
-                bridgePHP.tokenInput,
-                "<input type" + String.fromCharCode(34) + "hidden" + String.fromCharCode(34) + " name=" + String.fromCharCode(34) + "_token" + String.fromCharCode(34) + " value=" + String.fromCharCode(34) + sessionStorage.getItem(bridgePHP.token) + String.fromCharCode(34) + "/>"
-            );
+            sessionStorage.setItem(bridgePHP.tokenInput,"<input type" + String.fromCharCode(34) + "hidden" + String.fromCharCode(34) + " name=" + String.fromCharCode(34) + "_token" + String.fromCharCode(34) + " value=" + String.fromCharCode(34) + sessionStorage.getItem(bridgePHP.token) + String.fromCharCode(34) + "/>");
             
-            sessionStorage.setItem(
-                bridgePHP.php_version,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\ServerPhp2Js::getPhpVersion()); ?>
-            );
+            sessionStorage.setItem(bridgePHP.php_version,<?php echo json_encode((new \Rmunate\Php2Js\Data\ServerPhp2Js)->getPhpVersion()); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.php_id,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\ServerPhp2Js::getPhpVersionId());
-            ?>);
+            sessionStorage.setItem(bridgePHP.php_id,<?php echo json_encode((new \Rmunate\Php2Js\Data\ServerPhp2Js)->getPhpVersionId()); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.php_release,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\ServerPhp2Js::getPhpReleaseVersion()); ?>
-            );
+            sessionStorage.setItem(bridgePHP.php_release,<?php echo json_encode((new \Rmunate\Php2Js\Data\ServerPhp2Js)->getPhpReleaseVersion()); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.agent,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\AgentPhp2Js::getAgent()); ?>
-            );
+            sessionStorage.setItem(bridgePHP.agent,<?php echo json_encode((new \Rmunate\Php2Js\Data\AgentPhp2Js)->getAgent()); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.remote_ip,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\AgentPhp2Js::getIpAddress()); ?>
-            );
+            sessionStorage.setItem(bridgePHP.remote_ip,<?php echo json_encode((new \Rmunate\Php2Js\Data\AgentPhp2Js)->getIpAddress()); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.remote_port,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\AgentPhp2Js::getRemotePort()); ?>
-            );
+            sessionStorage.setItem(bridgePHP.remote_port,<?php echo json_encode((new \Rmunate\Php2Js\Data\AgentPhp2Js)->getRemotePort()); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.browser,
-                JSON.stringify(<?php echo json_encode(\Rmunate\Php2Js\Data\AgentPhp2Js::getDataBrowser()); ?>)
-            );
+            sessionStorage.setItem(bridgePHP.browser,JSON.stringify(<?php echo json_encode((new \Rmunate\Php2Js\Data\AgentPhp2Js)->getDataBrowser()); ?>));
             
-            sessionStorage.setItem(
-                bridgePHP.is_mobile,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\AgentPhp2Js::isMobileDevice()); ?>
-            );
+            sessionStorage.setItem(bridgePHP.is_mobile,<?php echo json_encode((new \Rmunate\Php2Js\Data\AgentPhp2Js)->isMobileDevice()); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.mobile_os_android,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\AgentPhp2Js::validatePlatform(["Android"])); ?>
-            );
+            sessionStorage.setItem(bridgePHP.mobile_os_android,<?php echo json_encode((new \Rmunate\Php2Js\Data\AgentPhp2Js)->validatePlatform(["Android"])); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.mobile_os_iphone,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\AgentPhp2Js::validatePlatform(["iPhone","iPhone OS"])); ?>
-            );
+            sessionStorage.setItem(bridgePHP.mobile_os_iphone,<?php echo json_encode((new \Rmunate\Php2Js\Data\AgentPhp2Js)->validatePlatform(["iPhone","iPhone OS"])); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.os_linux,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\AgentPhp2Js::validatePlatform(["Linux"])); ?>
-            );
+            sessionStorage.setItem(bridgePHP.os_linux,<?php echo json_encode((new \Rmunate\Php2Js\Data\AgentPhp2Js)->validatePlatform(["Linux"])); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.os_ios,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\AgentPhp2Js::validatePlatform(["Macintosh","Intel Mac OS","Mac"])); ?>
-            );
+            sessionStorage.setItem(bridgePHP.os_ios,<?php echo json_encode((new \Rmunate\Php2Js\Data\AgentPhp2Js)->validatePlatform(["Macintosh","Intel Mac OS","Mac"])); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.os_windows,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\AgentPhp2Js::validatePlatform(["Windows","Win"])); ?>
-            );
+            sessionStorage.setItem(bridgePHP.os_windows,<?php echo json_encode((new \Rmunate\Php2Js\Data\AgentPhp2Js)->validatePlatform(["Windows","Win"])); ?>);
             
-            sessionStorage.setItem(
-                bridgePHP.user,
-                JSON.stringify(<?php echo json_encode(\Rmunate\Php2Js\Data\UserPhp2Js::getDataUser()); ?>)
-            );
+            sessionStorage.setItem(bridgePHP.user,JSON.stringify(<?php echo json_encode((new \Rmunate\Php2Js\Data\UserPhp2Js)->getDataUser()); ?>));
                 
-            sessionStorage.setItem(
-                bridgePHP.debugger,
-                <?php echo json_encode(\Rmunate\Php2Js\Data\LaravelPhp2Js::getEnvDebug()); ?>
-            );
+            sessionStorage.setItem(bridgePHP.debugger,<?php echo json_encode((new \Rmunate\Php2Js\Data\LaravelPhp2Js)->getEnvDebug()); ?>);
             
         </script>
         <script id="__PHP2JS_CLASS">
