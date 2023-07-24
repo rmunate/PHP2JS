@@ -123,14 +123,14 @@ class JS
     /**
      * @param mixed $idElement
      * @param mixed $license
-     * @param mixed $alias 
+     * @param mixed $alias
      *
      * @return string
      */
     public static function generateScriptTag($id, $license, $alias, $json): string
     {
         // Read the content of the stub file
-        $stubContent = file_get_contents(__DIR__.'/../Stubs/ScriptJS.stub');
+        $stubContent = file_get_contents(__DIR__ . '/../Stubs/ScriptJS.stub');
 
         // Replace placeholders with actual values
         $generatedScript = str_replace(

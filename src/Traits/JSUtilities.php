@@ -49,7 +49,7 @@ trait JSUtilities
     public function clearAlias($alias)
     {
         $alias = trim($alias, " \t\n\r\0\x0B$");
-        return str_replace(["'",'"'],"",$alias);
+        return str_replace(["'", '"'], "", $alias);
     }
 
     /**
@@ -75,7 +75,7 @@ trait JSUtilities
      */
     public function jsonCompact($reward)
     {
-        return '<?php echo json_encode(compact('.$reward.'), JSON_UNESCAPED_UNICODE); ?>;';
+        return '<?php echo json_encode(compact(' . $reward . '), JSON_UNESCAPED_UNICODE); ?>;';
     }
 
     /**
@@ -85,7 +85,7 @@ trait JSUtilities
      */
     public function jsonVars()
     {
-        return  '<?php echo json_encode(array_diff_key(
+        return '<?php echo json_encode(array_diff_key(
                     get_defined_vars(),
                     array_flip([
                         "__data",
@@ -108,7 +108,7 @@ trait JSUtilities
      */
     public function jsonSpecificMethod($reward)
     {
-        return '<?php echo json_encode(\Rmunate\Php2Js\Data\DataPhp2Js::'.$reward.'(), JSON_UNESCAPED_UNICODE); ?>;';
+        return '<?php echo json_encode(\Rmunate\Php2Js\Data\DataPhp2Js::' . $reward . '(), JSON_UNESCAPED_UNICODE); ?>;';
     }
 
     /**
@@ -125,11 +125,11 @@ trait JSUtilities
         $posicionCierreBody = strpos($html, '</body>');
 
         if ($posicionCierreHead !== false) {
-            $htmlOut = substr($html, 0, $posicionCierreHead).$script.PHP_EOL.substr($html, $posicionCierreHead);
+            $htmlOut = substr($html, 0, $posicionCierreHead) . $script . PHP_EOL . substr($html, $posicionCierreHead);
         } elseif ($posicionCierreBody !== false) {
-            $htmlOut = substr($html, 0, $posicionCierreBody).$script.PHP_EOL.substr($html, $posicionCierreBody);
+            $htmlOut = substr($html, 0, $posicionCierreBody) . $script . PHP_EOL . substr($html, $posicionCierreBody);
         } else {
-            $htmlOut = $script.$html;
+            $htmlOut = $script . $html;
         }
 
         return $htmlOut;

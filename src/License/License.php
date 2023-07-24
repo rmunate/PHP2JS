@@ -8,7 +8,7 @@ class License
 {
     /**
      * Generate the license comment.
-     * 
+     *
      * @return string
      */
     public static function comment(): string

@@ -53,6 +53,6 @@ class LaravelPhp2Js
      */
     public function getEnvUrl(): string
     {
-        return env('APP_URL','Unknown');
+        return env('APP_URL', 'Unknown');
     }
 }

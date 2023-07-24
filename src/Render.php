@@ -2,11 +2,11 @@
 
 namespace Rmunate\Php2Js;
 
-use Rmunate\Php2Js\JS\JS;
-use Rmunate\Php2Js\Data\DataPhp2Js;
 use Rmunate\Php2Js\Bases\BasePhp2Js;
-use Rmunate\Php2Js\Traits\JSUtilities;
+use Rmunate\Php2Js\Data\DataPhp2Js;
 use Rmunate\Php2Js\Exceptions\PHP2JSExceptions;
+use Rmunate\Php2Js\JS\JS;
+use Rmunate\Php2Js\Traits\JSUtilities;
 
 class Render extends BasePhp2Js
 {
@@ -136,12 +136,12 @@ class Render extends BasePhp2Js
 
             if (!empty($this->attach)) {
                 $dataMethods = [
-                    'agent'     => 'getDataAgent',
-                    'url'       => 'getDataUrl',
-                    'csrf'      => 'getDataCSRF',
+                    'agent' => 'getDataAgent',
+                    'url' => 'getDataUrl',
+                    'csrf' => 'getDataCSRF',
                     'framework' => 'getDataLaravel',
-                    'php'       => 'getDataPHP',
-                    'user'      => 'getDataUser',
+                    'php' => 'getDataPHP',
+                    'user' => 'getDataUser',
                 ];
 
                 foreach ($this->attach as $method) {
