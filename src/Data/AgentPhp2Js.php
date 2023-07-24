@@ -45,17 +45,18 @@ class AgentPhp2Js
 
     /**
      * @param array $identifiers
-     * 
+     *
      * @return bool
      */
     public function validatePlatform($identifiers = [])
     {
         foreach ($identifiers as $identifier) {
             $check = strpos($this->agent, $identifier);
-            if ($check >= 1){
+            if ($check >= 1) {
                 return true;
             }
         }
+
         return false;
     }
 
