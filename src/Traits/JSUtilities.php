@@ -53,7 +53,8 @@ trait JSUtilities
     public function clearAlias($alias)
     {
         $alias = trim($alias, " \t\n\r\0\x0B$");
-        return str_replace(["'",'"'],"",$alias);
+
+        return str_replace(["'", '"'], '', $alias);
     }
 
     /**
