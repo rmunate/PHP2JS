@@ -15,17 +15,26 @@ class UserPhp2Js
     public function __construct()
     {
         $this->user = null;
-        if (Auth::check()) {
-            $this->user = Auth::user();
-            $userArray = $this->user->except([
-                'created_at',
-                'updated_at',
-                'email_verified_at',
-                'password',
-            ])->toArray();
 
-            if (isset($this->user['id']) && !empty($this->user['id'])) {
-                $this->user['id'] = Crypt::encrypt($userArray['id']);
+        if (Auth::check()) {
+
+            $this->user = Auth::user()->toArray();
+
+            // Verificar y eliminar las propiedades si existen
+            if (array_key_exists('created_at', $this->user)) {
+                unset($this->user['created_at']);
+            }
+            if (array_key_exists('updated_at', $this->user)) {
+                unset($this->user['updated_at']);
+            }
+            if (array_key_exists('email_verified_at', $this->user)) {
+                unset($this->user['email_verified_at']);
+            }
+            if (array_key_exists('password', $this->user)) {
+                unset($this->user['password']);
+            }
+            if (array_key_exists('id', $this->user)) {
+                $this->user['id'] = Crypt::encrypt($this->user['id']);
             }
         }
     }
