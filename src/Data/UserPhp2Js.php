@@ -17,7 +17,6 @@ class UserPhp2Js
         $this->user = null;
 
         if (Auth::check()) {
-
             $this->user = Auth::user()->toArray();
 
             // Verificar y eliminar las propiedades si existen
