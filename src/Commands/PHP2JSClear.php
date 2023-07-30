@@ -1,11 +1,12 @@
 <?php
+
 namespace Rmunate\Php2Js\Commands;
 
 use Illuminate\Console\Command;
 use Rmunate\Php2Js\Traits\CommandUtilities;
 
 /**
- * Class PHP2JSClear
+ * Class PHP2JSClear.
  *
  * Command to clear the current PHP2JS settings on the Blade directives.
  */
@@ -40,6 +41,6 @@ class PHP2JSClear extends Command
         $this->call('config:clear');
 
         // Notify success
-        $this->notifyInfo("Cleaned up PHP2JS settings on Blade directives. The ones in force in the current version will be taken.");
+        $this->notifyInfo('Cleaned up PHP2JS settings on Blade directives. The ones in force in the current version will be taken.');
     }
 }
