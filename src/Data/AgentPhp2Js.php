@@ -81,7 +81,7 @@ class AgentPhp2Js
             }
         }
 
-        return 'Unknown';
+        return null;
     }
 
     /**
@@ -108,9 +108,9 @@ class AgentPhp2Js
             'Windows'   => '/windows|win32/i',
         ];
 
-        $bname = 'Unknown';
-        $platform = 'Unknown';
-        $version = 'Unknown';
+        $bname = null;
+        $platform = null;
+        $version = null;
 
         // Detect platform
         foreach ($platforms as $platformName => $platformRegex) {
@@ -135,13 +135,15 @@ class AgentPhp2Js
             }
         }
 
-        $response = [
-            'name'     => $bname,
-            'version'  => $version,
-            'platform' => $platform,
-        ];
-
-        return $response;
+        if (empty($bname) && empty($version) && empty($platform)) {
+            return null;
+        } else {
+            return [
+                'name'     => $bname,
+                'version'  => $version,
+                'platform' => $platform,
+            ];
+        }
     }
 
     /**

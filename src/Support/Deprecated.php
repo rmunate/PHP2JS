@@ -362,7 +362,11 @@ class Deprecated
             
             function __eventSafeDataPHP2JS()
             {
-                "true" !== PHP.item(bridgePHP.debugger) && setTimeout(() => { console.clear() }, 50)
+                if (PHP.item(bridgePHP.debugger) !== true) {
+                    setTimeout(() => {
+                      console.clear();
+                    }, 50);
+                }
             }
             
             function __PHP()

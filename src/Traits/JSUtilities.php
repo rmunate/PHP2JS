@@ -90,11 +90,14 @@ trait JSUtilities
                     get_defined_vars(),
                     array_flip([
                         "__data",
+                        "__app",
                         "__env",
                         "__path",
                         "__currentLoopData",
                         "__file",
                         "__dir",
+                        "__container",
+                        "__componentOriginalAttributes",
                         "__fluent"
                     ])
                 ), JSON_UNESCAPED_UNICODE); ?>;';

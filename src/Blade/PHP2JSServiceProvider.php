@@ -213,7 +213,7 @@ class PHP2JSServiceProvider extends ServiceProvider
          * Blade directive 'toStrictJS'.
          * Deprecated method without usage.
          *
-         * @throws Exception An Exception indicating that the 'toStrictJS' directive is deprecated.
+         * @throws Exception - An Exception indicating that the 'toStrictJS' directive is deprecated.
          *
          * @return void
          */

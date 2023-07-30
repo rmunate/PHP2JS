@@ -11,7 +11,7 @@ class ServerPhp2Js
      */
     public function getPhpVersionId(): string
     {
-        return PHP_VERSION_ID ?? 'Unknown';
+        return PHP_VERSION_ID ?? null;
     }
 
     /**
@@ -21,7 +21,7 @@ class ServerPhp2Js
      */
     public function getPhpVersion(): string
     {
-        return PHP_VERSION ?? 'Unknown';
+        return PHP_VERSION ?? null;
     }
 
     /**
@@ -31,7 +31,7 @@ class ServerPhp2Js
      */
     public function getPhpReleaseVersion(): string
     {
-        return PHP_RELEASE_VERSION ?? 'Unknown';
+        return PHP_RELEASE_VERSION ?? null;
     }
 
     /**
@@ -41,7 +41,7 @@ class ServerPhp2Js
      */
     public function getServerSoftware(): string
     {
-        return $_SERVER['SERVER_SOFTWARE'] ?? 'Unknown';
+        return $_SERVER['SERVER_SOFTWARE'] ?? null;
     }
 
     /**
@@ -51,7 +51,7 @@ class ServerPhp2Js
      */
     public function getServerOperatingSystem(): string
     {
-        return php_uname('s') ?? 'Unknown';
+        return php_uname('s') ?? null;
     }
 
     /**
@@ -71,6 +71,6 @@ class ServerPhp2Js
      */
     public function getClientLanguage(): string
     {
-        return $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'Unknown';
+        return $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? null;
     }
 }
