@@ -66,9 +66,9 @@ composer require rmunate/php2js
 ```
 
 Make sure that in the `composer.json` file, you have the library in the latest version. `"rmunate/php2js": "^3.8"`
-Always after installing, run the following commands:
+Always after installing, run the command:
 ```console
-php artisan cache:clear; php artisan view:clear; php artisan config:clear
+php artisan php2js:clear
 ```
 
 ## Usage
