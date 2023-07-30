@@ -3,6 +3,7 @@
 namespace Rmunate\Php2Js\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Rmunate\Php2Js\Commands\PHP2JSClear;
 
 class Php2JsServiceProvider extends ServiceProvider
 {
@@ -26,7 +27,7 @@ class Php2JsServiceProvider extends ServiceProvider
     {
         // Register the custom Artisan commands
         $this->commands([
-            Commands\PHP2JSClear::class,
+            PHP2JSClear::class,
         ]);
     }
 }
