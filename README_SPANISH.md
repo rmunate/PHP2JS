@@ -5,7 +5,8 @@
 [![Laravel 10.0+](https://img.shields.io/badge/Laravel-10.0%2B-orange.svg)](https://laravel.com)
 
 ![logo](https://user-images.githubusercontent.com/91748598/236917119-68ae265f-56b4-433e-a0f4-4379c2e93e99.png)
-[**----Documentation In English----**](README.md)
+
+📖 [**DOCUMENTACIÓN EN INGLÉS**](README.md) 📖
 
 # Tabla de Contenido
 1. [Introducción](#introducción)
@@ -71,7 +72,6 @@ Siempre luego de instalar o actualizar ejecuta el comando.
 ```console
 php artisan php2js:clear
 ```
-
 
 ## Uso
 La Biblioteca ofrece diversas maneras de uso, desde los controladores de Laravel, así como desde las vistas a través de directivas simples de Blade. 
@@ -516,4 +516,10 @@ El poder está a tu alcance. ¡Mucho éxito en tus proyectos!
 - 🇲🇽 Julio C. Borges (julio-borgeslopez@outlook.com)
 
 ## Licencia
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+Este proyecto se encuentra bajo la [Licencia MIT](https://choosealicense.com/licenses/mit/).
+
+🌟 ¡Apoya Mis Proyectos! 🚀
+
+¡Realiza las contribuciones que veas necesarias, el código es totalmente tuyo. Juntos podemos hacer cosas asombrosas y mejorar el mundo del desarrollo. Tu apoyo es invaluable. ✨
+
+Si tienes ideas, sugerencias o simplemente deseas colaborar, ¡estamos abiertos a todo! ¡Únete a nuestra comunidad y forma parte de nuestro viaje hacia el éxito! 🌐👩‍💻👨‍💻
