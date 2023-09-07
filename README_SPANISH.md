@@ -4,7 +4,7 @@
 [![Laravel 9.0+](https://img.shields.io/badge/Laravel-9.0%2B-orange.svg)](https://laravel.com)
 [![Laravel 10.0+](https://img.shields.io/badge/Laravel-10.0%2B-orange.svg)](https://laravel.com)
 
-![logo](https://user-images.githubusercontent.com/91748598/236917119-68ae265f-56b4-433e-a0f4-4379c2e93e99.png)
+![logo-php2js](https://github.com/alejandrodiazpinilla/PHP2JS/assets/51100789/f3c09be3-8013-44de-87fe-946b55f14514)
 
 📖 [**DOCUMENTACIÓN EN INGLÉS**](README.md) 📖
 
