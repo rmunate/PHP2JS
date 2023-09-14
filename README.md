@@ -169,7 +169,7 @@ return Render::view('pages.guest.index')->toStrictJS(['variable1' => $variable1]
 ### How to Access From JavaScript?
 Now that you know how to return values from the controllers and share them with JavaScript, we show you how you can access them. Remember that if you used a custom alias as we suggested, this alias will become a constant within the JavaScript environment. If you did not use an alias, the default constant created is `PHP2JS`, but it is always recommended to create a custom alias in each case.
 
-```javascript
+```
 // You can use this syntax to access the variables anywhere in JavaScript.
 
 // Without a custom alias
@@ -194,7 +194,7 @@ This directive allows you to pass an object with the connection agent data captu
 ```
 
 This will share the following data with JavaScript:
-```javascript
+```
 PHP2JS = {
     agent: {
         identifier:   // Connection Agent Registered From Server (Not Registered By Frontend),
@@ -219,7 +219,7 @@ This directive allows you to pass an object with the data of the current URL to 
 ```
 
 This will share the following data with JavaScript:
-```javascript
+```
 PHP2JS = {
     url: {
         baseUrl:      // Base URL to be used for AJAX requests, Axios, Fetch, etc.,
@@ -249,7 +249,7 @@ This directive is one of the most used and allows you to have a valid Laravel to
 ```
 
 This will share the following data with JavaScript:
-```javascript
+```
 PHP2JS = {
     token:          // Valid token for requests to the server by Laravel Request,
     tokenCookie:    // Token delivered by the server via Cookie,
@@ -268,7 +268,7 @@ This directive allows you to know some data inherent to the Framework. It allows
 ```
 
 This will share the following data with JavaScript:
-```javascript
+```
 PHP2JS = {
     framework: {
         version:        // Version of Laravel in Use
@@ -294,7 +294,7 @@ This directive allows you to know some data inherent to the version of PHP in us
 ```
 
 This will share the following data with JavaScript:
-```javascript
+```
 PHP2JS = {
     php : {
         id:                     // PHP Version ID
@@ -320,7 +320,7 @@ This directive allows you to share the data of the user in session with JavaScri
 ```
 
 This will share the following data with JavaScript:
-```javascript
+```
 PHP2JS = {
     user : {
         id:                     // Encrypted ID
@@ -342,7 +342,7 @@ The main directive of the library. It allows you to share all existing variables
 ```
 
 This will share the following data with JavaScript:
-```javascript
+```
 PHP2JS = {
     ...:    // Well, any value can exist here; it depends on the existing variables in PHP
 }
@@ -360,7 +360,7 @@ The second main directive of the library. It allows you to share only some exist
 ```
 
 This will share the following data with JavaScript:
-```javascript
+```
 PHP2JS = {
     ...:    // Well, any value can exist here; it depends on the existing variables you pass from PHP
 }
@@ -373,7 +373,7 @@ In addition to having the data transmitted from PHP in the JavaScript environmen
 ### Clear
 The `.clear()` method will empty the object passed from PHP to JavaScript. This will be useful when you want the values not to be accessible from different object references.
 
-```javascript
+```
 // Empty the object (All object references will lose their values)
 // Remember to replace PHP2JS with the Alias you used.
 PHP2JS.clear();
@@ -382,7 +382,7 @@ PHP2JS.clear();
 ### Clear Without Functions
 The `.clearWithoutFunctions()` method will empty the variables of the object passed from PHP to JavaScript. However, it will not remove the methods listed in this section. This will be useful when you want the values not to be accessible from different object references.
 
-```javascript
+```
 // Empty the object (All object references will lose their values, but the functions will still exist)
 // Remember to replace PHP2JS with the Alias you used.
 PHP2JS.clearWithoutFunctions();
@@ -391,7 +391,7 @@ PHP2JS.clearWithoutFunctions();
 ### Assign
 The `.assign()` method assigns the same values from the Object passed by PHP to a new variable or constant. Now you can delete the original object without losing the values you leave in the new one. This will be useful when you want the values not to be accessible from different object references of the original object and instead use an object in JavaScript runtime.
 
-```javascript
+```
 // Assign a copy of the object to a new variable at runtime.
 // Remember to replace PHP2JS with the Alias you used.
 const phpData = PHP2JS.assign();
@@ -405,7 +405,7 @@ PHP2JS.clear();
 ### Assign and Clear
 The `.assignAndClear()` method assigns the same values from the Object passed by PHP to a new variable or constant and additionally clears the original element. This will be useful when you want the values not to be accessible from different object references of the original object and instead use an object at JavaScript runtime.
 
-```javascript
+```
 // Empty the object (All object references will lose their values, leaving a runtime copy inside another variable or constant)
 // Remember to replace PHP2JS with the Alias you used.
 const phpData = PHP2JS.assignAndClear();
@@ -415,7 +415,7 @@ const phpData = PHP2JS.assignAndClear();
 ### Assign and Clear Without Functions
 The `.assignAndClearWithoutFunctions()` method assigns the same values from the Object passed by PHP to a new variable or constant and additionally clears the values of the original element, but not the functions or methods. This will be useful when you want the values not to be accessible from different object references of the original object and instead use an object at JavaScript runtime.
 
-```javascript
+```
 // Empty the object (All object references will lose their values without deleting the functions or methods.)
 // Remember to replace PHP2JS with the Alias you used.
 const phpData = PHP2JS.assignAndClearWithoutFunctions();
@@ -425,7 +425,7 @@ const phpData = PHP2JS.assignAndClearWithoutFunctions();
 ### Only
 The `.only(...props)` method allows you to extract information from the object passed by PHP with only the values you need. As parameters, you can define which values you really need. This will be useful when you don't want to load the entire content of the constant.
 
-```javascript
+```
 // Get only the data passed as arguments in the Only method
 // Remember to replace PHP2JS with the Alias you used.
 const post = PHP2JS.only('post');
@@ -434,7 +434,7 @@ const post = PHP2JS.only('post');
 ### Only Functions
 The `.onlyFunctions()` method allows you to extract information about the functions present in the object passed by PHP to JavaScript.
 
-```javascript
+```
 // Get only the methods or functions of the object passed by PHP to JavaScript.
 // Remember to replace PHP2JS with the Alias you used.
 const functions = PHP2JS.onlyFunctions();
@@ -443,7 +443,7 @@ const functions = PHP2JS.onlyFunctions();
 ### Except
 The `.except(...props)` method allows you to extract information from the object passed by PHP with the values you don't want to consider. As parameters, you can define which values you do not want to load. This will be useful when you don't want to load the entire content of the constant.
 
-```javascript
+```
 // Get only the data that is required while excluding others.
 // Remember to replace PHP2JS with the Alias you used.
 const withoutNews = PHP2JS.except('news');
@@ -452,7 +452,7 @@ const withoutNews = PHP2JS.except('news');
 ### Except Functions
 The `.exceptFunctions()` method allows you to extract information from the variables and pre-built code blocks except for the methods and functions.
 
-```javascript
+```
 // Get only the values of the object passed by PHP to JavaScript.
 // Remember to replace PHP2JS with the Alias you used.
 const functions = PHP2JS.exceptFunctions();
@@ -461,7 +461,7 @@ const functions = PHP2JS.exceptFunctions();
 ### Check If Property Exists (hasProperty)
 The `.hasProperty()` method allows you to determine if a property exists within the object. The return value will be true or false depending on the case.
 
-```javascript
+```
 // Check if a property exists within the object.
 // Remember to replace PHP2JS with the Alias you used.
 const existPost = PHP2JS.hasProperty('post'); // true // false
@@ -470,7 +470,7 @@ const existPost = PHP2JS.hasProperty('post'); // true // false
 ### Get All Properties (getAllProperties)
 The `.getAllProperties()` method allows you to obtain an array with all the properties of the object.
 
-```javascript
+```
 // Get an array with all the properties of the object.
 // Remember to replace PHP2JS with the Alias you used.
 const existPost = PHP2JS.getAllProperties(); 
@@ -479,7 +479,7 @@ const existPost = PHP2JS.getAllProperties();
 ### Set
 The `.set('prop','value')` method allows you to assign a new value to an existing property of the object. If you want to update, replace, or assign new values to a property of the object, you can easily do it.
 
-```javascript
+```
 // In this example, we set the value of the "Account" property to 0;
 // Remember to replace PHP2JS with the Alias you used.
 PHP2JS.set("account", 0); 
@@ -488,7 +488,7 @@ PHP2JS.set("account", 0);
 ### Get
 The `.get('prop')` method allows you to obtain a specific property of the object. It returns only the requested property.
 
-```javascript
+```
 // In this example, we will get only the value of "Account" within the object passed from PHP to JavaScript.
 // Remember to replace PHP2JS with the Alias you used.
 PHP2JS.get("account"); 
