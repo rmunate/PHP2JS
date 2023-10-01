@@ -9,8 +9,9 @@
 
 ![logo-php2js](https://github.com/alejandrodiazpinilla/PHP2JS/assets/51100789/f3c09be3-8013-44de-87fe-946b55f14514)
 
-# Documentación de PHP2JS
+## Documentación de PHP2JS
 [Documentation In Español](https://rmunate.github.io/PHP2JS/es/index.html)
+
 [Documentation In Inglés](https://rmunate.github.io/PHP2JS/en/index.html)
 
 ## License
