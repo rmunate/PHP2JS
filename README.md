@@ -8,6 +8,16 @@
 
 ![logo-php2js](https://github.com/alejandrodiazpinilla/PHP2JS/assets/51100789/f3c09be3-8013-44de-87fe-946b55f14514)
 
+<div align="center">
+  <a href="https://tu-primer-enlace.com" style="margin-right: 20px;">
+    <img src="boton1.png" alt="Enlace 1" width="150" height="50">
+  </a>
+  <a href="https://tu-segundo-enlace.com">
+    <img src="boton2.png" alt="Enlace 2" width="150" height="50">
+  </a>
+</div>
+
+
 ## License
 This project is under the [MIT License](https://choosealicense.com/licenses/mit/).
 
