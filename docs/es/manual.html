@@ -90,9 +90,9 @@
 					</li>
 
 					<li class="nav-item"><a class="nav-link scrollto" href="#controllers-conventional-view">Retorno De Vista</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#controllers-share-whit-js">Compartir Con JavaScript</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#controllers-share-whit-js-alias">Asignar Un Alias Personalizado</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#controllers-share-especific-js">Compartir Variables Especificas</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#controllers-share-with-js">Compartir Con JavaScript</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#controllers-share-with-js-alias">Asignar Un Alias Personalizado</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#controllers-share-specific-js">Compartir Variables Especificas</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#controllers-share-blocks">Bloques Preconstruidos</a></li>
 
 					<li class="nav-item section-title mt-3">
@@ -125,7 +125,7 @@
 
 
 					<li class="nav-item section-title mt-3">
-						<a class="nav-link scrollto" href="#section-4">
+						<a class="nav-link scrollto" href="#section-javascript">
 							<span class="theme-icon-holder me-2">
 								<i class="fa fa-bolt"></i>
 							</span>
@@ -133,16 +133,16 @@
 						</a>
 					</li>
 
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Limpiar</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Asignar</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Unicamente</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Excepturar</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Verificar</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Obtener</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Asignar</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#javascript-clear">Limpiar</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#javascript-assign">Asignar</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#javascript-only">Unicamente</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#javascript-except">Excepturar</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#javascript-has">Verificar</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#javascript-get">Obtener</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#javascript-set">Asignar</a></li>
 
 					<li class="nav-item section-title mt-3">
-						<a class="nav-link scrollto" href="#section-4">
+						<a class="nav-link scrollto" href="#section-contribute">
 							<span class="theme-icon-holder me-2">
 								<i class="fa fa-handshake"></i>
 							</span>
@@ -150,8 +150,8 @@
 						</a>
 					</li>
 
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">¿Como bifurcar y aportar?</a></li>
-					<li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Contribuidores</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#contribute-how">¿Como bifurcar y aportar?</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#contribute-current">Contribuidores</a></li>
 
 				</ul>
 
@@ -472,7 +472,7 @@ class YourController extends Controller
 					</section>
 
 					<!-- Compartir con JavaScript -->
-					<section class="docs-section" id="controllers-share-whit-js">
+					<section class="docs-section" id="controllers-share-with-js">
 
 						<h2 class="section-heading">Compartir Valores Con JavaScript</h2>
 
@@ -557,7 +557,8 @@ let nombre = PHP2JS.vars.nombre;
 
 					</section>
 					
-					<section class="docs-section" id="controllers-share-whit-js-alias">
+					<!-- Crear un alias -->
+					<section class="docs-section" id="controllers-share-with-js-alias">
 
 						<h2 class="section-heading">Asignar Un Alias Unico En JavaScript</h2>
 
@@ -629,7 +630,8 @@ let nombre = __PHP.vars.nombre;
 
 					</section>
 					
-					<section class="docs-section" id="controllers-share-especific-js">
+					<!-- Compartir solo algunos valores -->
+					<section class="docs-section" id="controllers-share-specific-js">
 
 						<h2 class="section-heading">Compartir Solo Algunos Valores Con JavaScript</h2>
 
@@ -692,6 +694,7 @@ class YourController extends Controller
 
 					</section>
 					
+					<!-- Compartir Bloques -->
 					<section class="docs-section" id="controllers-share-blocks">
 
 						<h2 class="section-heading">Bloques De Información Preconstruidos</h2>
@@ -1327,704 +1330,516 @@ class YourController extends Controller
 
 				</article>
 
-				<!-- DIRECTIVAS BLADE -->
-				<article class="docs-article" id="section-blade-blocks">
+				<!-- JAVASCRIPT -->
+				<article class="docs-article" id="section-javascript">
+
+					<!-- Clear -->
+					<section class="docs-section" id="javascript-clear">
+
+						<h2 class="section-heading">Limpiar</h2>
+
+						<h4>Limpiar Objeto</h4>
+
+						<p>
+							El método <code>.clear()</code> vaciará el objeto entregado por PHP a JavaScript. Esto será útil cuando desees que los valores no sean accesibles desde las diferentes referencias del objeto.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-clear" class="language-javascript">
+// Vaciar El Objeto (Todas las referencias del Objeto perderán los valores)
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+PHP2JS.clear();
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-clear">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<h4 class="mt-5">Limpiar Sin Funciones</h4>
+
+						<p>
+							El método <code>.clearWithoutFunctions()</code> vaciará las variables del objeto entregado por PHP a JavaScript. Pero no eliminará los métodos que se están listando en este apartado. Esto será útil cuando desees que los valores no sean accesibles desde las diferentes referencias del objeto.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-clearWithoutFunctions" class="language-javascript">
+// Vaciar El Objeto (Las funciones seguirán existiendo)
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+PHP2JS.clearWithoutFunctions();
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-clearWithoutFunctions">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+					</section>
+
+					<!-- Clear -->
+					<section class="docs-section" id="javascript-assign">
+
+						<h2 class="section-heading">Asignar</h2>
+
+						<h4>Asignar Mismo Objeto</h4>
+
+						<p>
+							El método <code>.assign()</code> le asigna a una nueva variable o constante los mismos valores del Objeto entregado por PHP. Ahora podrás eliminar el objeto original sin perder los valores que dejas en el nuevo. Esto será útil cuando desees que los valores no sean accesibles desde las diferentes referencias del objeto original y en su lugar usar un objeto en tiempo de ejecución de JavaScript.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-assign" class="language-javascript">
+// Asignar una copia del objeto a una nueva variable en tiempo de ejecución.
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+const __PHP = PHP2JS.assign();
+
+// Aquí podrías vaciar el objeto original.
+PHP2JS.clear();
+
+// Los valores ahora estarán en "__PHP"
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-assign">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<h4 class="mt-5">Asignar Y Limpiar</h4>
+
+						<p>
+							El método <code>.assignAndClear()</code> le asigna a una nueva variable o constante los mismos valores del Objeto entregado por PHP y adicional borra el elemento original. Esto será útil cuando desees que los valores no sean accesibles desde las diferentes referencias del objeto original y en su lugar usar un objeto en tiempo de ejecución de JavaScript.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-assignAndClear" class="language-javascript">
+// Vaciar El Objeto (Todas las referencias del Objeto original perderán los valores)
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+const __PHP = PHP2JS.assignAndClear();
+
+// Los valores ahora estarán en "__PHP"
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-assignAndClear">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<h4 class="mt-5">Asignar Y Limpiar Sin Funciones</h4>
+
+						<p>
+							El método <code>.assignAndClearWithoutFunctions()</code> le asigna a una nueva variable o constante los mismos valores del Objeto entregado por PHP y adicional borra del elemento original los valores pero no las funciones o métodos. Esto será útil cuando desees que los valores no sean accesibles desde las diferentes referencias del objeto original y en su lugar usar un objeto en tiempo de ejecución de JavaScript.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-assignAndClearWithoutFunctions" class="language-javascript">
+// Vaciar El Objeto (Sin eliminar las funciones o métodos.)
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+const __PHP = PHP2JS.assignAndClearWithoutFunctions();
+
+// Los valores ahora estarán en "__PHP" y en "PHP2JS" seguirán existiendo los métodos del objeto.
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-assignAndClearWithoutFunctions">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+					</section>
+
+					<!-- Only -->
+					<section class="docs-section" id="javascript-only">
+
+						<h2 class="section-heading">Unicamente</h2>
+
+						<h4>Solo los valores definidos por el usuario</h4>
+
+						<p>
+							El método <code>.only(...props)</code> permite extraer la información del objeto entregado por PHP de los valores que se requieran. Como parámetros, podrás definir qué valores realmente necesitas. Esto será útil cuando no desees cargar todo el contenido de la constante.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-only" class="language-javascript">
+// Consulta solo los datos pasados como argumentos en el método Only
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+const post = PHP2JS.only('post');
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-only">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<h4 class="mt-5">Unicamente Funciones</h4>
+
+						<p>
+							El método <code>.onlyFunctions()</code> permite extraer la información de las funciones existentes en el objeto entregado por PHP a JavaScript.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-onlyFunctions" class="language-javascript">
+// Consulta solo los métodos o funciones del objeto entregado por PHP a JavaScript.
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+const functions = PHP2JS.onlyFunctions();
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-onlyFunctions">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+					</section>
+
+					<!-- Except -->
+					<section class="docs-section" id="javascript-except">
+
+						<h2 class="section-heading">Excepto</h2>
+
+						<h4>Todo menos los valores definidos por el usuario</h4>
+
+						<p>
+							El método <code>.except(...props)</code> permite extraer la información del objeto entregado por PHP de los valores que no se requieran. Como parámetros, podrás definir qué valores no deseas que se tengan en cuenta. Esto será útil cuando no desees cargar todo el contenido de la constante.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-except" class="language-javascript">
+// Consulta solo los datos que requiera exceptuando otros.
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+const withoutNews = PHP2JS.except('news');
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-except">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<h4 class="mt-5">Excepto Funciones</h4>
+
+						<p>
+							El método <code>.exceptFunctions()</code> permite extraer la información de las variables y bloques de código preconstruidos exceptuando los métodos y funciones.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-onlyFunctions" class="language-javascript">
+// Consulta solo los valores del objeto entregado por PHP a JavaScript.
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+const values = PHP2JS.exceptFunctions();
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-onlyFunctions">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+					</section>
+
+					<!-- Tiene -->
+					<section class="docs-section" id="javascript-has">
+
+						<h2 class="section-heading">Verificar Propiedad</h2>
+
+						<h4>Validar Si Existe Una Propiedad</h4>
+
+						<p>
+							El método <code>.hasProperty('prop')</code> permite saber si una propiedad existe dentro del objeto. El retorno será verdadero o falso según sea el caso.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-hasProperty" class="language-javascript">
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+const existPost = PHP2JS.hasProperty('post'); // true // false
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-hasProperty">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+					</section>
+
+					<!-- Obtner -->
+					<section class="docs-section" id="javascript-get">
+
+						<h2 class="section-heading">Obtener</h2>
+
+						<h4>Obtener Todas Las Propiedades</h4>
+
+						<p>
+							El método <code>.getAllProperties()</code> getAllProperties
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-getAllProperties" class="language-javascript">
+// Crea un arreglo con todas las propiedades del objeto.
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+const existPost = PHP2JS.getAllProperties(); 
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-getAllProperties">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<h4 class="mt-5">Obtener una propiedad especifica</h4>
+
+						<p>
+							El método <code>.get('prop')</code> permite obtener una propiedad en específico del objeto. Retorna solo la propiedad consultada.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-get" class="language-javascript">
+// En este ejemplo consultaremos solo el valor de "date"
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+PHP2JS.get("date"); 
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-get">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+					</section>
+
+					<!-- Tiene -->
+					<section class="docs-section" id="javascript-set">
+
+						<h2 class="section-heading">Asignar Propiedad</h2>
+
+						<h4>Agregarle Una Nueva Propiedad</h4>
+
+						<p>
+							El método <code>.set('prop','value')</code> permite asignar un nuevo valor a una propiedad existente del objeto. Si deseas actualizar, reemplazar o asignar nuevos valores a una propiedad del objeto, podrás hacerlo fácilmente.
+						</p>
+
+						<div class="row">
+							<div class="col-12 d-flex justify-content-between align-items-center">
+								<div class="docs-code-block">
+									<pre class="mt--50">
+<code id="code-javascript-set" class="language-javascript">
+// En este ejemplo agregaremos la propiedad "count" con el valor de 0;
+// Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
+PHP2JS.set("count", 0); 
+</code>
+									</pre>
+								</div>
+								<div>
+									<button class="btn btn-sm btn-php2js btn-php2js-sm btn-copy"
+										data-clipboard-target="#code-javascript-set">
+										<i class="fa fa-copy"></i> Copiar
+									</button>
+								</div>
+							</div>
+						</div>
+
+					</section>
+
 				</article>
 
+				<!-- CONTRIBUIR -->
+				<article class="docs-article" id="section-contribute">
 
+					<!-- Clear -->
+					<section class="docs-section" id="contribute-how">
 
+						<h2 class="section-heading">Apoyanos</h2>
 
+						<h4><i class="fas fa-question-circle me-1"></i> ¿Cómo contrinuir en esta solución?</h4>
 
-
-						<p>Code Example: <code>npm install &lt;package&gt;</code></p>
-						<h5>Ordered List Examples:</h5>
-						<ol>
-							<li>Download lorem ipsum dolor sit amet.</li>
-							<li>Click ipsum faucibus venenatis.</li>
-							<li>Configure fermentum malesuada nunc.</li>
-							<li>Deploy donec non ante libero.</li>
-						</ol>
-						<h5>Callout Examples:</h5>
-						<div class="callout-block callout-block-info">
-
-							<div class="content">
-								<h4 class="callout-title">
-									<span class="callout-icon-holder me-1">
-										<i class="fas fa-info-circle"></i>
-									</span><!--//icon-holder-->
-									Note
-								</h4>
-								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-									<code>&lt;code&gt;</code> , Nemo enim ipsam voluptatem quia voluptas <a
-										href="#">link example</a> sit aspernatur aut odit aut fugit.
-								</p>
-							</div><!--//content-->
-						</div><!--//callout-block-->
-
-						<div class="callout-block callout-block-warning">
-							<div class="content">
-								<h4 class="callout-title">
-									<span class="callout-icon-holder me-1">
-										<i class="fas fa-bullhorn"></i>
-									</span><!--//icon-holder-->
-									Warning
-								</h4>
-								<p>Nunc hendrerit odio quis dignissim efficitur. Proin ut finibus libero. Morbi posuere
-									fringilla felis eget sagittis. Fusce sem orci, cursus in tortor <a href="#">link
-										example</a> tellus vel diam viverra elementum.</p>
-							</div><!--//content-->
-						</div><!--//callout-block-->
+						<p>
+							Si ves que podemos mejorar algo, cambiar la forma en que manejamos la información, ajustar los bloques preconstruidos o añadir nuevas características, o incluso desarrollarlas tú mismo/a y agregarlas.
+						</p>
+						<p>
+							¡Estamos ansiosos por recibir tus solicitudes de extracción!
+						</p>
+						<p>
+							Simplemente bifurca el repositorio en GitHub y crea solicitudes de extracción (PR) hacia la rama principal (main) una vez que hayas preparado tus cambios.
+						</p>
+						<p>
+							Es imprescindible que haya una justificación clara para los cambios o las nuevas características, acompañada de un manual de uso.
+						</p>
 
 						<div class="callout-block callout-block-success">
 							<div class="content">
 								<h4 class="callout-title">
 									<span class="callout-icon-holder me-1">
 										<i class="fas fa-thumbs-up"></i>
-									</span><!--//icon-holder-->
-									Tip
+									</span>
+									TEST
 								</h4>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <a href="#">Link
-										example</a> aenean commodo ligula eget dolor.</p>
-							</div><!--//content-->
-						</div><!--//callout-block-->
+								<p>
+									Recuerda probar tu código antes de ejecutar las solicitudes de extracción.
+								</p>
+							</div>
+						</div>
 
-						<div class="callout-block callout-block-danger me-1">
+					</section>
+
+					<section class="docs-section" id="contribute-current">
+
+						<h2 class="section-heading">Desarrolladores y Contribuidores</h2>
+
+						<h5>Creador</h5>
+						<p class="lh-1">
+							<a class="anchor-contributor" href="https://github.com/rmunate">
+								Raúl Mauricio Uñate Castro <span class="text-email">(raulmauriciounate@gmail.com)</span>
+							</a>
+						</p>
+
+						<h5 class="mt-4">Contribuidores</h5>
+						<p class="lh-1">
+							<a class="anchor-contributor" href="javascript: void(0)">
+								Carlos Giovanni Rodriguez <span class="text-email">(musica_tuto@hotmail.com)</span>
+							</a>
+						</p>
+						<p class="lh-1">
+							<a class="anchor-contributor" href="javascript: void(0)">
+								Laura Valentina Borda Vargas <span class="text-email">(lvalentina0507@gmail.com)</span>
+							</a>
+						</p>
+						<p class="lh-1">
+							<a class="anchor-contributor" href="javascript: void(0)">
+								Wilmer A. Sanchez Saez <span class="text-email">(wilmersaz@hotmail.com)</span>
+							</a>
+						</p>
+						<p class="lh-1">
+							<a class="anchor-contributor" href="javascript: void(0)">
+								John Alejandro Diaz Pinilla <span class="text-email">(diazjohn83@gmail.com)</span>
+							</a>
+						</p>
+						<p class="lh-1">
+							<a class="anchor-contributor" href="javascript: void(0)">
+								Jorge Hernan Castañeda <span class="text-email">(ds.jorgecastaneda@gmail.com)</span>
+							</a>
+						</p>
+						<p class="lh-1">
+							<a class="anchor-contributor" href="javascript: void(0)">
+								Julio C. Borges <span class="text-email">(julio-borgeslopez@outlook.com)</span>
+							</a>
+						</p>
+
+						<div class="callout-block callout-block-success mt-5">
 							<div class="content">
 								<h4 class="callout-title">
-									<span class="callout-icon-holder">
-										<i class="fas fa-exclamation-triangle"></i>
-									</span><!--//icon-holder-->
-									Danger
+									<span class="callout-icon-holder me-1">
+										<i class="fas fa-thumbs-up"></i>
+									</span>
+									MIT License
 								</h4>
-								<p>Morbi eget interdum sapien. Donec sed turpis sed nulla lacinia accumsan vitae ut
-									tellus. Aenean vestibulum <a href="#">Link example</a> maximus ipsum vel dignissim.
-									Morbi ornare elit sit amet massa feugiat, viverra dictum ipsum pellentesque. </p>
-							</div><!--//content-->
-						</div><!--//callout-block-->
-
-						<h5 class="mt-5">Alert Examples:</h5>
-						<div class="alert alert-primary" role="alert">
-							This is a primary alert—check it out!
-						</div>
-						<div class="alert alert-secondary" role="alert">
-							This is a secondary alert—check it out!
-						</div>
-						<div class="alert alert-success" role="alert">
-							This is a success alert—check it out!
-						</div>
-						<div class="alert alert-danger" role="alert">
-							This is a danger alert—check it out!
-						</div>
-						<div class="alert alert-warning" role="alert">
-							This is a warning alert—check it out!
-						</div>
-						<div class="alert alert-info" role="alert">
-							This is a info alert—check it out!
-						</div>
-						<div class="alert alert-light" role="alert">
-							This is a light alert—check it out!
-						</div>
-						<div class="alert alert-dark" role="alert">
-							This is a dark alert—check it out!
-						</div>
-
-
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-1-2">
-						<h2 class="section-heading">Section Item 1.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-						<h5 class="mt-5">Lightbox Example:</h5>
-
-						<p>The example below uses the <i class="fas fa-external-link-alt"></i> <a class="theme-link"
-								href="https://github.com/andreknieriem/simplelightbox" target="_blank">simplelightbox
-								plugin</a>. </p>
-
-						<div class="simplelightbox-gallery row mb-3">
-							<div class="col-12 col-md-4 mb-3">
-								<a href="assets/images/coderpro-home.png"><img
-										class="figure-img img-fluid shadow rounded"
-										src="assets/images/coderpro-home-thumb.png" alt=""
-										title="CoderPro Home Page" /></a>
-							</div>
-							<div class="col-12 col-md-4 mb-3">
-								<a href="assets/images/coderpro-features.png"><img
-										class="figure-img img-fluid shadow rounded"
-										src="assets/images/coderpro-features-thumb.png" alt=""
-										title="CoderPro Features Page" /></a>
-							</div><!--//col-->
-							<div class="col-12 col-md-4 mb-3">
-								<a href="assets/images/coderpro-pricing.png"><img
-										class="figure-img img-fluid shadow rounded"
-										src="assets/images/coderpro-pricing-thumb.png" alt=""
-										title="CoderPro Pricing Page" /></a>
-							</div><!--//col-->
-
-						</div><!--//gallery-->
-
-						<h5>Custom Table:</h5>
-						<div class="table-responsive my-4">
-							<table class="table table-bordered">
-								<tbody>
-									<tr>
-										<th class="theme-bg-light"><a class="theme-link" href="#">Option 1</a></th>
-										<td>Option 1 desc lorem ipsum dolor sit amet, consectetur adipiscing elit. </td>
-									</tr>
-									<tr>
-										<th class="theme-bg-light"><a class="theme-link" href="#">Option 2</a></th>
-										<td>Option 2 desc lorem ipsum dolor sit amet, consectetur adipiscing elit. </td>
-									</tr>
-
-									<tr>
-										<th class="theme-bg-light"><a class="theme-link" href="#">Option 3</a></th>
-										<td>Option 3 desc lorem ipsum dolor sit amet, consectetur adipiscing elit. </td>
-									</tr>
-
-									<tr>
-										<th class="theme-bg-light"><a class="theme-link" href="#">Option 4</a></th>
-										<td>Option 4 desc lorem ipsum dolor sit amet, consectetur adipiscing elit. </td>
-									</tr>
-								</tbody>
-							</table>
-						</div><!--//table-responsive-->
-						<h5>Stripped Table:</h5>
-						<div class="table-responsive my-4">
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th scope="col">#</th>
-										<th scope="col">First</th>
-										<th scope="col">Last</th>
-										<th scope="col">Handle</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">1</th>
-										<td>Mark</td>
-										<td>Otto</td>
-										<td>@mdo</td>
-									</tr>
-									<tr>
-										<th scope="row">2</th>
-										<td>Jacob</td>
-										<td>Thornton</td>
-										<td>@fat</td>
-									</tr>
-									<tr>
-										<th scope="row">3</th>
-										<td>Larry</td>
-										<td>the Bird</td>
-										<td>@twitter</td>
-									</tr>
-								</tbody>
-							</table>
-						</div><!--//table-responsive-->
-						<h5>Bordered Dark Table:</h5>
-						<div class="table-responsive my-4">
-							<table class="table table-bordered table-dark">
-								<thead>
-									<tr>
-										<th scope="col">#</th>
-										<th scope="col">First</th>
-										<th scope="col">Last</th>
-										<th scope="col">Handle</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">1</th>
-										<td>Mark</td>
-										<td>Otto</td>
-										<td>@mdo</td>
-									</tr>
-									<tr>
-										<th scope="row">2</th>
-										<td>Jacob</td>
-										<td>Thornton</td>
-										<td>@fat</td>
-									</tr>
-									<tr>
-										<th scope="row">3</th>
-										<td>Larry</td>
-										<td>the Bird</td>
-										<td>@twitter</td>
-									</tr>
-								</tbody>
-							</table>
-						</div><!--//table-responsive-->
-
-
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-1-3">
-						<h2 class="section-heading">Section Item 1.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-						<h5>Badges Examples:</h5>
-						<div class="my-4">
-							<span class="badge badge-primary">Primary</span>
-							<span class="badge badge-secondary">Secondary</span>
-							<span class="badge badge-success">Success</span>
-							<span class="badge badge-danger">Danger</span>
-							<span class="badge badge-warning">Warning</span>
-							<span class="badge badge-info">Info</span>
-							<span class="badge badge-light">Light</span>
-							<span class="badge badge-dark">Dark</span>
-						</div>
-						<h5>Button Examples:</h5>
-						<div class="row my-3">
-							<div class="col-md-6 col-12">
-								<ul class="list list-unstyled pl-0">
-									<li><a href="#" class="btn btn-primary">Primary Button</a></li>
-									<li><a href="#" class="btn btn-secondary">Secondary Button</a></li>
-									<li><a href="#" class="btn btn-light">Light Button</a></li>
-									<li><a href="#" class="btn btn-success">Succcess Button</a></li>
-									<li><a href="#" class="btn btn-info">Info Button</a></li>
-									<li><a href="#" class="btn btn-warning">Warning Button</a></li>
-									<li><a href="#" class="btn btn-danger">Danger Button</a></li>
-								</ul>
-							</div>
-							<div class="col-md-6 col-12">
-								<ul class="list list-unstyled pl-0">
-									<li><a href="#" class="btn btn-primary"><i class="fas fa-download me-2"></i>
-											Download Now</a></li>
-									<li><a href="#" class="btn btn-secondary"><i class="fas fa-book me-2"></i> View
-											Docs</a></li>
-									<li><a href="#" class="btn btn-light"><i
-												class="fas fa-arrow-alt-circle-right me-2"></i> View Features</a></li>
-									<li><a href="#" class="btn btn-success"><i class="fas fa-code-branch me-2"></i> Fork
-											Now</a></li>
-									<li><a href="#" class="btn btn-info"><i class="fas fa-play-circle me-2"></i> Find
-											Out Now</a></li>
-									<li><a href="#" class="btn btn-warning"><i class="fas fa-bug me-2"></i> Report
-											Bugs</a></li>
-									<li><a href="#" class="btn btn-danger"><i
-												class="fas fa-exclamation-circle me-2"></i> Submit Issues</a></li>
-								</ul>
-							</div>
-						</div><!--//row-->
-
-						<h5>Progress Examples:</h5>
-						<div class="my-4">
-							<div class="progress my-4">
-								<div class="progress-bar bg-success" role="progressbar" style="width: 25%"
-									aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="progress my-4">
-								<div class="progress-bar bg-info" role="progressbar" style="width: 50%"
-									aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="progress my-4">
-								<div class="progress-bar bg-warning" role="progressbar" style="width: 75%"
-									aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<div class="progress my-4">
-								<div class="progress-bar bg-danger" role="progressbar" style="width: 100%"
-									aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+								<p>
+									Copyright (c) 2023 Raúl Mauricio Uñate Castro
+								</p>
+								<p>
+									Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+								</p>
+								<p>
+									The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+								</p>
+								<p>
+									THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+								</p>
 							</div>
 						</div>
-					</section><!--//section-->
 
-					<section class="docs-section" id="item-1-4">
-						<h2 class="section-heading">Section Item 1.4</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-
-
-						<h5>Pagination Example:</h5>
-						<nav aria-label="Page navigation example">
-							<ul class="pagination pl-0">
-								<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-								<li class="page-item active"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">Next</a></li>
-							</ul>
-						</nav>
-
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-
-					</section><!--//section-->
-					<section class="docs-section" id="item-1-5">
-						<h2 class="section-heading">Section Item 1.5</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-					<section class="docs-section" id="item-1-6">
-						<h2 class="section-heading">Section Item 1.6</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+					</section>
 
 				</article>
 
-				<article class="docs-article" id="section-2">
-					<header class="docs-header">
-						<h1 class="docs-heading">Installation</h1>
-						<section class="docs-intro">
-							<p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-								finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit.
-								Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam
-								lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
-						</section><!--//docs-intro-->
-					</header>
-					<section class="docs-section" id="item-2-1">
-						<h2 class="section-heading">Section Item 2.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-2-2">
-						<h2 class="section-heading">Section Item 2.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-2-3">
-						<h2 class="section-heading">Section Item 2.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-				</article><!--//docs-article-->
-
-
-				<article class="docs-article" id="section-3">
-					<header class="docs-header">
-						<h1 class="docs-heading">APIs</h1>
-						<section class="docs-intro">
-							<p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-								finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit.
-								Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam
-								lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
-						</section><!--//docs-intro-->
-					</header>
-					<section class="docs-section" id="item-3-1">
-						<h2 class="section-heading">Section Item 3.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-3-2">
-						<h2 class="section-heading">Section Item 3.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-3-3">
-						<h2 class="section-heading">Section Item 3.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-				</article><!--//docs-article-->
-
-				<article class="docs-article" id="section-4">
-					<header class="docs-header">
-						<h1 class="docs-heading">Intergrations</h1>
-						<section class="docs-intro">
-							<p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-								finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit.
-								Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam
-								lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
-						</section><!--//docs-intro-->
-					</header>
-					<section class="docs-section" id="item-4-1">
-						<h2 class="section-heading">Section Item 4.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-4-2">
-						<h2 class="section-heading">Section Item 4.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-4-3">
-						<h2 class="section-heading">Section Item 4.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-				</article><!--//docs-article-->
-
-				<article class="docs-article" id="section-5">
-					<header class="docs-header">
-						<h1 class="docs-heading">Utilities</h1>
-						<section class="docs-intro">
-							<p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-								finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit.
-								Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam
-								lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
-						</section><!--//docs-intro-->
-					</header>
-					<section class="docs-section" id="item-5-1">
-						<h2 class="section-heading">Section Item 5.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-5-2">
-						<h2 class="section-heading">Section Item 5.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-5-3">
-						<h2 class="section-heading">Section Item 5.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-				</article><!--//docs-article-->
-
-
-				<article class="docs-article" id="section-6">
-					<header class="docs-header">
-						<h1 class="docs-heading">Web</h1>
-						<section class="docs-intro">
-							<p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-								finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit.
-								Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam
-								lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
-						</section><!--//docs-intro-->
-					</header>
-					<section class="docs-section" id="item-6-1">
-						<h2 class="section-heading">Section Item 6.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-6-2">
-						<h2 class="section-heading">Section Item 6.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-6-3">
-						<h2 class="section-heading">Section Item 6.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-				</article><!--//docs-article-->
-
-
-				<article class="docs-article" id="section-7">
-					<header class="docs-header">
-						<h1 class="docs-heading">Mobile</h1>
-						<section class="docs-intro">
-							<p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-								finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit.
-								Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam
-								lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
-						</section><!--//docs-intro-->
-					</header>
-					<section class="docs-section" id="item-7-1">
-						<h2 class="section-heading">Section Item 7.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-7-2">
-						<h2 class="section-heading">Section Item 7.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-7-3">
-						<h2 class="section-heading">Section Item 7.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-				</article><!--//docs-article-->
-
-
-				<article class="docs-article" id="section-8">
-					<header class="docs-header">
-						<h1 class="docs-heading">Resources</h1>
-						<section class="docs-intro">
-							<p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-								finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit.
-								Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam
-								lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
-						</section><!--//docs-intro-->
-					</header>
-					<section class="docs-section" id="item-8-1">
-						<h2 class="section-heading">Section Item 8.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-8-2">
-						<h2 class="section-heading">Section Item 8.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-8-3">
-						<h2 class="section-heading">Section Item 8.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis
-							leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis
-							felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio
-							in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec
-							arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-				</article><!--//docs-article-->
-
-
-				<article class="docs-article" id="section-9">
-					<header class="docs-header">
-						<h1 class="docs-heading">FAQs</h1>
-						<section class="docs-intro">
-							<p>Section intro goes here. You can list all your FAQs using the format below.</p>
-						</section><!--//docs-intro-->
-					</header>
-					<section class="docs-section" id="item-9-1">
-						<h2 class="section-heading">Section Item 9.1 <small>(FAQ Category One)</small></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?
-						</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-							Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-							ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-							consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-							arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu
-							pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam
-							tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
-							nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus
-							quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy
-							id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam
-							mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo.
-							Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida
-							lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-9-2">
-						<h2 class="section-heading">Section Item 9.2 <small>(FAQ Category Two)</small></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?
-						</h5>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-							Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-							ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-							consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-							arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu
-							pede mollis pretium.</p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to ipsum dolor sit amet quam
-							tortor?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
-							nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus
-							quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Can I bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy
-							id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where arcu sed urna gravida?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam
-							mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo.
-							Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida
-							lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
-					</section><!--//section-->
-
-					<section class="docs-section" id="item-9-3">
-						<h2 class="section-heading">Section Item 9.3 <small>(FAQ Category Three)</small></h2>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How to dapibus sollicitudin justo
-							vel fermentum?</h5>
-						<p>Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
-							nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus
-							quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>How long bibendum sodales?</h5>
-						<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy
-							id, metus. Nullam accumsan lorem in dui. </p>
-						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>Where dapibus sollicitudin?</h5>
-						<p>Aenean et sodales nisi, vel efficitur sapien. Quisque molestie diam libero, et elementum diam
-							mollis ac. In dignissim aliquam est eget ullamcorper. Sed id sodales tortor, eu finibus leo.
-							Vivamus dapibus sollicitudin justo vel fermentum. Curabitur nec arcu sed urna gravida
-							lobortis. Donec lectus est, imperdiet eu viverra viverra, ultricies nec urna. </p>
-					</section><!--//section-->
-				</article><!--//docs-article-->
-
+				<!-- FOOTER -->
 				<footer class="footer">
 
 					<div class="footer-bottom text-center py-5">
@@ -2064,6 +1879,7 @@ class YourController extends Controller
 					</div>
 
 				</footer>
+				
 			</div>
 		</div>
 	</div>

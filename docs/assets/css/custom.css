@@ -149,3 +149,13 @@ code {
 .mt--50{
   margin-bottom: -50px;
 }
+
+.anchor-contributor{
+  color: black !important;
+  font-weight: 500 !important;
+}
+
+.text-email{
+  font-weight: 300 !important;
+  color: #787bb3 !important;
+}
