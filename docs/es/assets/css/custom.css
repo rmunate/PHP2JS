@@ -1,0 +1,82 @@
+.logo-php2js{
+    max-width: 40px !important;
+}
+
+.logo2-php2js{
+    max-width: 120px !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.title-part-1{
+    font-weight: 900;
+    color: #787bb3 !important;
+}
+
+.title-part-2{
+    font-weight: 900;
+    color: #6b6b6b !important;
+}
+
+.title-part-3{
+    font-weight: 900;
+    color: #f0dc4f !important;
+}
+
+.description-one-php2js{
+    color: #000;
+    font-size: 90% !important;
+    font-style: inherit !important;
+    font-weight: 500 !important;
+    padding-top: 20px !important;
+    padding-bottom: 0px !important;
+}
+
+.description-two-php2js{
+    color: #000;
+    font-size: 70% !important;
+    font-style: italic !important;
+}
+
+.description-three-php2js{
+    font-size: 70%;
+    margin-top: 10px;
+    color: black;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.btn-php2js{
+    background-color: #f0dc4f;
+    color: #000000 !important;
+}
+
+.btn-php2js:hover{
+    color: #FFFFFF !important;
+    background-color: #787bb3;
+}
+
+a:hover{
+    color: #787bb3 !important;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-paquetes{
+    background-color: #f0dc4f;
+    color: #000000 !important;
+}
+
+.btn-paquetes:hover{
+    color: #FFFFFF !important;
+    background-color: #787bb3;
+}
+
+.color-icon-php2js{
+    color: #787bb3;
+}
+
+.card-body:hover{
+    background-color: #f0dc4f;
+    border-radius: 5px;
+}
