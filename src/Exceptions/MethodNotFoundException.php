@@ -8,6 +8,7 @@ class MethodNotFoundException extends BadMethodCallException
 {
     /**
      * Create a new MethodNotFoundException instance.
+     *
      * @param string $className
      * @param string $methodName
      *

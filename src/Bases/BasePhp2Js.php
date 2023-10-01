@@ -8,6 +8,7 @@ abstract class BasePhp2Js
 {
     /**
      * Handle calls to missing methods.
+     *
      * @param string $method
      * @param array  $parameters
      *
