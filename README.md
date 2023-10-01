@@ -11,12 +11,8 @@
 
 <div align="center">
     <p>Documentation:</p>
-    <a href="https://rmunate.github.io/PHP2JS/en/index.html" style="margin-right: 20px;">
-        <img src="https://github.com/rmunate/PHP2JS/assets/91748598/936f1eda-f314-488c-97f2-f09ee3bd8c0e" alt="English" width="150" height="50">
-    </a>
-    <a href="https://rmunate.github.io/PHP2JS/es/index.html">
-        <img src="https://github.com/rmunate/PHP2JS/assets/91748598/a6899684-8eef-4e7c-b9fa-f0e2db24e7a0" alt="Spanihs" width="150" height="50">
-    </a>
+    <a href="https://rmunate.github.io/PHP2JS/en/index.html" style="margin-right: 20px;">English</a>
+    <a href="https://rmunate.github.io/PHP2JS/es/index.html">Spanish</a>
 </div>
 
 ## License
