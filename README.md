@@ -9,11 +9,13 @@
 
 ![logo-php2js](https://github.com/alejandrodiazpinilla/PHP2JS/assets/51100789/f3c09be3-8013-44de-87fe-946b55f14514)
 
-<div align="center">
-    <p>Documentation:</p>
-    <a href="https://rmunate.github.io/PHP2JS/en/index.html" style="margin-right: 20px;">English</a>
-    <a href="https://rmunate.github.io/PHP2JS/es/index.html">Spanish</a>
-</div>
+# Documentación de PHP2JS
+## Documentación en Español
+[Documentation In Español](https://rmunate.github.io/PHP2JS/es/index.html)
+
+## Documentación en Inglés
+[Documentation In Inglés](https://rmunate.github.io/PHP2JS/en/index.html)
+
 
 ## License
 
