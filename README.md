@@ -10,15 +10,10 @@
 ![logo-php2js](https://github.com/alejandrodiazpinilla/PHP2JS/assets/51100789/f3c09be3-8013-44de-87fe-946b55f14514)
 
 ## Documentation
-<p align="center">
-
 [![Documentation In Spanish](https://img.shields.io/badge/-Documentación%20en%20Español-green?logo=docs)](https://rmunate.github.io/PHP2JS/es/index.html)
 [![Documentation In English](https://img.shields.io/badge/-Documentación%20en%20Inglés-blue?logo=docs)](https://rmunate.github.io/PHP2JS/en/index.html)
 
-</p>
-
 ## License
-
 This project is under the [MIT License](https://choosealicense.com/licenses/mit/).
 
 🌟 Support My Projects! 🚀
