@@ -7,6 +7,7 @@ use Rmunate\Php2Js\License\License;
 trait JSUtilities
 {
     /**
+     * Clear View
      * @param string $view
      *
      * @return string

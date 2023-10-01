@@ -26,7 +26,7 @@ class PHP2JSClear extends Command
      *
      * @var string
      */
-    protected $description = 'Clears the current PHP2JS settings on the Blade directives.';
+    protected $description = 'Clears the current PHP2JS settings on the Blade directives and providers.';
 
     /**
      * Execute the console command.

@@ -703,7 +703,7 @@ class YourController extends Controller
 							PHP2JS trae de manera preconstruida algunos bloques de datos que consideramos podrán darte un valor agregado en ciertos tipos de desarrollo. Hemos dispuesto ciertos bloques que te mostraremos en este apartado, los cuales podrás atar al retorno de la vista para compartirlos con JavaScript. El método <code>->attach()</code> nos presta la funcionalidad de agregar estos datos al retorno de la Vista.
 						</p>
 						<p>
-							El método lo podrás usar después de los métodos <code>->toJS()</code> ó <code>->toStrictJS()</code>, como se muestra en el ejemplo:
+							El método lo podrás usar ANTES de los métodos <code>->toJS()</code> ó <code>->toStrictJS()</code>, como se muestra en el ejemplo:
 						</p>
 
 						<div class="row">
@@ -717,7 +717,7 @@ class YourController extends Controller
 	{
 		return view('welcome')->with([
 			'nombre' => 'Raul Uñate'
-		])->toJs("__PHP")->attach('agent', 'user', 'csrf', ...);
+		])->attach('agent', 'user', 'csrf', ...)->toJs("__PHP");
 	}
 }
 </code>

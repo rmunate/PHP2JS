@@ -39,10 +39,6 @@ trait CommandUtilities
      */
     private function notifyInfo($message)
     {
-        if ($this->validateComponents()) {
-            $this->components->info($message);
-        } else {
-            $this->info($message);
-        }
+        $this->validateComponents() ? $this->components->info($message) : $this->info($message);
     }
 }

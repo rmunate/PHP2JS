@@ -13,6 +13,19 @@
 [![Documentation In Spanish](https://img.shields.io/badge/-Documentation%20In%20Spanish-blue?style=for-the-badge)](https://rmunate.github.io/PHP2JS/es/index.html)
 [![Documentation In English](https://img.shields.io/badge/-Documentation%20In%20English-blue?style=for-the-badge)](https://rmunate.github.io/PHP2JS/en/index.html)
 
+## Installation
+To install the dependency via Composer, run the following command:
+
+```console
+composer require rmunate/php2js
+```
+
+Make sure that in the `composer.json` file, you have the library in the latest version. `"rmunate/php2js": "^3.8"`
+Always after installing, run the command:
+```console
+php artisan php2js:clear
+```
+
 ## License
 This project is under the [MIT License](https://choosealicense.com/licenses/mit/).
 

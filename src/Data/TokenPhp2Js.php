@@ -9,7 +9,7 @@ class TokenPhp2Js
      *
      * @return string
      */
-    public function csrfToken(): string
+    public function csrfToken()
     {
         return csrf_token();
     }
@@ -19,7 +19,7 @@ class TokenPhp2Js
      *
      * @return string
      */
-    public function csrfTokenCookie(): string
+    public function csrfTokenCookie()
     {
         return $_COOKIE['XSRF-TOKEN'] ?? null;
     }

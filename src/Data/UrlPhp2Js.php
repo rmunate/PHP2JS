@@ -30,7 +30,7 @@ class UrlPhp2Js
      *
      * @return string
      */
-    public function getBaseUrl(): string
+    public function getBaseUrl()
     {
         return $this->serverHTTPx.$this->serverHost;
     }
@@ -40,7 +40,7 @@ class UrlPhp2Js
      *
      * @return string
      */
-    public function getFullUrl(): string
+    public function getFullUrl()
     {
         return $this->serverHTTPx.$this->serverHost.$this->serverUri;
     }
@@ -51,7 +51,7 @@ class UrlPhp2Js
      *
      * @return string
      */
-    public function getUri(): string
+    public function getUri()
     {
         return $this->facadeRouteCurrent->uri;
     }
@@ -62,7 +62,7 @@ class UrlPhp2Js
      *
      * @return string
      */
-    public function getParametersRoute(): array
+    public function getParametersRoute()
     {
         return $this->facadeRouteCurrent->parameters;
     }
@@ -72,7 +72,7 @@ class UrlPhp2Js
      *
      * @return string
      */
-    public function getParametersPost(): array
+    public function getParametersPost()
     {
         return $_POST ?? [];
     }
@@ -82,7 +82,7 @@ class UrlPhp2Js
      *
      * @return string
      */
-    public function getParametersGet(): array
+    public function getParametersGet()
     {
         return $_GET ?? [];
     }
@@ -92,7 +92,7 @@ class UrlPhp2Js
      *
      * @return string
      */
-    public function getSchema(): string
+    public function getSchema()
     {
         return strtoupper(str_replace('://', '', $this->serverHTTPx));
     }
@@ -112,7 +112,7 @@ class UrlPhp2Js
      *
      * @return bool
      */
-    public function isSecure(): bool
+    public function isSecure()
     {
         return isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
     }

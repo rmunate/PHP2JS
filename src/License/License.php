@@ -11,7 +11,7 @@ class License
      *
      * @return string
      */
-    public static function comment(): string
+    public static function comment()
     {
         $version = Immutable::VERSION;
         $author = Immutable::AUTHOR;

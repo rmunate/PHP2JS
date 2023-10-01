@@ -176,8 +176,7 @@ class PHP2JSServiceProvider extends ServiceProvider
 
         /**
          * Blade directive '__PHP'.
-         * This directive is used to provide support for previous versions of the PHP2JS library.
-         * It generates the Blade directive 'PHP2JS_PHP' using the Deprecated class.
+         * Deprecated method without usage.
          *
          * @return BladeDirective The generated Blade directive.
          */

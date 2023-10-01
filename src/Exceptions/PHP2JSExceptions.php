@@ -90,7 +90,7 @@ class PHP2JSExceptions extends Exception
      *
      * @return string The formatted exception message.
      */
-    private static function formatExceptionMessage(string $message): string
+    private static function formatExceptionMessage(string $message)
     {
         return Immutable::LIBRARY_NAME.' - '.$message.' Refer to the '.Immutable::LIBRARY_NAME.' manual for more information: '.Immutable::MANUAL_URL;
     }

@@ -5,6 +5,7 @@ namespace Rmunate\Php2Js\Support;
 class Deprecated
 {
     /**
+     * DEPRECATED
      * Return Script JS
      * Support Version 2.X Library.
      *

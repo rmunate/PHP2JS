@@ -14,7 +14,6 @@ class Php2JsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Register commands for the service provider
         $this->registerCommands();
     }
 
@@ -25,7 +24,6 @@ class Php2JsServiceProvider extends ServiceProvider
      */
     protected function registerCommands()
     {
-        // Register the custom Artisan commands
         $this->commands([
             PHP2JSClear::class,
         ]);

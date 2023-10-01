@@ -9,7 +9,7 @@ class Immutable
      *
      * @var string
      */
-    public const VERSION = '3.8.4';
+    public const VERSION = '3.8.6';
 
     /**
      * The URL to the PHP2JS library manual.
@@ -30,7 +30,7 @@ class Immutable
      *
      * @var string
      */
-    public const AUTHOR = 'RAUL MAURICIO UÑATE CASTRO (raulmauriciounate@gmail.com)';
+    public const AUTHOR = 'RAUL MAURICIO UÑATE CASTRO (@rmunate)';
 
     /**
      * The license of the PHP2JS library.

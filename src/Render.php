@@ -154,7 +154,6 @@ class Render extends BasePhp2Js
 
             $jsonEncode = json_encode($this->varsJS, JSON_UNESCAPED_UNICODE);
             $idElement = $this->uniqueID();
-
             $script = JS::generateScriptTag($idElement, $this->license, $this->alias, $jsonEncode);
 
             return response($this->injectJS($html, $script));

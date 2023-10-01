@@ -9,9 +9,9 @@ class LaravelPhp2Js
     /**
      * Return current Version Laravel.
      *
-     * @return string
+     * @return mixed
      */
-    public function getLaravelVersion(): string
+    public function getLaravelVersion()
     {
         return Application::VERSION ?? null;
     }
@@ -19,9 +19,9 @@ class LaravelPhp2Js
     /**
      * Return Name Software.
      *
-     * @return string
+     * @return mixed
      */
-    public function getEnvName(): string
+    public function getEnvName()
     {
         return env('APP_NAME', null);
     }
@@ -29,9 +29,9 @@ class LaravelPhp2Js
     /**
      * Return Status Debugger Server.
      *
-     * @return string
+     * @return mixed
      */
-    public function getEnvDebug(): string
+    public function getEnvDebug()
     {
         return env('APP_DEBUG', null);
     }
@@ -39,9 +39,9 @@ class LaravelPhp2Js
     /**
      * Return Environment.
      *
-     * @return string
+     * @return mixed
      */
-    public function getEnvironment(): string
+    public function getEnvironment()
     {
         return env('APP_ENV', null);
     }
@@ -49,9 +49,9 @@ class LaravelPhp2Js
     /**
      * Return Environment URL.
      *
-     * @return string
+     * @return mixed
      */
-    public function getEnvUrl(): string
+    public function getEnvUrl()
     {
         return env('APP_URL', null);
     }

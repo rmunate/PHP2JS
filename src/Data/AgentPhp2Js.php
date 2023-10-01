@@ -19,7 +19,7 @@ class AgentPhp2Js
      *
      * @return bool
      */
-    public function isMobileDevice(): bool
+    public function isMobileDevice()
     {
         $deviceKeywords = [
             'Mobile',
@@ -31,7 +31,7 @@ class AgentPhp2Js
             'BlackBerry',
             'webOS',
             'Opera Mini',
-            'IEMobile',
+            'IEMobile'
         ];
 
         foreach ($deviceKeywords as $keyword) {
@@ -63,9 +63,9 @@ class AgentPhp2Js
     /**
      * Return Name Current OS.
      *
-     * @return string
+     * @return mixed
      */
-    public function getDataClienteSO(): string
+    public function getDataClienteSO()
     {
         $operatingSystems = [
             '/\bWindows\b/i'                  => 'Windows',
@@ -87,9 +87,9 @@ class AgentPhp2Js
     /**
      * Return Data Browser.
      *
-     * @return array
+     * @return mixed
      */
-    public function getDataBrowser(): array
+    public function getDataBrowser()
     {
         $userAgent = $this->agent;
         $browsers = [
@@ -149,9 +149,9 @@ class AgentPhp2Js
     /**
      * Return Remote IP.
      *
-     * @return string
+     * @return mixed
      */
-    public function getIpAddress(): string
+    public function getIpAddress()
     {
         return $_SERVER['REMOTE_ADDR'] ?? null;
     }
@@ -159,9 +159,9 @@ class AgentPhp2Js
     /**
      * Return Remote Port.
      *
-     * @return string
+     * @return mixed
      */
-    public function getRemotePort(): string
+    public function getRemotePort()
     {
         return $_SERVER['SERVER_PORT'] ?? null;
     }
@@ -171,7 +171,7 @@ class AgentPhp2Js
      *
      * @return string
      */
-    public function getAgent(): string
+    public function getAgent()
     {
         return $this->agent;
     }

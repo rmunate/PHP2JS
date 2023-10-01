@@ -9,7 +9,7 @@ class DataPhp2Js
      *
      * @return array
      */
-    public static function getDataAgent(): array
+    public static function getDataAgent()
     {
         $data = new AgentPhp2Js();
 
@@ -20,7 +20,7 @@ class DataPhp2Js
                 'remote_port' => $data->getRemotePort(),
                 'browser'     => $data->getDataBrowser(),
                 'isMobile'    => $data->isMobileDevice(),
-                'OS'          => $data->getDataClienteSO(),
+                'OS'          => $data->getDataClienteSO()
             ],
         ];
     }
@@ -30,7 +30,7 @@ class DataPhp2Js
      *
      * @return array
      */
-    public static function getDataUrl(): array
+    public static function getDataUrl()
     {
         $data = new UrlPhp2Js();
 
@@ -56,7 +56,7 @@ class DataPhp2Js
      *
      * @return array
      */
-    public static function getDataCSRF(): array
+    public static function getDataCSRF()
     {
         $data = new TokenPhp2Js();
 
@@ -71,7 +71,7 @@ class DataPhp2Js
      *
      * @return array
      */
-    public static function getDataLaravel(): array
+    public static function getDataLaravel()
     {
         $data = new LaravelPhp2Js();
 
@@ -93,7 +93,7 @@ class DataPhp2Js
      *
      * @return array
      */
-    public static function getDataPHP(): array
+    public static function getDataPHP()
     {
         $data = new ServerPhp2Js();
 

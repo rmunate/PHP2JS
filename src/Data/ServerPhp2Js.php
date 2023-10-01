@@ -7,9 +7,9 @@ class ServerPhp2Js
     /**
      * Return ID Current Version PHP.
      *
-     * @return string
+     * @return mixed
      */
-    public function getPhpVersionId(): string
+    public function getPhpVersionId()
     {
         return PHP_VERSION_ID ?? null;
     }
@@ -17,9 +17,9 @@ class ServerPhp2Js
     /**
      * Current Version PHP.
      *
-     * @return string
+     * @return mixed
      */
-    public function getPhpVersion(): string
+    public function getPhpVersion()
     {
         return PHP_VERSION ?? null;
     }
@@ -27,9 +27,9 @@ class ServerPhp2Js
     /**
      * Return Release Current Version PHP.
      *
-     * @return string
+     * @return mixed
      */
-    public function getPhpReleaseVersion(): string
+    public function getPhpReleaseVersion()
     {
         return PHP_RELEASE_VERSION ?? null;
     }
@@ -37,9 +37,9 @@ class ServerPhp2Js
     /**
      * Get Server Software Name and Version.
      *
-     * @return string
+     * @return mixed
      */
-    public function getServerSoftware(): string
+    public function getServerSoftware()
     {
         return $_SERVER['SERVER_SOFTWARE'] ?? null;
     }
@@ -47,9 +47,9 @@ class ServerPhp2Js
     /**
      * Get Operating System on which the Server is Running.
      *
-     * @return string
+     * @return mixed
      */
-    public function getServerOperatingSystem(): string
+    public function getServerOperatingSystem()
     {
         return php_uname('s') ?? null;
     }
@@ -59,7 +59,7 @@ class ServerPhp2Js
      *
      * @return array
      */
-    public function getPhpExtensions(): array
+    public function getPhpExtensions()
     {
         return get_loaded_extensions() ?? [];
     }
@@ -67,9 +67,9 @@ class ServerPhp2Js
     /**
      * Get Client's Browser Language.
      *
-     * @return string
+     * @return mixed
      */
-    public function getClientLanguage(): string
+    public function getClientLanguage()
     {
         return $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? null;
     }

@@ -22,38 +22,6 @@
             "email": "raulmauriciounate@gmail.com",
             "role": "owner",
             "homepage": "https://github.com/rmunate"
-        },
-        {
-            "name": "Carlos Giovanni Rodriguez",
-            "email": "musica_tuto@hotmail.com",
-            "role": "Developer"
-        },
-        {
-            "name": "Laura Valentina Borda Vargas",
-            "email": "lvalentina0507@gmail.com",
-            "role": "Developer"
-        },
-        {
-            "name": "Wirmer A. Sanchez Saez",
-            "email": "wilmersaz@hotmail.com",
-            "role": "Developer"
-        },
-        {
-            "name": "John Alejandro Diaz Pinilla",
-            "email": "diazjohn83@gmail.com",
-            "role": "Developer",
-            "homepage": "https://github.com/alejandrodiazpinilla"
-        },
-        {
-            "name": "Jorge Hernan Castañeda",
-            "email": "ds.jorgecastaneda@gmail.com",
-            "role": "Developer"
-        },
-        {
-            "name": "Julio C. Borges",
-            "email": "julio-borgeslopez@outlook.com",
-            "role": "Developer",
-            "homepage": "https://github.com/JULIOCBL"
         }
     ],
     "require": {
@@ -67,7 +35,8 @@
         "laravel": {
             "providers": [
                 "Rmunate\\Php2Js\\Blade\\PHP2JSServiceProvider",
-                "Rmunate\\Php2Js\\Providers\\Php2JsServiceProvider"
+                "Rmunate\\Php2Js\\Providers\\Php2JsServiceProvider",
+                "Rmunate\\Php2Js\\Macros\\Php2JsServiceProvider"
             ]
         }
     },

@@ -105,7 +105,7 @@ class JS
      *
      * @return string
      */
-    public function generate(): string
+    public function generate()
     {
         // Encode the final object based on the configuration
         if ($this->compact) {
@@ -127,7 +127,7 @@ class JS
      *
      * @return string
      */
-    public static function generateScriptTag($id, $license, $alias, $json): string
+    public static function generateScriptTag($id, $license, $alias, $json)
     {
         // Read the content of the stub file
         $stubContent = file_get_contents(__DIR__.'/../Stubs/ScriptJS.stub');
