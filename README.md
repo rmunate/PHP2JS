@@ -1,4 +1,6 @@
-# PHP2JS (The Library that Made Handling Monoliths in Laravel Simple) (LARAVEL PHP Framework)
+# PHP2JS 
+## The Library that Made Handling Monoliths in Laravel Simple - LARAVEL PHP Framework
+
 ⚙️ This library is compatible with Laravel versions 9.0 and above ⚙️
 
 [![Laravel 9.0+](https://img.shields.io/badge/Laravel-9.0%2B-orange.svg)](https://laravel.com)
