@@ -10,8 +10,8 @@
 ![logo-php2js](https://github.com/alejandrodiazpinilla/PHP2JS/assets/51100789/f3c09be3-8013-44de-87fe-946b55f14514)
 
 ## Documentation
-[![Documentation In Spanish](https://img.shields.io/badge/-Documentation%20In%20Spanish-white?logo=readme)](https://rmunate.github.io/PHP2JS/es/index.html)
-[![Documentation In English](https://img.shields.io/badge/-Documentation%20In%20English-white?logo=readme)](https://rmunate.github.io/PHP2JS/en/index.html)
+[![Documentation In Spanish](https://img.shields.io/badge/-Documentation%20In%20Spanish-blue?style=for-the-badge)](https://rmunate.github.io/PHP2JS/es/index.html)
+[![Documentation In English](https://img.shields.io/badge/-Documentation%20In%20English-blue?style=for-the-badge)](https://rmunate.github.io/PHP2JS/en/index.html)
 
 ## License
 This project is under the [MIT License](https://choosealicense.com/licenses/mit/).
