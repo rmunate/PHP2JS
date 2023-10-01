@@ -2,9 +2,9 @@
 
 namespace Rmunate\Php2Js\Macros;
 
+use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 use Rmunate\Php2Js\Render;
-use Illuminate\Support\ServiceProvider;
 
 class Php2JsServiceProvider extends ServiceProvider
 {
@@ -18,12 +18,12 @@ class Php2JsServiceProvider extends ServiceProvider
         /* Add prebuilt blocks */
         View::macro('attach', function (...$attach) {
             $this->attach = $attach;
+
             return $this;
         });
 
         /* Return all variables to the JS context. */
         View::macro('toJs', function ($alias = 'PHP2JS') {
-
             if (isset($this->attach) && !empty($this->attach)) {
                 return Render::view($this->view)
                              ->with($this->getData())
@@ -36,12 +36,10 @@ class Php2JsServiceProvider extends ServiceProvider
                              ->toJs($alias)
                              ->compose();
             }
-
         });
 
         /* Return only specific variables to the JavaScript context */
         View::macro('toStrictJS', function ($alias = 'PHP2JS') {
-
             if (isset($this->attach) && !empty($this->attach)) {
                 return Render::view($this->view)
                              ->with($this->getData())
@@ -54,8 +52,6 @@ class Php2JsServiceProvider extends ServiceProvider
                              ->toStrictJS($alias)
                              ->compose();
             }
-            
         });
     }
-
 }

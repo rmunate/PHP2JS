@@ -20,7 +20,7 @@ class DataPhp2Js
                 'remote_port' => $data->getRemotePort(),
                 'browser'     => $data->getDataBrowser(),
                 'isMobile'    => $data->isMobileDevice(),
-                'OS'          => $data->getDataClienteSO()
+                'OS'          => $data->getDataClienteSO(),
             ],
         ];
     }

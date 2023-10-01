@@ -31,7 +31,7 @@ class AgentPhp2Js
             'BlackBerry',
             'webOS',
             'Opera Mini',
-            'IEMobile'
+            'IEMobile',
         ];
 
         foreach ($deviceKeywords as $keyword) {
