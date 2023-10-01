@@ -10,13 +10,12 @@
 
 <div align="center">
   <a href="https://tu-primer-enlace.com" style="margin-right: 20px;">
-    <img src="boton1.png" alt="Enlace 1" width="150" height="50">
+    <img src="https://github.com/rmunate/PHP2JS/assets/91748598/936f1eda-f314-488c-97f2-f09ee3bd8c0e" alt="English" width="150" height="50">
   </a>
   <a href="https://tu-segundo-enlace.com">
-    <img src="boton2.png" alt="Enlace 2" width="150" height="50">
+    <img src="https://github.com/rmunate/PHP2JS/assets/91748598/a6899684-8eef-4e7c-b9fa-f0e2db24e7a0" alt="Spanihs" width="150" height="50">
   </a>
 </div>
-
 
 ## License
 This project is under the [MIT License](https://choosealicense.com/licenses/mit/).
