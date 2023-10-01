@@ -9,9 +9,10 @@
 
 ![logo-php2js](https://github.com/alejandrodiazpinilla/PHP2JS/assets/51100789/f3c09be3-8013-44de-87fe-946b55f14514)
 
-## Documentación de PHP2JS
-[![Documentation In Spanish](https://github.com/rmunate/PHP2JS/assets/91748598/cbe1f2fe-a780-4ded-8de2-c88c78688bbd)](https://rmunate.github.io/PHP2JS/es/index.html)
-[![Documentation In English](https://github.com/rmunate/PHP2JS/assets/91748598/ac32a39c-9b6a-4829-936a-29934df9bbcf)](https://rmunate.github.io/PHP2JS/en/index.html)
+## Documentation
+[![Documentación en Español](https://img.shields.io/badge/-Documentación%20en%20Español-green?logo=docs)](https://rmunate.github.io/PHP2JS/es/index.html)
+[![Documentación en Inglés](https://img.shields.io/badge/-Documentación%20en%20Inglés-blue?logo=docs)](https://rmunate.github.io/PHP2JS/en/index.html)
+
 
 ## License
 
