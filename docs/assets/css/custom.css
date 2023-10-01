@@ -1,0 +1,151 @@
+.logo-php2js {
+  max-width: 40px !important;
+}
+
+.logo2-php2js {
+  max-width: 120px !important;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.title-part-1 {
+  font-weight: 900;
+  color: #787bb3 !important;
+}
+
+.title-part-2 {
+  font-weight: 900;
+  color: #6b6b6b !important;
+}
+
+.title-part-3 {
+  font-weight: 900;
+  color: #f0dc4f !important;
+}
+
+.description-one-php2js {
+  color: #000;
+  font-size: 90% !important;
+  font-style: inherit !important;
+  font-weight: 500 !important;
+  padding-top: 20px !important;
+  padding-bottom: 0px !important;
+}
+
+.description-two-php2js {
+  color: #000;
+  font-size: 70% !important;
+  font-style: italic !important;
+}
+
+.description-three-php2js {
+  font-size: 70%;
+  margin-top: 10px;
+  color: black;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.btn-php2js {
+  background-color: #f0dc4f;
+  color: #000000 !important;
+}
+
+.btn-php2js:hover {
+  color: #ffffff !important;
+  background-color: #787bb3;
+}
+
+a {
+    color: #787bb3 !important;
+    text-decoration: none;
+  }
+
+a:hover {
+  color: #787bb3 !important;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-paquetes {
+  background-color: #f0dc4f;
+  color: #000000 !important;
+}
+
+.btn-paquetes:hover {
+  color: #ffffff !important;
+  background-color: #787bb3;
+}
+
+.color-icon-php2js {
+  color: #787bb3;
+}
+
+.card-body:hover {
+  background-color: #f0dc4f;
+  border-radius: 5px;
+}
+
+.bg-icon-git {
+  background-color: #f0dc4f !important;
+}
+
+.bg-icon-git:hover {
+  background-color: #787bb3 !important;
+}
+
+.icon-github {
+  color: #000 !important;
+}
+
+.icon-github:hover {
+  color: #fff !important;
+}
+
+.btn-php2js-sm {
+  padding: 8px;
+}
+
+.version-table-num {
+  font-weight: 500;
+  color: #787bb3 !important;
+}
+
+.version-actual {
+  font-weight: 600;
+  color: #107706 !important;
+}
+
+.docs-nav .theme-icon-holder {
+  background: #f0dc4f !important;
+  color: #000 !important;
+}
+
+.nav-link {
+  color: #292929 !important;
+}
+/* Asigna la fuente Cascadia Code a todo lo que sea highlight.js */
+
+code {
+    font-family: "Cascadia Code", Consolas, Monaco, monospace;
+    font-weight: 400;
+    background-color: #282c34;
+    color: white;
+}
+
+.list_lang{
+  background-color: #fff !important;  
+}
+
+.item_lang{
+  color: black !important;
+  background-color: #fff !important;
+}
+
+.code_table_clocks{
+  max-width: 800px !important;
+}
+
+.mt--50{
+  margin-bottom: -50px;
+}
