@@ -7,7 +7,30 @@ const sidebarLinks = document.querySelectorAll('#docs-sidebar .scrollto');
 
 /* ===== Responsive Sidebar ====== */
 window.onload = function () {
-	responsiveSidebar();
+
+	//-------------------
+	//---- VERSION ------
+	//-------------------
+	const url = "https://repo.packagist.org/p2/rmunate/php2js.json";
+	fetch(url)
+	.then(response => response.json())
+	.then(data => {
+		const version = data.packages["rmunate/php2js"][0].version;
+		const fecha = data.packages["rmunate/php2js"][0].time.split("T")[0];
+		document.getElementById("idversion").textContent = version;
+		document.getElementById("idversion").title = fecha;
+	})
+	.catch(error => {
+		document.getElementById("idversion").textContent = "PHP2JS";
+		document.getElementById("idversion").title = "PHP2JS";
+	});
+
+	//Slidebar
+	try {
+		responsiveSidebar();
+	} catch (error) {
+		console.clear();
+	}
 };
 
 window.onresize = function () {
