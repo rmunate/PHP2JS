@@ -1612,7 +1612,7 @@ const values = PHP2JS.exceptFunctions();
 						<h4>Validar Si Existe Una Propiedad</h4>
 
 						<p>
-							El método <code>.hasProperty('prop')</code> permite saber si una propiedad existe dentro del objeto. El retorno será verdadero o falso según sea el caso.
+							El método <code>.has('prop')</code> permite saber si una propiedad existe dentro del objeto. El retorno será verdadero o falso según sea el caso.
 						</p>
 
 						<div class="row">
@@ -1621,7 +1621,8 @@ const values = PHP2JS.exceptFunctions();
 									<pre class="mt--50">
 <code id="code-javascript-hasProperty" class="language-javascript">
 // Recuerda que PHP2JS debe ser cambiado por el Alias que hayas usado.
-const existPost = PHP2JS.hasProperty('post'); // true // false
+// const existPost = PHP2JS.hasProperty('post'); // true // false
+const existPost = PHP2JS.has('post'); // true // false
 </code>
 									</pre>
 								</div>
@@ -1644,7 +1645,7 @@ const existPost = PHP2JS.hasProperty('post'); // true // false
 						<h4>Obtener Todas Las Propiedades</h4>
 
 						<p>
-							El método <code>.getAllProperties()</code> getAllProperties
+							El método <code>.getAllProperties()</code> retorna un arreglo con el nombre de los valores disponibles recibidos de PHP
 						</p>
 
 						<div class="row">
