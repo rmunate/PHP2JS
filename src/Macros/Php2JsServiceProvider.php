@@ -49,7 +49,7 @@ class Php2JsServiceProvider extends ServiceProvider
             } else {
                 return Render::view($this->view)
                              ->with($this->getData())
-                             ->toStrictJS($alias)
+                             ->toStrictJS($values, $alias)
                              ->compose();
             }
         });
