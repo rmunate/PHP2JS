@@ -39,11 +39,11 @@ class Php2JsServiceProvider extends ServiceProvider
         });
 
         /* Return only specific variables to the JavaScript context */
-        View::macro('toStrictJS', function ($alias = 'PHP2JS') {
+        View::macro('toStrictJS', function ($values = [], $alias = 'PHP2JS') {
             if (isset($this->attach) && !empty($this->attach)) {
                 return Render::view($this->view)
                              ->with($this->getData())
-                             ->toStrictJS($alias)
+                             ->toStrictJS($values, $alias)
                              ->attach(...$this->attach)
                              ->compose();
             } else {
