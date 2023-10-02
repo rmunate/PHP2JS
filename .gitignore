@@ -15,3 +15,5 @@
 .fleet
 .idea
 .vscode
+
+src/Stubs/ScriptOriginal.stub
