@@ -9,7 +9,7 @@ class Immutable
      *
      * @var string
      */
-    public const VERSION = '3.8.10 (2023-10-01)';
+    public const VERSION = '3.8.11 (2023-10-02)';
 
     /**
      * The URL to the PHP2JS library manual.
