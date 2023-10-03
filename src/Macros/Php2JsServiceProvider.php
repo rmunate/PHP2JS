@@ -23,7 +23,7 @@ class Php2JsServiceProvider extends ServiceProvider
         });
 
         /* Return all variables to the JS context. */
-        View::macro('toJs', function ($alias = 'PHP2JS') {
+        View::macro('toJS', function ($alias = 'PHP2JS') {
             if (isset($this->attach) && !empty($this->attach)) {
                 return Render::view($this->view)
                              ->with($this->getData())
@@ -33,7 +33,7 @@ class Php2JsServiceProvider extends ServiceProvider
             } else {
                 return Render::view($this->view)
                              ->with($this->getData())
-                             ->toJs($alias)
+                             ->toJS($alias)
                              ->compose();
             }
         });

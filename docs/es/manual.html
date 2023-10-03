@@ -523,7 +523,7 @@ class YourController extends Controller
 	{
 		return view('welcome')->with([
 			'nombre' => 'Raul Uñate'
-		])->toJs();
+		])->toJS();
 	}
 }
 </code>
@@ -600,7 +600,7 @@ let nombre = PHP2JS.vars.nombre;
 						<h5>¿Cómo Asignarle Un Nombre Personalizado?</h5>
 
 						<p>
-							Simplemente, como argumento del método <code>->toJs()</code>, proporcionarás el nombre de la constante que deseas utilizar. Ten en cuenta que este nombre estará reservado a partir de este punto y no podrás volver a declarar la constante en tus archivos de JavaScript.
+							Simplemente, como argumento del método <code>->toJS()</code>, proporcionarás el nombre de la constante que deseas utilizar. Ten en cuenta que este nombre estará reservado a partir de este punto y no podrás volver a declarar la constante en tus archivos de JavaScript.
 						</p>
 
 						<div class="row">
@@ -614,7 +614,7 @@ class YourController extends Controller
 	{
 		return view('welcome')->with([
 			'nombre' => 'Raul Uñate'
-		])->toJs("__PHP");
+		])->toJS("__PHP");
 	}
 }
 </code>
@@ -741,7 +741,7 @@ class YourController extends Controller
 	{
 		return view('welcome')->with([
 			'nombre' => 'Raul Uñate'
-		])->attach('agent', 'user', 'csrf', ...)->toJs("__PHP");
+		])->attach('agent', 'user', 'csrf', ...)->toJS("__PHP");
 	}
 }
 </code>
@@ -953,7 +953,7 @@ class YourController extends Controller
 									¿Cómo Accederlos?
 								</h4>
 								<p>
-									Bajo el mismo alias que hayas usado en el metodo <code style="color: black;">->toJs("__PHP")</code> o en el metodo <code style="color: black;">->toStrictJS([...], "__PHP")</code> podras accederlos desde JavaScript. Por ejemplo quisieras acceder a la información del usuario podrias hacerlo así: <code style="color: black;">__PHP.user</code>
+									Bajo el mismo alias que hayas usado en el metodo <code style="color: black;">->toJS("__PHP")</code> o en el metodo <code style="color: black;">->toStrictJS([...], "__PHP")</code> podras accederlos desde JavaScript. Por ejemplo quisieras acceder a la información del usuario podrias hacerlo así: <code style="color: black;">__PHP.user</code>
 								</p>
 							</div><!--//content-->
 						</div>
