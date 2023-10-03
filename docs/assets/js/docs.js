@@ -17,7 +17,7 @@ window.onload = function () {
 	.then(data => {
 		const version = data.packages["rmunate/php2js"][0].version;
 		const fecha = data.packages["rmunate/php2js"][0].time.split("T")[0];
-		document.getElementById("idversion").textContent = version;
+		document.getElementById("idversion").textContent =`${version} | ${fecha}`;
 		document.getElementById("idversion").title = fecha;
 	})
 	.catch(error => {
