@@ -91,15 +91,25 @@ class AgentPhp2Js
      */
     public function getDataBrowser()
     {
-        $userAgent = $this->agent;
+        $userAgent = $this->agent; 
         $browsers = [
             'Internet Explorer' => 'MSIE',
+            'Internet Explorer' => 'IEMobile',
+            'Internet Explorer' => 'MSIEMobile',
+            'Netscape'          => 'Netscape',
+            'Opera Mini'        => 'Opera Mini',
             'Opera'             => 'Opera',
             'Netscape'          => 'Netscape',
             'Apple Safari'      => 'Safari',
             'Microsoft Edge'    => 'Edg',
+            'Coc Coc'           => 'coc_coc_browser',
+            'Vivaldi'           => 'Vivaldi',
+            'UCBrowser'         => 'UCBrowser',
+            'Microsoft Edge'    => 'Edge',
             'Google Chrome'     => 'Chrome',
             'Mozilla Firefox'   => 'Firefox',
+            'Safari'            => 'Safari',
+            'WeChat'            => 'MicroMessenger',
         ];
 
         $platforms = [

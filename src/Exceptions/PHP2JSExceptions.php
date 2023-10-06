@@ -48,42 +48,6 @@ class PHP2JSExceptions extends Exception
     }
 
     /**
-     * Generate an exception message for the `toJS` method.
-     *
-     * @return static The exception instance.
-     */
-    public static function toJSException()
-    {
-        $message = self::formatExceptionMessage("The 'toJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard defined in the manual.");
-
-        return self::create($message);
-    }
-
-    /**
-     * Generate an exception message for the `toAllJS` method.
-     *
-     * @return static The exception instance.
-     */
-    public static function toAllJSException()
-    {
-        $message = self::formatExceptionMessage("The 'toAllJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard defined in the manual.");
-
-        return self::create($message);
-    }
-
-    /**
-     * Generate an exception message for the `toStrictJS` method.
-     *
-     * @return static The exception instance.
-     */
-    public static function toStrictJSException()
-    {
-        $message = self::formatExceptionMessage("The 'toStrictJS' directive was removed from the library due to a process of standardization of use. You can replace it as needed according to the new standard defined in the manual.");
-
-        return self::create($message);
-    }
-
-    /**
      * Format the exception message.
      *
      * @param string $message The message to be formatted.
@@ -92,6 +56,12 @@ class PHP2JSExceptions extends Exception
      */
     private static function formatExceptionMessage(string $message)
     {
-        return Immutable::LIBRARY_NAME.' - '.$message.' Refer to the '.Immutable::LIBRARY_NAME.' manual for more information: '.Immutable::MANUAL_URL;
+        return sprintf(
+            '%s - %s Refer to the %s manual for more information: %s',
+            Immutable::LIBRARY_NAME,
+            $message,
+            Immutable::LIBRARY_NAME,
+            Immutable::MANUAL_URL
+        );
     }
 }

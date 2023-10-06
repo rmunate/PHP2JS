@@ -23,7 +23,7 @@ class LaravelPhp2Js
      */
     public function getEnvName()
     {
-        return env('APP_NAME', null);
+        return config('app.name', null);
     }
 
     /**
@@ -33,7 +33,7 @@ class LaravelPhp2Js
      */
     public function getEnvDebug()
     {
-        return env('APP_DEBUG', null);
+        return config('app.debug', false);
     }
 
     /**
@@ -43,7 +43,7 @@ class LaravelPhp2Js
      */
     public function getEnvironment()
     {
-        return env('APP_ENV', null);
+        return config('app.env', null);
     }
 
     /**
@@ -53,6 +53,6 @@ class LaravelPhp2Js
      */
     public function getEnvUrl()
     {
-        return env('APP_URL', null);
+        return config('app.url', null);
     }
 }

@@ -23,11 +23,7 @@ trait CommandUtilities
      */
     private function notifyError($message)
     {
-        if ($this->validateComponents()) {
-            $this->components->error($message);
-        } else {
-            $this->error($message);
-        }
+        $this->validateComponents() ? $this->components->error($message) : $this->error($message);
     }
 
     /**

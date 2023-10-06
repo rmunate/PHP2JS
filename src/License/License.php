@@ -13,13 +13,14 @@ class License
      */
     public static function comment()
     {
-        $version = Immutable::VERSION;
+        $name = Immutable::LIBRARY_NAME;
         $author = Immutable::AUTHOR;
+        $version = Immutable::VERSION;
         $license = Immutable::LICENSE;
         $url = Immutable::MANUAL_URL;
 
         return <<<EOT
-        /* Library: PHP2JS | Author: {$author} | Version: {$version} | License: {$license} | URL: {$url} */
+        /* ---- Library: {$name} | Author: {$author} | Version: {$version} | License: {$license} | URL: {$url} ---- */
         EOT;
     }
 }

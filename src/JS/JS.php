@@ -87,6 +87,7 @@ class JS
     public function alias(string $alias = 'PHP2JS')
     {
         $alias = $this->clearAlias($alias);
+        
         if (empty($alias)) {
             $this->alias = 'PHP2JS';
         } else {

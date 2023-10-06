@@ -184,40 +184,5 @@ class PHP2JSServiceProvider extends ServiceProvider
             return Deprecated::__PHP();
         });
 
-        /**
-         * Blade directive 'toJS'.
-         * Deprecated method without usage.
-         *
-         * @throws Exception An Exception indicating that the 'toJS' directive is deprecated.
-         *
-         * @return void
-         */
-        Blade::directive('toJS', function ($expression) {
-            throw PHP2JSExceptions::toJSException();
-        });
-
-        /**
-         * Blade directive 'toAllJS'.
-         * Deprecated method without usage.
-         *
-         * @throws Exception An Exception indicating that the 'toAllJS' directive is deprecated.
-         *
-         * @return void
-         */
-        Blade::directive('toAllJS', function ($expression) {
-            throw PHP2JSExceptions::toAllJSException();
-        });
-
-        /**
-         * Blade directive 'toStrictJS'.
-         * Deprecated method without usage.
-         *
-         * @throws Exception - An Exception indicating that the 'toStrictJS' directive is deprecated.
-         *
-         * @return void
-         */
-        Blade::directive('toStrictJS', function ($expression) {
-            throw PHP2JSExceptions::toStrictJSException();
-        });
     }
 }

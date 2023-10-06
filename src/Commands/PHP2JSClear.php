@@ -3,6 +3,7 @@
 namespace Rmunate\Php2Js\Commands;
 
 use Illuminate\Console\Command;
+use Rmunate\Php2Js\Constants\Immutable;
 use Rmunate\Php2Js\Traits\CommandUtilities;
 
 /**
@@ -26,7 +27,7 @@ class PHP2JSClear extends Command
      *
      * @var string
      */
-    protected $description = 'Clears the current PHP2JS settings on the Blade directives and providers.';
+    protected $description = 'Clears the current PHP2JS settings on the Blade directives and Providers.';
 
     /**
      * Execute the console command.
@@ -41,6 +42,6 @@ class PHP2JSClear extends Command
         $this->call('config:clear');
 
         // Notify success
-        $this->notifyInfo('Cleaned up PHP2JS settings on Blade directives. The ones in force in the current version will be taken.');
+        $this->notifyInfo('Cleaned up PHP2JS configuration in Blade directives and Providers. Those in force in the current version ('.Immutable::VERSION.') will be taken.');
     }
 }
