@@ -91,7 +91,7 @@ class AgentPhp2Js
      */
     public function getDataBrowser()
     {
-        $userAgent = $this->agent; 
+        $userAgent = $this->agent;
         $browsers = [
             'Internet Explorer' => 'MSIE',
             'Internet Explorer' => 'IEMobile',

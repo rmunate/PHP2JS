@@ -17,7 +17,6 @@ class UserPhp2Js
         $this->user = null;
 
         if (Auth::check()) {
-
             $this->user = Auth::user()->toArray();
 
             if (array_key_exists('created_at', $this->user)) {

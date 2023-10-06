@@ -183,6 +183,5 @@ class PHP2JSServiceProvider extends ServiceProvider
         Blade::directive('__PHP', function () {
             return Deprecated::__PHP();
         });
-
     }
 }
