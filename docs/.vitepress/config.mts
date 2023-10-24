@@ -9,7 +9,7 @@ export default defineConfig({
     themeConfig: {
         logo: 'php2js.png',
         nav: [
-            {text: 'v3.8.13 (2023/10/06)', link: '/'},
+            {text: 'v3.8.14 (2023/10/24)', link: '/'},
         ],
         sidebar: [
             {
