@@ -1,6 +1,5 @@
 import {defineConfig} from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
     title: "PHP2JS",
     description: "Share PHP-defined variables directly with the JavaScript files you want to use in your system.",
@@ -8,7 +7,7 @@ export default defineConfig({
     lastUpdated: true,
     base: '/PHP2JS',
     themeConfig: {
-        logo: './../public/php2js.png',
+        logo: 'php2js.png',
         nav: [
             {text: 'v3.8.13 (2023/10/06)', link: '/'},
         ],
@@ -72,7 +71,7 @@ export default defineConfig({
         ],
 
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/rmunate/SpellNumber'}
+            {icon: 'github', link: 'https://github.com/rmunate/PHP2JS'}
         ],
         search: {
             provider: 'local'
@@ -87,12 +86,12 @@ export default defineConfig({
         ],
         ['meta', {
                 property: 'og:image',
-                content: '/SpellNumber/logo-github.png' 
+                content: '/PHP2JS/logo-github.png' 
             }
         ],
         ['meta', {
                 property: 'og:image:secure_url',
-                content: '/SpellNumber/logo-github.png'
+                content: '/PHP2JS/logo-github.png'
             }
         ],
         ['meta', {
@@ -112,7 +111,7 @@ export default defineConfig({
         ],
         ['meta', {
                 property: 'og:description',
-                content: 'Easily convert numbers to words in Laravel Framework.'
+                content: 'Share PHP-defined variables directly with the JavaScript files you want to use in your system.'
             }
         ],
         ['meta', {
