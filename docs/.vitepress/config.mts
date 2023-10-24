@@ -106,7 +106,7 @@ export default defineConfig({
         ],
         ['meta', {
                 property: 'og:title',
-                content: 'SpellNumber'
+                content: 'PHP2JS'
             }
         ],
         ['meta', {
@@ -116,7 +116,7 @@ export default defineConfig({
         ],
         ['meta', {
                 property: 'og:url',
-                content: 'https://rmunate.github.io/SpellNumber/'
+                content: 'https://rmunate.github.io/PHP2JS/'
             }
         ],
         ['meta', {
