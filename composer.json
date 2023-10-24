@@ -1,45 +1,49 @@
 {
-    "name": "rmunate/php2js",
-    "description": "Read PHP Laravel variables in an external JavaScript file without the need for AJAX, FETCH, or AXIOS requests. Use the same variables returned by the controller and defined in the Blade view, as well as some additional values that will simplify your work. A perfect library for monoliths with Blade.",
-    "keywords": [
-        "php2js",
-        "__php",
-        "PHP2JS",
-        "laravel",
-        "blade"
-    ],
-    "homepage": "https://github.com/rmunate/PHP2JS",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Rmunate\\Php2Js\\": "src/"
-        }
+  "name": "rmunate/php2js",
+  "description": "Read PHP Laravel variables in an external JavaScript file without the need for AJAX, FETCH, or AXIOS requests. Use the same variables returned by the controller and defined in the Blade view, as well as some additional values that will simplify your work. A perfect library for monoliths with Blade.",
+  "keywords": [
+    "PHP2JS",
+    "php2js",
+    "toJS",
+    "toStrictJS",
+    "laravel",
+    "blade"
+  ],
+  "homepage": "https://github.com/rmunate/PHP2JS",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Rmunate\\Php2Js\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Raul Mauricio Uñate Castro",
+      "email": "raulmauriciounate@gmail.com",
+      "role": "owner",
+      "homepage": "https://github.com/rmunate"
+    }
+  ],
+  "require": {
+    "php": "^7.4|^8.0",
+    "illuminate/support": "^8.0|^9.0|^10.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.4"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-main": "v3.0.x-dev"
     },
-    "authors": [
-        {
-            "name": "Raul Mauricio Uñate Castro",
-            "email": "raulmauriciounate@gmail.com",
-            "role": "owner",
-            "homepage": "https://github.com/rmunate"
-        }
-    ],
-    "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/support": "^9.0|^10.0"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-main": "v3.0.x-dev"
-        },
-        "laravel": {
-            "providers": [
-                "Rmunate\\Php2Js\\Blade\\PHP2JSServiceProvider",
-                "Rmunate\\Php2Js\\Providers\\Php2JsServiceProvider",
-                "Rmunate\\Php2Js\\Macros\\Php2JsServiceProvider"
-            ]
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "laravel": {
+      "providers": [
+        "Rmunate\\Php2Js\\Blade\\PHP2JSServiceProvider",
+        "Rmunate\\Php2Js\\Providers\\Php2JsServiceProvider",
+        "Rmunate\\Php2Js\\Macros\\Php2JsServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }

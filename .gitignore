@@ -7,7 +7,6 @@
 /.idea
 /.vscode
 
-
 # Ignore Composer generated directory and files
 /vendor
 
@@ -15,5 +14,12 @@
 .fleet
 .idea
 .vscode
+composer.lock
 
+# Library
 src/Stubs/ScriptOriginal.stub
+
+# Node
+node_modules
+docs/.vitepress/cache
+docs/.vitepress/dist
