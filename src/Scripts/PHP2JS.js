@@ -14,7 +14,7 @@ function __PHP2JSData() {
     const metaElement = document.querySelector('meta[name="__PHP2JSData"]');
 
     if (metaElement) {
-        const values = metaElement.getAttribute('content');
+        const values = JSON.parse(metaElement.getAttribute('content'));
         metaElement.parentNode.removeChild(metaElement);
         return values;
     }
