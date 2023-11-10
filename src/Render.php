@@ -87,30 +87,31 @@ class Render extends BaseRender
 
         $metas = '';
         $dataJS = '';
-        $scripts = '';
+        $scriptPHP2JS = '';
+        $scriptQuickRequest = '';
 
         if ($this->php2js) {
             $dataJS = Generator::data($this->dataJS, $this->alias);
-            $scripts .= Generator::PHP2JS($this->alias);
+            $scriptPHP2JS = Generator::PHP2JS($this->alias);
         }
 
         if ($this->quickRequest) {
             $metas = Generator::quickRequestToken();
-            $scripts .= Generator::quickRequest();
+            $scriptQuickRequest = Generator::quickRequest();
         }
 
         $posicionCierreHead = strpos($html, '</head>');
         if ($posicionCierreHead !== false) {
-            $html = substr($html, 0, $posicionCierreHead).$metas.substr($html, $posicionCierreHead);
+            $html = substr($html, 0, $posicionCierreHead).$metas.$scriptQuickRequest.substr($html, $posicionCierreHead);
         } else {
-            $html .= $metas;
+            $html .= $metas.$scriptQuickRequest;
         }
 
         $posicionCierreBody = strpos($html, '</body>');
         if ($posicionCierreBody !== false) {
-            $html = substr($html, 0, $posicionCierreBody).$dataJS.$scripts.substr($html, $posicionCierreBody);
+            $html = substr($html, 0, $posicionCierreBody).$dataJS.$scriptPHP2JS.substr($html, $posicionCierreBody);
         } else {
-            $html .= $dataJS.$scripts;
+            $html .= $dataJS.$scriptPHP2JS;
         }
 
         return response($html);

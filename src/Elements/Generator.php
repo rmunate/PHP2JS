@@ -37,7 +37,7 @@ class Generator
         $jsonData = Json::encodeUnescapedUnicode($data);
 
         // Create and return the HTML span element
-        return '<span class="__'.$alias.'Data" data-values="'.$jsonData.'" style="display: none"></span>';
+        return '<meta name="__'.$alias.'Data" content="'.$jsonData.'">';
     }
 
     /**

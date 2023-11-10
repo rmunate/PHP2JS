@@ -11,16 +11,15 @@
  * @returns {Object} - An object containing aggregated data from HTML spans.
  */
 function __PHP2JSData() {
-    const values = {};
-    const originData = document.querySelectorAll("span.__PHP2JSData");
+    const metaElement = document.querySelector('meta[name="__PHP2JSData"]');
 
-    originData.forEach(function (element) {
-        const elementValues = JSON.parse(element.dataset.values || '{}');
-        Object.assign(values, elementValues);
-        element.parentNode.removeChild(element);
-    });
+    if (metaElement) {
+        const values = metaElement.getAttribute('content');
+        metaElement.parentNode.removeChild(metaElement);
+        return values;
+    }
 
-    return values;
+    return null;
 }
 
 const PHP2JS = {
