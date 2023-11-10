@@ -108,7 +108,7 @@ class Render extends BaseRender
             $ssr[0] = substr($html, 0, $posicionCierreHead);
             $ssr[1] = implode(PHP_EOL, $metas);
             $ssr[2] = implode(PHP_EOL, $scripts);
-            $ssr[2] = substr($html, $posicionCierreHead);
+            $ssr[3] = substr($html, $posicionCierreHead);
 
             $html = implode(PHP_EOL, $ssr);
 
@@ -117,7 +117,7 @@ class Render extends BaseRender
             $ssr[0] = substr($html, 0, $posicionCierreBody);
             $ssr[1] = implode(PHP_EOL, $metas);
             $ssr[2] = implode(PHP_EOL, $scripts);
-            $ssr[2] = substr($html, $posicionCierreBody);
+            $ssr[3] = substr($html, $posicionCierreBody);
             
             $html = implode(PHP_EOL, $ssr);
 
