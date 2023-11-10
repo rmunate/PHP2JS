@@ -101,6 +101,8 @@ class Render extends BaseRender
         }
 
         $posicionCierreHead = strpos($html, '</head>');
+        $posicionCierreBody = strpos($html, '</body>');
+        
         if ($posicionCierreHead !== false) {
 
             $ssr[0] = substr($html, 0, $posicionCierreHead);
