@@ -97,7 +97,7 @@ class Render extends BaseRender
 
         if ($this->quickRequest) {
             array_push($metas, Generator::quickRequestToken());
-            scripts($metas, Generator::quickRequest());
+            array_push($scripts, Generator::quickRequest());
         }
 
         $posicionCierreHead = strpos($html, '</head>');
