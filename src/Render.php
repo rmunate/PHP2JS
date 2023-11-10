@@ -88,21 +88,21 @@ class Render extends BaseRender
         $html = $view->render();
 
         $metas = [];
-        $scripts = '';
+        $scripts = [];
 
         if ($this->php2js) {
-            $metas[] = Generator::data($this->dataJS, $this->alias);
-            $scripts[] = Generator::PHP2JS($this->alias);
+            array_push($metas, Generator::data($this->dataJS, $this->alias));
+            array_push($scripts, Generator::PHP2JS($this->alias));
         }
 
         if ($this->quickRequest) {
-            $metas[] = Generator::quickRequestToken();
-            $scripts[] = Generator::quickRequest();
+            array_push($metas, Generator::quickRequestToken());
+            scripts($metas, Generator::quickRequest());
         }
 
         $posicionCierreHead = strpos($html, '</head>');
         $posicionCierreBody = strpos($html, '</body>');
-        
+
         if ($posicionCierreHead !== false) {
 
             $ssr[0] = substr($html, 0, $posicionCierreHead);
