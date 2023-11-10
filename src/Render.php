@@ -102,10 +102,25 @@ class Render extends BaseRender
 
         $posicionCierreHead = strpos($html, '</head>');
         if ($posicionCierreHead !== false) {
-            $html = substr($html, 0, $posicionCierreHead).$metas.$scripts.substr($html, $posicionCierreHead);
+
+            $ssr[0] = substr($html, 0, $posicionCierreHead);
+            $ssr[1] = $metas;
+            $ssr[2] = $scripts;
+            $ssr[2] = substr($html, $posicionCierreHead);
+
+            $html = implode("\n", $ssr);
+
         } else if ($posicionCierreBody !== false) {
-            $html = substr($html, 0, $posicionCierreBody).$metas.$scripts.substr($html, $posicionCierreBody);
+
+            $ssr[0] = substr($html, 0, $posicionCierreBody);
+            $ssr[1] = $metas;
+            $ssr[2] = $scripts;
+            $ssr[2] = substr($html, $posicionCierreBody);
+            
+            $html = implode("\n", $ssr);
+
         } else {
+            
             $html .= $metas.$scripts;
         }
 
