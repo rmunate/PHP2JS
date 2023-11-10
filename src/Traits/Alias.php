@@ -11,7 +11,7 @@ trait Alias
      *
      * @return string The cleaned alias.
      */
-    public function clear(string $alias)
+    public static function clear(string $alias)
     {
         return trim($alias, " \t\n\r\0\x0B$");
     }
@@ -23,7 +23,7 @@ trait Alias
      *
      * @return bool True if the alias is a valid constant name, false otherwise.
      */
-    public function isValid(string $alias)
+    public static function isValid(string $alias)
     {
         $pattern = '/^[_a-zA-Z\x7f-\xff][_a-zA-Z0-9\x7f-\xff]*$/';
 

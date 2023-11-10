@@ -25,7 +25,7 @@ class Render extends BaseRender
      */
     public function __construct(string $view)
     {
-        $this->view = $this->$view;
+        $this->view = $view;
     }
 
     /**
@@ -73,6 +73,8 @@ class Render extends BaseRender
 
     public function withQuickRequest(){
         $this->quickRequest = true;
+
+        return $this;
     }
     
     /**
