@@ -8,6 +8,7 @@ trait Json
      * Encode an array to JSON without escaping Unicode characters.
      *
      * @param array $values The array to encode.
+     *
      * @return string|null The JSON-encoded string or null on failure.
      */
     public static function encodeUnescapedUnicode(array $values)

@@ -17,7 +17,6 @@ class Php2JsServiceProvider extends ServiceProvider
     {
         /* Add Script QuickRequest */
         View::macro('withQuickRequest', function () {
-
             return Render::view($this->view)
                             ->with($this->getData())
                             ->withQuickRequest()
@@ -26,7 +25,6 @@ class Php2JsServiceProvider extends ServiceProvider
 
         /* Return all variables to the JS context. */
         View::macro('toJS', function ($alias = 'PHP2JS') {
-
             return Render::view($this->view)
                             ->with($this->getData())
                             ->withQuickRequest()
@@ -36,7 +34,6 @@ class Php2JsServiceProvider extends ServiceProvider
 
         /* Return only specific variables to the JavaScript context */
         View::macro('toStrictJS', function ($values = [], $alias = 'PHP2JS') {
-
             return Render::view($this->view)
                             ->with($this->getData())
                             ->withQuickRequest()

@@ -3,8 +3,8 @@
 namespace Rmunate\Php2Js\Elements;
 
 use Exception;
-use Rmunate\Php2Js\Traits\Json;
 use Rmunate\Php2Js\Traits\Alias;
+use Rmunate\Php2Js\Traits\Json;
 
 /**
  * Class RenderingJS
@@ -18,10 +18,12 @@ class Generator
     /**
      * Generate HTML span element with encoded JSON data and a specified alias.
      *
-     * @param array  $data   The data to be encoded and stored in the span element.
-     * @param string $alias  The alias to be used for the span element class and data attribute.
-     * @return string The HTML span element with encoded data.
+     * @param array  $data  The data to be encoded and stored in the span element.
+     * @param string $alias The alias to be used for the span element class and data attribute.
+     *
      * @throws Exception If the provided alias is not valid.
+     *
+     * @return string The HTML span element with encoded data.
      */
     public static function data(array $data, string $alias)
     {
@@ -44,6 +46,7 @@ class Generator
      * Generate PHP2JS JavaScript stub content with a specified alias.
      *
      * @param string $alias The alias to be used in the PHP2JS stub content.
+     *
      * @return string The PHP2JS JavaScript stub content.
      */
     public static function PHP2JS(string $alias)
