@@ -86,32 +86,25 @@ class Render extends BaseRender
         $html = $view->render();
 
         $metas = '';
-        $dataJS = '';
-        $scriptPHP2JS = '';
-        $scriptQuickRequest = '';
+        $scripts = '';
 
         if ($this->php2js) {
-            $dataJS = Generator::data($this->dataJS, $this->alias);
-            $scriptPHP2JS = Generator::PHP2JS($this->alias);
+            $metas .= Generator::data($this->dataJS, $this->alias);
+            $scripts .= Generator::PHP2JS($this->alias);
         }
 
         if ($this->quickRequest) {
-            $metas = Generator::quickRequestToken();
-            $scriptQuickRequest = Generator::quickRequest();
+            $metas .= Generator::quickRequestToken();
+            $scripts .= Generator::quickRequest();
         }
 
         $posicionCierreHead = strpos($html, '</head>');
         if ($posicionCierreHead !== false) {
-            $html = substr($html, 0, $posicionCierreHead).$metas.$scriptQuickRequest.substr($html, $posicionCierreHead);
+            $html = substr($html, 0, $posicionCierreHead).$metas.$scripts.substr($html, $posicionCierreHead);
+        } else if ($posicionCierreBody !== false) {
+            $html = substr($html, 0, $posicionCierreBody).$metas.$scripts.substr($html, $posicionCierreBody);
         } else {
-            $html .= $metas.$scriptQuickRequest;
-        }
-
-        $posicionCierreBody = strpos($html, '</body>');
-        if ($posicionCierreBody !== false) {
-            $html = substr($html, 0, $posicionCierreBody).$dataJS.$scriptPHP2JS.substr($html, $posicionCierreBody);
-        } else {
-            $html .= $dataJS.$scriptPHP2JS;
+            $html .= $metas.$scripts;
         }
 
         return response($html);
