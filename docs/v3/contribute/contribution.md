@@ -48,13 +48,6 @@ const members = [
     links: [
       { icon: 'github', link: 'https://github.com/jhcastaneda'},
     ]
-  },{
-    avatar: 'https://scontent-bog1-1.xx.fbcdn.net/v/t39.30808-6/246168843_1195289614297892_7845520805010727647_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHZ6jhpwfQAkmfKFAFwyOfBgDjdhflLI1iAON2F-UsjWDcNkNUO9IFjBPw4TvnHg-K2vXukHW-m2xH3lBzlRSEb&_nc_ohc=oSOUYonfKdcAX-ppall&_nc_ht=scontent-bog1-1.xx&oh=00_AfCICi7bcslnL7rUmgVTJs2W1K8TA-8sByDVxoKWvIE5dA&oe=653D9C77',
-    name: 'Julio C. Borges',
-    title: 'Developer',
-    links: [
-      { icon: 'github', link: 'julio-borgeslopez@outlook.com'},
-    ]
   }
 ]
 </script>

@@ -1,0 +1,4 @@
+<script>
+/* PHP2JS v4.0 | Script | (c) Raul Mauricio Uñate Castro | https://github.com/rmunate | MIT*/
+function __{PHP2JS}Data(){let t={},n=document.querySelectorAll("span.__{PHP2JS}Data");return n.forEach(function(n){let a=JSON.parse(n.dataset.values||"{}");Object.assign(t,a),n.parentNode.removeChild(n)}),t}const {PHP2JS}={data:__{PHP2JS}Data(),destroy:function(){for(let t in this)this.hasOwnProperty(t)&&delete this[t];return!0},assign:function(){return Object.assign({},this)},assignAndDestroy:function(){let t=Object.assign({},this);return this.destroy(),t},only:function(...t){let n={};return t.forEach(t=>{this.data.hasOwnProperty(t)&&(n[t]=this.data[t])}),n},except:function(...t){let n={};for(let a in this.data)t.includes(a)||(n[a]=this.data[a]);return n},has:function(t){return this.data.hasOwnProperty(t)},get:function(t){return this.data[t]||null},set:function(t,n){this.data[t]=n}};
+</script>

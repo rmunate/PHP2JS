@@ -38,8 +38,6 @@
     },
     "laravel": {
       "providers": [
-        "Rmunate\\Php2Js\\Blade\\PHP2JSServiceProvider",
-        "Rmunate\\Php2Js\\Providers\\Php2JsServiceProvider",
         "Rmunate\\Php2Js\\Macros\\Php2JsServiceProvider"
       ]
     }

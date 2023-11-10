@@ -15,43 +15,33 @@ class Php2JsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /* Add prebuilt blocks */
-        View::macro('attach', function (...$attach) {
-            $this->attach = $attach;
+        /* Add Script QuickRequest */
+        View::macro('withQuickRequest', function () {
 
-            return $this;
+            return Render::view($this->view)
+                            ->with($this->getData())
+                            ->withQuickRequest()
+                            ->compose();
         });
 
         /* Return all variables to the JS context. */
         View::macro('toJS', function ($alias = 'PHP2JS') {
-            if (isset($this->attach) && !empty($this->attach)) {
-                return Render::view($this->view)
-                             ->with($this->getData())
-                             ->toJS($alias)
-                             ->attach(...$this->attach)
-                             ->compose();
-            } else {
-                return Render::view($this->view)
-                             ->with($this->getData())
-                             ->toJS($alias)
-                             ->compose();
-            }
+
+            return Render::view($this->view)
+                            ->with($this->getData())
+                            ->withQuickRequest()
+                            ->toJS($alias)
+                            ->compose();
         });
 
         /* Return only specific variables to the JavaScript context */
         View::macro('toStrictJS', function ($values = [], $alias = 'PHP2JS') {
-            if (isset($this->attach) && !empty($this->attach)) {
-                return Render::view($this->view)
-                             ->with($this->getData())
-                             ->toStrictJS($values, $alias)
-                             ->attach(...$this->attach)
-                             ->compose();
-            } else {
-                return Render::view($this->view)
-                             ->with($this->getData())
-                             ->toStrictJS($values, $alias)
-                             ->compose();
-            }
+
+            return Render::view($this->view)
+                            ->with($this->getData())
+                            ->withQuickRequest()
+                            ->toStrictJS($values, $alias)
+                            ->compose();
         });
     }
 }

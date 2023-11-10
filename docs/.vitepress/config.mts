@@ -7,68 +7,94 @@ export default defineConfig({
     lastUpdated: true,
     base: '/PHP2JS',
     themeConfig: {
-        logo: 'php2js.png',
+        logo: '/public/php2js.png',
         nav: [
-            {text: 'v3.8.14 (2023/10/24)', link: '/'},
-        ],
-        sidebar: [
             {
-                text: 'Getting Started',
-                collapsed: false,
+                text: 'Docs ^4.0',
+                link: '/v4/',
+            },
+            {
+                text: 'Versions',
                 items: [
-                    {text: 'Introduction', link: '/'},
-                    {text: 'Installation', link: '/getting-started/installation'},
-                    {text: 'Versions', link: '/getting-started/versions'},
-                ]
-            }, {
-                text: 'Controllers',
-                collapsed: true,
-                items: [
-                    {text: 'View Return', link: '/controllers/view-return'},
-                    {text: 'Share with JavaScript', link: '/controllers/share-with-js'},
-                    {text: 'Assign a Custom Alias', link: '/controllers/assign-custom-alias'},
-                    {text: 'Share Specific Variables', link: '/controllers/share-specific-vars'},
-                    {text: 'Prebuilt Blocks', link: '/controllers/prebuild-blocks'},
-                ]
-            }, {
-                text: 'Blade Directives',
-                collapsed: true,
-                items: [
-                    {text: 'Everything', link: '/blade-directives/everything'},
-                    {text: 'Specific Variables', link: '/blade-directives/specific-variables'}
-                ]
-            }, {
-                text: 'Blade Blocks',
-                collapsed: true,
-                items: [
-                    {text: 'Agent Data', link: '/blade-blocks/agent-data'},
-                    {text: 'URL Data', link: '/blade-blocks/url-data'},
-                    {text: 'CSRF Token', link: '/blade-blocks/csrf-token'},
-                    {text: 'Laravel Data', link: '/blade-blocks/laravel-data'},
-                    {text: 'PHP Data', link: '/blade-blocks/php-data'},
-                    {text: 'User in Session', link: '/blade-blocks/user-in-session'},
-                ]
-            }, {
-                text: 'JavaScript Methods',
-                collapsed: true,
-                items: [
-                    {text: 'Clear', link: '/javascript-methods/clear'},
-                    {text: 'Assign', link: '/javascript-methods/assign'},
-                    {text: 'Only', link: '/javascript-methods/only'},
-                    {text: 'Except', link: '/javascript-methods/except'},
-                    {text: 'Check', link: '/javascript-methods/check'},
-                    {text: 'Get', link: '/javascript-methods/get'},
-                    {text: 'Set', link: '/javascript-methods/set'},
-                ]
-            }, {
-                text: 'Contribute',
-                collapsed: true,
-                items: [
-                    {text: 'Bug Report', link: 'contribute/report-bugs'},
-                    {text: 'Contribution', link: 'contribute/contribution'}
+                  { text: 'Docs => ^4.0', link: '/v4/' },
+                  { text: 'Docs => ^3.8', link: '/v3/' },
+                  { text: 'Docs => ^2.6', link: '/v2/' }
                 ]
             }
         ],
+        sidebar: {
+            '/v2/': [
+                {
+                    text: 'Getting Started',
+                    collapsed: false,
+                    items: [
+                        {text: 'Introduction', link: '/v2/'},
+                        {text: 'Installation', link: '/v2/installation'},
+                        {text: 'Usage', link: '/v2/usage'},
+                        {text: 'Methods', link: '/v2/methods'},
+                        {text: 'Contribute', link: '/v2/contribute'},
+                    ]
+                }
+            ],
+            '/v3/': [
+                {
+                    text: 'Getting Started',
+                    collapsed: false,
+                    items: [
+                        {text: 'Introduction', link: '/v3/'},
+                        {text: 'Installation', link: '/v3/getting-started/installation'},
+                        {text: 'Versions', link: '/v3/getting-started/versions'},
+                    ]
+                }, {
+                    text: 'Controllers',
+                    collapsed: true,
+                    items: [
+                        {text: 'View Return', link: '/v3/controllers/view-return'},
+                        {text: 'Share with JavaScript', link: '/v3/controllers/share-with-js'},
+                        {text: 'Assign a Custom Alias', link: '/v3/controllers/assign-custom-alias'},
+                        {text: 'Share Specific Variables', link: '/v3/controllers/share-specific-vars'},
+                        {text: 'Prebuilt Blocks', link: '/v3/controllers/prebuild-blocks'},
+                    ]
+                }, {
+                    text: 'Blade Directives',
+                    collapsed: true,
+                    items: [
+                        {text: 'Everything', link: '/v3/blade-directives/everything'},
+                        {text: 'Specific Variables', link: '/v3/blade-directives/specific-variables'}
+                    ]
+                }, {
+                    text: 'Blade Blocks',
+                    collapsed: true,
+                    items: [
+                        {text: 'Agent Data', link: '/v3/blade-blocks/agent-data'},
+                        {text: 'URL Data', link: '/v3/blade-blocks/url-data'},
+                        {text: 'CSRF Token', link: '/v3/blade-blocks/csrf-token'},
+                        {text: 'Laravel Data', link: '/v3/blade-blocks/laravel-data'},
+                        {text: 'PHP Data', link: '/v3/blade-blocks/php-data'},
+                        {text: 'User in Session', link: '/v3/blade-blocks/user-in-session'},
+                    ]
+                }, {
+                    text: 'JavaScript Methods',
+                    collapsed: true,
+                    items: [
+                        {text: 'Clear', link: '/v3/javascript-methods/clear'},
+                        {text: 'Assign', link: '/v3/javascript-methods/assign'},
+                        {text: 'Only', link: '/v3/javascript-methods/only'},
+                        {text: 'Except', link: '/v3/javascript-methods/except'},
+                        {text: 'Check', link: '/v3/javascript-methods/check'},
+                        {text: 'Get', link: '/v3/javascript-methods/get'},
+                        {text: 'Set', link: '/v3/javascript-methods/set'},
+                    ]
+                }, {
+                    text: 'Contribute',
+                    collapsed: true,
+                    items: [
+                        {text: 'Bug Report', link: '/v3/contribute/report-bugs'},
+                        {text: 'Contribution', link: '/v3/contribute/contribution'}
+                    ]
+                }
+            ]
+        },
 
         socialLinks: [
             {icon: 'github', link: 'https://github.com/rmunate/PHP2JS'}
@@ -124,5 +150,6 @@ export default defineConfig({
                 content: 'website'
             }
         ],
-    ],
+        ['script', {async: '', src: '/.vitepress/page.js'}]
+    ]
 })

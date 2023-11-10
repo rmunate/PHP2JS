@@ -17,7 +17,7 @@ When you wish to use this solution, you must ensure the following:
 This package is available via Composer. You can install the latest stable version of the package by running the following command in your Laravel Framework project:
 
 ``` bash
-composer require rmunate/php2js
+composer require rmunate/php2js ^3.8
 ```
 Make sure that in the composer.json, you have the library in the latest version. <Badge type="info" text='"rmunate/php2js": "^3.8"' />
 
