@@ -87,40 +87,40 @@ class Render extends BaseRender
         $view = view($this->view)->with($this->data);
         $html = $view->render();
 
-        $metas = '';
+        $metas = [];
         $scripts = '';
 
         if ($this->php2js) {
-            $metas .= Generator::data($this->dataJS, $this->alias);
-            $scripts .= Generator::PHP2JS($this->alias);
+            $metas[] = Generator::data($this->dataJS, $this->alias);
+            $scripts[] = Generator::PHP2JS($this->alias);
         }
 
         if ($this->quickRequest) {
-            $metas .= Generator::quickRequestToken();
-            $scripts .= Generator::quickRequest();
+            $metas[] = Generator::quickRequestToken();
+            $scripts[] = Generator::quickRequest();
         }
 
         $posicionCierreHead = strpos($html, '</head>');
         if ($posicionCierreHead !== false) {
 
             $ssr[0] = substr($html, 0, $posicionCierreHead);
-            $ssr[1] = $metas;
-            $ssr[2] = $scripts;
+            $ssr[1] = implode(PHP_EOL, $metas);
+            $ssr[2] = implode(PHP_EOL, $scripts);
             $ssr[2] = substr($html, $posicionCierreHead);
 
-            $html = implode("\n", $ssr);
+            $html = implode(PHP_EOL, $ssr);
 
         } else if ($posicionCierreBody !== false) {
 
             $ssr[0] = substr($html, 0, $posicionCierreBody);
-            $ssr[1] = $metas;
-            $ssr[2] = $scripts;
+            $ssr[1] = implode(PHP_EOL, $metas);
+            $ssr[2] = implode(PHP_EOL, $scripts);
             $ssr[2] = substr($html, $posicionCierreBody);
             
-            $html = implode("\n", $ssr);
+            $html = implode(PHP_EOL, $ssr);
 
         } else {
-            
+
             $html .= $metas.$scripts;
         }
 
