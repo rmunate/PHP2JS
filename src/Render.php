@@ -50,7 +50,7 @@ class Render extends BaseRender
     public function toJS(string $alias = 'PHP2JS')
     {
         $this->dataJS = $this->data;
-        $this->alias = trim($alias);
+        $this->alias = $alias;
         $this->php2js = true;
 
         return $this;
@@ -62,10 +62,10 @@ class Render extends BaseRender
      *
      * @return static
      */
-    public function toStrictJS(array $vars = [], string $alias = 'PHP2JS'): static
+    public function toStrictJS(array $data = [], string $alias = 'PHP2JS'): static
     {
-        $this->dataJS = $this->vars;
-        $this->alias = trim($alias);
+        $this->dataJS = $data;
+        $this->alias = $alias;
         $this->php2js = true;
 
         return $this;
