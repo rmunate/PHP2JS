@@ -17,7 +17,7 @@ class Render extends BaseRender
     private $dataJS = [];
     private $quickRequest = false;
     private $php2js = false;
-    
+
     /**
      * Constructor.
      *
@@ -38,7 +38,7 @@ class Render extends BaseRender
     public function with(array $data)
     {
         $this->data = $data;
-        
+
         return $this;
     }
 
@@ -57,7 +57,7 @@ class Render extends BaseRender
     }
 
     /**
-     * @param array $vars
+     * @param array  $vars
      * @param string $alias
      *
      * @return static
@@ -71,12 +71,13 @@ class Render extends BaseRender
         return $this;
     }
 
-    public function withQuickRequest(){
+    public function withQuickRequest()
+    {
         $this->quickRequest = true;
 
         return $this;
     }
-    
+
     /**
      * Return the View.
      *
@@ -104,25 +105,20 @@ class Render extends BaseRender
         $posicionCierreBody = strpos($html, '</body>');
 
         if ($posicionCierreHead !== false) {
-
             $ssr[0] = substr($html, 0, $posicionCierreHead);
             $ssr[1] = implode(PHP_EOL, $metas);
             $ssr[2] = implode(PHP_EOL, $scripts);
             $ssr[3] = substr($html, $posicionCierreHead);
 
             $html = implode(PHP_EOL, $ssr);
-
-        } else if ($posicionCierreBody !== false) {
-
+        } elseif ($posicionCierreBody !== false) {
             $ssr[0] = substr($html, 0, $posicionCierreBody);
             $ssr[1] = implode(PHP_EOL, $metas);
             $ssr[2] = implode(PHP_EOL, $scripts);
             $ssr[3] = substr($html, $posicionCierreBody);
-            
+
             $html = implode(PHP_EOL, $ssr);
-
         } else {
-
             $html .= $metas.$scripts;
         }
 
