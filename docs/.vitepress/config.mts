@@ -204,7 +204,7 @@ export default defineConfig({
         ],
         ['script', {
             async: '',
-            src: '/scripts/React.js',
+            src: '/PHP2JS/scripts/React.js',
             type: 'module',
         }]
     ],
