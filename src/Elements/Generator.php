@@ -3,8 +3,8 @@
 namespace Rmunate\Php2Js\Elements;
 
 use Exception;
-use Rmunate\Php2Js\Traits\Alias;
 use Rmunate\Php2Js\Bases\BaseGenerator;
+use Rmunate\Php2Js\Traits\Alias;
 
 class Generator extends BaseGenerator
 {
