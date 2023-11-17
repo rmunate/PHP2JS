@@ -1,4 +1,6 @@
 ---
+title: Sharing Values with JavaScript
+editLink: true
 outline: deep
 ---
 

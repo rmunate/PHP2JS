@@ -1,6 +1,7 @@
 ---
-outline: deep
 title: Contribute
+editLink: true
+outline: deep
 ---
 
 ## Creator

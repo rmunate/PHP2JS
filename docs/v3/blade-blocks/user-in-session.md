@@ -1,4 +1,6 @@
 ---
+title: Share Session User Information
+editLink: true
 outline: deep
 ---
 

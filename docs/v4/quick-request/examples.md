@@ -1,5 +1,6 @@
 ---
 title: Examples
+editLink: true
 outline: deep
 ---
 

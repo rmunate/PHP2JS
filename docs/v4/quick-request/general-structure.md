@@ -1,5 +1,7 @@
 ---
 title: General Structure
+editLink: true
+outline: deep
 ---
 
 # General Structure of QuickRequest

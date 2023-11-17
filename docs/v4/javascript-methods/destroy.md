@@ -1,4 +1,6 @@
 ---
+title: Destroy
+editLink: true
 outline: deep
 ---
 

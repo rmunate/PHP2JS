@@ -1,6 +1,21 @@
 ---
 layout: home
 
+hero:
+  name: Laravel 
+  text: PHP2JS & Quick Request
+  tagline: Developing Laravel monoliths has never been easier and more efficient! 💻✨
+  image:
+    src: /img/home.png
+    alt: VitePress
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /v4/
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/rmunate/PHP2JS
+
 features:
   - icon: 🚀
     title: Share Variables with JavaScript
@@ -11,19 +26,4 @@ features:
   - icon: 📢
     title: Reduced Server Load
     details: Recently, some solutions (FullStack Frameworks) have become popular for overloading servers with SSR processes. If you genuinely want a maintainable application over time, you might want to start here.
-
-hero:
-  name: Laravel 
-  text: PHP2JS & Quick Request
-  tagline: Developing Laravel monoliths has never been easier and more efficient! 💻✨
-  image:
-    src: /home.png
-    alt: VitePress
-  actions:
-    - theme: brand
-      text: Get Started
-      link: /v4/
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/rmunate/PHP2JS
 ---

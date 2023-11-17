@@ -1,4 +1,6 @@
 ---
+title: Share Framework Information
+editLink: true
 outline: deep
 ---
 

@@ -1,4 +1,6 @@
 ---
+title: Share PHP Information
+editLink: true
 outline: deep
 ---
 

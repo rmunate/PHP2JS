@@ -1,4 +1,6 @@
 ---
+title: Share Only Some Existing
+editLink: true
 outline: deep
 ---
 

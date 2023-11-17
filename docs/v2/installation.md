@@ -1,6 +1,7 @@
 ---
-outline: deep
 title: Installation
+editLink: true
+outline: deep
 ---
 
 # Installation

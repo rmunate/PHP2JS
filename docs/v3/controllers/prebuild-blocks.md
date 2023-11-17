@@ -1,4 +1,6 @@
 ---
+title: Prebuilt Information Blocks
+editLink: true
 outline: deep
 ---
 

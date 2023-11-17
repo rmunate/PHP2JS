@@ -1,7 +1,9 @@
 ---
-title: Examples
+title: Exceptions
+editLink: true
 outline: deep
 ---
+
 # Exceptions:
 
 In case there is an error in the structure or processing of the data with QuickRequest, you will see an exception in the browser console like the following:

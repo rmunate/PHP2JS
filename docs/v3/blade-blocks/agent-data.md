@@ -1,4 +1,6 @@
 ---
+title: Share Connection Agent Data
+editLink: true
 outline: deep
 ---
 

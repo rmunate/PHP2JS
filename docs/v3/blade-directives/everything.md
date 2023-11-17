@@ -1,4 +1,6 @@
 ---
+title: Share Existing PHP Variables
+editLink: true
 outline: deep
 ---
 

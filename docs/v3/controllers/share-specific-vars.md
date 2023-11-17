@@ -1,4 +1,6 @@
 ---
+title: Share Only Some Values with JavaScript
+editLink: true
 outline: deep
 ---
 

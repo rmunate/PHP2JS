@@ -1,4 +1,6 @@
 ---
+title: Get
+editLink: true
 outline: deep
 ---
 

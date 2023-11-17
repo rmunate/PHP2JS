@@ -1,4 +1,6 @@
 ---
+title: Assign a Unique Alias in JavaScript
+editLink: true
 outline: deep
 ---
 

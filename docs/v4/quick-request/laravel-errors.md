@@ -1,5 +1,6 @@
 ---
 title: Laravel Errors
+editLink: true
 outline: deep
 ---
 

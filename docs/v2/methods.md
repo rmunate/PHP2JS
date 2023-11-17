@@ -1,6 +1,7 @@
 ---
-outline: deep
 title: Methods
+editLink: true
+outline: deep
 ---
 
 ## Methods

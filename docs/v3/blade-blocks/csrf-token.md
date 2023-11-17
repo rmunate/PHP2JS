@@ -1,4 +1,6 @@
 ---
+title: Share Valid Token
+editLink: true
 outline: deep
 ---
 

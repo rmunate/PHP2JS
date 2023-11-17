@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
     title: "PHP2JS",
-    description: "Share PHP-defined variables directly with the JavaScript files you want to use in your system.",
+    description: "Developing Laravel monoliths has never been easier and more efficient! 💻✨",
     lang: 'en-US',
     lastUpdated: true,
     base: '/PHP2JS',
@@ -11,7 +11,10 @@ export default defineConfig({
             message: 'Released under the MIT License.',
             copyright: 'Copyright © 2021-2023 Raul Mauricio Uñate'
         },
-        logo: '/php2js.png',
+        editLink: {
+            pattern: 'https://github.com/rmunate/PHP2JS/tree/main/docs/:path'
+        },
+        logo: '/img/php2js.png',
         nav: [
             {
                 text: 'Docs ^4.0',
@@ -160,20 +163,25 @@ export default defineConfig({
         }
     },
     head: [
+        ['link', { 
+                rel: 'stylesheet', 
+                href: '/PHP2JS/css/style.css' 
+            }
+        ],
         ['link', {
                 rel: 'icon',
-                href: '/PHP2JS/php2js.png',
+                href: '/PHP2JS/img/php2js.png',
                 type: 'image/png'
             }
         ],
         ['meta', {
                 property: 'og:image',
-                content: '/PHP2JS/logo-github.png' 
+                content: '/PHP2JS/img/logo-github.png' 
             }
         ],
         ['meta', {
                 property: 'og:image:secure_url',
-                content: '/PHP2JS/logo-github.png'
+                content: '/PHP2JS/img/logo-github.png'
             }
         ],
         ['meta', {
@@ -193,7 +201,7 @@ export default defineConfig({
         ],
         ['meta', {
                 property: 'og:description',
-                content: 'Share PHP-defined variables directly with the JavaScript files you want to use in your system.'
+                content: 'Developing Laravel monoliths has never been easier and more efficient! 💻✨'
             }
         ],
         ['meta', {

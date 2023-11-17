@@ -1,6 +1,9 @@
 ---
+title: Contributing
+editLink: true
 outline: deep
 ---
+
 
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'

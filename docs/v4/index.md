@@ -1,9 +1,10 @@
 ---
 title: Introduction
+editLink: true
 outline: deep
 ---
 
-![logo-spell-number](/logo-full-scream.png)
+![logo-spell-number](/img/logo-full-scream.png)
 
 ## Introduction
 

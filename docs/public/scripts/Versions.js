@@ -38,7 +38,7 @@ export const Versions = {
         link: '/v4/',
         alert: Alerts.success({
             title: "QUICKREQUEST RELEASED",
-            image:  Helpers.baseUrl() + "/quick-request.jpeg",
+            image:  Helpers.baseUrl() + "/img/quick-request.jpeg",
             body: [
                 "A lightweight tool for swift and simple Laravel backend requests. Easy and straightforward."
             ]

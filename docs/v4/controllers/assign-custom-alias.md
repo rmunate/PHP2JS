@@ -1,4 +1,6 @@
 ---
+title: Customize JavaScript Alias
+editLink: true
 outline: deep
 ---
 

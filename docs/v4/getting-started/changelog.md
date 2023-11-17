@@ -1,4 +1,6 @@
 ---
+title: Release Notes
+editLink: true
 outline: deep
 ---
 

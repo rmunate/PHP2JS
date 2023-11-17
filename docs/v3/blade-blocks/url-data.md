@@ -1,4 +1,6 @@
 ---
+title: Share URL Data
+editLink: true
 outline: deep
 ---
 

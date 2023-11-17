@@ -1,6 +1,7 @@
 ---
+title: Use
+editLink: true
 outline: deep
-title: Usage
 ---
 
 ## Use

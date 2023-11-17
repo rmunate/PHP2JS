@@ -1,6 +1,9 @@
 ---
+title: Share Specific Values with JavaScript
+editLink: true
 outline: deep
 ---
+
 
 # Share Specific Values with JavaScript
 

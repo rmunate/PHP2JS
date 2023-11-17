@@ -1,9 +1,10 @@
 ---
 title: Introduction
+editLink: true
 outline: deep
 ---
 
-![logo-spell-number](/quick-request.png)
+![logo-spell-number](/img/quick-request.png)
 
 ## Introduction
 

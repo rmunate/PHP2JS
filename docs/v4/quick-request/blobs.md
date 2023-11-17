@@ -1,7 +1,9 @@
 ---
-title: Examples
+title: Blob
+editLink: true
 outline: deep
 ---
+
 # Blob
 
 Blob stands for "Binary Large Object," and it is a data type used to store binary data such as images, audio files, or videos.

@@ -1,4 +1,6 @@
 ---
+title: Versions
+editLink: true
 outline: deep
 ---
 
