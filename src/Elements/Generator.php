@@ -39,14 +39,16 @@ class Generator extends BaseGenerator
     public function data(array $data)
     {
         // Encode data to JSON without escaping Unicode characters
-        $jsonData = json_encode($data, JSON_UNESCAPED_UNICODE)
-        
-        $metaTag = '<meta name="X-{PHP2JS}-DATA" content="{JSON_DATA}">';
+        $jsonData = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-        $metaTag = str_replace('{PHP2JS}', $this->alias, $metaTag);
-        $metaTag = str_replace('{JSON_DATA}', $jsonData, $metaTag);
+        // Replace placeholders in the meta tag template
+        $metaTag = sprintf(
+            '<meta name="X-%s-DATA" content="%s">',
+            $this->alias,
+            htmlspecialchars($jsonData, ENT_QUOTES, 'UTF-8')
+        );
 
-        // Create and return the HTML span element
+        // Return the HTML meta tag
         return $metaTag;
     }
 
