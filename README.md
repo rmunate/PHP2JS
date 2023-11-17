@@ -1,28 +1,35 @@
-# PHP2JS
+# PHP2JS / QUICKREQUEST
+
+# 🚀 Seamless Integration: PHP2JS & QuickRequest 🚀
+
+Share PHP Laravel values effortlessly with external JavaScript files using just one command, thanks to the seamless integration of PHP2JS. Execute backend requests swiftly and precisely with the power of QuickRequest.
+
+Developing Laravel monoliths has never been easier and more efficient! 💻✨
 
 ## The Library that Made Handling Monoliths in Laravel Simple - LARAVEL PHP Framework
 
-⚙️ This library is compatible with Laravel versions 9.0 and above ⚙️
-
-[![Laravel 9.0+](https://img.shields.io/badge/Laravel-9.0%2B-orange.svg)](https://laravel.com)
-[![Laravel 10.0+](https://img.shields.io/badge/Laravel-10.0%2B-orange.svg)](https://laravel.com)
-
-![logo-php2js](https://github.com/alejandrodiazpinilla/PHP2JS/assets/51100789/f3c09be3-8013-44de-87fe-946b55f14514)
+![LOGO-PHP2JS-QR](https://github.com/rmunate/PHP2JS/assets/91748598/9b1efced-bd6b-494a-8f70-8e77e0fd0a84)
 
 ## Documentation
 [![📖📖📖 **FULL DOCUMENTATION** 📖📖📖](https://img.shields.io/badge/FULL%20DOCUMENTATION-Visit%20Here-blue?style=for-the-badge)](https://rmunate.github.io/PHP2JS/)
 
-## Installation
-To install the dependency via Composer, run the following command:
+## Installation PHP2JS
+To install the dependency via Composer.
 
-```console
+```shell
 composer require rmunate/php2js
 ```
 
-Make sure that in the `composer.json` file, you have the library in the latest version. `"rmunate/php2js": "^3.8"`
-Always after installing, run the command:
-```console
-php artisan php2js:clear
+## Installation QuickRequest
+Installing **QuickRequest** in Laravel projects is a simple process. Include the following import statement in the HEAD section of your project:
+
+```html
+<head>
+    <!-- ... -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://cdn.jsdelivr.net/gh/rmunate/PHP2JS@4/src/JS/QuickRequest/QuickRequest.min.js"></script>
+    <!-- ... -->
+</head>
 ```
 
 ## License

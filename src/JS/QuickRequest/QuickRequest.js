@@ -479,7 +479,16 @@ class QuickRequestFetch {
 
             // Check input elements
             const inputsCheck = new QuickRequestElements();
-            const controls = Array.from(document.getElementById(originForm).elements);
+
+            //Validate Form
+            let controls = [];
+            const realElementForm = document.getElementById(originForm);
+            if (realElementForm) {
+                controls = Array.from(realElementForm.elements);
+            } else {
+                throw new QuickRequestException("Could not find any form with the id " + originForm);
+            }
+
             
             controls.forEach(element => {
 
@@ -951,7 +960,7 @@ const QuickRequestErrors = {
 
     toArrayflatten: function(){
         let errors = [];
-        for (const [key, value] of Object.entries(err.data.errors)) {
+        for (const [key, value] of Object.entries(this.config.errors)) {
             if (Array.isArray(value)) {
                 value.forEach(element => {
                     errors.push({

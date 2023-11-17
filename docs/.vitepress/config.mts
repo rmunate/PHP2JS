@@ -135,6 +135,7 @@ export default defineConfig({
                         {text: 'Examples', link: '/v4/quick-request/examples'},
                         {text: 'Blobs', link: '/v4/quick-request/blobs'},
                         {text: 'Laravel Errors', link: '/v4/quick-request/laravel-errors'},
+                        {text: 'Excepciones', link: '/v4/quick-request/excepciones'},
                     ]
                 }, {
                     text: 'Contribute',
