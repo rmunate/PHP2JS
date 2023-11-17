@@ -1,38 +1,43 @@
 /**
  * PHP2JS v4.0
- * Script
+ * JavaScript Utility Library
  * (c) Raul Mauricio Uñate Castro
- * https://github.com/rmunate
- * MIT
+ * GitHub: https://github.com/rmunate
+ * License: MIT
  */
 
-/**
- * Function to extract and aggregate data from HTML spans with the "__PHP2JSData" class.
- * @returns {Object} - An object containing aggregated data from HTML spans.
- */
-function __PHP2JSData() {
-    const metaElement = document.querySelector('meta[name="__PHP2JSData"]');
+const PHP2JSHelpers = {
+    /**
+     * Extracts and aggregates data from Meta Tag.
+     * @returns {Object|null} - An object containing aggregated data from HTML spans, or null if not found.
+     */
+    getData: () => {
 
-    if (metaElement) {
-        const values = JSON.parse(metaElement.getAttribute('content'));
-        metaElement.parentNode.removeChild(metaElement);
-        return values;
-    }
+        const metaElement = document.querySelector('meta[name="X-PHP2JS-DATA"]');
 
-    return null;
-}
+        if (metaElement) {
+
+            const values = JSON.parse(metaElement.getAttribute('content'));
+            metaElement.parentNode.removeChild(metaElement);
+
+            return values;
+        }
+
+        return null;
+    },
+};
 
 const PHP2JS = {
     /**
      * Data returned from PHP.
      */
-    data: __PHP2JSData(),
+    data: PHP2JSHelpers.getData(),
 
     /**
-     * Function to destroy the content of the object.
+     * Destroys the content of the object.
      * @returns {boolean} - True if the object is successfully destroyed.
      */
-    destroy: function() {
+    destroy: function () {
         for (let prop in this) {
             if (this.hasOwnProperty(prop)) {
                 delete this[prop];
@@ -42,31 +47,31 @@ const PHP2JS = {
     },
 
     /**
-     * Function to create and return a new object with the same prototype.
+     * Creates and returns a new object with the same prototype.
      * @returns {object} - A new object created with the same prototype.
      */
-    assign: function() {
+    assign: function () {
         return Object.assign({}, this);
     },
 
     /**
-     * Function to create a new object with the same prototype and destroy the original object.
+     * Creates a new object with the same prototype and destroys the original object.
      * @returns {object} - A new object created with the same prototype.
      */
-    assignAndDestroy: function() {
+    assignAndDestroy: function () {
         const newObject = Object.assign({}, this);
         this.destroy();
         return newObject;
     },
 
     /**
-     * Function to return only the specified values separated by commas in the function.
+     * Returns only the specified values separated by commas in the function.
      * @param {...string} properties - The properties to include in the result.
      * @returns {object} - An object containing the specified properties.
      */
-    only: function(...properties) {
+    only: function (...properties) {
         let result = {};
-        properties.forEach(property => {
+        properties.forEach((property) => {
             if (this.data.hasOwnProperty(property)) {
                 result[property] = this.data[property];
             }
@@ -75,11 +80,11 @@ const PHP2JS = {
     },
 
     /**
-     * Function to return all values except those provided.
+     * Returns all values except those provided.
      * @param {...string} properties - The properties to exclude from the result.
      * @returns {object} - An object containing all values except the excluded properties.
      */
-    except: function(...properties) {
+    except: function (...properties) {
         let result = {};
         for (const key in this.data) {
             if (!properties.includes(key)) {
@@ -90,29 +95,29 @@ const PHP2JS = {
     },
 
     /**
-     * Function to check if a property exists in the object.
+     * Checks if a property exists in the object.
      * @param {string} property - The property to check.
      * @returns {boolean} - True if the property exists, false otherwise.
      */
-    has: function(property) {
+    has: function (property) {
         return this.data.hasOwnProperty(property);
     },
 
     /**
-     * Function to retrieve the value of a specified property.
+     * Retrieves the value of a specified property.
      * @param {string} property - The property to retrieve.
      * @returns {*} - The value of the specified property or null if it doesn't exist.
      */
-    get: function(property) {
+    get: function (property) {
         return this.data[property] || null;
     },
 
     /**
-     * Function to set the value of a specified property in the object.
+     * Sets the value of a specified property in the object.
      * @param {string} property - The property to set.
      * @param {*} value - The value to assign to the specified property.
      */
-    set: function(property, value) {
+    set: function (property, value) {
         this.data[property] = value;
     },
 };

@@ -15,30 +15,14 @@ class Php2JsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /* Add Script QuickRequest */
-        View::macro('withQuickRequest', function () {
-            return Render::view($this->view)
-                            ->with($this->getData())
-                            ->withQuickRequest()
-                            ->compose();
-        });
-
         /* Return all variables to the JS context. */
-        View::macro('toJS', function ($alias = 'PHP2JS') {
-            return Render::view($this->view)
-                            ->with($this->getData())
-                            ->withQuickRequest()
-                            ->toJS($alias)
-                            ->compose();
+        View::macro('toJS', function (string $alias = 'PHP2JS') {
+            return Render::view($this->view)->with($this->getData())->toJS($alias)->compose();
         });
 
         /* Return only specific variables to the JavaScript context */
-        View::macro('toStrictJS', function ($values = [], $alias = 'PHP2JS') {
-            return Render::view($this->view)
-                            ->with($this->getData())
-                            ->withQuickRequest()
-                            ->toStrictJS($values, $alias)
-                            ->compose();
+        View::macro('toStrictJS', function (array $values = [], string $alias = 'PHP2JS') {
+            return Render::view($this->view)->with($this->getData())->toStrictJS($values, $alias)->compose();
         });
     }
 }

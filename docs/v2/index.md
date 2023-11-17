@@ -20,4 +20,4 @@ Read PHP variables in external JavaScript files without needing to make unnecess
 - Obtain the information of the PHP version in use. Version, ID, etc.
 - Obtain the data of the Agent, Remote IP address from where the system is entered, port in use, Operating System, etc.
 - Get a valid CSRF token anywhere in your JavaScript.
-- Obtain the relevant data of the User in session, protecting the ID with the Laravel Helper Crypt::encrypt($id).
+- Obtain the relevant data of the User in session, protecting the ID with the Laravel Helper `Crypt::encrypt($id)`.

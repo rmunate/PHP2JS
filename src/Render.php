@@ -15,7 +15,6 @@ class Render extends BaseRender
     private $data;
     private $alias;
     private $dataJS = [];
-    private $quickRequest = false;
     private $php2js = false;
 
     /**
@@ -51,7 +50,6 @@ class Render extends BaseRender
     {
         $this->dataJS = $this->data;
         $this->alias = $alias;
-        $this->php2js = true;
 
         return $this;
     }
@@ -66,14 +64,6 @@ class Render extends BaseRender
     {
         $this->dataJS = $data;
         $this->alias = $alias;
-        $this->php2js = true;
-
-        return $this;
-    }
-
-    public function withQuickRequest()
-    {
-        $this->quickRequest = true;
 
         return $this;
     }
@@ -88,38 +78,34 @@ class Render extends BaseRender
         $view = view($this->view)->with($this->data);
         $html = $view->render();
 
-        $metas = [];
-        $scripts = [];
-
-        if ($this->php2js) {
-            array_push($metas, Generator::data($this->dataJS, $this->alias));
-            array_push($scripts, Generator::PHP2JS($this->alias));
-        }
-
-        if ($this->quickRequest) {
-            array_push($metas, Generator::quickRequestToken());
-            array_push($scripts, Generator::quickRequest());
-        }
+        $metas = Generator::alias($this->alias)->data($this->dataJS);
+        $scripts = Generator::alias($this->alias)->script();
 
         $posicionCierreHead = strpos($html, '</head>');
         $posicionCierreBody = strpos($html, '</body>');
 
         if ($posicionCierreHead !== false) {
+
             $ssr[0] = substr($html, 0, $posicionCierreHead);
-            $ssr[1] = implode(PHP_EOL, $metas);
-            $ssr[2] = implode(PHP_EOL, $scripts);
+            $ssr[1] = $metas;
+            $ssr[2] = $scripts;
             $ssr[3] = substr($html, $posicionCierreHead);
 
             $html = implode(PHP_EOL, $ssr);
+
         } elseif ($posicionCierreBody !== false) {
+
             $ssr[0] = substr($html, 0, $posicionCierreBody);
-            $ssr[1] = implode(PHP_EOL, $metas);
-            $ssr[2] = implode(PHP_EOL, $scripts);
+            $ssr[1] = $metas;
+            $ssr[2] = $scripts;
             $ssr[3] = substr($html, $posicionCierreBody);
 
             $html = implode(PHP_EOL, $ssr);
+
         } else {
+
             $html .= $metas.$scripts;
+
         }
 
         return response($html);

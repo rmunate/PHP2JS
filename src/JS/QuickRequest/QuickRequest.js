@@ -6,51 +6,6 @@
  * MIT
  */
 
-function __extractLastSegment(value, separator = "/") {
-
-    // Check if the input value is not empty
-    if (!__isValueEmpty(value)) {
-
-        // Split the input string by "separator" and store the result in the 'segments' array
-        const segments = value.split(separator);
-
-        // Retrieve the last segment from the 'segments' array
-        const lastSegment = segments[segments.length - 1];
-
-        // Return the last segment
-        return lastSegment;
-    }
-
-    // If the input value is empty, return an empty string
-    return '';
-}
-
-/**
- * Checks if a value is empty (null, undefined, empty string, empty array, or empty object)
- *
- * @param {*} value - The value to be checked
- * @returns {boolean} - True if the value is empty, false otherwise
- */
-function __isValueEmpty(value) {
-    if (value == null) {
-      return true;
-    }
-  
-    if (typeof value === 'string' && value.trim() === '') {
-      return true;
-    }
-  
-    if (Array.isArray(value) && value.length === 0) {
-      return true;
-    }
-  
-    if (typeof value === 'object' && Object.keys(value).length === 0) {
-      return true;
-    }
-  
-    return false;
-}
-
 /**
  * --------------------------
  * Class for Throwing Errors to the Console.
@@ -78,6 +33,83 @@ class QuickRequestException {
         });
     }
 }
+
+/**
+ * --------------------------
+ * Herlpers General - QuickRequest
+ * --------------------------
+ */
+const QuickRequestHelpers = {
+
+    /**
+     * Extracts the last segment from a given value based on a specified separator.
+     *
+     * @param {*} value - The value from which to extract the last segment.
+     * @param {string} [separator="/"] - The separator used to split the value into segments. Default is "/".
+     * @returns {string} - The last segment of the value.
+     */
+    extractLastSegment: (value, separator = "/") => {
+
+        // Check if the input value is not empty
+        if (!QuickRequestHelpers.isValueEmpty(value)) {
+
+            // Split the input string by "separator" and store the result in the 'segments' array
+            const segments = value.split(separator);
+
+            // Retrieve the last segment from the 'segments' array
+            const lastSegment = segments[segments.length - 1];
+
+            // Return the last segment
+            return lastSegment;
+        }
+
+        // If the input value is empty, return an empty string
+        return '';
+
+    },
+
+    /**
+     * Checks if a value is empty (null, undefined, empty string, empty array, or empty object)
+     *
+     * @param {*} value - The value to be checked
+     * @returns {boolean} - True if the value is empty, false otherwise
+     */
+    isValueEmpty: (value) => {
+        if (value == null) {
+          return true;
+        }
+      
+        if (typeof value === 'string' && value.trim() === '') {
+          return true;
+        }
+      
+        if (Array.isArray(value) && value.length === 0) {
+          return true;
+        }
+      
+        if (typeof value === 'object' && Object.keys(value).length === 0) {
+          return true;
+        }
+      
+        return false;
+    },
+
+    /**
+     * Get Valid Token Laravel
+     * @returns {string} - Token Laravel
+     */
+    getTokenCSRF: () => {
+
+        const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+
+        if (csrfTokenMeta) {
+            return csrfTokenMeta.getAttribute('content');
+        } else {
+            throw new QuickRequestException(`The meta tag "csrf-token" was not found. Please remember to add it in the head section: <meta name="csrf-token" content="{{ csrf_token() }}">`);
+        }
+    },
+
+};
 
 /**
  * --------------------------
@@ -174,7 +206,7 @@ class QuickRequestMain {
             preventDefault: true,
             method: 'GET',
             headers: {
-                'X-CSRF-TOKEN': document.querySelector('meta[name="__QuickRequestToken"]').getAttribute('content'),
+                'X-CSRF-TOKEN': QuickRequestHelpers.getTokenCSRF(),
                 'Accept': 'application/json',
             },
         };
@@ -187,11 +219,11 @@ class QuickRequestMain {
      */
     eventListener(event, selectors){
 
-        if (__isValueEmpty(event)) {
+        if (QuickRequestHelpers.isValueEmpty(event)) {
             throw new QuickRequestException('You must define a valid event within the eventListener method(<<Method>>,<<Selectors>>)');
         }
 
-        if (__isValueEmpty(selectors)) {
+        if (QuickRequestHelpers.isValueEmpty(selectors)) {
             throw new QuickRequestException('You must define a valid selector within the eventListener method(<<Method>>,<<Selectors>>)');
         }
 
@@ -468,7 +500,7 @@ class QuickRequestFetch {
 
                     } else {
 
-                        if(!__isValueEmpty(element.value)){
+                        if(!QuickRequestHelpers.isValueEmpty(element.value)){
                             this.config.formData.append(element.name, element.value);
                         }
 
@@ -479,7 +511,7 @@ class QuickRequestFetch {
             // Check if additional data is available
             const originData = this.config.options.data || null;
 
-            if (!__isValueEmpty(originData)) {
+            if (!QuickRequestHelpers.isValueEmpty(originData)) {
 
                 for (const [key, value] of Object.entries(originData)) {
                     this.config.formData.append(key, value);
@@ -492,7 +524,7 @@ class QuickRequestFetch {
             // Check if additional data is available
             const originData = this.config.options.data || null;
 
-            if (!__isValueEmpty(originData)) {
+            if (!QuickRequestHelpers.isValueEmpty(originData)) {
 
                 for (const [key, value] of Object.entries(originData)) {
                     this.config.formData.append(key, value);
@@ -581,6 +613,15 @@ class QuickRequestFetch {
             }
         }
 
+        /* Validate Others Properties */
+        const propertiesToValidate = ["mode", "cache", "credentials", "redirect", "referrerPolicy"];
+
+        for (const property of propertiesToValidate) {
+            if (this.config.hasOwnProperty(property)) {
+                params[property] = this.config[property];
+            }
+        }
+
         return {
             realUrl: url,
             realParams: params
@@ -637,14 +678,14 @@ class QuickRequestFetch {
 
             if (responseJSON.hasOwnProperty('exception') && responseJSON.hasOwnProperty('file') && responseJSON.hasOwnProperty('message')) {
 
-                message = `File: ${__extractLastSegment(responseJSON.file)} - Line: ${responseJSON?.line} - Exception: ${responseJSON.message}`;
+                message = `File: ${QuickRequestHelpers.extractLastSegment(responseJSON.file)} - Line: ${responseJSON?.line} - Exception: ${responseJSON.message}`;
 
                 responseJSON.trace.forEach(element => {
 
-                    let file = __extractLastSegment(element.file);
+                    let file = QuickRequestHelpers.extractLastSegment(element.file);
 
-                    if (!__isValueEmpty(file)) {
-                        errors[__extractLastSegment(element.file)] = [`Line: ${element?.line}, File: ${element?.file}, Function: ${element?.function}`];
+                    if (!QuickRequestHelpers.isValueEmpty(file)) {
+                        errors[QuickRequestHelpers.extractLastSegment(element.file)] = [`Line: ${element?.line}, File: ${element?.file}, Function: ${element?.function}`];
                     }
                 });
 
@@ -768,7 +809,7 @@ class QuickRequesHandler {
         // Method to get event-related information.
         this.getEvents = function () {
             return {
-                preventDefault: !__isValueEmpty(callbacksEvents) ? preventDefault : null,
+                preventDefault: !QuickRequestHelpers.isValueEmpty(callbacksEvents) ? preventDefault : null,
                 events: callbacksEvents
             };
         }
@@ -791,7 +832,7 @@ class QuickRequesHandler {
         // Method to remove event listeners.
         this.removeEventListener = function () {
 
-            if (!__isValueEmpty(callbacksEvents)) {
+            if (!QuickRequestHelpers.isValueEmpty(callbacksEvents)) {
                 callbacksEvents.forEach(data => {
                     data.element.removeEventListener(data.event, data.func)
                 });

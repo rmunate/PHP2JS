@@ -5,11 +5,11 @@ namespace Rmunate\Php2Js\Bases;
 use BadMethodCallException;
 
 /**
- * Class BaseRender
+ * Class BaseGenerator
  *
  * @package Rmunate\Php2Js\Bases
  */
-abstract class BaseRender
+abstract class BaseGenerator
 {
     /**
      * Handle calls to missing methods.
@@ -31,14 +31,14 @@ abstract class BaseRender
     }
 
     /**
-     * Create a new instance with a view.
+     * Create a new instance with an alias.
      *
-     * @param string $view
+     * @param string $alias
      *
      * @return static
      */
-    public static function view(string $view)
+    public static function alias(string $alias = 'PHP2JS')
     {
-        return new static($view);
+        return new static($alias);
     }
 }
