@@ -13,7 +13,7 @@ trait Alias
      */
     public static function isValid(string $alias)
     {
-        $alias = trim($alias, " \t\n\r\0\x0B$"); 
+        $alias = trim($alias, " \t\n\r\0\x0B$");
 
         $pattern = '/^[_a-zA-Z\x7f-\xff][_a-zA-Z0-9\x7f-\xff]*$/';
 
