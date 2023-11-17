@@ -204,8 +204,9 @@ export default defineConfig({
         ],
         ['script', {
             async: '',
-            src: '/.vitepress/components/React.js',
+            src: '/scripts/React.js',
             type: 'module',
         }]
-    ]
+    ],
+
 })
