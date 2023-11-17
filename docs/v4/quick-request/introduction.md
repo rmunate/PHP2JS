@@ -3,7 +3,7 @@ title: Introduction
 outline: deep
 ---
 
-![logo-spell-number](./../../public/quick-request.png)
+![logo-spell-number](/quick-request.png)
 
 ## Introduction
 

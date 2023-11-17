@@ -7,7 +7,7 @@ export default defineConfig({
     lastUpdated: true,
     base: '/PHP2JS',
     themeConfig: {
-        logo: '/public/php2js.png',
+        logo: '/php2js.png',
         nav: [
             {
                 text: 'Docs ^4.0',
@@ -158,18 +158,18 @@ export default defineConfig({
     head: [
         ['link', {
                 rel: 'icon',
-                href: '/public/php2js.png',
+                href: '/php2js.png',
                 type: 'image/png'
             }
         ],
         ['meta', {
                 property: 'og:image',
-                content: '/public/logo-github.png' 
+                content: '/logo-github.png' 
             }
         ],
         ['meta', {
                 property: 'og:image:secure_url',
-                content: '/public/logo-github.png'
+                content: '/logo-github.png'
             }
         ],
         ['meta', {
