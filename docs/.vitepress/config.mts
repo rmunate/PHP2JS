@@ -7,6 +7,10 @@ export default defineConfig({
     lastUpdated: true,
     base: '/PHP2JS',
     themeConfig: {
+        footer: {
+            message: 'Released under the MIT License.',
+            copyright: 'Copyright © 2021-2023 Raul Mauricio Uñate'
+        },
         logo: '/php2js.png',
         nav: [
             {
