@@ -158,18 +158,18 @@ export default defineConfig({
     head: [
         ['link', {
                 rel: 'icon',
-                href: '/php2js.png',
+                href: '/PHP2JS/php2js.png',
                 type: 'image/png'
             }
         ],
         ['meta', {
                 property: 'og:image',
-                content: '/logo-github.png' 
+                content: '/PHP2JS/logo-github.png' 
             }
         ],
         ['meta', {
                 property: 'og:image:secure_url',
-                content: '/logo-github.png'
+                content: '/PHP2JS/logo-github.png'
             }
         ],
         ['meta', {
