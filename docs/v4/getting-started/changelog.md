@@ -67,3 +67,9 @@ If you have applications using previous versions, we highly recommend migrating 
     > .getAllProperties()
 
     > .getAllProperties()
+
+## [4.1.0] - 2023-11-10
+
+### Changed
+
+- Adjusted the QuickRequest initializer to always return a new instance, allowing simultaneous use without causing conflicts. Previously: `QuickRequest.method()` Now: `QuickRequest().method()`
