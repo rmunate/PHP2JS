@@ -35,7 +35,7 @@ To create a file-upload form, structure it as follows:
 In this case, always use `form` as the data source for QuickRequest:
 
 ```javascript
-QuickRequest.post({ 
+QuickRequest().post({ 
     url: '/upload-image',
     form: 'uploadFile',
     success: function(res){
@@ -87,7 +87,7 @@ Now that you are receiving an image as a "Binary Large Object," let's easily dow
 ```javascript
 const nameImage = 'LaravelLogo';
 
-QuickRequest.get({
+QuickRequest().get({
     url: '/image/' + nameImage,
     expect: 'blob', // Mandatory
     success: function (res) {

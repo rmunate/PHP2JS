@@ -54,7 +54,7 @@ const idRecord = 10;
 /**
  * Use the route structure created in web.php.
  */
-QuickRequest.get({
+QuickRequest().get({
     url: '/record/' + idRecord,
     success: function (res) {
         console.log("Successful Process, Data: ", res.data);
@@ -101,7 +101,7 @@ Now that you are receiving an image as a "Binary Large Object," let's easily dow
 ```javascript
 const nameImage = 'LaravelLogo';
 
-QuickRequest.get({
+QuickRequest().get({
     url: '/image/' + nameImage,
     expect: 'blob', // Mandatory
     success: function (res) {
@@ -170,7 +170,7 @@ const type = 'new';
 /**
  * Use the route structure created in web.php.
  */
-QuickRequest.get({
+QuickRequest().get({
     url: '/record/' + type,
     data: {
         owner: 'code-master',
@@ -241,7 +241,7 @@ Remember that you can add the `eventListener` capability to QuickRequest to trig
  * 
  * In this example, we will use "form".
  */
-QuickRequest.post({ 
+QuickRequest().post({ 
     url: '/record',
     form: 'idForm',
     success: function(res){
@@ -274,7 +274,7 @@ To create a file-upload form, structure it as follows:
 In this case, always use `form` as the data source for QuickRequest:
 
 ```javascript
-QuickRequest.post({ 
+QuickRequest().post({ 
     url: '/record',
     form: 'uploadFile',
     success: function(res){
@@ -342,7 +342,7 @@ Remember that you can add the `eventListener` capability to QuickRequest to trig
 
 const idRecord = 10;
 
-QuickRequest.put({ 
+QuickRequest().put({ 
     url: '/record/' + idRecord,
     data: {
         name: "New Name",
@@ -412,7 +412,7 @@ Remember that you can add the `eventListener` capability to QuickRequest to trig
 
 const idRecord = 10;
 
-QuickRequest.patch({ 
+QuickRequest().patch({ 
     url: '/record/' + idRecord,
     data: {
         tag: "New Tag",
@@ -480,7 +480,7 @@ Remember that you can add the `eventListener` capability to QuickRequest to trig
 
 const idRecord = 10;
 
-QuickRequest.delete({ 
+QuickRequest().delete({ 
     url: '/record/' + idRecord,
     success: function(res){
         console.log("Successful Process");

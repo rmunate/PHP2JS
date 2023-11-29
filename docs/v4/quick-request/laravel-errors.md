@@ -15,7 +15,7 @@ For this, QuickRequest always returns the same error structure, regardless of wh
 Below is the structure that the value passed to the `error` function looks like:
 
 ```javascript
-QuickRequest.get({ 
+QuickRequest().get({ 
     //...
     error: function(err){
         console.log(err);
@@ -79,7 +79,7 @@ If you need to work with an array instead of an object, perhaps to iterate and p
 Executing this:
 
 ```javascript
-QuickRequest.get({ 
+QuickRequest().get({ 
     //...
     error: function(err){
         console.log(
@@ -105,7 +105,7 @@ Now you'll get the following output:
 You might prefer a flattened array; you can achieve it easily like this:
 
 ```javascript
-QuickRequest.get({ 
+QuickRequest().get({ 
     //...
     error: function(err){
         console.log(

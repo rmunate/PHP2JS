@@ -983,4 +983,4 @@ const QuickRequestErrors = {
  * Accessor QuickRequestMain
  * -------------------------- 
  */
-const QuickRequest = new QuickRequestMain();
+const QuickRequest = () => new QuickRequestMain();
