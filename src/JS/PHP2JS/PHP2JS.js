@@ -1,5 +1,5 @@
 /**
- * PHP2JS v4.0
+ * PHP2JS v4.2.0
  * JavaScript Utility Library
  * (c) Raul Mauricio Uñate Castro
  * GitHub: https://github.com/rmunate

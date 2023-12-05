@@ -1,5 +1,5 @@
 /**
- * QuickRequest v1.0
+ * QuickRequest v1.1.0
  * Script
  * (c) Raul Mauricio Uñate Castro
  * https://github.com/rmunate
