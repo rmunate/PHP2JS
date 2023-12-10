@@ -1,6 +1,6 @@
 # PHP2JS / QUICKREQUEST
 
-# 🚀 Seamless Integration: PHP2JS & QuickRequest 🚀
+## 🚀 Seamless Integration: PHP2JS & QuickRequest 🚀
 
 Share PHP Laravel values effortlessly with external JavaScript files using just one command, thanks to the seamless integration of PHP2JS. Execute backend requests swiftly and precisely with the power of QuickRequest.
 
