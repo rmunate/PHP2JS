@@ -10,6 +10,8 @@ class Generator extends BaseGenerator
 {
     use Alias;
 
+    private $alias;
+
     /**
      * Constructor.
      *

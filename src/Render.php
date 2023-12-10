@@ -15,7 +15,6 @@ class Render extends BaseRender
     private $data;
     private $alias;
     private $dataJS = [];
-    private $php2js = false;
 
     /**
      * Constructor.
@@ -55,7 +54,7 @@ class Render extends BaseRender
     }
 
     /**
-     * @param array  $vars
+     * @param array  $data
      * @param string $alias
      *
      * @return static
@@ -71,7 +70,7 @@ class Render extends BaseRender
     /**
      * Return the View.
      *
-     * @return View
+     * @return mixed
      */
     public function compose()
     {
