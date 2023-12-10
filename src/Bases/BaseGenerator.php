@@ -4,9 +4,6 @@ namespace Rmunate\Php2Js\Bases;
 
 use BadMethodCallException;
 
-/**
- * Class BaseGenerator.
- */
 abstract class BaseGenerator
 {
     /**

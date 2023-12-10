@@ -4,9 +4,6 @@ namespace Rmunate\Php2Js\Bases;
 
 use BadMethodCallException;
 
-/**
- * Class BaseRender.
- */
 abstract class BaseRender
 {
     /**
