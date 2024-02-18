@@ -172,9 +172,9 @@ const type = 'new';
  */
 QuickRequest().get({
     url: '/record/' + type,
-    data: {
-        owner: 'code-master',
-        tag: 'tip',
+    data:  function (d) {
+        d.owner = document.getElementById('owner').value;
+        d.tag = document.getElementById('tag').value;
     },
     success: function (res) {
         console.log("Successful Process, Data: ", res.data);
@@ -344,10 +344,10 @@ const idRecord = 10;
 
 QuickRequest().put({ 
     url: '/record/' + idRecord,
-    data: {
-        name: "New Name",
-        owner: "New Owner",
-        tag: "New Tag",
+    data:  function (d) {
+        d.name = document.getElementById('name').value;
+        d.owner = document.getElementById('owner').value;
+        d.tag = document.getElementById('tag').value;
     },
     success: function(res){
         console.log("Successful Process");
@@ -414,8 +414,8 @@ const idRecord = 10;
 
 QuickRequest().patch({ 
     url: '/record/' + idRecord,
-    data: {
-        tag: "New Tag",
+    data:  function (d) {
+        d.tag = document.getElementById('tag').value;
     },
     success: function(res){
         console.log("Successful Process");

@@ -209,12 +209,24 @@ QuickRequest().post({
 If you don't want to send form data but instead want to send specific data, then it is more convenient to use the `data` property, where you can simply relate the data you expect to receive in your controller through an object.
 
 ```javascript
+
+// Estatic Data
 QuickRequest().post({ 
     //...
     data: {
         key1: 'value1',
         key2: 'value2',
     }
+    //...
+});
+
+// Dinamic Data
+QuickRequest().post({ 
+    //...
+    data: function (d) {
+        d.key1 = document.getElementById('value1').value;
+        d.key2 = document.getElementById('value2').value;
+    },
     //...
 });
 ```
@@ -227,10 +239,10 @@ Yes, if your case is that you need to add some values to the form data, then you
 QuickRequest().post({ 
     //...
     form: 'myForm',
-    data: {
-        key1: 'value1',
-        key2: 'value2',
-    }
+    data:  function (d) {
+        d.key1 = document.getElementById('value1').value;
+        d.key2 = document.getElementById('value2').value;
+    },
     //...
 });
 ```
