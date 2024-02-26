@@ -12,7 +12,7 @@ Installing **QuickRequest** in Laravel projects is a simple process. Include the
 <head>
     <!-- ... -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="https://cdn.jsdelivr.net/gh/rmunate/PHP2JS@4/src/JS/QuickRequest/QuickRequest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/rmunate/PHP2JS/src/JS/QuickRequest/QuickRequest.min.js"></script>
     <!-- ... -->
 </head>
 ```
