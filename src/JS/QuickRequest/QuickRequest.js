@@ -1,5 +1,5 @@
 /**
- * QuickRequest v1.1.0
+ * QuickRequest v2.0.0
  * Script
  * (c) Raul Mauricio Uñate Castro
  * https://github.com/rmunate
@@ -530,8 +530,14 @@ class QuickRequestFetch {
 
         } else {
 
-            // Check if additional data is available
-            const originData = this.config.options.data || null;
+            let originData;
+
+            //Validar si es un callback
+            if (typeof this.config.options.data === 'function') {
+                originData = this.config.options.data()
+            } else {
+                originData = this.config.options.data || null;
+            }
 
             if (!QuickRequestHelpers.isValueEmpty(originData)) {
 

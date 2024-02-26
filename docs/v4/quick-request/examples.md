@@ -172,9 +172,11 @@ const type = 'new';
  */
 QuickRequest().get({
     url: '/record/' + type,
-    data:  function (d) {
-        d.owner = document.getElementById('owner').value;
-        d.tag = document.getElementById('tag').value;
+    data: function () {
+        return {
+            owner: document.getElementById('owner').value,
+            tag: document.getElementById('tag').value,
+        };
     },
     success: function (res) {
         console.log("Successful Process, Data: ", res.data);
@@ -344,10 +346,12 @@ const idRecord = 10;
 
 QuickRequest().put({ 
     url: '/record/' + idRecord,
-    data:  function (d) {
-        d.name = document.getElementById('name').value;
-        d.owner = document.getElementById('owner').value;
-        d.tag = document.getElementById('tag').value;
+    data: function () {
+        return {
+            name: document.getElementById('name').value,
+            owner: document.getElementById('owner').value,
+            tag: document.getElementById('tag').value,
+        };
     },
     success: function(res){
         console.log("Successful Process");
@@ -414,8 +418,10 @@ const idRecord = 10;
 
 QuickRequest().patch({ 
     url: '/record/' + idRecord,
-    data:  function (d) {
-        d.tag = document.getElementById('tag').value;
+    data: function () {
+        return {
+            tag: document.getElementById('tag').value,
+        };
     },
     success: function(res){
         console.log("Successful Process");

@@ -89,8 +89,11 @@ In controllers, you should use a return statement like the following:
 
 ```php
 return response('<span>Content</span>');
+
 //Or
-return response('<span>Content</span>', 200)->header('Content-Type', 'text/html');
+
+return response('<span>Content</span>', 200)
+        ->header('Content-Type', 'text/html');
 ```
 
 Some other headers where TEXT should be expected.
@@ -126,7 +129,8 @@ In controllers, you should use a return statement where you specify the headers 
 $pathToImage = public_path('image.jpeg');
 $imageContents = file_get_contents($pathToImage);
 
-return response($imageContents, 200)->header('Content-Type', 'image/jpeg');
+return response($imageContents, 200)
+            ->header('Content-Type', 'image/jpeg');
 ```
 
 Here are some common headers:
@@ -223,9 +227,11 @@ QuickRequest().post({
 // Dinamic Data
 QuickRequest().post({ 
     //...
-    data: function (d) {
-        d.key1 = document.getElementById('value1').value;
-        d.key2 = document.getElementById('value2').value;
+    data: function () {
+        return {
+            key1: document.getElementById('value1').value,
+            key2: document.getElementById('value1').value,
+        };
     },
     //...
 });
@@ -239,9 +245,11 @@ Yes, if your case is that you need to add some values to the form data, then you
 QuickRequest().post({ 
     //...
     form: 'myForm',
-    data:  function (d) {
-        d.key1 = document.getElementById('value1').value;
-        d.key2 = document.getElementById('value2').value;
+    data: function () {
+        return {
+            key1: document.getElementById('value1').value,
+            key2: document.getElementById('value1').value,
+        };
     },
     //...
 });
