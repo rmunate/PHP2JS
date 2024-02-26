@@ -77,3 +77,17 @@ If you have applications using previous versions, we highly recommend migrating 
 ## [4.3.0] - 2023-12-10
 
 - Adjusted PHPStan static code analysis configuration, refined source code for improved readability and consistency.
+
+## [4.4.0] - 2024-02-26
+- Adjust the data property to use the anonymous function to send data when the event associated with the trigger is executed.
+
+```javascript
+    //...
+    data: function () {
+        return {
+            owner: document.getElementById('owner').value,
+            tag: document.getElementById('tag').value,
+        };
+    },
+    //...
+```
