@@ -15,9 +15,7 @@
 .idea
 .vscode
 composer.lock
-
-# Library
-src/Stubs/ScriptOriginal.stub
+package-lock.json
 
 # Node
 node_modules

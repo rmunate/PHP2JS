@@ -1,12 +1,11 @@
 {
   "name": "rmunate/php2js",
-  "description": "Seamless Integration: PHP2JS & QuickRequest, Share PHP Laravel values effortlessly with external JavaScript files using just one command, thanks to the seamless integration of PHP2JS. Execute backend requests swiftly and precisely with the power of QuickRequest. Developing Laravel monoliths has never been easier and more efficient!",
+  "description": "Effortlessly share PHP Laravel values with external JavaScript files using just one command, thanks to the seamless integration of PHP2JS.",
   "keywords": [
     "PHP2JS",
     "php2js",
     "toJS",
-    "toStrictJS",
-    "QuickRequest"
+    "toStrictJS"
   ],
   "homepage": "https://github.com/rmunate/PHP2JS",
   "type": "library",
