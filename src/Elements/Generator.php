@@ -23,7 +23,7 @@ class Generator extends BaseGenerator
     {
         // Check if the alias is valid
         if (!Alias::isValid($alias)) {
-            throw new Exception("PHP2JSException: The provided alias '$alias' is not valid.");
+            throw new Exception("PHP2JSException: The provided alias '{$alias}' is not valid.");
         }
 
         $this->alias = $alias;
@@ -38,7 +38,7 @@ class Generator extends BaseGenerator
      *
      * @return string The HTML span element with encoded data.
      */
-    public function data(array $data)
+    public function data(array $data): string
     {
         // Encode data to JSON without escaping Unicode characters
         $jsonData = json_encode($data, JSON_UNESCAPED_UNICODE);
@@ -59,7 +59,7 @@ class Generator extends BaseGenerator
      *
      * @return string The PHP2JS script JavaScript stub content.
      */
-    public function script()
+    public function script(): string
     {
         // Get the content of the PHP2JS stub file
         $stub = file_get_contents(__DIR__.'/../Stubs/PHP2JS.stub');

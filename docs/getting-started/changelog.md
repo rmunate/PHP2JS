@@ -12,10 +12,6 @@ If you have applications using previous versions, we highly recommend migrating 
 
 ## [4.0.0] - 2023-11-10
 
-### Added
-
-- **QuickRequest**: Fetch request handler with event handling, installed alongside this package but can also be used independently.
-
 ### Changed
 
 - **Property `vars`**: In previous versions, it was used to access variables returned from PHP; now it has been replaced with `data`. For example: `PHP2JS.data.value`
@@ -34,17 +30,17 @@ If you have applications using previous versions, we highly recommend migrating 
 
     > @PHP2JS_VARS_STRICT(['variable1','variable2'])
 
-    > @PHP2JS_AGENT() 
+    > @PHP2JS_AGENT()
 
-    > @PHP2JS_URL() 
+    > @PHP2JS_URL()
 
-    > @PHP2JS_CSRF() 
+    > @PHP2JS_CSRF()
 
-    > @PHP2JS_FRAMEWORK() 
+    > @PHP2JS_FRAMEWORK()
 
-    > @PHP2JS_PHP() 
+    > @PHP2JS_PHP()
 
-    > @PHP2JS_USER() 
+    > @PHP2JS_USER()
 
 - **Artisan Command**: Since rendering Blade directives is not required, the `php2js:clear` command has been removed.
 
@@ -78,16 +74,5 @@ If you have applications using previous versions, we highly recommend migrating 
 
 - Adjusted PHPStan static code analysis configuration, refined source code for improved readability and consistency.
 
-## [4.4.0] - 2024-02-26
-- Adjust the data property to use the anonymous function to send data when the event associated with the trigger is executed.
-
-```javascript
-    //...
-    data: function () {
-        return {
-            owner: document.getElementById('owner').value,
-            tag: document.getElementById('tag').value,
-        };
-    },
-    //...
-```
+## [4.5.0] - 2024-05-20
+- Adjusted to be compatible with Laravel 11

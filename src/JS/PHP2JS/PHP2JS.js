@@ -1,5 +1,5 @@
 /**
- * PHP2JS v4.3.0
+ * PHP2JS v4.4.0
  * JavaScript Utility Library
  * (c) Raul Mauricio Uñate Castro
  * GitHub: https://github.com/rmunate
@@ -51,6 +51,7 @@ const PHP2JS = {
      * @returns {object} - A new object created with the same prototype.
      */
     assign: function () {
+
         return Object.assign({}, this);
     },
 
@@ -61,6 +62,7 @@ const PHP2JS = {
     assignAndDestroy: function () {
         const newObject = Object.assign({}, this);
         this.destroy();
+
         return newObject;
     },
 
@@ -76,6 +78,7 @@ const PHP2JS = {
                 result[property] = this.data[property];
             }
         });
+
         return result;
     },
 
@@ -91,6 +94,7 @@ const PHP2JS = {
                 result[key] = this.data[key];
             }
         }
+
         return result;
     },
 
@@ -100,6 +104,7 @@ const PHP2JS = {
      * @returns {boolean} - True if the property exists, false otherwise.
      */
     has: function (property) {
+
         return this.data.hasOwnProperty(property);
     },
 
@@ -109,6 +114,7 @@ const PHP2JS = {
      * @returns {*} - The value of the specified property or null if it doesn't exist.
      */
     get: function (property) {
+
         return this.data[property] || null;
     },
 

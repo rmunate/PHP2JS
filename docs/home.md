@@ -17,7 +17,3 @@ It was then that server requests began to increase to retrieve variables that we
 You might be wondering how it's possible to achieve this, as there are different approaches in each programming language. Let us tell you that we faced that challenge too, but now we have overcome it.
 
 Enjoy the ease of sharing data with JavaScript.
-
-::: tip Quick Request
-🚀 Need to make lightning-fast and highly efficient requests to the backend? Look no further! Introducing "QuickRequest," a handy addition in this version that will prove incredibly convenient. Supercharge the performance of your requests! 🚀
-:::

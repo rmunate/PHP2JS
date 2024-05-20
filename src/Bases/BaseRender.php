@@ -32,7 +32,7 @@ abstract class BaseRender
      *
      * @return static
      */
-    public static function view(string $view)
+    public static function view(string $view): static
     {
         return new static($view);
     }

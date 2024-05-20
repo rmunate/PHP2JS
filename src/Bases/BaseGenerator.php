@@ -32,7 +32,7 @@ abstract class BaseGenerator
      *
      * @return static
      */
-    public static function alias(string $alias = 'PHP2JS')
+    public static function alias(string $alias = 'PHP2JS'): static
     {
         return new static($alias);
     }

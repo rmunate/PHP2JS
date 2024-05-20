@@ -15,5 +15,5 @@ We highly recommend migrating from older versions to the latest release, as no s
 | ^0.1 &nbsp; <Badge type="danger" text='Deprecated' />  | 2021-10-21   | 2021-12-31          |
 | ^1.0 &nbsp; <Badge type="danger" text='Deprecated' />  | 2021-11-13   | 2023-01-15          |
 | ^2.0 &nbsp; <Badge type="danger" text='Deprecated' />  | 2022-10-05   | 2023-06-24          |
-| ^3.0 &nbsp; <Badge type="warning" text='Upgrade' />    | 2023-06-01   | 2023-11-15          |
+| ^3.0 &nbsp; <Badge type="danger" text='Deprecated' />  | 2023-06-01   | 2023-11-15          |
 | ^4.0 &nbsp; <Badge type="tip" text='Current' />        | 2023-11-16   | 2024-12-31          |

@@ -33,7 +33,7 @@ class Render extends BaseRender
      *
      * @return static
      */
-    public function with(array $data)
+    public function with(array $data): static
     {
         $this->data = $data;
 
@@ -45,7 +45,7 @@ class Render extends BaseRender
      *
      * @return static
      */
-    public function toJS(string $alias = 'PHP2JS')
+    public function toJS(string $alias = 'PHP2JS'): static
     {
         $this->dataJS = $this->data;
         $this->alias = $alias;
