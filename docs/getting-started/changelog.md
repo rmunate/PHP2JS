@@ -64,15 +64,10 @@ If you have applications using previous versions, we highly recommend migrating 
 
     > .getAllProperties()
 
-## [4.1.0] - 2023-11-10
-
-### Changed
-
-- Adjusted the QuickRequest initializer to always return a new instance, allowing simultaneous use without causing conflicts. Previously: `QuickRequest.method()` Now: `QuickRequest().method()`
-
 ## [4.3.0] - 2023-12-10
 
 - Adjusted PHPStan static code analysis configuration, refined source code for improved readability and consistency.
 
 ## [4.5.0] - 2024-05-20
+
 - Adjusted to be compatible with Laravel 11
