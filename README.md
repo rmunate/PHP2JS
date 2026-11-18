@@ -14,10 +14,10 @@ Developing Laravel monoliths has never been easier and more efficient! 💻✨
 [![📖📖📖 **FULL DOCUMENTATION** 📖📖📖](https://img.shields.io/badge/FULL%20DOCUMENTATION-Visit%20Here-blue?style=for-the-badge)](https://rmunate.github.io/PHP2JS/)
 
 ## Installation PHP2JS
-To install the dependency via Composer.
+PHP2JS 5.x requires Laravel 13 and PHP 8.3 or later in the PHP 8.x series.
 
 ```shell
-composer require rmunate/php2js
+composer require "rmunate/php2js:^5.0"
 ```
 
 ## License

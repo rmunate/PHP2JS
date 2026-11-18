@@ -22,7 +22,7 @@ class Generator extends BaseGenerator
     public function __construct(string $alias)
     {
         // Check if the alias is valid
-        if (!Alias::isValid($alias)) {
+        if (!self::isValid($alias)) {
             throw new Exception("PHP2JSException: The provided alias '{$alias}' is not valid.");
         }
 

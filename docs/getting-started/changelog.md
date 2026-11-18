@@ -4,11 +4,17 @@ editLink: true
 outline: deep
 ---
 
-::: warning We strongly recommend migrating to the current version
-If you have applications using previous versions, we highly recommend migrating to the current version. Keep in mind that the current version does not support functionalities from earlier versions. Its source code has been completely rewritten.
-:::
-
 # Release Notes
+
+## [5.0.0]
+
+### Changed
+
+- PHP2JS now requires Laravel 13 and PHP 8.3 or later in the PHP 8.x series. The `toJS()` and `toStrictJS()` APIs are unchanged.
+
+### Fixed
+
+- Alias validation no longer emits a PHP deprecation warning when rendering a view.
 
 ## [4.0.0] - 2023-11-10
 

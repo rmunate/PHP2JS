@@ -6,7 +6,5 @@ parameters:
     level: 5
     ignoreErrors:
         - message: '#Unsafe usage of new static\(\)#'
-        - message: '#Function response not found.#'
-        - message: '#Function view not found.#'
     excludePaths:
         - 'src/Macros/Php2JsServiceProvider.php'

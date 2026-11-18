@@ -12,12 +12,12 @@ export default defineConfig({
             copyright: 'Copyright © 2021-2023 Raul Mauricio Uñate'
         },
         editLink: {
-            pattern: 'https://github.com/rmunate/PHP2JS/tree/main/docs/:path'
+            pattern: 'https://github.com/rmunate/PHP2JS/edit/master/docs/:path'
         },
         logo: '/img/php2js.png',
         nav: [
             {
-                text: 'Docs ^4.4',
+                text: 'Docs 5.x',
                 link: '/',
             }
         ],

@@ -8,19 +8,16 @@ outline: deep
 
 ## Requirements
 
-When you wish to use this solution, you must ensure the following:
-
-**PHP:** Version equal to or higher than 8.0
-
-**Laravel Framework:** Version equal to or higher than 10.0
+- **PHP:** 8.3 or later in the PHP 8.x series.
+- **Laravel Framework:** 13.x.
 
 ## Installation
 
-This package is available via Composer. You can install the latest stable version of the package by running the following command in your Laravel Framework project:
+To install PHP2JS 5.x, run the following command in your Laravel application:
 
 ``` bash
-composer require rmunate/php2js
+composer require "rmunate/php2js:^5.0"
 ```
 
-Make sure that in the `composer.json`, you have the library in the latest version. `rmunate/php2js": "^4.4"`
+If you are upgrading from PHP2JS 4.x, upgrade your application to Laravel 13 and PHP 8.3 or later before installing PHP2JS 5.x. Your existing `toJS()` and `toStrictJS()` calls do not need to change.
 

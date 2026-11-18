@@ -62,12 +62,18 @@ If you see ways in which we can improve, change how we handle information, adjus
 
 We are eager to receive your pull requests!
 
-Simply fork the repository on GitHub and create pull requests (PRs) to the main branch once you have prepared your changes.
+Simply fork the repository on GitHub and create pull requests (PRs) to the `master` branch once you have prepared your changes.
 
 It is essential to provide a clear justification for the changes or new features, accompanied by a usage manual.
 
 ::: tip TEST
-Remember to test your code before submitting pull requests.
+Run the Laravel integration tests and static analysis before submitting a pull request:
+
+```bash
+composer install
+composer test
+composer analyse
+```
 :::
 
 ## Developers and Contributors
